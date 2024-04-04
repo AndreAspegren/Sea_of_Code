@@ -57,13 +57,14 @@ let model = {
             }
         ],
         userActivity: {
-            messages: [                     // Nice to have
+/*            messages: [           //nice to have          
                 {
                     toUserId: null,
                     time: "",
                     message: "",
                 },
             ],
+            */
             comments: [
                 {
                     projectId: null,
@@ -91,15 +92,15 @@ let model = {
             users: [],
             forReview: []
         },
-        messages: [         // Nice to have
-            {
-                id: 0,
-                to: 0,
-                from: 0,
-                dateSent: '05-05-2024',
-                content: 'hei på deg'
-            }
-        ],
+        //  messages: [         
+        //     {
+        //         id: 0,
+        //         to: 0,
+        //         from: 0,
+        //         dateSent: '05-05-2024',
+        //         content: 'hei på deg'
+        //      }
+        // ],
         users: [
             {
                 id: 2,
