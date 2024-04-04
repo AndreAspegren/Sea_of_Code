@@ -1,58 +1,152 @@
 
 let model = {
     app: {
-        language: ['Norwegian',],
+        userID: null,
+        currentView: null,
+        language: ['Norwegian'],
         darkmode: false,
-        login: false,
+        loggedIn: false,
     },
+
     input: {
-        userActivity: {
-            searchbar: ["javaScript", "CSS",],
-            UncheckedProjects: [
-                {projectID:"11" ,projectName:"bruh", projectPhoto:"bruh.png", projectCode:["Python",],},
-            ],
-        },
-    },
-    data: {
         
-        users: [
+        login: {
+            email: null,
+            password: null,
+        },
+        createAccount: [
             {
-            id: 0, 
-            username: "BjarnePirat",
-            eMail: "yarr@getAcademy.com",
-            password: "treasure123",
-            repassword: "treasure123",
-            firstName: "Bjarne",
-            lastName: "Pirat",
-            profilePicure: 'url',
-            phoneNr: 12345678,
-            age: 60,
-            bio: "i like trains",
-            country: "Karibia",
-            github: 'url',
-            linkedIn: 'url',
-            friendsID: [],
+                id: null,
+                username: "",
+                eMail: "",
+                password: "",
+                repassword: "",
+                firstName: "",
+                lastName: "",
+                profilePicure: '',
+                phoneNr: '',
+                age: ' ',
+                bio: "",
+                country: '',
+                github: '',
+                linkedIn: '',
+                friends: [],
             }
         ],
-        projects: {
-            name: "hehexD",
-            description: 'bla bla',
-            author: 1,
-            files: [
+        projects: [
+            {
+                id: null,
+                approved: false,
+                name: "",
+                description: '',
+                author: null,
+                files: [
+                    {
+                        id: null,
+                        picture: '',
+                        content: '',
+                        percentEachLanguage: {},
+                    }
+                ],
+                comments: [
+                    {
+                        id: null,
+                        comment: '',
+                    }
+                ],
+            }
+        ],
+        userActivity: {
+            messages: [                     // Nice to have
                 {
-                    id: 0,
-                    picture: 'url',
-                    content: 'code',
-                    percenteachlanguage: {},
-                }
+                    toUserId: null,
+                    time: "",
+                    message: "",
+                },
             ],
             comments: [
                 {
-                    id: 1,
-                    comment: 'blah'
+                    projectId: null,
+                    time:"",
+                    comment:"",
                 }
             ],
-        }
+            searchbar: ["",],
+        },
+    },
+
+    data: {
+        wordCloud: {
+            Javascript: null,
+            C: null,
+            CSharp: null,
+            CSS: null,
+            Ruby: null,
+            CPlusPlus: null,
+            HTML: null,
+            Python: null,
+            CPlus: null,
+        },
+        adminpanel: {
+            users: [],
+            forReview: []
+        },
+        messages: [         // Nice to have
+            {
+                id: 0,
+                to: 0,
+                from: 0,
+                dateSent: '05-05-2024',
+                content: 'hei på deg'
+            }
+        ],
+        users: [
+            {
+                id: 2,
+                username: "BjarnePirat",
+                eMail: "yarr@getAcademy.com",
+                password: "treasure123",
+                firstName: "Bjarne",
+                lastName: "Pirat",
+                profilePicure: 'url',
+                phoneNr: 12345678,
+                age: 60,
+                bio: "i like turtles",
+                country: "Cuba",
+                github: 'url',
+                linkedIn: 'url',
+                friends: [],
+            }
+        ],
+        projects: [
+            {
+                id: 0,
+                approved: true,
+                name: "hehexD",
+                lastUpdated: '05-05-2024',
+                dateCreated: '05-05-2024',
+                description: 'bla bla',
+                author: 1,
+                files: [
+                    {
+                        id: 0,
+                        name: 'View.js',
+                        picture: 'url',
+                        content: 'code',
+                        language: 'Javascript',
+                        percentEachLanguage: {},
+                    }
+                ],
+                comments: [
+                    {
+                        userID: 1,
+                        from: 0,
+                        dateSent: '05-05-2024',
+                        comment: 'blah'
+                    }
+                ],
+            }
+        ]
     },
 }
 
