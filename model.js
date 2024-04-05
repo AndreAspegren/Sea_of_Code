@@ -1,15 +1,12 @@
-
-let model = {
+const model = {
     app: {
         userID: null,
         currentView: null,
-        language: ['Norwegian'],
         darkmode: false,
         loggedIn: false,
     },
 
-    input: {
-        
+    input: {       
         login: {
             email: null,
             password: null,
