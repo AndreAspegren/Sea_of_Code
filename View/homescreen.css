@@ -10,7 +10,7 @@
     transform: translateX(-50%); 
 }
 
-#userlist, #logo, #projectlist, #darkmode, #wordcloud, #wordcloudcard{
+#userlist, #logo, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -70,7 +70,10 @@
 #projectcard{
     width: 67vh;
     height: 10vh;
+    display: flex; 
+    column-gap: 15vh;
 }
+
 
 #wordcloud{
     right: 3%;
