@@ -1,6 +1,7 @@
+const apps = document.getElementById('app')
 homescreen()
 function homescreen(){
-    app.innerHTML = /*HTML*/`
+    apps.innerHTML = /*HTML*/`
     <div>hei</div>
     `
 }
