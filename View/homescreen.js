@@ -31,7 +31,7 @@ function genprojectlist(){
 function darkmode() {
     if (!model.app.darkmode) {
         app.style.color = 'white'
-        app.style.backgroundColor = 'black'
+        body.style.backgroundColor = 'black'
         model.app.darkmode = true
     } else {
         app.style.backgroundColor = 'white'

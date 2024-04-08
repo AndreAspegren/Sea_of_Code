@@ -16,6 +16,12 @@
     align-items: center;
 }
 
+#app{
+    width: auto;
+    height: auto;
+    display:flex;
+}
+
 #userlist{
     left: 3%;
     top: 5%;
