@@ -7,7 +7,7 @@ function homescreen(){
     <button id="loginbtn" onclick="logInscreen()">login</button>
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
-    <div id="darkmode"><div>darkmode</div></div>
+    <button onclick="darkmode()" id="darkmode"><div>darkmode</div></button>
     `
 }
 
@@ -15,7 +15,7 @@ function genprojectlist(){
     userlist = ''
     for (let i = 0; i < 8; i++){
         userlist += /*HTML*/`
-        <div id="projectcard">
+        <div onclick="uploadPageView()" id="projectcard">
         <img src="https://itamargilad.com/wp-content/uploads/2021/08/1920px-Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_Rotterdam_-_Google_Art_Project_-_edited-1024x820.jpg"/>
         <div>
         <div>Prosjekt navn</div>
@@ -26,6 +26,18 @@ function genprojectlist(){
         `
     }
     return userlist
+}
+
+function darkmode() {
+    if (!model.app.darkmode) {
+        app.style.color = 'white'
+        app.style.backgroundColor = 'black'
+        model.app.darkmode = true
+    } else {
+        app.style.backgroundColor = 'white'
+        app.style.color = 'black'
+        model.app.darkmode = false
+    }
 }
 
 function genwordcloud(){
