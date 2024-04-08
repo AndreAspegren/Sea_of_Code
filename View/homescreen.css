@@ -2,7 +2,7 @@
     position: absolute;
 }
 
-#userlist, #darkmode, #logo, #wordcloud, #projectlist, #projectcard, #wordcloudcard, #usercard{
+#userlist, #darkmode, #wordcloud, #projectlist, #projectcard, #wordcloudcard, #usercard{
     border: 2px solid black;
 }
 
@@ -10,7 +10,7 @@
     transform: translateX(-50%); 
 }
 
-#userlist, #projectlist, #wordcloud{
+#userlist, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,11 @@
 
 #usercard{
     width: 24vh;
-    height: 11vh;
+    height: 7.5vh;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
 }
 
 #logo{
@@ -66,7 +70,10 @@
 #projectcard{
     width: 67vh;
     height: 10vh;
+    display: flex; 
+    column-gap: 15vh;
 }
+
 
 #wordcloud{
     right: 3%;
@@ -78,6 +85,11 @@
 #wordcloudcard{
     width: 19vh;
     height: 10vh;
+}
+
+img{
+    width: 10vh;
+    height: auto;
 }
 
 
