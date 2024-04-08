@@ -1,4 +1,4 @@
-app = document.getElementById('app')
+const app = document.getElementById('app')
 const model = {
     app: {
         userID: null,
