@@ -2,7 +2,7 @@
     position: absolute;
 }
 
-#userlist, #darkmode, #logo, #wordcloud, #projectlist, #projectcard, #wordcloudcard, #usercard{
+#userlist, #darkmode, #wordcloud, #projectlist, #projectcard, #wordcloudcard, #usercard{
     border: 2px solid black;
 }
 
@@ -10,7 +10,7 @@
     transform: translateX(-50%); 
 }
 
-#userlist, #logo, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
+#userlist, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
     display: flex;
     justify-content: center;
     align-items: center;
