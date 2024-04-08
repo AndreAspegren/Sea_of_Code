@@ -10,7 +10,7 @@
     transform: translateX(-50%); 
 }
 
-#userlist, #projectlist, #wordcloud{
+#userlist, #logo, #projectlist, #darkmode, #wordcloud, #wordcloudcard{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,7 +25,11 @@
 
 #usercard{
     width: 24vh;
-    height: 11vh;
+    height: 7.5vh;
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
 }
 
 #logo{
@@ -78,6 +82,11 @@
 #wordcloudcard{
     width: 19vh;
     height: 10vh;
+}
+
+img{
+    width: 10vh;
+    height: auto;
 }
 
 
