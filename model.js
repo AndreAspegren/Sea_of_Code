@@ -1,3 +1,4 @@
+app = document.getElementById('app')
 const model = {
     app: {
         userID: null,
@@ -5,7 +6,6 @@ const model = {
         darkmode: false,
         loggedIn: false,
     },
-
     input: {       
         login: {
             email: null,
