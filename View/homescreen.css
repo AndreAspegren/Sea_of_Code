@@ -1,0 +1,85 @@
+#userlist, #searchbar, #loginbtn, #darkmode, #logo, #wordcloud, #projectlist{
+    position: absolute;
+}
+
+#userlist, #darkmode, #logo, #wordcloud, #projectlist, #projectcard, #wordcloudcard, #usercard{
+    border: 2px solid black;
+}
+
+#searchbar, #projectlist{
+    transform: translateX(-50%); 
+}
+
+#userlist, #projectlist, #wordcloud{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#userlist{
+    left: 3%;
+    top: 5%;
+    width: 25vh;
+    height: 94vh; 
+}
+
+#usercard{
+    width: 24vh;
+    height: 11vh;
+}
+
+#logo{
+    left: 30%;
+    top: 5%;
+    width: 10vh;
+    height: 5vh;
+}
+
+#searchbar{
+    left: 50%; 
+    top: 5%;
+    width: 30vh;
+    height: 5vh; 
+}
+
+#loginbtn{
+    right: 30%;
+    top: 5%;
+    width: 10vh;
+    height: 5vh; 
+}
+
+#darkmode{
+    right: 5%;
+    top: 5%;
+    width: 10vh;
+    height: 5vh;
+}
+
+#projectlist{
+    left: 50%; 
+    top: 15%;
+    width: 70vh;
+    height: 84vh;
+}
+
+#projectcard{
+    width: 67vh;
+    height: 10vh;
+}
+
+#wordcloud{
+    right: 3%;
+    top: 15%;
+    width: 20vh;
+    height: 84vh;
+}
+
+#wordcloudcard{
+    width: 19vh;
+    height: 10vh;
+}
+
+
+
+
