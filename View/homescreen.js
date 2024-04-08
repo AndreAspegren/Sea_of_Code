@@ -15,7 +15,7 @@ function genprojectlist(){
     userlist = ''
     for (let i = 0; i < 8; i++){
         userlist += /*HTML*/`
-        <div onclick="uploadPageView()" id="projectcard">
+        <div onclick="profileScreen()" id="projectcard">
         <img src="https://itamargilad.com/wp-content/uploads/2021/08/1920px-Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_Rotterdam_-_Google_Art_Project_-_edited-1024x820.jpg"/>
         <div>
         <div>Prosjekt navn</div>
