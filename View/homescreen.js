@@ -6,8 +6,8 @@ function homescreen(){
     <input id="searchbar">
     <button id="loginbtn" onclick="logInscreen()">login</button>
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
-    <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
-    <div id="darkmode"><div>darkmode</div></div>
+    <div id="projectlist" onclick="uploadPageView()"><div id="projectcardposition">${genprojectlist()}</div></div>
+    <button onclick="darkmode()" id="darkmode"><div>darkmode</div></button>
     `
 }
 
@@ -26,6 +26,18 @@ function genprojectlist(){
         `
     }
     return userlist
+}
+
+function darkmode() {
+    if (!model.app.darkmode) {
+        app.style.color = 'white'
+        app.style.backgroundColor = 'black'
+        model.app.darkmode = true
+    } else {
+        app.style.backgroundColor = 'white'
+        app.style.color = 'black'
+        model.app.darkmode = false
+    }
 }
 
 function genwordcloud(){
