@@ -34,7 +34,7 @@ function darkmode() {
         app.style.backgroundColor = 'gray'
         model.app.darkmode = true
     } else {
-        app.style.color = 'gray'
+        app.style.color = 'black'
         app.style.backgroundColor = 'white'
         model.app.darkmode = false
     }   
