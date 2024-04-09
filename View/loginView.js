@@ -1,4 +1,3 @@
-logInscreen();
 function logInscreen(){
     const apps = document.getElementById('app');
     apps.innerHTML = /*HTML*/`

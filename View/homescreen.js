@@ -31,13 +31,13 @@ function genprojectlist(){
 function darkmode() {
     if (!model.app.darkmode) {
         app.style.color = 'white'
-        body.style.backgroundColor = 'black'
+        app.style.backgroundColor = 'gray'
         model.app.darkmode = true
     } else {
+        app.style.color = 'gray'
         app.style.backgroundColor = 'white'
-        app.style.color = 'black'
         model.app.darkmode = false
-    }
+    }   
 }
 
 function genwordcloud(){
