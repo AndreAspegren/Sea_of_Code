@@ -1,0 +1,26 @@
+#project, #projectinfo, #comments{
+    position: absolute;
+    transform: (translateX(-50%));
+    border: 2px solid black;
+}
+
+#project{
+    top: 30%;
+    left: 15%;
+    width: 70vh;
+    height: 60vh;
+}
+
+#projectinfo{
+    top: 15%;
+    left: 15%;
+    width: 70vh;
+    height: 10vh;
+}
+
+#comments{
+    top: 15%;
+    right: 5%;
+    width: 30vh;
+    height: 74.5vh;
+}

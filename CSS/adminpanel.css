@@ -1,0 +1,17 @@
+#admin{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vh;
+    height: 92vh; 
+    border: 2px solid black;
+}
+
+#admincard{
+    display: flex;
+    align-items: center;
+    width: 80vh;
+    height: 8vh;
+    border: 2px solid black;
+}

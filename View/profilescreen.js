@@ -1,5 +1,7 @@
 function profileScreen(){
+    const loggedInUser = getLoggedInUser();
     app.innerHTML = /*HTML*/`
+    <div id="profileScreen">
     <div class="container">
         <div class="profile-header">
             <div class="profile-img">
@@ -7,7 +9,7 @@ function profileScreen(){
                 alt="">
             </div>
             <div class="profile-nav-info">
-                <h3 class="user-name"></h3>
+                <h3 class="user-name">${loggedInUser.username}</h3>
             </div>
             <div class="profile-option">
                 <div class="notification">
@@ -54,7 +56,16 @@ function profileScreen(){
             </div>
         </div>
     </div>
+    </div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
 `
+}
+
+function getLoggedInUser() {
+    const loggedInUserID = model.app.userID;
+    console.log('Logged-in User ID:', loggedInUserID);
+    const user = model.data.users.find(user => user.username === loggedInUserID);
+    console.log('Logged-in User:', user);
+    return user;
 }

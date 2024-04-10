@@ -31,6 +31,7 @@ const model = {
                 github: '',
                 linkedIn: '',
                 friends: [],
+                projects: [],
             }
         ],
         projects: [
@@ -80,17 +81,17 @@ const model = {
         wordCloud: {
             Javascript: '1',
             C: '2',
-            CSharp: '3',
+            'C#': '3',
             CSS: '4',
             Ruby: '4',
-            CPlusPlus: '2',
+            'C++': '2',
             HTML: '3',
             Python: '6',
             Binary: '1',
         },
         adminpanel: {
-            users: [],
-            forReview: []
+            users: [0],
+            forReview: [3],
         },
         //  messages: [         
         //     {
@@ -218,6 +219,34 @@ const model = {
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
+                author: 2,
+                picture: 'https://i.etsystatic.com/12310347/r/il/690746/1316811182/il_fullxfull.1316811182_gpqc.jpg',
+                files: [
+                    {
+                        id: 0,
+                        name: 'View.js',
+                        picture: 'url',
+                        content: 'code',
+                        language: 'Javascript',
+                        percentEachLanguage: {},
+                    }
+                ],
+                comments: [
+                    {
+                        userID: 1,
+                        from: 0,
+                        dateSent: '05-05-2024',
+                        comment: 'blah'
+                    }
+                ],
+            },
+            {
+                id: 3,
+                approved: false,
+                name: "Ikke godkjent",
+                lastUpdated: '05-05-2024',
+                dateCreated: '05-05-2024',
+                description: 'kek',
                 author: 2,
                 picture: 'https://i.etsystatic.com/12310347/r/il/690746/1316811182/il_fullxfull.1316811182_gpqc.jpg',
                 files: [
