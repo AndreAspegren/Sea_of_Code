@@ -8,7 +8,7 @@ function profileScreen(){
                 alt="">
             </div>
             <div class="profile-nav-info">
-                <h3 class="user-name">${}</h3>
+                <h3 class="user-name"></h3>
             </div>
             <div class="profile-option">
                 <div class="notification">

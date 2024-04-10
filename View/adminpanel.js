@@ -3,6 +3,7 @@ function adminpanel() {
     <div id="admin">
     ${adminprojects()}
     </div>
+    <div id="btnofdoom"></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     `
@@ -10,12 +11,10 @@ function adminpanel() {
 
 function adminprojects() {
     let projects = ''
-    console.log('hei')
     for (key in model.data.projects) {
         if (!model.data.projects[key].approved) {
-            console.log('hei')
             projects += /*HTML*/`
-            <div onclick="projectpage(${key})" id="projectcard">
+            <div onclick="projectpage(${key})" id="admincard">
             <img src="${model.data.projects[key].picture}"/>
             <div>
             <div>${model.data.users[model.data.projects[key].author].username}</div>
