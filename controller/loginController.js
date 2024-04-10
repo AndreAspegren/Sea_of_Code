@@ -5,10 +5,10 @@ function login(){
     if (user == null) {
         alert('Finner ikke bruker med brukernavn og/eller passord, prøv igjen');
     } else {
-        model.app.currentView = null;
+        model.app.currentView = 'homescreen';
         model.app.userID = model.data.user.id;
     }
-    updateView();
+    updateview();
 }
 
 function findUser() {
