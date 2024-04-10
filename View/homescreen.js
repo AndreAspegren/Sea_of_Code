@@ -7,7 +7,7 @@ function homescreen(){
     <button id="loginbtn" onclick="logInscreen()">login</button>
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     <button id="uploadbtn" onclick="uploadPageView()">upload</button>
-    <button id="myprofilebtn" onclick="uploadPageView()">min profil</button>
+    <button id="myprofilebtn" onclick="profileScreen()">min profil</button>
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
     <button onclick="darkmode()" id="darkmode"><div>darkmode</div></button>
     `
