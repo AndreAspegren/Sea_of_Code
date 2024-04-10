@@ -1,4 +1,3 @@
-const app = document.getElementById('app');
 let userDetails = '';
 let userDetailsContent = '';
 uploadPageView();
