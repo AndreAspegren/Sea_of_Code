@@ -1,7 +1,6 @@
-registerUser();
 function registerUser(){
-    const apps = document.getElementById('app');
-    apps.innerHTML = /*HTML*/`
+
+    app.innerHTML = /*HTML*/`
     <div id="darkmodeDiv" class="darkmodeDiv">
     <button id="darkmode" onclick="darkmode()">Dark mode</button>
     </div>
