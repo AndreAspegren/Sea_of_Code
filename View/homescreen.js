@@ -46,15 +46,18 @@ function darkmode() {
     }   
 }
 
-function genwordcloud(){
-    wordcloudlist = ''
-    for (let i = 0; i < Object.keys(model.data.wordCloud).length; i++){
-        wordcloudlist += /*HTML*/`
-        <div id="wordcloudcard">${model.data.wordCloud}hei</div>
-        `
+function genwordcloud() {
+    let wordcloudlist = '';
+    for (let key in model.data.wordCloud) {
+        
+            wordcloudlist += /*HTML*/`
+            <div id="wordcloudcard">${key}: ${model.data.wordCloud[key]}</div>
+            `;
+        
     }
-    return wordcloudlist
+    return wordcloudlist;
 }
+
 
 function genuserlist(){
     userlist = ''
