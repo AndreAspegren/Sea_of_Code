@@ -1,7 +1,7 @@
 function logInscreen(){
     app.innerHTML = /*HTML*/`
     <button id="darkmode" onclick="darkmode()">Dark mode</button>
-    <div id="registeruser">
+    <div id="loginuser">
     <h2> Logg inn </h2>
     <input type="text" onchange="usernameLogIn()" placeholder="Brukernavn" required/>
     <input type="text" onchange="passwordLogIn()" placeholder="passord"  required/>

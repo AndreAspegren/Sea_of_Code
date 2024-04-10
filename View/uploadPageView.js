@@ -1,6 +1,6 @@
 let userDetails = '';
 let userDetailsContent = '';
-uploadPageView();
+
 
 function uploadPageView() {
     let usersList = /*html*/`
