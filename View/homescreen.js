@@ -14,7 +14,7 @@ function homescreen(){
 }
 
 function updateview(view) {
-    view ? (model.app.currentView = view, window[view]()) : window[currentview]()
+    view ? (model.app.currentView = view, window[view]()) : window[model.app.currentView]()
 }
 
 function genprojectlist(){
