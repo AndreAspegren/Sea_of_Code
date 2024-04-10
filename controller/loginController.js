@@ -4,7 +4,7 @@ function login() {
 
     const user = findUser(username, password);
     if (user === null) {
-        alert('Invalid username or password. Please try again.');
+        alert('Finner ikke brukernavn og/eller passord, prøv igjen.');
     } else {
         model.app.loggedIn = true;
         model.app.currentView = 'homescreen';
