@@ -1,0 +1,30 @@
+div {
+    gap: 20px;
+}
+
+h1 {
+    display: grid;
+    justify-content: center;
+}
+
+.projectUpload {
+    display: grid;
+    justify-content: center;
+}
+
+.darkMode {
+    float: right;
+}
+
+table,
+tr,
+th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    border: 1px solid black;
+    display: grid;
+    padding: 4px;
+}

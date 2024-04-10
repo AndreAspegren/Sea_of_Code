@@ -1,4 +1,4 @@
-#userlist, #searchbar, #loginbtn, #darkmode, #logo, #wordcloud, #projectlist{
+#userlist, #searchbar, #loginbtn, #darkmode, #logo, #wordcloud, #projectlist, #uploadbtn{
     position: absolute;
 }
 
@@ -94,6 +94,13 @@
 img{
     width: 10vh;
     height: auto;
+}
+
+#uploadbtn{
+    right: 15%;
+    top: 5%;
+    width: 10vh;
+    height: 5vh;
 }
 
 
