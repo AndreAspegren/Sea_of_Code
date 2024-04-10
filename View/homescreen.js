@@ -10,6 +10,7 @@ function homescreen(){
     
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
+    <button onclick="adminpanel()">adminpanel</button>
     `
 }
 
@@ -20,16 +21,18 @@ function updateview(view) {
 function genprojectlist(){
     userlist = ''
     for (key in model.data.projects){
-        userlist += /*HTML*/`
-        <div onclick="projectpage(${key})" id="projectcard">
-        <img src="${model.data.projects[key].picture}"/>
-        <div>
-        <div>${model.data.users[model.data.projects[key].author].username}</div>
-        <div>${model.data.projects[key].name}</div>
-        </div>
-        <div>${model.data.projects[key].description}</div>
-        </div>
-        `
+        if (model.data.projects[key].approved){
+            userlist += /*HTML*/`
+            <div onclick="projectpage(${key})" id="projectcard">
+            <img src="${model.data.projects[key].picture}"/>
+            <div>
+            <div>${model.data.users[model.data.projects[key].author].username}</div>
+            <div>${model.data.projects[key].name}</div>
+            </div>
+            <div>${model.data.projects[key].description}</div>
+            </div>
+            `
+        }
     }
     return userlist
 }
