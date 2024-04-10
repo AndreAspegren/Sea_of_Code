@@ -2,24 +2,9 @@
 function userRegister() {
     const createAccount = model.input.createAccount[0];
 
-    const {
-        eMail,
-        username,
-        passwordOne,
-        passwordTwo, 
-        firstName,
-        lastName,
-        phoneNr,
-        age,
-        country,
-        github,
-        linkedIn,
-        bio,
-        profilePicure
-    } = createAccount;
-
     const confirmPassword = document.getElementById('passwordTwo').value;
-    if (passwordOne !== passwordTwo) {
+    const passwordOne = document.getElementById('passwordOne').value;
+    if (passwordOne !== confirmPassword) {
         alert("Passordene matcher ikke!");
         return;
     }
@@ -29,9 +14,9 @@ function userRegister() {
         createAccount.profilePicure = URL.createObjectURL(profilePictureFile);
     }
   
-    const newUser = { ...model.input.createAccount[0] };
-    newUser.id = model.data.users.length + 1;
-    model.data.users.push(newUser);
+createAccount.id = model.data.users.length + 1;
+const newUser = {...createAccount};
+model.data.users.push(newUser);
 
 }
 
