@@ -30,8 +30,7 @@ ${userList()}
     </div>
 
     <div>
-    <li>Upload project</li>
-    <input type="file">
+    <button>Upload project</button>
     </div>
 
 </div>
