@@ -14,7 +14,6 @@ function homescreen(){
 }
 
 function updateview(view) {
-    console.log(Object.keys(model.data.wordCloud).length)
     view ? (model.app.currentView = view, window[view]()) : window[model.app.currentView]()
 }
 
@@ -48,11 +47,10 @@ function darkmode() {
 }
 
 function genwordcloud(){
-    languages = ['C#', 'C', 'Javascript', 'Typscript', 'Assembly', 'Python', 'CSS', 'HTML']
     wordcloudlist = ''
-    for (let i = 0; i < model.data.wordCloud.length; i++){
+    for (let i = 0; i < Object.keys(model.data.wordCloud).length; i++){
         wordcloudlist += /*HTML*/`
-        <div id="wordcloudcard">hei</div>
+        <div id="wordcloudcard">${model.data.wordCloud}hei</div>
         `
     }
     return wordcloudlist
