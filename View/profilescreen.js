@@ -1,6 +1,6 @@
 function profileScreen(){
     app.innerHTML = /*HTML*/`
-    <div id="profilescreen">
+    <div id="profileScreen">
     <div class="container">
         <div class="profile-header">
             <div class="profile-img">
@@ -8,7 +8,7 @@ function profileScreen(){
                 alt="">
             </div>
             <div class="profile-nav-info">
-                <h3 class="user-name"></h3>
+                <h3 class="user-name">${}</h3>
             </div>
             <div class="profile-option">
                 <div class="notification">
@@ -59,4 +59,20 @@ function profileScreen(){
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
 `
+}
+
+function profilePage(){
+    app.innerHTML = /*HTML*/`
+        const loggedInUser = getLoggedInUser();
+
+        <h2>Profile Page</h2>
+            <div>
+                <p>Username: ${loggedInUser.username}</p>
+                <p>Email: ${loggedInUser.eMail}</p>
+                <p>First Name: ${loggedInUser.firstName}</p>
+                <p>Last Name: ${loggedInUser.lastName}</p>
+                <!-- Add more fields as needed -->
+            </div>
+            <button onclick="logout()">Log out</button>
+        `;
 }
