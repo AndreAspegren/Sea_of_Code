@@ -1,4 +1,3 @@
-profileScreen ()
 function profileScreen(){
     app.innerHTML = /*HTML*/`
     <div class="container">

@@ -1,7 +1,6 @@
-const app = document.getElementById('app');
 let userDetails = '';
 let userDetailsContent = '';
-uploadPageView();
+
 
 function uploadPageView() {
     let usersList = /*html*/`

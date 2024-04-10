@@ -1,7 +1,7 @@
 function logInscreen(){
-    const apps = document.getElementById('app');
-    apps.innerHTML = /*HTML*/`
+    app.innerHTML = /*HTML*/`
     <button id="darkmode" onclick="darkmode()">Dark mode</button>
+    <div id="loginscreen">
     <h2> Logg inn </h2>
     <input type="text" onchange="usernameLogIn()" placeholder="Brukernavn" required/>
     <input type="text" onchange="passwordLogIn()" placeholder="passord"  required/>
@@ -9,5 +9,7 @@ function logInscreen(){
     
     Ikke registrert? Lag bruker her:
     <button id="register" onclick="registerUser()"> Registrer bruker </button>
+    </div>
+    <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     `
 ;}
