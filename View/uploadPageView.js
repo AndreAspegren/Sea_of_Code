@@ -1,34 +1,18 @@
-let userDetails = '';
-let userDetailsContent = '';
-
-
 function uploadPageView() {
-    let usersList = /*html*/`
-    <table>
-    <tr>
-    <th>Users</th>
-   ${userDetails}
-    </tr>
-    </table>
-    `;
-
-     for (let i = 0; i < userDetails.length; i++) {
-         userDetails += `<td>${userDetailsContent}</td>`;
-     }
-
     app.innerHTML =/*html*/`
-${usersList}
-<button class="darkMode">Dark mode</button>
 
-<div class="users">
-
+<div class="userList">
+<table>
+<tr>
+<th>Users</th>
+${userList()}
+</tr>
+</table>
 </div>
 
-<h1>Upload your project</h1>
+<h1 class="upload">Upload your project</h1>
 
 <div class="projectUpload">
-
-    
 
     <div>
     <li>Project name</li>
@@ -51,7 +35,27 @@ ${usersList}
     </div>
 
 </div>
+
 <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
 <button onclick="darkmode()" id="darkmode">darkmode</button>
     `;
+}
+
+function userList() {
+    let usersList = '';
+    for (let user in model.data.users) {
+        usersList += /*html*/`
+    <td>
+    <div class="userInfo">
+    ${model.data.users[user].username}
+    <img class="userProfilePicture" src="${model.data.users[user].profilePicure}"/>
+    <br>
+    ${model.data.users[user].projects.length} prosjekter
+    <br>
+    ${model.data.users[user].friends.length} venner
+    </div>
+    </td>
+    `;
+    }
+    return usersList;
 }
