@@ -18,9 +18,9 @@
 
 #userlist{
     left: 3%;
-    top: 5%;
+    top: 15%;
     width: 25vh;
-    height: 94vh; 
+    height: 84vh; 
 }
 
 #app{
@@ -30,7 +30,7 @@
 
 #usercard{
     width: 24vh;
-    height: 7.5vh;
+    height: 8vh;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
@@ -38,10 +38,10 @@
 }
 
 #logo{
-    left: 30%;
+    left: 5%;
     top: 5%;
-    width: 10vh;
-    height: 5vh;
+    width: 16vh;
+    height: 9vh;
 }
 
 #searchbar{
