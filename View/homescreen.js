@@ -21,13 +21,13 @@ function genprojectlist(){
     userlist = ''
     for (key in model.data.projects){
         userlist += /*HTML*/`
-        <div onclick="uploadPageView()" id="projectcard">
-        <img src="https://itamargilad.com/wp-content/uploads/2021/08/1920px-Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_Rotterdam_-_Google_Art_Project_-_edited-1024x820.jpg"/>
+        <div onclick="uploadPageView(${key})" id="projectcard">
+        <img src="${model.data.users[key].username}"/>
         <div>
-        <div>Prosjekt navn</div>
-        <div>Prosjekt forfatter</div>
+        <div>${model.data.users[key].username}</div>
+        <div>${model.data.projects[key].name}</div>
         </div>
-        <div>Beskrivelse</div>
+        <div>${model.data.projects[key].description}</div>
         </div>
         `
     }
@@ -56,18 +56,17 @@ function genwordcloud() {
     return wordcloudlist;
 }
 
-
 function genuserlist(){
     userlist = ''
     for (let key in model.data.users){
         userlist += /*HTML*/`
         <div id="usercard" onclick="profileScreen()">
         <div>
-        <div>Navn</div>
-        <div>X prosjekter</div>
-        <div>X Venner</div>
+        <div>${model.data.users[key].username}</div>
+        <div>${model.data.users[key].projects.length} prosjekter</div>
+        <div>${model.data.users[key].friends.length} venner</div>
         </div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlvr3sdM8-l74Xvki4TOkYBjwiAuFJ_L9Si5eszp_bMg&s"/>
+        <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
         </div>
         `
     }
