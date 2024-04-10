@@ -8,7 +8,7 @@ function login(){
         model.app.currentView = null;
         model.app.userID = model.data.user.id;
     }
-    updateView();
+    updateview();
 }
 
 function findUser() {
@@ -16,8 +16,7 @@ function findUser() {
         if (user.id == model.app.userID
         && user.password == model.input.login.password){
             return user.id
-        }
-        
+        }  
     }
     return null;
 }

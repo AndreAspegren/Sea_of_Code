@@ -21,7 +21,7 @@ function genprojectlist(){
     userlist = ''
     for (let i = 0; i < 8; i++){
         userlist += /*HTML*/`
-        <div onclick="profileScreen()" id="projectcard">
+        <div onclick="uploadPageView()" id="projectcard">
         <img src="https://itamargilad.com/wp-content/uploads/2021/08/1920px-Pieter_Bruegel_the_Elder_-_The_Tower_of_Babel_Rotterdam_-_Google_Art_Project_-_edited-1024x820.jpg"/>
         <div>
         <div>Prosjekt navn</div>
@@ -49,7 +49,7 @@ function darkmode() {
 function genwordcloud(){
     languages = ['C#', 'C', 'Javascript', 'Typscript', 'Assembly', 'Python', 'CSS', 'HTML']
     wordcloudlist = ''
-    for (let i = 0; i < languages.length; i++){
+    for (let i = 0; i < model.data.wordCloud.length; i++){
         wordcloudlist += /*HTML*/`
         <div id="wordcloudcard">${languages[i]}</div>
         `
@@ -61,7 +61,7 @@ function genuserlist(){
     userlist = ''
     for (let i = 0; i < 10; i++){
         userlist += /*HTML*/`
-        <div id="usercard">
+        <div id="usercard" onclick="profileScreen()">
         <div>
         <div>Navn</div>
         <div>X prosjekter</div>
