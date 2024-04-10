@@ -75,15 +75,15 @@ const model = {
 
     data: {
         wordCloud: {
-            Javascript: 'null',
-            C: 'null',
-            CSharp: 'null',
-            CSS: 'null',
-            Ruby: 'null',
-            CPlusPlus: 'null',
-            HTML: 'null',
-            Python: 'null',
-            CPlus: 'null',
+            Javascript: '1',
+            C: '2',
+            CSharp: '3',
+            CSS: '4',
+            Ruby: '4',
+            CPlusPlus: '2',
+            HTML: '3',
+            Python: '6',
+            Binary: '1',
         },
         adminpanel: {
             users: [],
