@@ -21,7 +21,7 @@ function genprojectlist(){
     userlist = ''
     for (key in model.data.projects){
         userlist += /*HTML*/`
-        <div onclick="uploadPageView(${key})" id="projectcard">
+        <div onclick="projectpage(${key})" id="projectcard">
         <img src="${model.data.projects[key].picture}"/>
         <div>
         <div>${model.data.users[model.data.projects[key].author].username}</div>
