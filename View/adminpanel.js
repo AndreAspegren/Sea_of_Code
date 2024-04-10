@@ -22,8 +22,8 @@ function adminprojects() {
             </div>
             <div>${model.data.projects[key].description}</div>
             <div>
-            <button onclick="fuckyeah(${key}, 'yay')">YAY</button>
-            <button onclick="fuckyeah(${key}, 'nay')">NAY</button>
+            <button onclick="hammertime(${key}, 'yay')">YAY</button>
+            <button onclick="hammertime(${key}, 'nay')">NAY</button>
             </div>
             </div>
             `
@@ -32,6 +32,7 @@ function adminprojects() {
     return projects
 } 
 
-function fuckyeah(key, status){
-    
+function hammertime(key, status){
+    model.data.projects[key].splice(1, 1)
+    updateview('homescreen')
 }
