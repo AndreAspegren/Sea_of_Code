@@ -163,6 +163,7 @@ const model = {
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
                 author: 1,
+                picture: 'https://www.grunge.com/img/gallery/the-most-famous-pirate-ships-in-history/l-intro-1656447227.jpg',
                 files: [
                     {
                         id: 0,
@@ -189,7 +190,8 @@ const model = {
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
-                author: 1,
+                author: 0,
+                picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/1200px-Colosseo_2020.jpg',
                 files: [
                     {
                         id: 0,
@@ -216,7 +218,8 @@ const model = {
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
-                author: 1,
+                author: 2,
+                picture: 'https://i.etsystatic.com/12310347/r/il/690746/1316811182/il_fullxfull.1316811182_gpqc.jpg',
                 files: [
                     {
                         id: 0,
