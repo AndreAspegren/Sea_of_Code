@@ -31,6 +31,7 @@ function profileScreen(){
             </div>
         </div>
     </div>
-
-    `
+    <button onclick="darkmode()" id="darkmode">darkmode</button>
+    <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
+`
 }
