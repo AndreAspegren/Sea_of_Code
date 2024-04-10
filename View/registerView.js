@@ -1,3 +1,4 @@
+registerUser();
 function registerUser(){
 
     app.innerHTML = /*HTML*/`
