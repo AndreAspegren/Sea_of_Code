@@ -5,8 +5,8 @@ function homescreen(){
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     <input id="searchbar">
     ${model.app.loggedIn ? '<button id="loginbtn" onclick="profileScreen()">min profil</button>' : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
+    ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
-    <button id="uploadbtn" onclick="uploadPageView()">upload</button>
     
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
