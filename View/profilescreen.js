@@ -9,7 +9,7 @@ function profileScreen(){
                 alt="">
             </div>
             <div class="profile-nav-info">
-                <h3 class="user-name"></h3>
+                <h3 class="user-name">${loggedInUser.username}</h3>
             </div>
             <div class="profile-option">
                 <div class="notification">
@@ -64,5 +64,8 @@ function profileScreen(){
 
 function getLoggedInUser() {
     const loggedInUserID = model.app.userID;
-    return model.data.users.find(user => user.id === loggedInUserID);
+    console.log('Logged-in User ID:', loggedInUserID);
+    const user = model.data.users.find(user => user.username === loggedInUserID);
+    console.log('Logged-in User:', user);
+    return user;
 }
