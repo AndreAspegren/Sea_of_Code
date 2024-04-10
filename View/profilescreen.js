@@ -32,9 +32,24 @@ function profileScreen(){
             <div class="right-side">
                 <div class="nav">
                     <ul>
-                        <li onclick="" class="user-post active"></li>
-                        <li 
+                        <li onclick="tabs(0)" class="user-post active"></li>
+                        <li onclick="tabs(1)" class="user-uploads"></li>
+                        <li onclick="tabs(2)" class="user-setting"></li>
                     </ul>
+                </div>
+                <div class="profile-body">
+                    <div class="profile-posts tab">
+                        <h1>Your posts</h1>
+                        <p>No posts</p>
+                    </div>
+                    <div class="profile-uploads tab">
+                        <h1>Your uploads</h1>
+                        <p>No uploads</p>
+                    </div>
+                    <div class="profile-settings tab">
+                        <h1>Account setting</h1>
+                        <p>No settings</p>
+                    </div>
                 </div>
             </div>
         </div>
