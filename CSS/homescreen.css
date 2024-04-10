@@ -2,7 +2,7 @@
     position: absolute;
 }
 
-#userlist, #darkmode, #wordcloud, #projectlist, #projectcard, #wordcloudcard, #usercard{
+#userlist, #darkmode, #wordcloud, #projectlist, #projectcard, #usercard{
     border: 2px solid black;
 }
 
@@ -88,7 +88,7 @@
 
 #wordcloudcard{
     width: 19vh;
-    height: 10vh;
+    height: 9vh;
 }
 
 img{

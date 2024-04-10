@@ -50,7 +50,7 @@ function genwordcloud() {
     let wordcloudlist = '';
     for (let key in model.data.wordCloud) {
             wordcloudlist += /*HTML*/`
-            <div id="wordcloudcard">${key}: ${model.data.wordCloud[key]}</div>
+            <div id="wordcloudcard" style="font-size: ${model.data.wordCloud[key] * 50}%">${key}</div>
             `;
     }
     return wordcloudlist;
@@ -59,7 +59,7 @@ function genwordcloud() {
 
 function genuserlist(){
     userlist = ''
-    for (let i = 0; i < 10; i++){
+    for (let key in model.data.users){
         userlist += /*HTML*/`
         <div id="usercard" onclick="profileScreen()">
         <div>
