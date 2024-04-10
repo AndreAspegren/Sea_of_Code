@@ -2,28 +2,39 @@ div {
     gap: 20px;
 }
 
-h1 {
-    display: grid;
-    justify-content: center;
+.userList{
+    height: 5vh;
 }
 
-.projectUpload {
+.userProfilePicture{
+float: right;
+}
+
+.userInfo{
+    font-size: xx-large;
+}
+
+.projectUpload, .upload {
+    font-size: xxx-large;
     display: grid;
     justify-content: center;
 }
 
 .darkMode {
     float: right;
+    margin-right: 100px;
 }
 
 table,
+td,
 tr,
 th {
+    width: 24vh;
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-th {
+th, td {
     border: 1px solid black;
     display: grid;
     padding: 4px;
