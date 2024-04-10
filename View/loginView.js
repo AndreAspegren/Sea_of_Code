@@ -10,5 +10,6 @@ function logInscreen(){
     Ikke registrert? Lag bruker her:
     <button id="register" onclick="registerUser()"> Registrer bruker </button>
     </div>
+    <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     `
 ;}

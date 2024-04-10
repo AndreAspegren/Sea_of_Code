@@ -2,7 +2,7 @@ homescreen()
 function homescreen(){
     app.innerHTML = /*HTML*/`
     <div id="userlist"><div>${genuserlist()}</div></div>
-    <img id="logo" src="img/logo.jpg"/>
+    <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     <input id="searchbar">
     <button id="loginbtn" onclick="logInscreen()">login</button>
     <div id="wordcloud"><div>${genwordcloud()}</div></div>

@@ -26,6 +26,7 @@ function registerUser(){
     </div>
 
     </div>
+    <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     `
 ;
 }
