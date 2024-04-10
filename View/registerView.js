@@ -2,7 +2,6 @@ function registerUser(){
 
     app.innerHTML = /*HTML*/`
     <div id="darkmodeDiv" class="darkmodeDiv">
-    <button id="darkmode" onclick="darkmode()">Dark mode</button>
     </div>
     <div id="registerDiv" class="registerDiv">
     <div id="registeruser">
@@ -24,8 +23,9 @@ function registerUser(){
     <img id="profilePicture"/>
     <button style="width: 10vh;" onclick="userRegister()">Registrer bruker</button>
     </div>
-
+    
     </div>
+    <button id="darkmode" onclick="darkmode()">Dark mode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     `
 ;

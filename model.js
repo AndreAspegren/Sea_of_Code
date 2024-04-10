@@ -8,7 +8,7 @@ const model = {
     },
     input: {       
         login: {
-            id: null,
+            email: null,
             password: null,
         },
         createAccount: [
@@ -72,18 +72,18 @@ const model = {
             searchbar: ["",],
         },
     },
-model.data.wordCloud[i]
+
     data: {
         wordCloud: {
-            Javascript: null,
-            C: null,
-            CSharp: null,
-            CSS: null,
-            Ruby: null,
-            CPlusPlus: null,
-            HTML: null,
-            Python: null,
-            CPlus: null,
+            Javascript: 'null',
+            C: 'null',
+            CSharp: 'null',
+            CSS: 'null',
+            Ruby: 'null',
+            CPlusPlus: 'null',
+            HTML: 'null',
+            Python: 'null',
+            CPlus: 'null',
         },
         adminpanel: {
             users: [],
