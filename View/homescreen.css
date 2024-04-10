@@ -16,17 +16,16 @@
     align-items: center;
 }
 
-#app{
-    width: auto;
-    height: auto;
-    display:flex;
-}
-
 #userlist{
     left: 3%;
     top: 5%;
     width: 25vh;
     height: 94vh; 
+}
+
+#app{
+    height: 100vh;
+    width: 100vw;
 }
 
 #usercard{
@@ -79,7 +78,6 @@
     display: flex; 
     column-gap: 15vh;
 }
-
 
 #wordcloud{
     right: 3%;
