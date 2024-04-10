@@ -22,10 +22,10 @@ function profileScreen(){
                     <p class="mobile-no"><i class="fa fa-phone"></i>+4747610118</p>
                     <p class="user-mail"><i class="fa fa-envelope"></i>rune.smed@gmail.com</p>
                     <div class="user-bio">
-                        <p class="bio">placeHolder</p>
+                        <p class="bio">placeHolder bio</p>
                     </div>
                     <div class="user-socialmedia">
-                        <p class="socialmedia">placeHolder</p>
+                        <p class="socialmedia">placeHolder sosiale media</p>
                     </div>
                 </div>
             </div>
