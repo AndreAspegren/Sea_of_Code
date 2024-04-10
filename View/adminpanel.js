@@ -21,9 +21,17 @@ function adminprojects() {
             <div>${model.data.projects[key].name}</div>
             </div>
             <div>${model.data.projects[key].description}</div>
+            <div>
+            <button onclick="fuckyeah(${key}, 'yay')">YAY</button>
+            <button onclick="fuckyeah(${key}, 'nay')">NAY</button>
+            </div>
             </div>
             `
         }
     }
     return projects
-}   
+} 
+
+function fuckyeah(key, status){
+    
+}

@@ -5,14 +5,16 @@ function projectpage(key){
     <div>${model.data.projects[key].name}</div>
     <img src="${model.data.projects[key].picture}">
     </div>
-    <div id="project">prosjekt</div>
-    <div id="comments">comments</div>
+
+    <div id="project">
+    
+    </div>
+    
+    <div id="comments">
+    
+    </div>
+    
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     `
-}
-
-function projectinfo(){
-    prosjektinfo = ''
-
 }
