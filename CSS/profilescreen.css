@@ -1,4 +1,15 @@
 body {
     overflow-x: hidden;
     padding-top: 90px;
+    margin: 0 100px;
+}
+
+.profile-img {
+    float: left;
+    width: 340px;
+    height: 200px;
+}
+
+.profile-img img {
+    border-radius: 75%;
 }
