@@ -6,8 +6,9 @@ function login() {
     if (user === null) {
         alert('Invalid username or password. Please try again.');
     } else {
+        model.app.loggedIn = true;
         model.app.currentView = 'homescreen';
-        model.app.userID = user.id;
+        model.app.userID = user.username;
         updateview('homescreen');
     }
 }
@@ -18,5 +19,6 @@ function findUser(username, password) {
             return user;
         }
     }
+
     return null;
 }
