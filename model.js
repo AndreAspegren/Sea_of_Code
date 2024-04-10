@@ -8,7 +8,7 @@ const model = {
     },
     input: {       
         login: {
-            email: null,
+            id: null,
             password: null,
         },
         createAccount: [
