@@ -1,6 +1,6 @@
 function login(){
-    const username = document.getElementById(usernameInput);
-    const passord = document.getElementById(passwordInput);
+    const username = document.getElementById('usernameInput');
+    const passord = document.getElementById('passwordInput');
     let user = findUser();
     if (user == null) {
         alert('Finner ikke bruker med brukernavn og/eller passord, prøv igjen');
