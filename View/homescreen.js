@@ -22,9 +22,9 @@ function genprojectlist(){
     for (key in model.data.projects){
         userlist += /*HTML*/`
         <div onclick="uploadPageView(${key})" id="projectcard">
-        <img src="${model.data.users[key].username}"/>
+        <img src="${model.data.projects[key].picture}"/>
         <div>
-        <div>${model.data.users[key].username}</div>
+        <div>${model.data.users[model.data.projects[key].author].username}</div>
         <div>${model.data.projects[key].name}</div>
         </div>
         <div>${model.data.projects[key].description}</div>
@@ -60,7 +60,7 @@ function genuserlist(){
     userlist = ''
     for (let key in model.data.users){
         userlist += /*HTML*/`
-        <div id="usercard" onclick="profileScreen()">
+        <div id="usercard" onclick="profileScreen(${key})">
         <div>
         <div>${model.data.users[key].username}</div>
         <div>${model.data.users[key].projects.length} prosjekter</div>
