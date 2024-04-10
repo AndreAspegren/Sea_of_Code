@@ -12,7 +12,7 @@ function profileScreen(){
             <div class="profile-option">
                 <div class="notification">
                     <i class="fa fa bell"></i>
-                    <span class="alert-message">1</span>
+                    <span class="alert-message"></span>
                 </div>
             </div>
         </div>
