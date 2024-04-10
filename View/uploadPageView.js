@@ -53,5 +53,6 @@ ${usersList}
 </div>
 <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
 <button onclick="darkmode()" id="darkmode">darkmode</button>
+<img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     `;
 }
