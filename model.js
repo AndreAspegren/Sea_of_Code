@@ -31,6 +31,7 @@ const model = {
                 github: '',
                 linkedIn: '',
                 friends: [],
+                projects: [],
             }
         ],
         projects: [
