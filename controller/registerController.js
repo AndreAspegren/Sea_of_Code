@@ -17,7 +17,7 @@ function userRegister() {
 createAccount.id = model.data.users.length + 1;
 const newUser = {...createAccount};
 model.data.users.push(newUser);
-
+updateview('logInscreen');
 }
 
 function fileChange(event) {
