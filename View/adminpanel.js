@@ -35,9 +35,9 @@ function adminprojects() {
 function hammertime(key, status){
     if (status == 'yay') {
         model.data.projects[key]['approved'] = true
-        updateview()
+        updateview('adminpanel')
     } else {
         model.data.projects[key].splice(1, 1)
-        updateview()
+        updateview('adminpanel')
     }
 }
