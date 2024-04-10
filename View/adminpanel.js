@@ -33,6 +33,11 @@ function adminprojects() {
 } 
 
 function hammertime(key, status){
-    model.data.projects[key].splice(1, 1)
-    updateview('homescreen')
+    if (status == 'yay') {
+        model.data.projects[key]['approved'] = true
+        updateview()
+    } else {
+        model.data.projects[key].splice(1, 1)
+        updateview()
+    }
 }
