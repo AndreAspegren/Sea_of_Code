@@ -1,4 +1,7 @@
 const app = document.getElementById('app')
+const yarr = new Audio('img/yohooo')
+yarr.play()
+yarr.volume = 0.12
 const model = {
     app: {
         userID: null,
