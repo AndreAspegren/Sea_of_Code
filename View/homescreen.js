@@ -9,7 +9,7 @@ function homescreen(){
     <button id="uploadbtn" onclick="uploadPageView()">upload</button>
     <button id="myprofilebtn" onclick="profileScreen()">min profil</button>
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
-    <button onclick="darkmode()" id="darkmode"><div>darkmode</div></button>
+    <button onclick="darkmode()" id="darkmode">darkmode</button>
     `
 }
 
