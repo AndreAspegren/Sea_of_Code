@@ -1,4 +1,6 @@
-body {
-    overflow-x: hidden;
-    padding-top: 90px;
+#profilescreen{
+   position: absolute;
+   top: 30%;
+   left: 10%;
+   transform: translateX(-50%); 
 }
