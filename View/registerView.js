@@ -6,6 +6,7 @@ function registerUser(){
     </div>
     <div id="registerDiv" class="registerDiv">
     <h2>Registrer bruker</h2>
+    <div id="registeruser">
     <input type="text" onchange="inputChange('eMail', this.value)" placeholder="Email" required />
     <input type="text" onchange="inputChange('username', this.value)" placeholder="Brukernavn" required/>
     <input type="password" id="passwordOne" onchange="inputChange('passwordOne', this.value)" placeholder="Passord" required/>
@@ -17,15 +18,17 @@ function registerUser(){
     <input type="text" onchange="inputChange('country', this.value)" placeholder="Sted (frivillig)" />
     <input type="text" onchange="inputChange('github', this.value)" placeholder="Github link (frivillig)" />
     <input type="text" onchange="inputChange('linkedIn', this.value)" placeholder="LinkedIn (frivillig)" />
+    <input type="file" id="fileInput" onchange="fileChange(event)">
+    </div>
     <textarea id="bio" onchange="inputChange('bio', this.value)" placeholder="Bio"></textarea>
     Last opp profilbilde:
-    <input type="file" id="fileInput" onchange="fileChange(event)">
     <img id="profilePicture"/>
 
     <button onclick="userRegister()">Registrer bruker</button>
     </div>
     `
-;}
+;
+}
 
 let loadFile = function(event) {
     let image = document.getElementById('profilePicture');
