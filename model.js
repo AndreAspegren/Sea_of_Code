@@ -81,10 +81,10 @@ const model = {
         wordCloud: {
             Javascript: '1',
             C: '2',
-            CSharp: '3',
+            'C#': '3',
             CSS: '4',
             Ruby: '4',
-            CPlusPlus: '2',
+            'C++': '2',
             HTML: '3',
             Python: '6',
             Binary: '1',
