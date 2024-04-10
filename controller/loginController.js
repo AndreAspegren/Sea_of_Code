@@ -7,8 +7,8 @@ function login(){
     } else {
         model.app.currentView = null;
         model.app.userID = model.data.user.id;
+        updateview('homescreen');
     }
-    updateview();
 }
 
 function findUser() {
