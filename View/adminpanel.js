@@ -23,7 +23,7 @@ function adminprojects() {
             <div>${model.data.projects[key].description}</div>
             <div>
             <button onclick="hammertime(${key}, 'yay')">YAY</button>
-            <button onclick="hammertime(${key}, 'nay')">NAY</button>
+            <button onclick="hammertime(${key})">NAY</button>
             </div>
             </div>
             `
@@ -32,12 +32,7 @@ function adminprojects() {
     return projects
 } 
 
-function hammertime(key, status){
-    if (status == 'yay') {
-        model.data.projects[key]['approved'] = true
-        updateview('adminpanel')
-    } else {
-        model.data.projects[key].splice(1, 1)
-        updateview('adminpanel')
-    }
+function hammertime(key, approved){
+    approved ? model.data.projects[key]['approved'] = true : model.data.projects.splice(key, 1)
+    updateview()
 }

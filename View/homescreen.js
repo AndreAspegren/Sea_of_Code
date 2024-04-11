@@ -4,13 +4,13 @@ function homescreen(){
     <div id="userlist"><div>${genuserlist()}</div></div>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
     <input id="searchbar">
-    ${model.app.loggedIn ? '<button id="loginbtn" onclick="profileScreen()">min profil</button>' : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
+    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen')">min profil</button>` : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
     ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <button onclick="adminpanel()">adminpanel</button>
+    <button onclick="updateview('adminpanel')">adminpanel</button>
     `
 }
 
