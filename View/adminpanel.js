@@ -22,7 +22,7 @@ function adminprojects() {
             <div>${model.data.projects[key].name}</div>
             </div>
             <div>${model.data.projects[key].description}</div>
-            <div>
+            <div id="adminbuttons">
             <button onclick="hammertime(${key}, 'yay')">YAY👌</button>
             <button onclick="hammertime(${key})">NAY💩</button>
             </div>
