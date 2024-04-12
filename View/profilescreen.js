@@ -13,7 +13,7 @@ function profileScreen(){
             </div>
             <div class="profile-option">
                 <div class="notification">
-                    <i class="fa fa bell"></i>
+                    <i class="fa fa bell">🔔</i>
                     <span class="alert-message"></span>
                 </div>
             </div>
@@ -21,8 +21,8 @@ function profileScreen(){
         <div class="main-bd">
             <div class="left-side">
                 <div class="profile-side">
-                    <p class="mobile-no"><i class="fa fa-phone"></i></p>
-                    <p class="user-mail"><i class="fa fa-envelope"></i></p>
+                    <p class="mobile-no"><i class="fa fa-phone">📞</i></p>
+                    <p class="user-mail"><i class="fa fa-envelope">📧</i></p>
                     <div class="user-bio">
                         <p class="bio"></p>
                     </div>

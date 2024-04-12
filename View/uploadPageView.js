@@ -16,12 +16,12 @@ ${userList()}
 
     <div>
     <li>Project name</li>
-    <input type="text">
+    <input type="text" placeholder="Project name" id="ProjectName!">
     </div>
 
     <div>
     <li>Project description</li>
-    <input type="text">
+    <input type="text" placeholder="Project description" id="ProjectDescription!">
     </div>
 
     <div>
@@ -30,7 +30,7 @@ ${userList()}
     </div>
 
     <div>
-    <button>Upload project</button>
+    <button onclick="sendProjectInfo()">Upload project</button>
     </div>
 
 </div>
