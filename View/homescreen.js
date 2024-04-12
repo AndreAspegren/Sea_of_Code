@@ -1,7 +1,4 @@
 homescreen()
-const yarr = new Audio('img/yohooo')
-yarr.volume = 0.12
-yarr.play()
 function homescreen(){
     app.innerHTML = /*HTML*/`
     <div id="userlist"><div>${genuserlist()}</div></div>
@@ -13,7 +10,7 @@ function homescreen(){
     
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <button onclick="updateview('adminpanel')">adminpanel</button>
+    <button onclick="updateview('adminpanel')" id="adminbutton">adminpanel</button>
     `
 }
 
@@ -41,15 +38,10 @@ function genprojectlist(){
 }
 
 function darkmode() {
-    if (!model.app.darkmode) {
-        app.style.color = 'white'
-        app.style.backgroundColor = 'gray'
-        model.app.darkmode = true
-    } else {
-        app.style.color = 'black'
-        app.style.backgroundColor = 'white'
-        model.app.darkmode = false
-    }   
+    mode = !model.app.darkmode ? ['white', 'gray', true] : ['black', 'white', false]
+    app.style.color = mode[0]
+    app.style.backgroundColor = mode[1]
+    model.app.darkmode = mode[2]
 }
 
 function genwordcloud() {
