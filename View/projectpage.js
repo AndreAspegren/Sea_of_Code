@@ -31,9 +31,10 @@ function genpageturn(key){
 
 function gencomments(key){
     comments = ''
+    console.log(model.data.users[model.data.projects[key].comments.comment.from].profilePicure)
     for (let i = 0; i < model.data.projects[key].comments.length; i++){
         comments += /*HTML*/`
-        <img src="${model.data.users[model.data.projects[key].comments.comment.from].profilePicure}">
+        
         <div>${model.data.projects[key].comments[i].comment}</div>`
      }
      return comments
