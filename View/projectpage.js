@@ -12,7 +12,7 @@ function projectpage(key, num){
     ${genpageturn(key)}
 
     <div id="comments">
-    <div>${model.data.projects[key].comments[0].comment} </div>
+    <div>${gencomments(key)} </div>
     </div>
     
     <button onclick="darkmode()" id="darkmode">darkmode</button>
@@ -26,5 +26,15 @@ function genpageturn(key){
        pages += /*HTML*/`<button onclick="projectpage(${key}, ${i})">${i}</button>`
     }
     return pages
+}
+
+function gencomments(key){
+    comments = ''
+    for (let i = 0; i < model.data.projects[key].comments.length; i++){
+        comments += /*HTML*/`
+        <img src="${model.data.users[model.data.projects[key].comments.comment.from].profilePicure}">
+        <div>${model.data.projects[key].comments[i].comment}</div>`
+     }
+     return comments
 }
 

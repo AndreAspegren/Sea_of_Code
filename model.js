@@ -182,10 +182,19 @@ const model = {
                 ],
                 comments: [
                     {
-                        userID: 1,
                         from: 0,
                         dateSent: '05-05-2024',
                         comment: 'blah'
+                    },
+                    {
+                        from: 1,
+                        dateSent: '05-05-2024',
+                        comment: 'sdfgjsdfgsd'
+                    },
+                    {
+                        from: 2,
+                        dateSent: '05-05-2024',
+                        comment: 'yo'
                     }
                 ],
             },
