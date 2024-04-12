@@ -7,7 +7,7 @@ function login() {
         alert('Finner ikke brukernavn og/eller passord, prøv igjen.');
     } else {
         model.app.loggedIn = true;
-        model.app.userID = user.username;
+        model.app.userID = user.id;
         updateview('homescreen');
     }
 }

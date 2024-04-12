@@ -46,12 +46,7 @@ const model = {
                         percentEachLanguage: {},
                     }
                 ],
-                comments: [
-                    {
-                        id: null,
-                        comment: '',
-                    }
-                ],
+                comments: [],
             }
         ],
         userActivity: {

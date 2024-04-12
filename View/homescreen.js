@@ -17,7 +17,7 @@ function homescreen(){
 function updateview(view) {
     view ? (model.app.currentView = view, window[view]()) : window[model.app.currentView]()
 }
-
+model.data.users
 function genprojectlist(){
     userlist = ''
     for (key in model.data.projects){

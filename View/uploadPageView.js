@@ -16,26 +16,26 @@ ${userList()}
 
     <div>
     <li>Project name</li>
-    <input type="text" placeholder="Project name" id="projectName!">
+    <input type="text" onchange="${model.input.projects.name = this.value}" placeholder="Project name" id="projectName">
     </div>
 
     <div>
     <li>Project description</li>
-    <input type="text" placeholder="Project description" id="projectDescription!">
+    <input type="text" onchange="${model.input.projects.description = this.value}" style="width: 30vh; height: 15vh;" placeholder="Project description" id="projectDescription">
     </div>
 
     <div>
     <li>Upload Project picture</li>
-    <input type="file">
+    <input onchange="${model.input.projects.picture}" type="url" placeholder="url">
     </div>
 
     <div>
     <li>Upload files</li>
-    <input type="file">
+    <input onclick="sendProjectInfo(event, 'picture')" type="file">
     </div>
 
     <div>
-    <button onclick="sendProjectInfo()">Upload project</button>
+    <button onclick="sendProjectInfo(event, 'project')">Upload project</button>
     </div>
 
 </div>
