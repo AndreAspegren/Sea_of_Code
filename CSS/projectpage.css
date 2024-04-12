@@ -25,9 +25,13 @@
     height: 74.5vh;
 }
 
-#projectbutton{
+#projectbuttons-container{
     position:absolute;
     left: 50%;
     bottom: -50px;
     transform: translateX(-50%);
+}
+
+#projectbuttons{
+    margin: 5px;
 }
