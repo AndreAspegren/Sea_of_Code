@@ -74,7 +74,7 @@ function profileScreen(){
 function getLoggedInUser() {
     const loggedInUserID = model.app.userID;
     console.log('Logged-in User ID:', loggedInUserID);
-    const user = model.data.users.find(user => user.username === loggedInUserID);
+    const user = model.data.users.find(user => user.id === loggedInUserID);
     console.log('Logged-in User:', user);
     return user;
 }
