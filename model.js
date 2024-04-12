@@ -175,7 +175,7 @@ const model = {
                         id: 0,
                         name: 'View.js',
                         picture: 'url',
-                        content: 'code',
+                        content: 'yaaaaaaaaaaaaaaaaa',
                         language: 'Javascript',
                         percentEachLanguage: {},
                     }

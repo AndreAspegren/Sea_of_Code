@@ -1,5 +1,4 @@
-function projectpage(key){
-    console.log(key)
+function projectpage(key, num){
     app.innerHTML = /*HTML*/`
     <div id="projectinfo">
     <div>${model.data.users[model.data.projects[key].author].username}</div>
@@ -8,7 +7,7 @@ function projectpage(key){
     </div>
 
     <div id="project">
-    <div>${changefiles()}</div>
+    <div>${model.data.projects[key].files[(num ? num : 0)].content}</div>
     </div>
     ${genpageturn(key)}
 
@@ -21,14 +20,11 @@ function projectpage(key){
     `
 }
 
-function changefiles(){
-    return model.data.projects[key].files[0].content
-}
-
 function genpageturn(key){
     pages = ''
     for (let i = 0; i < model.data.projects[key].files.length; i++){
-       pages += /*HTML*/`<button onclick="turnpage(${i})">${i}</button>`
+       pages += /*HTML*/`<button onclick="projectpage(${key}, ${i})">${i}</button>`
     }
     return pages
 }
+
