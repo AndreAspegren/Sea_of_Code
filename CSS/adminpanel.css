@@ -29,9 +29,9 @@
 }
 
 #nonadminlist {
-    position: absolute;
-    top: 12%;
-    right: 155%;
+    position: relative;
+    top: 12;
+    right: 155;
     width: 10vh;
     height: 80vh;
     padding: 10px; 
