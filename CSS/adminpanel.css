@@ -1,7 +1,7 @@
 #admin{
     position: absolute;
     top: 5%;
-    left: 50%;
+    left: 55%;
     transform: translateX(-50%);
     width: 80vh;
     height: 92vh; 
@@ -18,3 +18,22 @@
     column-gap: 15vh;
     border: 2px solid black;
 }
+
+#nonadminlist{
+    position: absolute;
+    top: 12%;
+    right: 102%;
+    width: 27vh;
+    height: 81vh; 
+    border: 2px solid black;
+}
+
+#nonadmincard{
+    width: 26vh;
+    height: 8vh;
+    display:flex;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+}
+

@@ -1,4 +1,4 @@
-#userlist, #searchbar, #loginbtn, #darkmode, #logo, #wordcloud, #projectlist, #uploadbtn, #myprofilebtn{
+#userlist, #searchbar, #loginbtn, #darkmode, #logo, #wordcloud, #projectlist, #uploadbtn, #myprofilebtn, #adminbutton{
     position: absolute;
 }
 
@@ -56,6 +56,13 @@
     top: 5%;
     width: 10vh;
     height: 5vh; 
+}
+
+#adminbutton{
+    left: 30%;
+    top: 5%;
+    width: 10vh;
+    height: 5vh;
 }
 
 #darkmode{
