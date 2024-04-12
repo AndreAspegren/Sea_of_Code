@@ -24,3 +24,10 @@
     width: 30vh;
     height: 74.5vh;
 }
+
+#projectbutton{
+    position:absolute;
+    left: 50%;
+    bottom: -50px;
+    transform: translateX(-50%);
+}
