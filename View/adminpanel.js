@@ -23,8 +23,8 @@ function adminprojects() {
             </div>
             <div>${model.data.projects[key].description}</div>
             <div>
-            <button onclick="hammertime(${key}, 'yay')">YAY</button>
-            <button onclick="hammertime(${key})">NAY</button>
+            <button onclick="hammertime(${key}, 'yay')">YAY👌</button>
+            <button onclick="hammertime(${key})">NAY💩</button>
             </div>
             </div>
             <div id="nonadminlist"><div>${gennonadminlist()}</div></div>
@@ -52,7 +52,7 @@ function gennonadminlist(){
             </div>
             <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
             <div>
-            <button onclick="makeadmin(${key})">Gi adminmakt</button>
+            <button onclick="makeadmin(${key})">Gi adminmakt🔨</button>
             </div></div>
             </div>
             `
