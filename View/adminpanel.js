@@ -14,7 +14,6 @@ function adminprojects() {
     for (key in model.data.projects) {
         if (!model.data.projects[key].approved) {
             projects += /*HTML*/`
-            
             <div onclick="projectpage(${key})" id="admincard">
             <img src="${model.data.projects[key].picture}"/>
             <div>
