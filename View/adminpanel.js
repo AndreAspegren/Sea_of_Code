@@ -23,8 +23,8 @@ function adminprojects() {
             </div>
             <div>${model.data.projects[key].description}</div>
             <div>
-            <button onclick="hammertime(${key}, 'yay')">YAY</button>
-            <button onclick="hammertime(${key})">NAY</button>
+            <button onclick="hammertime(${key}, 'yay')">YAY👌</button>
+            <button onclick="hammertime(${key})">NAY💩</button>
             </div>
             </div>
             <div id="nonadminlist"><div>${gennonadminlist()}</div></div>
@@ -43,9 +43,8 @@ function gennonadminlist(){
     let list = ''
     for (let key in model.data.users){
         if (!model.data.adminpanel.users.includes(model.data.users[key].id)){
-            console.log(key)
             list += /*HTML*/`
-            <div id="nonadmincard" onclick="profileScreen(${key})">
+            <div id="nonadmincard">
             <div>
             <div>${model.data.users[key].username}</div>
             <div>${model.data.users[key].projects.length} prosjekter</div>
@@ -53,7 +52,7 @@ function gennonadminlist(){
             </div>
             <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
             <div>
-            <button onclick="makeadmin(${key})">Gi adminmakt</button>
+            <button onclick="makeadmin(${key})">Gi adminmakt🔨</button>
             </div></div>
             </div>
             `

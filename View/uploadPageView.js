@@ -16,12 +16,17 @@ ${userList()}
 
     <div>
     <li>Project name</li>
-    <input type="text" placeholder="Project name" id="ProjectName!">
+    <input type="text" placeholder="Project name" id="projectName!">
     </div>
 
     <div>
     <li>Project description</li>
-    <input type="text" placeholder="Project description" id="ProjectDescription!">
+    <input type="text" placeholder="Project description" id="projectDescription!">
+    </div>
+
+    <div>
+    <li>Upload Project picture</li>
+    <input type="file">
     </div>
 
     <div>
