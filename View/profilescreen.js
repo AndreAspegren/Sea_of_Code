@@ -13,8 +13,8 @@ function profileScreen(){
             </div>
             <div class="profile-option">
                 <div class="notification">
-                    <i class="fa fa bell">🔔</i>
-                    <span class="alert-message"></span>
+                    <i class="fa fa-bell">🔔</i>
+                    <span class="alert-message">1</span>
                 </div>
             </div>
         </div>
@@ -26,6 +26,14 @@ function profileScreen(){
                     <div class="user-bio">
                         <p class="bio"></p>
                     </div>
+                    <div class="profile-btn">
+                        <button class="chatbtn">
+                        <i class="fa fa-comment"></i> 🗨Chat 
+                        </button>
+                        <button class="createbtn">
+                        <i class="fa fa-plus"></i> 	➕Create
+                        </button>
+                    </div>
                     <div class="user-socialmedia">
                         <p class="socialmedia"></p>
                     </div>
@@ -34,9 +42,9 @@ function profileScreen(){
             <div class="right-side">
                 <div class="nav">
                     <ul>
-                        <li onclick="tabs(0)" class="user-post active"></li>
-                        <li onclick="tabs(1)" class="user-uploads"></li>
-                        <li onclick="tabs(2)" class="user-setting"></li>
+                        <li onclick="tabs(0)" class="user-post active">Friends</li>
+                        <li onclick="tabs(1)" class="user-uploads">Uploads</li>
+                        <li onclick="tabs(2)" class="user-setting">Settings</li>
                     </ul>
                 </div>
                 <div class="profile-body">
