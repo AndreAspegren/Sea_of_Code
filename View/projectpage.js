@@ -23,7 +23,7 @@ function projectpage(key, num){
 function genpageturn(key){
     pages = ''
     for (let i = 0; i < model.data.projects[key].files.length; i++){
-       pages += /*HTML*/`<button onclick="projectpage(${key}, ${i})">${i}</button>`
+       pages += /*HTML*/`<button id="projectbuttons" onclick="projectpage(${key}, ${i})">${i}</button>`
     }
     return pages
 }
