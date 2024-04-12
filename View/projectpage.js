@@ -8,9 +8,8 @@ function projectpage(key, num){
 
     <div id="project">
     <div>${model.data.projects[key].files[(num ? num : 0)].content}</div>
-    <div id="projectbuttons">${genpageturn(key)}</div>
     </div>
-
+    ${genpageturn(key)}
 
     <div id="comments">
     <div>${gencomments(key)} </div>
@@ -31,12 +30,12 @@ function genpageturn(key){
 
 function gencomments(key){
     comments = ''
-    console.log(model.data.users[model.data.projects[key].comments.comment.from].profilePicure)
     for (let i = 0; i < model.data.projects[key].comments.length; i++){
         comments += /*HTML*/`
-        
+        <img src="${model.data.users[model.data.projects[key].comments[0].from].profilePicure}">
         <div>${model.data.projects[key].comments[i].comment}</div>`
      }
      return comments
 }
 
+// 
