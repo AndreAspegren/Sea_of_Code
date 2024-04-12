@@ -45,7 +45,7 @@ function gennonadminlist(){
         if (!model.data.adminpanel.users.includes(model.data.users[key].id)){
             console.log(key)
             list += /*HTML*/`
-            <div id="nonadmincard" onclick="profileScreen(${key})">
+            <div id="nonadmincard">
             <div>
             <div>${model.data.users[key].username}</div>
             <div>${model.data.users[key].projects.length} prosjekter</div>
