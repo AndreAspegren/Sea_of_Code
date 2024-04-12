@@ -16,17 +16,17 @@ ${userList()}
 
     <div>
     <li>Project name</li>
-    <input type="text" onchange="${model.input.projects.name = this.value}" placeholder="Project name" id="projectName">
+    <input type="text" onchange="model.input.projects.name = this.value" placeholder="Project name" id="projectName">
     </div>
 
     <div>
     <li>Project description</li>
-    <input type="text" onchange="${model.input.projects.description = this.value}" style="width: 30vh; height: 15vh;" placeholder="Project description" id="projectDescription">
+    <input type="text" onchange="model.input.projects.description = this.value" style="width: 30vh; height: 15vh;" placeholder="Project description" id="projectDescription">
     </div>
 
     <div>
     <li>Upload Project picture</li>
-    <input onchange="${model.input.projects.picture}" type="url" placeholder="url">
+    <input onchange="model.input.projects.picture = this.value" type="url" placeholder="url">
     </div>
 
     <div>
@@ -35,7 +35,7 @@ ${userList()}
     </div>
 
     <div>
-    <button onclick="sendProjectInfo(event, 'project')">Upload project</button>
+    <button onclick="sendProjectInfo()">Upload project</button>
     </div>
 
 </div>
@@ -44,6 +44,8 @@ ${userList()}
 <button onclick="darkmode()" id="darkmode">darkmode</button>
     `;
 }
+
+
 
 function userList() {
     let usersList = '';

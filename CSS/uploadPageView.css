@@ -20,10 +20,6 @@ float: right;
     justify-content: center;
 }
 ❌
-#projectDescription, .projectName{
-    width: 30vh; 
-    height: 15vh;
-}
 
 .darkMode {
     float: right;

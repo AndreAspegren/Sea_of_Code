@@ -38,6 +38,7 @@ const model = {
                 name: "",
                 description: '',
                 author: null,
+                picture: null,
                 files: [
                     {
                         id: null,
