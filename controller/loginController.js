@@ -14,7 +14,7 @@ function login() {
 
 function findUser(username, password) {
     for (let user of model.data.users) {
-        if (user.username === username && user.passwordOne === password) {
+        if (user.id === id && user.passwordOne === password) {
             return user;
         }
     }
