@@ -170,6 +170,14 @@ const model = {
                         content: 'code',
                         language: 'Javascript',
                         percentEachLanguage: {},
+                    },
+                    {
+                        id: 0,
+                        name: 'View.js',
+                        picture: 'url',
+                        content: 'code',
+                        language: 'Javascript',
+                        percentEachLanguage: {},
                     }
                 ],
                 comments: [

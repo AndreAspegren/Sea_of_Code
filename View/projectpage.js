@@ -8,11 +8,9 @@ function projectpage(key){
     </div>
 
     <div id="project">
-    <div>${model.data.projects[key].files[0].content}</div>
+    <div>${changefiles()}</div>
     </div>
-    <button>page 1</button>
-    <button>page 2</button>
-    <button>page 3</button>
+    ${genpageturn(key)}
 
     <div id="comments">
     <div>${model.data.projects[key].comments[0].comment} </div>
@@ -23,4 +21,14 @@ function projectpage(key){
     `
 }
 
+function changefiles(){
+    return model.data.projects[key].files[0].content
+}
 
+function genpageturn(key){
+    pages = ''
+    for (let i = 0; i < model.data.projects[key].files.length; i++){
+       pages += /*HTML*/`<button onclick="turnpage(${i})">${i}</button>`
+    }
+    return pages
+}
