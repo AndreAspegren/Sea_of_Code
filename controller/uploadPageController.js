@@ -4,6 +4,7 @@ const projectName = document.getElementById('projectName!').value;
 const projectDescription = document.getElementById('projectDescription!').value;
 
 function sendProjectInfo(){
+console.log('hei')
     for(let i in model.input.projects){
     projectName = model.input.projects[i].name;
     projectDescription = model.input.projects[i].description;
