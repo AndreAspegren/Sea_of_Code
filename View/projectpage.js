@@ -8,8 +8,9 @@ function projectpage(key, num){
 
     <div id="project">
     <div>${model.data.projects[key].files[(num ? num : 0)].content}</div>
+    <div id="projectbuttons">${genpageturn(key)}</div>
     </div>
-    ${genpageturn(key)}
+
 
     <div id="comments">
     <div>${gencomments(key)} </div>
