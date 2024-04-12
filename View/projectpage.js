@@ -8,10 +8,7 @@ function projectpage(key, num){
 
     <div id="project">
     <div>${model.data.projects[key].files[(num ? num : 0)].content}</div>
-<<<<<<< HEAD
-=======
     <div id="projectbuttons-container">${genpageturn(key)}</div>
->>>>>>> 533f716ce9dd16b0cd2c0ad454df8e18aaae0cc6
     </div>
     ${genpageturn(key)}
 
@@ -41,5 +38,3 @@ function gencomments(key){
      }
      return comments
 }
-
-// 
