@@ -28,11 +28,15 @@
     border: 2px solid black;
 }
 
-#nonadmincard{
-    width: 26vh;
-    height: 8vh;
-    display:flex;
+#nonadminlist {
+    position: relative;
+    top: 12;
+    right: 155;
+    width: 10vh;
+    height: 80vh;
+    padding: 10px; 
+
     border: 2px solid black;
-    justify-content: center;
-    align-items: center;
+    border-radius: 25px;
+    overflow-y: auto;
 }
