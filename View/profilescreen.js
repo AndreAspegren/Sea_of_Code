@@ -24,7 +24,8 @@ function profileScreen(){
                     <p class="mobile-no"><i class="fa fa-phone">📞</i></p>
                     <p class="user-mail"><i class="fa fa-envelope">📧</i></p>
                     <div class="user-bio">
-                        <p class="bio"></p>
+                        <h3>Bio</h3>
+                        <p class="bio">No bio</p>
                     </div>
                     <div class="profile-btn">
                         <button class="chatbtn">
