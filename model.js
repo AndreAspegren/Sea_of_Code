@@ -1,7 +1,4 @@
 const app = document.getElementById('app')
-const yarr = new Audio('img/yohooo')
-yarr.play()
-yarr.volume = 0.12
 const model = {
     app: {
         userID: null,
@@ -173,14 +170,31 @@ const model = {
                         content: 'code',
                         language: 'Javascript',
                         percentEachLanguage: {},
+                    },
+                    {
+                        id: 0,
+                        name: 'View.js',
+                        picture: 'url',
+                        content: 'yaaaaaaaaaaaaaaaaa',
+                        language: 'Javascript',
+                        percentEachLanguage: {},
                     }
                 ],
                 comments: [
                     {
-                        userID: 1,
                         from: 0,
-                        dateSent: '05-05-2024',
+                        dateSent: '02-05-2024',
                         comment: 'blah'
+                    },
+                    {
+                        from: 1,
+                        dateSent: '05-05-1900',
+                        comment: 'sdfgjsdfgsd'
+                    },
+                    {
+                        from: 2,
+                        dateSent: '10-05-2023',
+                        comment: 'yo'
                     }
                 ],
             },
@@ -215,7 +229,7 @@ const model = {
             {
                 id: 2,
                 approved: true,
-                name: "BJarneman",
+                name: "Bjarneman",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
@@ -243,7 +257,7 @@ const model = {
             {
                 id: 3,
                 approved: false,
-                name: "Ikke godkjent",
+                name: "Lego hus i Javascript",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'kek',
