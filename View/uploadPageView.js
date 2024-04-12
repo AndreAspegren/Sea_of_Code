@@ -31,7 +31,7 @@ ${userList()}
 
     <div>
     <li>Upload files</li>
-    <input onclick="sendProjectInfo(event, 'picture')" type="file">
+    <input  type="file">
     </div>
 
     <div>

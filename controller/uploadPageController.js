@@ -4,14 +4,14 @@
 // const projectDescription = document.getElementById('projectDescription').value;
 
 function sendProjectInfo(){
- model.data.users[model.app.userID].projects.push(
+ model.data.projects.push(
     {
         id: model.data.users[model.app.userID].projects.length,
         approved: false,
         name: model.input.name,
         lastUpdated: new Date().toISOString(),
         dateCreated: new Date().toISOString(),
-        description: model.input.description,
+        description: model.input.projects.description,
         author: model.app.userID,
         picture: model.input.projects.picture,
         files: [],
