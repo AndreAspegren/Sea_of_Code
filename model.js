@@ -1,7 +1,4 @@
 const app = document.getElementById('app')
-const yarr = new Audio('img/yohooo')
-yarr.play()
-yarr.volume = 0.12
 const model = {
     app: {
         userID: null,
@@ -215,7 +212,7 @@ const model = {
             {
                 id: 2,
                 approved: true,
-                name: "BJarneman",
+                name: "Bjarneman",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
@@ -243,7 +240,7 @@ const model = {
             {
                 id: 3,
                 approved: false,
-                name: "Ikke godkjent",
+                name: "Lego hus i Javascript",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'kek',

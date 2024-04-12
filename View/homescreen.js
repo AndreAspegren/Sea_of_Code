@@ -1,4 +1,7 @@
 homescreen()
+const yarr = new Audio('img/yohooo')
+yarr.volume = 0.12
+yarr.play()
 function homescreen(){
     app.innerHTML = /*HTML*/`
     <div id="userlist"><div>${genuserlist()}</div></div>
