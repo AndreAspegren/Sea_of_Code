@@ -1,5 +1,5 @@
 const app = document.getElementById('app')
-const yarr = new Audio('img/piratmusic.mp3')
+const yarr = new Audio('img/piratemusic.mp3')
 yarr.play()
 yarr.volume = 0.3
 yarr.loop = true
