@@ -4,9 +4,9 @@ function adminpanel() {
     ${adminprojects()}
     </div>
     <div id="nonadminlist">${gennonadminlist()}</div>
-    <div id="btnofdoom"></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
+    <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
 }
 
