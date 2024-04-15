@@ -25,18 +25,18 @@
     top: 12%;
     right: 102%;
     width: 27vh;
-    height: 81vh; 
+    height: 81vh;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); 
     border: 2px solid black;
 }
 
-#nonadminlist {
-    position: relative;
+#nonadmincard{
     top: 12;
     right: 155;
     width: 10vh;
     height: 80vh;
     padding: 10px; 
-
     border: 2px solid black;
     border-radius: 25px;
     overflow-y: auto;

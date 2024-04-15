@@ -14,8 +14,9 @@ function homescreen(){
     `
 }
 
-function updateview(newview) {
-    newview ? (model.app.currentView = newview, window[newview]()) : window[model.app.currentView]()
+function updateview(newview, key) {
+    console.log(newview)
+    newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 
 model.data.users
@@ -59,7 +60,7 @@ function genuserlist(){
     userlist = ''
     for (let key in model.data.users){
         userlist += /*HTML*/`
-        <div id="usercard" onclick="profileScreen(${key})">
+        <div id="usercard" onclick="updateview('profileScreen', ${key})">
         <div>
         <div>${model.data.users[key].username}</div>
         <div>${model.data.users[key].projects.length} prosjekter</div>

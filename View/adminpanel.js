@@ -49,7 +49,15 @@ function gennonadminlist(){
             console.log('hei')
             list += /*HTML*/`
             <div id="nonadmincard">
-            hei
+            <div>
+            <div>${model.data.users[key].username}</div>
+            <div>${model.data.users[key].projects.length} prosjekter</div>
+            <div>${model.data.users[key].friends.length} venner</div>
+            </div>
+            <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
+            <div>
+            <button onclick="makeadmin(${key})">Gi adminmakt🔨</button>
+            </div></div>
             </div>
             `
         }

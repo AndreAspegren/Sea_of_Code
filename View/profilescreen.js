@@ -1,5 +1,6 @@
 function profileScreen(key){
     const user = model.data.users[key != undefined ? key : model.app.userID]
+    model.app.currenprofile = user.id
     app.innerHTML = /*HTML*/`
     <div id="profileScreen">
     <div class="container">
@@ -68,14 +69,14 @@ function profileScreen(key){
     </div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
-    ${model.app.loggedIn && key != undefined ? /*HTML*/`<button onclick="addfriend(user.id)">Legg til venn</button>` :
-    [key].includes(model.data.friends) ? '<button">Dere er allerede venner</button>' : ''}
+    ${model.app.loggedIn && key != model.app.userID ? /*HTML*/`<button onclick="addfriend(${user.id})">Legg til venn</button>` :
+    [key].includes(model.data.users[model.app.currenprofile].friends) ? '<button">Dere er allerede venner</button>' : ''}
 `
 }
 
 function addfriend(key){
-    console.log(key)
     model.data.users[key].friends.push(key)
+    updateview()
 }
 
 function getLoggedInUser() {
