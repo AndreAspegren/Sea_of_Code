@@ -37,11 +37,8 @@ const model = {
         ],
         projects: [
             {
-                id: null,
-                approved: false,
                 name: "",
                 description: '',
-                author: null,
                 picture: null,
                 files: [
                     {
@@ -51,7 +48,6 @@ const model = {
                         percentEachLanguage: {},
                     }
                 ],
-                comments: [],
             }
         ],
         userActivity: {
