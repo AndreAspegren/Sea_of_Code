@@ -46,7 +46,6 @@ function gennonadminlist(){
     let list = ''
     for (let key in model.data.users){
         if (!model.data.adminpanel.users.includes(model.data.users[key].id)){
-            console.log('hei')
             list += /*HTML*/`
             <div id="nonadmincard">
             <div>

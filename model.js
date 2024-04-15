@@ -9,6 +9,7 @@ const model = {
         currentView: 'homescreen',
         darkmode: false,
         loggedIn: false,
+        currenprofile: false,
     },
     input: {       
         login: {
@@ -106,7 +107,7 @@ const model = {
                 profilePicure: 'https://upload.wikimedia.org/wikipedia/commons/1/14/Bjarne_H%C3%A5kon_Hanssen_2005-10-17.jpg',
                 phoneNr: 12345678,
                 age: 60,
-                projects: [],
+                projects: [0],
                 bio: "i like turtles",
                 country: "Cuba",
                 github: 'url',

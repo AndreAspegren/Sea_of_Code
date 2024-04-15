@@ -69,14 +69,21 @@ function profileScreen(key){
     </div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
-    ${model.app.loggedIn && key != model.app.userID ? /*HTML*/`<button onclick="addfriend(${user.id})">Legg til venn</button>` :
-    [key].includes(model.data.users[model.app.currenprofile].friends) ? '<button">Dere er allerede venner</button>' : ''}
+    ${genfriendbtn(key, user)}
 `
 }
 
+function genfriendbtn(key, user){
+    if (!model.app.loggedIn) return ''
+    if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`
+    if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>'
+    return ''
+}
+
 function addfriend(key){
-    model.data.users[key].friends.push(key)
-    updateview()
+    console.log(key)
+    model.data.users[model.app.userID].friends.push(key)
+    updateview('profileScreen', key)
 }
 
 function getLoggedInUser() {
