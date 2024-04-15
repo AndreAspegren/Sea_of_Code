@@ -1,8 +1,4 @@
 #admin{
-    position: absolute;
-    top: 5%;
-    left: 55%;
-    transform: translateX(-50%);
     width: 80vh;
     height: 92vh; 
     border: 2px solid black;
@@ -14,30 +10,21 @@
 #admincard{
     display: flex;
     align-items: center;
-    width: 78vh;
+    width: 80vh;
     height: 8vh;
     column-gap: 15vh;
     border: 2px solid black;
 }
 
 #nonadminlist{
-    position: absolute;
-    top: 12%;
-    right: 102%;
-    width: 27vh;
-    height: 81vh;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr); 
+    display: flex;
+    flex-direction: column;
     border: 2px solid black;
 }
 
-#nonadmincard{
-    top: 12;
-    right: 155;
-    width: 10vh;
-    height: 80vh;
-    padding: 10px; 
-    border: 2px solid black;
-    border-radius: 25px;
-    overflow-y: auto;
+
+#mainDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
