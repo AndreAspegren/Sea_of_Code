@@ -9,7 +9,8 @@ const model = {
         currentView: 'homescreen',
         darkmode: false,
         loggedIn: false,
-        currenprofile: false,
+        currentprofile: false,
+        currentprofiletab: null,
     },
     input: {       
         login: {
@@ -96,6 +97,7 @@ const model = {
         //         content: 'hei på deg'
         //      }
         // ],
+        friends: [],
         users: [
             {
                 id: 0,
@@ -112,7 +114,7 @@ const model = {
                 country: "Cuba",
                 github: 'url',
                 linkedIn: 'url',
-                friends: [],
+                friends: [1],
             },
             {
                 id: 1,
@@ -129,7 +131,7 @@ const model = {
                 country: "Cuba",
                 github: 'url',
                 linkedIn: 'url',
-                friends: [],
+                friends: [0],
             },
             {
                 id: 2,

@@ -23,8 +23,9 @@
 #nonadminlist{
     position: absolute;
     top: 12%;
-    right: 102%;
+    left: 20%;
     width: 27vh;
+    transform: translateX(-50%);
     height: 81vh;
     display: grid;
     grid-template-columns: repeat(1, 1fr); 

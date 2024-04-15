@@ -1,6 +1,6 @@
 function profileScreen(key){
     const user = model.data.users[key != undefined ? key : model.app.userID]
-    model.app.currenprofile = user.id
+    model.app.currentprofile = user.id
     app.innerHTML = /*HTML*/`
     <div id="profileScreen">
     <div class="container">
@@ -11,10 +11,6 @@ function profileScreen(key){
             </div>
             <div class="profile-nav-info">
                 <h3 class="user-name">${user.username}</h3>
-            </div>
-            <div class="address">
-                <p class="state"></p>
-                <span class="country"></span>
             </div>
             <div class="profile-option">
                 <div class="notification">
@@ -48,9 +44,9 @@ function profileScreen(key){
             <div class="right-side">
                 <div class="nav">
                     <ul>
-                        <li onclick="tabs(0)" class="user-post active">Friends</li>
-                        <li onclick="tabs(1)" class="user-uploads">Uploads</li>
-                        <li onclick="tabs(2)" class="user-setting">Settings</li>
+                        <li onclick="model.app.currentprofiletab = 'friends'; tabs(0);" class="user-post active">Friends</li>
+                        <li onclick="model.app.currentprofiletab = 'uploads'; tabs(1);" class="user-uploads">Uploads</li>
+                        <li onclick="model.app.currentprofiletab = 'settings'; tabs(2);" class="user-setting">Settings</li>
                     </ul>
                 </div>
                 <div class="profile-body">
@@ -72,20 +68,25 @@ function profileScreen(key){
     </div>
     </div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
-    ${genfriendbtn(key, user)}
+    <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
+    <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
+    ${model.app.currentprofiletab = 'friends' ? genfriendlist(key) ?? '' : ''}
+    ${model.app.currentprofiletab = 'uploads' ? genuploads(key) ?? '' : ''}
+    ${model.app.currentprofiletab = 'settings' ? settings(key) ?? '' : ''}
 `
 }
 
 function genfriendbtn(key, user){
-    if (!model.app.loggedIn) return ''
     if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`
     if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>'
     return ''
 }
 
+function genfriendlist(key){
+
+}
+
 function addfriend(key){
-    console.log(key)
     model.data.users[model.app.userID].friends.push(key)
     updateview('profileScreen', key)
 }
