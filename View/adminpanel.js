@@ -1,11 +1,13 @@
 function adminpanel() {
     app.innerHTML = /*HTML*/`
+    <div id="mainDiv">
     <div id="admin">
     ${adminprojects()}
     </div>
     <div id="nonadminlist">${gennonadminlist()}</div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
+    </div>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
 }
@@ -43,11 +45,13 @@ function hammertime(key, approved) {
 }
 
 function gennonadminlist() {
-    let list = ''
+    let list = '';
+    let number = 0;
     for (let key in model.data.users) {
         if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {
+    console.log("generer:", number,  model.data.users[key].username);        
             list += /*HTML*/`
-            <div id="nonadmincard">
+            <div id="nonadmincard" class="nonadmincard">
             <div>
             <div>${model.data.users[key].username}</div>
             <div>${model.data.users[key].projects.length} prosjekter</div>
@@ -56,12 +60,14 @@ function gennonadminlist() {
             <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
             <div>
             <button onclick="makeadmin(${key})">Gi adminmakt🔨</button>
-            </div></div>
             </div>
             `
         }
+        number++;
     }
+    console.log(list)
     return list
+    
 }
 
 function makeadmin(key) {

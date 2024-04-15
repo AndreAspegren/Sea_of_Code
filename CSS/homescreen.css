@@ -123,9 +123,12 @@ img{
     width: 10vh;
     height: 5vh;
 }
+<<<<<<< HEAD
 
 body{
     background-image: url('img/background.jpg');
     min-height: 100vh; 
     background-size: cover;
 }
+=======
+>>>>>>> a583de54ee7fc92824b31c4b83f9c7a8418aaf8a
