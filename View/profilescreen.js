@@ -2,6 +2,7 @@ function profileScreen(key) {
     const user = model.data.users[key == undefined ? model.app.userID : key]
     model.app.currentprofile = user.id
     app.innerHTML = /*HTML*/`
+    <img  onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
     <div id="profileScreen">
     <div class="container">
         <div class="profile-header">
@@ -68,7 +69,6 @@ function profileScreen(key) {
     </div>
     </div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
     <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
     <div id="tablist">
     ${model.app.currentprofiletab == 'friends' ? genfriendlist(key) : ''}
