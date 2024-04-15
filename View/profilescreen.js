@@ -23,8 +23,8 @@ function profileScreen(key) {
         <div class="main-bd">
             <div class="left-side">
                 <div class="profile-side">
-                    <p class="mobile-no"><i class="fa fa-phone">📞</i></p>
-                    <p class="user-mail"><i class="fa fa-envelope">📧</i></p>
+                    <p class="mobile-no"><i class="fa fa-phone">📞</i>${user.phoneNr}</p>
+                    <p class="user-mail"><i class="fa fa-envelope">📧</i>${user.eMail}</p>
                     <div class="user-bio">
                         <h3>Bio</h3>
                         <p class="bio">${user.bio}</p>
