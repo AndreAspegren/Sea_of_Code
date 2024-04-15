@@ -1,5 +1,5 @@
-function profileScreen(id){
-    const user = model.data.users[id]
+function profileScreen(key){
+    const user = model.data.users[key != undefined ? key : model.app.userID]
     app.innerHTML = /*HTML*/`
     <div id="profileScreen">
     <div class="container">
