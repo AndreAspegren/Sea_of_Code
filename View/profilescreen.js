@@ -10,7 +10,7 @@ function profileScreen(key) {
                 alt="">
             </div>
             <div class="profile-nav-info">
-                <h3 class="user-name">${user.username}</h3>
+                <h3 class="user-name">${model.data.users[key].username}</h3>
             </div>
             <div class="profile-option">
                 <div class="notification">
@@ -26,7 +26,7 @@ function profileScreen(key) {
                     <p class="user-mail"><i class="fa fa-envelope">📧</i></p>
                     <div class="user-bio">
                         <h3>Bio</h3>
-                        <p class="bio">No bio</p>
+                        <p class="bio">${model.data.users[key].bio}</p>
                     </div>
                     <div class="profile-btn">
                         <button class="chatbtn">
