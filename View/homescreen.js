@@ -11,12 +11,16 @@ function homescreen(){
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <button onclick="updateview('adminpanel')" id="adminbutton">adminpanel</button>
+    <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
 }
 
 function updateview(newview, key) {
-    console.log(newview)
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
+}
+
+function mutebtn(){
+    yarr.paused ? yarr.play() : yarr.pause() 
 }
 
 model.data.users

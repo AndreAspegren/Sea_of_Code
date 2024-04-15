@@ -27,6 +27,7 @@ function registerUser(){
     </div>
     <button id="darkmode" onclick="darkmode()">Dark mode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
+    <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
 ;
 }
