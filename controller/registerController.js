@@ -14,7 +14,7 @@ function userRegister() {
         createAccount.profilePicure = URL.createObjectURL(profilePictureFile);
     }
   
-createAccount.id = model.data.users.length + 1;
+createAccount.id = model.data.users.length;
 const newUser = {...createAccount};
 model.data.users.push(newUser);
 updateview('logInscreen');

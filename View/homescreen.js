@@ -44,9 +44,9 @@ function genprojectlist(){
 }
 
 function darkmode() {
-    const mode = !model.app.darkmode ? ['white', 'gray', true] : ['black', 'white', false]
-    app.style.color = mode[0]
-    app.style.backgroundColor = mode[1]
+    const mode = model.app.darkmode ? ['white', 'black', false] : ['gray', 'white', true]
+    app.style.backgroundColor = mode[0]
+    app.style.color = mode[1]
     model.app.darkmode = mode[2]
 }
 

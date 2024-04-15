@@ -1,6 +1,6 @@
 function profileScreen(key) {
-    const user = model.data.users[key == undefined ? model.app.userID : key]
-    model.app.currentprofile = user.id
+    if (key != undefined) model.app.currentprofile = key
+    const user = model.data.users[key == undefined ? model.app.currentprofile : key]
     app.innerHTML = /*HTML*/`
     <div id="profileScreen">
     <div class="container">
@@ -44,9 +44,9 @@ function profileScreen(key) {
             <div class="right-side">
                 <div class="nav">
                     <ul>
-                        <li onclick="model.app.currentprofiletab = 'friends'; updateview('profileScreen', ${key})" class="user-post active">Friends</li>
-                        <li onclick="model.app.currentprofiletab = 'uploads'; updateview('profileScreen', ${key})" class="user-uploads">Uploads</li>
-                        <li onclick="model.app.currentprofiletab = 'settings'; updateview('profileScreen', ${key})" class="user-setting">Settings</li>
+                        <li onclick="model.app.currentprofiletab = 'friends'; updateview()" class="user-post active">Friends</li>
+                        <li onclick="model.app.currentprofiletab = 'uploads'; updateview()" class="user-uploads">Uploads</li>
+                        <li onclick="model.app.currentprofiletab = 'settings'; updateview()" class="user-setting">Settings</li>
                     </ul>
                 </div>
                 <div class="profile-body">
@@ -71,9 +71,9 @@ function profileScreen(key) {
     <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
     <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
     <div id="tablist">
-    ${model.app.currentprofiletab == 'friends' ? genfriendlist(key) : ''}
-    ${model.app.currentprofiletab == 'uploads' ? genuploads(key) : ''}
-    ${model.app.currentprofiletab == 'settings' ? gensettings(key) : ''}
+    ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
+    ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
+    ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
     </div>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
@@ -94,7 +94,7 @@ function genfriendlist(key) {
     let friends = ''
     for (let i = 0; i < model.data.users[key].friends.length; i++) {
         friends += /*HTML*/`
-        <div id="usercard" onclick="updateview('profileScreen', ${key})">
+        <div id="friendcards" onclick="updateview('profileScreen', ${key})">
         <div>
         <div>${model.data.users[key].username}</div>
         <div>${model.data.users[key].projects.length} prosjekter</div>
