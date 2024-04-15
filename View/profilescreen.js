@@ -1,4 +1,4 @@
-function profileScreen(key){
+function profileScreen(key) {
     const user = model.data.users[key != undefined ? key : model.app.userID]
     model.app.currentprofile = user.id
     app.innerHTML = /*HTML*/`
@@ -72,21 +72,29 @@ function profileScreen(key){
     <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
     ${model.app.currentprofiletab = 'friends' ? genfriendlist(key) ?? '' : ''}
     ${model.app.currentprofiletab = 'uploads' ? genuploads(key) ?? '' : ''}
-    ${model.app.currentprofiletab = 'settings' ? settings(key) ?? '' : ''}
+    ${model.app.currentprofiletab = 'settings' ? gensettings(key) ?? '' : ''}
 `
 }
 
-function genfriendbtn(key, user){
+function genfriendbtn(key, user) {
     if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`
     if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>'
     return ''
 }
 
-function genfriendlist(key){
+function gensettings(key) {
 
 }
 
-function addfriend(key){
+function genuploads(key) {
+
+}
+
+function genfriendlist(key) {
+
+}
+
+function addfriend(key) {
     model.data.users[model.app.userID].friends.push(key)
     updateview('profileScreen', key)
 }
