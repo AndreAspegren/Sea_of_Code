@@ -9,7 +9,8 @@ const model = {
         currentView: 'homescreen',
         darkmode: false,
         loggedIn: false,
-        currenprofile: false,
+        currentprofile: false,
+        currentprofiletab: null,
     },
     input: {       
         login: {
@@ -96,6 +97,7 @@ const model = {
         //         content: 'hei på deg'
         //      }
         // ],
+        friends: [],
         users: [
             {
                 id: 0,
@@ -108,11 +110,11 @@ const model = {
                 phoneNr: 12345678,
                 age: 60,
                 projects: [0],
-                bio: "i like turtles",
+                bio: "i am Bjarne",
                 country: "Cuba",
                 github: 'url',
                 linkedIn: 'url',
-                friends: [],
+                friends: [1],
             },
             {
                 id: 1,
@@ -125,11 +127,11 @@ const model = {
                 phoneNr: 12345678,
                 age: 60,
                 projects: [],
-                bio: "i like turtles",
+                bio: "i am Anita",
                 country: "Cuba",
                 github: 'url',
                 linkedIn: 'url',
-                friends: [],
+                friends: [0],
             },
             {
                 id: 2,
@@ -142,7 +144,7 @@ const model = {
                 phoneNr: 12345678,
                 age: 60,
                 projects: [],
-                bio: "i like turtles",
+                bio: "i am Per",
                 country: "Cuba",
                 github: 'url',
                 linkedIn: 'url',
