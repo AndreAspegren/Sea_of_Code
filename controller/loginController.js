@@ -14,10 +14,12 @@ function login() {
 
 function findUser(username, password) {
     for (let user of model.data.users) {
+        console.log(`Checking user: ${user.username}, Password: ${user.passwordOne}`);
         if (user.username === username && user.passwordOne === password) {
+            console.log(`Found user: ${user.username}`);
             return user;
         }
     }
-
+    console.log('User not found');
     return null;
 }
