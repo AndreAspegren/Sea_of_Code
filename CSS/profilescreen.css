@@ -182,6 +182,10 @@ button.createbtn i {
    text-align: center;
    display: none;
 }
-
-
+#see-more-bio,
+#see-less-bio {
+   color: blue;
+   cursor: pointer;
+   text-transform: lowercase;
+}
 

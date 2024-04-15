@@ -12,6 +12,10 @@ function profileScreen(key){
             <div class="profile-nav-info">
                 <h3 class="user-name">${user.username}</h3>
             </div>
+            <div class="address">
+                <p class="state"></p>
+                <span class="country"></span>
+            </div>
             <div class="profile-option">
                 <div class="notification">
                     <i class="fa fa-bell">🔔</i>
