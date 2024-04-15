@@ -3,7 +3,7 @@ function adminpanel() {
     <div id="admin">
     ${adminprojects()}
     </div>
-    <div id="nonadminlist"><div>${gennonadminlist()}</div></div>
+    <div id="nonadminlist">${gennonadminlist()}</div>
     <div id="btnofdoom"></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
@@ -35,17 +35,17 @@ function adminprojects() {
         }
     }
     return projects
-} 
+}
 
-function hammertime(key, approved){
+function hammertime(key, approved) {
     approved ? model.data.projects[key]['approved'] = true : model.data.projects.splice(key, 1)
     updateview()
 }
 
-function gennonadminlist(){
+function gennonadminlist() {
     let list = ''
-    for (let key in model.data.users){
-        if (!model.data.adminpanel.users.includes(model.data.users[key].id)){
+    for (let key in model.data.users) {
+        if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {
             list += /*HTML*/`
             <div id="nonadmincard">
             <div>
@@ -64,7 +64,7 @@ function gennonadminlist(){
     return list
 }
 
-function makeadmin(key){
+function makeadmin(key) {
     model.data.adminpanel.users.push(key)
     updateview()
 }
