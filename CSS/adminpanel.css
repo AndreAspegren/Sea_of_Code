@@ -6,7 +6,8 @@
     width: 80vh;
     height: 92vh; 
     border: 2px solid black;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     justify-content: center;
 }
 

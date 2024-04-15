@@ -68,8 +68,14 @@ function profileScreen(key){
     </div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
-    <button onclick="addfriend()">Legg til venn</button>
+    ${model.app.loggedIn && key != undefined ? /*HTML*/`<button onclick="addfriend(user.id)">Legg til venn</button>` :
+    [key].includes(model.data.friends) ? '<button">Dere er allerede venner</button>' : ''}
 `
+}
+
+function addfriend(key){
+    console.log(key)
+    model.data.users[key].friends.push(key)
 }
 
 function getLoggedInUser() {
