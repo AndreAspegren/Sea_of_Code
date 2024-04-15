@@ -14,9 +14,10 @@ function homescreen(){
     `
 }
 
-function updateview(view) {
-    view ? (model.app.currentView = view, window[view]()) : window[model.app.currentView]()
+function updateview(newview) {
+    newview ? (model.app.currentView = newview, window[newview]()) : window[model.app.currentView]()
 }
+
 model.data.users
 function genprojectlist(){
     userlist = ''
@@ -38,7 +39,7 @@ function genprojectlist(){
 }
 
 function darkmode() {
-    mode = !model.app.darkmode ? ['white', 'gray', true] : ['black', 'white', false]
+    const mode = !model.app.darkmode ? ['white', 'gray', true] : ['black', 'white', false]
     app.style.color = mode[0]
     app.style.backgroundColor = mode[1]
     model.app.darkmode = mode[2]
