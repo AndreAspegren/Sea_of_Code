@@ -18,6 +18,7 @@ function projectpage(key, num){
     
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
+    <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
 }
 

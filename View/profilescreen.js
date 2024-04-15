@@ -1,4 +1,5 @@
 function profileScreen(key) {
+    console.log(key)
     const user = model.data.users[key != undefined ? key : model.app.userID]
     model.app.currentprofile = user.id
     app.innerHTML = /*HTML*/`
@@ -10,7 +11,7 @@ function profileScreen(key) {
                 alt="">
             </div>
             <div class="profile-nav-info">
-                <h3 class="user-name">${model.data.users[key].username}</h3>
+                <h3 class="user-name">${user.username}</h3>
             </div>
             <div class="profile-option">
                 <div class="notification">
@@ -26,7 +27,7 @@ function profileScreen(key) {
                     <p class="user-mail"><i class="fa fa-envelope">📧</i></p>
                     <div class="user-bio">
                         <h3>Bio</h3>
-                        <p class="bio">${model.data.users[key].bio}</p>
+                        <p class="bio">No bio</p>
                     </div>
                     <div class="profile-btn">
                         <button class="chatbtn">
@@ -44,9 +45,9 @@ function profileScreen(key) {
             <div class="right-side">
                 <div class="nav">
                     <ul>
-                        <li onclick="model.app.currentprofiletab = 'friends'; tabs(0);" class="user-post active">Friends</li>
-                        <li onclick="model.app.currentprofiletab = 'uploads'; tabs(1);" class="user-uploads">Uploads</li>
-                        <li onclick="model.app.currentprofiletab = 'settings'; tabs(2);" class="user-setting">Settings</li>
+                        <li onclick="model.app.currentprofiletab = 'friends'; (genfriendlist(key), updateview('profileScreen', key))" class="user-post active">Friends</li>
+                        <li onclick="model.app.currentprofiletab = 'uploads'; (genuploads(key), updateview('profileScreen', key))" class="user-uploads">Uploads</li>
+                        <li onclick="model.app.currentprofiletab = 'settings'; (gensettings(key), updateview('profileScreen', key))" class="user-setting">Settings</li>
                     </ul>
                 </div>
                 <div class="profile-body">
@@ -70,9 +71,9 @@ function profileScreen(key) {
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
     <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
-    ${model.app.currentprofiletab = 'friends' ? genfriendlist(key) ?? '' : ''}
-    ${model.app.currentprofiletab = 'uploads' ? genuploads(key) ?? '' : ''}
-    ${model.app.currentprofiletab = 'settings' ? gensettings(key) ?? '' : ''}
+    <div id="tablist">
+    </div>
+    <button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
 }
 
@@ -82,16 +83,23 @@ function genfriendbtn(key, user) {
     return ''
 }
 
-function gensettings(key) {
-
-}
 
 function genuploads(key) {
-
+    return 'hei'
 }
 
 function genfriendlist(key) {
+    return 'på'
+    const friends = ''
+    for (let i = 0; i > model.data.users[key].friends.length; i++) {
+        friends += /*HTML*/`
+        
+        `
+    }
+}
 
+function gensettings(key) {
+    return 'deg'
 }
 
 function addfriend(key) {

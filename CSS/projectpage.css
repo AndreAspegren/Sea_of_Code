@@ -1,37 +1,40 @@
-#project, #projectinfo, #comments{
+#project,
+#projectinfo,
+#comments,
+#tablist {
     position: absolute;
     transform: (translateX(-50%));
     border: 2px solid black;
 }
 
-#project{
+#project {
     top: 30%;
     left: 15%;
     width: 70vh;
     height: 60vh;
 }
 
-#projectinfo{
+#projectinfo {
     top: 15%;
     left: 15%;
     width: 70vh;
     height: 10vh;
 }
 
-#comments{
+#comments {
     top: 15%;
     right: 5%;
     width: 30vh;
     height: 74.5vh;
 }
 
-#projectbuttons-container{
-    position:absolute;
+#projectbuttons-container {
+    position: absolute;
     left: 50%;
     bottom: -50px;
     transform: translateX(-50%);
 }
 
-#projectbuttons{
+#projectbuttons {
     margin: 5px;
 }

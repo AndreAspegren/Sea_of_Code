@@ -189,3 +189,11 @@ button.createbtn i {
    text-transform: lowercase;
 }
 
+
+#tablist {
+   top: 22%;
+   left: 23%;
+   width: 70vh;
+   height: 75vh;
+}
+
