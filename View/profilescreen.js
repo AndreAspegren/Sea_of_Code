@@ -1,5 +1,5 @@
-function profileScreen(){
-    const loggedInUser = getLoggedInUser();
+function profileScreen(id){
+    const user = model.data.users[id]
     app.innerHTML = /*HTML*/`
     <div id="profileScreen">
     <div class="container">
@@ -9,7 +9,7 @@ function profileScreen(){
                 alt="">
             </div>
             <div class="profile-nav-info">
-                <h3 class="user-name">${loggedInUser.username}</h3>
+                <h3 class="user-name">${user.username}</h3>
             </div>
             <div class="profile-option">
                 <div class="notification">
