@@ -1,6 +1,5 @@
 function profileScreen(key) {
-    console.log(key)
-    const user = model.data.users[key != undefined ? key : model.app.userID]
+    const user = model.data.users[key == undefined ? model.app.userID : key]
     model.app.currentprofile = user.id
     app.innerHTML = /*HTML*/`
     <div id="profileScreen">
@@ -45,9 +44,9 @@ function profileScreen(key) {
             <div class="right-side">
                 <div class="nav">
                     <ul>
-                        <li onclick="model.app.currentprofiletab = 'friends'; (genfriendlist(key), updateview('profileScreen', key))" class="user-post active">Friends</li>
-                        <li onclick="model.app.currentprofiletab = 'uploads'; (genuploads(key), updateview('profileScreen', key))" class="user-uploads">Uploads</li>
-                        <li onclick="model.app.currentprofiletab = 'settings'; (gensettings(key), updateview('profileScreen', key))" class="user-setting">Settings</li>
+                        <li onclick="model.app.currentprofiletab = 'friends'; updateview('profileScreen', ${key})" class="user-post active">Friends</li>
+                        <li onclick="model.app.currentprofiletab = 'uploads'; updateview('profileScreen', ${key})" class="user-uploads">Uploads</li>
+                        <li onclick="model.app.currentprofiletab = 'settings'; updateview('profileScreen', ${key})" class="user-setting">Settings</li>
                     </ul>
                 </div>
                 <div class="profile-body">
@@ -72,6 +71,9 @@ function profileScreen(key) {
     <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
     <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
     <div id="tablist">
+    ${model.app.currentprofiletab == 'friends' ? genfriendlist(key) : ''}
+    ${model.app.currentprofiletab == 'uploads' ? genuploads(key) : ''}
+    ${model.app.currentprofiletab == 'settings' ? gensettings(key) : ''}
     </div>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
@@ -105,12 +107,4 @@ function gensettings(key) {
 function addfriend(key) {
     model.data.users[model.app.userID].friends.push(key)
     updateview('profileScreen', key)
-}
-
-function getLoggedInUser() {
-    const loggedInUserID = model.app.userID;
-    console.log('Logged-in User ID:', loggedInUserID);
-    const user = model.data.users.find(user => user.id === loggedInUserID);
-    console.log('Logged-in User:', user);
-    return user;
 }
