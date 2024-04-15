@@ -1,7 +1,6 @@
 #project,
 #projectinfo,
-#comments,
-#tablist {
+#comments {
     position: absolute;
     transform: (translateX(-50%));
     border: 2px solid black;

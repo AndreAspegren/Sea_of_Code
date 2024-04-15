@@ -2,7 +2,6 @@ function profileScreen(key) {
     const user = model.data.users[key == undefined ? model.app.userID : key]
     model.app.currentprofile = user.id
     app.innerHTML = /*HTML*/`
-    <img  onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
     <div id="profileScreen">
     <div class="container">
         <div class="profile-header">
@@ -69,6 +68,7 @@ function profileScreen(key) {
     </div>
     </div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
+    <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
     <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
     <div id="tablist">
     ${model.app.currentprofiletab == 'friends' ? genfriendlist(key) : ''}
@@ -91,13 +91,20 @@ function genuploads(key) {
 }
 
 function genfriendlist(key) {
-    return 'på'
-    const friends = ''
-    for (let i = 0; i > model.data.users[key].friends.length; i++) {
+    let friends = ''
+    for (let i = 0; i < model.data.users[key].friends.length; i++) {
         friends += /*HTML*/`
-        
+        <div id="usercard" onclick="updateview('profileScreen', ${key})">
+        <div>
+        <div>${model.data.users[key].username}</div>
+        <div>${model.data.users[key].projects.length} prosjekter</div>
+        <div>${model.data.users[key].friends.length} venner</div>
+        </div>
+        <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
+        </div>
         `
     }
+    return friends
 }
 
 function gensettings(key) {

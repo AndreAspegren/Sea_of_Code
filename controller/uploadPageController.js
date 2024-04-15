@@ -6,7 +6,7 @@
 function sendProjectInfo(){
  model.data.projects.push(
     {
-        id: model.data.users[model.app.userID].projects.length,
+        id: model.data.users[model.app.userID].projects.length -1,
         approved: false,
         name: model.input.name,
         lastUpdated: new Date().toISOString().substr(0, 10),
