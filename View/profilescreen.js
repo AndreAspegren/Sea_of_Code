@@ -26,7 +26,7 @@ function profileScreen(key) {
                     <p class="user-mail"><i class="fa fa-envelope">📧</i></p>
                     <div class="user-bio">
                         <h3>Bio</h3>
-                        <p class="bio">No bio</p>
+                        <p class="bio">${user.bio}</p>
                     </div>
                     <div class="profile-btn">
                         <button class="chatbtn">
