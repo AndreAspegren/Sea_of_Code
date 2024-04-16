@@ -49,25 +49,24 @@ function gennonadminlist() {
     let number = 0;
     for (let key in model.data.users) {
         if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {
-    console.log("generer:", number,  model.data.users[key].username);        
+            console.log("generer:", number, model.data.users[key].username);
             list += /*HTML*/`
             <div id="nonadmincard" class="nonadmincard">
-            <div>
             <div>${model.data.users[key].username}</div>
             <div>${model.data.users[key].projects.length} prosjekter</div>
             <div>${model.data.users[key].friends.length} venner</div>
-            </div>
             <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
             <div>
-            <button onclick="makeadmin(${key})">Gi adminmakt🔨</button>
+                <button onclick="makeadmin(${key})">Gi adminmakt🔨</button>
             </div>
+        </div>
             `
         }
         number++;
     }
     console.log(list)
     return list
-    
+
 }
 
 function makeadmin(key) {
