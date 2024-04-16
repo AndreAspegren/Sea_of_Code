@@ -113,5 +113,5 @@ function gensettings(key) {
 
 function addfriend(key) {
     model.data.users[model.app.userID].friends.push(key)
-    updateview('profileScreen', key)
+    updateview()
 }
