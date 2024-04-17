@@ -3,14 +3,14 @@
 // const projectName = document.getElementById('projectName').value;
 // const projectDescription = document.getElementById('projectDescription').value;
 
-function sendProjectInfo(){
+function sendProjectInfo(){ // download :o
  model.data.projects.push(
     {
         id: model.data.users[model.app.userID].projects.length -1,
         approved: false,
         name: model.input.name,
-        lastUpdated: new Date().toISOString().substr(0, 10),
-        dateCreated: new Date().toISOString().substr(0, 10),
+        lastUpdated: new Date().toISOString().substr(0, 16).replace('T', ' '),
+        dateCreated: new Date().toISOString().substr(0, 16).replace('T', ' '),
         description: model.input.projects.description,
         author: model.app.userID,
         picture: model.input.projects.picture,
@@ -21,3 +21,13 @@ function sendProjectInfo(){
  updateview('homescreen')   
 }
 
+//  model.data.friends: [
+// {
+//     1: 'Bjarne', 2: Per, friendsSince: 2020-05-05,
+//     messages: {
+
+//     } 
+// }
+// ] 
+
+// [friendship.user1, friendship.user2].includes('terje', 'pål')
