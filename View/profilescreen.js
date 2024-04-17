@@ -1,8 +1,6 @@
-
-
 function profileScreen(key) {
-    if (key != undefined) model.app.currentprofile = key
-    const user = model.data.users[key == undefined ? model.app.currentprofile : key]
+    if (key != undefined) model.app.currentprofile = key;
+    const user = model.data.users[key == undefined ? model.app.currentprofile : key];
     app.innerHTML = /*HTML*/`
 <div id="profileScreen">
   <div class="container">
@@ -78,57 +76,53 @@ function profileScreen(key) {
   ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) + /*HTML*/`
-    <div id="msgbox">
-      <input oninput="model.input.userActivity.message = this.value">
-      <button onclick="sendmsg()">Send</button>
-    </div>` : ''}
+  <div id="msgbox">
+    <input oninput="model.input.userActivity.message = this.value">
+    <button onclick="sendmsg()">Send</button>
+  </div>` : ''}
 </div>
 <button id="mutebtn" onclick="mutebtn()">Mute</button>
-    <input oninput="model.input.userActivity.message = this.value" id="searchbox">
-    <button onclick="sendmsg()">Send</button></div>  
-    ` : ''}
-    </div>
-    <button id="mutebtn" onclick="mutebtn()">Mute</button>
-
-document.getElementById('searchbox').addEventListener('keydown', function(keyinput) {
-    if (keyinput.key === 'Enter') sendmsg()
-})
+<input oninput="model.input.userActivity.message = this.value" id="searchbox">
+<button onclick="sendmsg()">Send</button></div>  
+`;
 }
 
+document.getElementById('searchbox').addEventListener('keydown', function(keyinput) {
+    if (keyinput.key === 'Enter') sendmsg();
+});
 
-
-function sendmsg(){
+function sendmsg() {
     model.data.messages.push({
-            from: model.app.userID, 
-            to: model.app.currentprofile, 
-            Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '), 
-            content: model.input.userActivity.message,
-         },)
-         updateview()
+        from: model.app.userID, 
+        to: model.app.currentprofile, 
+        Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '), 
+        content: model.input.userActivity.message,
+    });
+    updateview();
 }
 
 function genfriendbtn(key, user) {
-    if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`
-    if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>'
-    return ''
+    if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`;
+    if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>';
+    return '';
 }
 
 function genuploads(key) {
-    return 'hei'
+    return 'hei';
 }
 
 function genchat() {
     return model.data.messages
         .filter(m => (m.from == 0 || m.from == 1) || (m.to == 0 || m.to == 1))
         .map(m => {
-            let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
-            return `<div id="${currentclass}">${m.content}</div>`
+            let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg';
+            return `<div id="${currentclass}">${m.content}</div>`;
         })
         .join('');
 }
 
 function genfriendlist(key) {
-    let friends = ''
+    let friends = '';
     for (let i = 0; i < model.data.users[key].friends.length; i++) {
         friends += /*HTML*/`
         <div id="friendcards" onclick="updateview('profileScreen', ${key})">
@@ -139,17 +133,16 @@ function genfriendlist(key) {
         </div>
         <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
         </div>
-        `
+        `;
     }
-    return friends
+    return friends;
 }
 
 function gensettings(key) {
-    return 'deg'
+    return 'deg';
 }
 
 function addfriend(key) {
-    model.data.users[model.app.userID].friends.push(key)
-    updateview()
+    model.data.users[model.app.userID].friends.push(key);
+    updateview();
 }
-`
