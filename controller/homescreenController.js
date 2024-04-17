@@ -14,7 +14,7 @@ function searchbar() {
         displaySearchResults(searchResults);
         searchResultsContainer.style.display = 'block'; 
     } else {
-        searchResultsContainer.innerHTML = 'No matching users or projects found.';
+        searchResultsContainer.innerHTML = 'Ingen søkeresultater funnet.';
         searchResultsContainer.style.display = 'block';
     }
 }
