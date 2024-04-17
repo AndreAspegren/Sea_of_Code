@@ -1,4 +1,5 @@
 function profileScreen(key) {
+    console.log(key, model.app.userID)
     if (key != undefined) model.app.currentprofile = key;
     const user = model.data.users[key == undefined ? model.app.currentprofile : key];
     app.innerHTML = /*HTML*/`
@@ -74,7 +75,7 @@ function profileScreen(key) {
 <div id="${model.app.currentprofiletab ?? ''}">
   ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
-  ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
+  ${model.app.currentprofiletab == 'settings' && model.app.currentprofile === model.app.userID ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'chat' ? genchat(key === undefined ? model.app.currentprofile : key) + /*HTML*/`
   <div id="msgbox">
     <input oninput="model.input.userActivity.message = this.value" id="searchbox">
@@ -145,7 +146,25 @@ function genfriendlist(key) {
 }
 
 function gensettings() {
-    return 'deg'
+    return /*HTML*/`<div id="registeruser">
+    <h2>Endre profil</h2>
+    <input type="text" onchange="inputChange('eMail', this.value)" placeholder="Email" required />
+    <input type="text" onchange="inputChange('username', this.value)" placeholder="Brukernavn" required/>
+    <input type="password" id="passwordOne" onchange="inputChange('passwordOne', this.value)" placeholder="Passord" required/>
+    <input type="password" id="passwordTwo" onchange="inputChange('passwordTwo', this.value)" placeholder="Bekreft passord" required/>
+    <input type="text" onchange="inputChange('firstName', this.value)" placeholder="Navn (frivillig)" />
+    <input type="text" onchange="inputChange('lastName', this.value)" placeholder="Etternavn (frivillig)" />
+    <input type="text" onchange="inputChange('phoneNr', this.value)" placeholder="Telefonnummer (frivillig)" />
+    <input type="text" onchange="inputChange('age', this.value)" placeholder="Alder (frivillig)" />
+    <input type="text" onchange="inputChange('country', this.value)" placeholder="Sted (frivillig)" />
+    <input type="text" onchange="inputChange('github', this.value)" placeholder="Github link (frivillig)" />
+    <input type="text" onchange="inputChange('linkedIn', this.value)" placeholder="LinkedIn (frivillig)" />
+    <input type="file" id="fileInput" onchange="fileChange(event)">
+    <textarea id="bio" onchange="inputChange('bio', this.value)" placeholder="Bio"></textarea>
+    Last opp profilbilde:
+    <img id="profilePicture"/>
+    <button style="width: 10vh;" onclick="userRegister()">Endre profil</button>
+    </div>`
 }
 
 function addfriend(key) {
