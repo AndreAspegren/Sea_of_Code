@@ -66,27 +66,6 @@ function profileScreen(key) {
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-    </div>
-    <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
-    <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
-    <div id="${model.app.currentprofiletab ?? 'friends'}">
-    ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
-    ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
-    ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
-    ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) + /*HTML*/`
-    <div id="msgbox">
-    <input oninput="model.input.userActivity.message = this.value" id="searchbox">
-    <button onclick="sendmsg()">Send</button></div>  
-    ` : ''}
-    </div>
-    <button id="mutebtn" onclick="mutebtn()">Mute</button>
-`
-document.getElementById('searchbox').addEventListener('keydown', function(keyinput) {
-    if (keyinput.key == 'Enter') sendmsg()
-})
-=======
   </div>
 </div>
 <button onclick="darkmode()" id="darkmode">darkmode</button>
@@ -103,15 +82,12 @@ document.getElementById('searchbox').addEventListener('keydown', function(keyinp
   </div>` : ''}
 </div>
 <button id="mutebtn" onclick="mutebtn()">Mute</button>
-<input oninput="model.input.userActivity.message = this.value" id="searchbox">
-<button onclick="sendmsg()">Send</button></div>  
 `;
->>>>>>> 4caf575cb8d5e49d415c7571b63b8daea781cbfe
-}
-
 document.getElementById('searchbox').addEventListener('keydown', function(keyinput) {
     if (keyinput.key === 'Enter') sendmsg();
 });
+}
+
 
 function sendmsg() {
     model.data.messages.push({
@@ -124,16 +100,9 @@ function sendmsg() {
 }
 
 function genfriendbtn(key, user) {
-<<<<<<< HEAD
-    console.log(user.id)
-    if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`
-    if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>'
-    return ''
-=======
     if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`;
     if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>';
     return '';
->>>>>>> 4caf575cb8d5e49d415c7571b63b8daea781cbfe
 }
 
 function genuploads(key) {
