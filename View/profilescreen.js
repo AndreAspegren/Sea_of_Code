@@ -45,9 +45,9 @@ function profileScreen(key) {
       <div class="right-side">
         <div class="nav">
           <ul>
-            <li class="user-post active">Friends</li>
-            <li class="user-uploads">Uploads</li>
-            <li class="user-setting">Settings</li>
+            <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Friends</li>
+            <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Uploads</li>
+            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Settings</li>
           </ul>
         </div>
         <div class="profile-body">
@@ -69,7 +69,7 @@ function profileScreen(key) {
   </div>
 </div>
 <button onclick="darkmode()" id="darkmode">darkmode</button>
-<img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen') model.app.currentprofiletab == ''" src="img/logo.jpg"/>
+<img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen'); model.app.currentprofiletab = ''" src="img/logo.jpg"/>
 <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
 <div id="${model.app.currentprofiletab ?? ''}">
   ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
