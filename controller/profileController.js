@@ -55,3 +55,6 @@ function sendmsg(){
   updateview();
 }
 
+document.getElementById('searchbox').addEventListener('keydown', function(event) {
+  if (event.key ?? 'Enter') sendmsg()
+})
