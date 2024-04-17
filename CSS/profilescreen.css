@@ -265,7 +265,7 @@ button.createbtn i {
  }
  #leftmsg:hover{
    background-color: hsl(0, 0%, 97%); 
- }
+}
 
 #msgbox{
    position: absolute;
