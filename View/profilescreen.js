@@ -87,7 +87,7 @@ function profileScreen(key) {
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
 document.getElementById('searchbox').addEventListener('keydown', function(keyinput) {
-    if (keyinput.key === 'Enter') sendmsg()
+    if (keyinput.key == 'Enter') sendmsg()
 })
 }
 
@@ -104,6 +104,7 @@ function sendmsg(){
 }
 
 function genfriendbtn(key, user) {
+    console.log(user.id)
     if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`
     if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>'
     return ''

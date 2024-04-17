@@ -2,7 +2,7 @@ const app = document.getElementById('app')
 const yarr = new Audio('img/piratemusic.mp3')
 yarr.volume = 0.3
 yarr.loop = true
-yarr.play()
+
 const model = {
     app: {
         userID: null,
@@ -51,7 +51,7 @@ const model = {
                     }
                 ],
             }
-        ],
+        ], 
         userActivity: {
             message: '',
             comments: [
@@ -278,4 +278,4 @@ const model = {
         ]
     },
 }
-
+yarr.play()
