@@ -1,5 +1,4 @@
 function projectpage(key, num){
-    console.log(key)
     app.innerHTML = /*HTML*/`
     <div id="projectinfo">
     <div>${model.data.users[model.data.projects[key].author].username}</div>
@@ -33,7 +32,11 @@ function genpageturn(key){
 
 function gencomments(key){
     return model.data.projects[key].comments.map(m => {
-            return `<div>${m.content}</div>`
+            return `
+            <div style="display:flex">
+            <div>${model.data.users[m.from].username}</div>
+            <div>${m.comment}</div>
+            </div>`
         })
         .join('');
 }
