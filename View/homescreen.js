@@ -1,5 +1,5 @@
 homescreen()
-function homescreen(){
+function homescreen() {
     app.innerHTML = /*HTML*/`
     <div id="userlist"><div>${genuserlist()}</div></div>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
@@ -11,7 +11,7 @@ function homescreen(){
     
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
     <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <button onclick="updateview('adminpanel')" id="adminbutton">adminpanel</button>
+    ${admin()}
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
 }
@@ -20,15 +20,15 @@ function updateview(newview, key) {
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 
-function mutebtn(){
-    yarr.paused ? yarr.play() : yarr.pause() 
+function mutebtn() {
+    yarr.paused ? yarr.play() : yarr.pause()
 }
 
 model.data.users
-function genprojectlist(){
+function genprojectlist() {
     userlist = ''
-    for (key in model.data.projects){
-        if (model.data.projects[key].approved){
+    for (key in model.data.projects) {
+        if (model.data.projects[key].approved) {
             userlist += /*HTML*/`
             <div onclick="projectpage(${key})" id="projectcard">
             <img src="${model.data.projects[key].picture}"/>
@@ -54,16 +54,16 @@ function darkmode() {
 function genwordcloud() {
     let wordcloudlist = '';
     for (let key in model.data.wordCloud) {
-            wordcloudlist += /*HTML*/`
+        wordcloudlist += /*HTML*/`
             <div id="wordcloudcard" style="font-size: ${model.data.wordCloud[key] * 50}%">${key}</div>
             `;
     }
     return wordcloudlist;
 }
 
-function genuserlist(){
+function genuserlist() {
     userlist = ''
-    for (let key in model.data.users){
+    for (let key in model.data.users) {
         userlist += /*HTML*/`
         <div id="usercard" onclick="updateview('profileScreen', ${key})">
         <div>
@@ -76,4 +76,13 @@ function genuserlist(){
         `
     }
     return userlist
+}
+
+function admin() {
+    let adminButton = '';
+        let currentUserId = model.app.userID;
+        if(model.data.adminpanel.users.includes(currentUserId)){
+            adminButton = `<button onclick="updateview('adminpanel')" id="adminbutton">adminpanel</button>`;
+        }
+    return adminButton;
 }
