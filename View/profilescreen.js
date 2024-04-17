@@ -77,8 +77,8 @@ function profileScreen(key) {
   ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) + /*HTML*/`
   <div id="msgbox">
-    <input oninput="model.input.userActivity.message = this.value">
-    <button onclick="sendmsg()">Send</button>
+    <input oninput="model.input.userActivity.message = this.value" id="searchbox">
+    <button onclick="sendmsg() >Send</button>
   </div>` : ''}
 </div>
 <button id="mutebtn" onclick="mutebtn()">Mute</button>
