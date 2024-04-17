@@ -53,14 +53,7 @@ const model = {
             }
         ],
         userActivity: {
-/*            messages: [           //nice to have          
-                {
-                    toUserId: null,
-                    time: "",
-                    message: "",
-                },
-            ],
-            */
+            message: '',
             comments: [
                 {
                     projectId: null,
@@ -90,10 +83,10 @@ const model = {
         },
          messages: [         
             {
-                user1: 0, user2: 1, Datesent: '2024-04-17 07:37', content: 'Very nice',
+                from: 0, to: 1, Datesent: '2024-04-17 07:37', content: 'Very nice',
              },
             {
-                user1: 1, user2: 0, Datesent: '2024-04-17 07:37', content: 'Not very nice',
+                from: 1, to: 0, Datesent: '2024-04-17 07:37', content: 'Not very nice',
              },
         ],
         friends: [

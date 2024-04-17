@@ -44,3 +44,13 @@ function logOff() {
 //   bio.innerHTML += "&nbsp;" + `<span onclick='bioText()' id='see-less-bio'> See Less </span>`;
 // }
 
+function sendmsg(){
+  model.data.messages.push({
+          from: model.app.userID, 
+          to: model.app.currentprofile, 
+          Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '), 
+          content: model.input.userActivity.message,
+       },)
+       updateview()
+}
+

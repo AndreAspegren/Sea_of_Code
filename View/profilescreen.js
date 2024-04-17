@@ -29,9 +29,9 @@ function profileScreen(key) {
                         <p class="bio">${user.bio}</p>
                     </div>
                     <div class="profile-btn">
-                        <button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
+                        ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
                         <i class="fa fa-comment"></i> 🗨Chat 
-                        </button>
+                        </button>` : ''}
                         <button class="createbtn">
                         <i class="fa fa-plus"></i> 	➕Create
                         </button>
@@ -72,14 +72,28 @@ function profileScreen(key) {
     <button onclick="darkmode()" id="darkmode">darkmode</button>
     <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
     <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
-    <div id="tablist">
+    <div id="${model.app.currentprofiletab ?? 'friends'}">
     ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
     ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
     ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
-    ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) : ''}
+    ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) + /*HTML*/`
+    <div id="msgbox">
+    <input oninput="model.input.userActivity.message = this.value">
+    <button onclick="sendmsg()">Send</button></div>  
+    ` : ''}
     </div>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
+}
+
+function sendmsg(){
+    model.data.messages.push({
+            from: model.app.userID, 
+            to: model.app.currentprofile, 
+            Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '), 
+            content: model.input.userActivity.message,
+         },)
+         updateview()
 }
 
 function genfriendbtn(key, user) {
@@ -88,16 +102,19 @@ function genfriendbtn(key, user) {
     return ''
 }
 
-
 function genuploads(key) {
     return 'hei'
 }
 
-function genchat(){
+function genchat() {
+    let currentclass;
     return model.data.messages
-  .filter(m => (m.user1 == 0 || m.user1 == 1) || (m.user2 == 0 || m.user2 == 1))
-  .map(m => `<div>User1: ${m.content}, User2: ${m.content}</div>`)
-  .join('')
+        .filter(m => (m.from == 0 || m.from == 1) || (m.to == 0 || m.to == 1))
+        .map(m => {
+            currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
+            return `<div id="${currentclass}">${m.content}</div>`
+        })
+        .join('');
 }
 
 function genfriendlist(key) {
