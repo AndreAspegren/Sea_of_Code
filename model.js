@@ -68,7 +68,7 @@ const model = {
                     comment:"",
                 }
             ],
-            searchbar: ["",],
+            searchbar: [""],
         },
     },
 
@@ -88,16 +88,17 @@ const model = {
             users: [0],
             forReview: [3],
         },
-        //  messages: [         
-        //     {
-        //         id: 0,
-        //         to: 0,
-        //         from: 0,
-        //         dateSent: '05-05-2024',
-        //         content: 'hei på deg'
-        //      }
-        // ],
-        friends: [],
+         messages: [         
+            {
+                user1: 0, user2: 1, Datesent: '2024-04-17 07:37', content: 'Very nice',
+             },
+            {
+                user1: 1, user2: 0, Datesent: '2024-04-17 07:37', content: 'Not very nice',
+             },
+        ],
+        friends: [
+            
+        ],
         users: [
             {
                 id: 0,

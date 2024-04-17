@@ -29,7 +29,7 @@ function profileScreen(key) {
                         <p class="bio">${user.bio}</p>
                     </div>
                     <div class="profile-btn">
-                        <button class="chatbtn">
+                        <button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
                         <i class="fa fa-comment"></i> 🗨Chat 
                         </button>
                         <button class="createbtn">
@@ -74,6 +74,7 @@ function profileScreen(key) {
     ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
     ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
     ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
+    ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) : ''}
     </div>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
@@ -88,6 +89,13 @@ function genfriendbtn(key, user) {
 
 function genuploads(key) {
     return 'hei'
+}
+
+function genchat(){
+    return model.data.messages
+  .filter(m => (m.user1 == 0 || m.user1 == 1) || (m.user2 == 0 || m.user2 == 1))
+  .map(m => `<div>User1: ${m.content}, User2: ${m.content}</div>`)
+  .join('')
 }
 
 function genfriendlist(key) {
