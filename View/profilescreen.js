@@ -36,6 +36,8 @@ function profileScreen(key) {
                         <i class="fa fa-plus"></i> 	➕Create
                         </button>
                     </div>
+                    <br>
+                    <button onclick="logOff()">Log off</button>
                     <div class="user-socialmedia">
                         <p class="socialmedia"></p>
                     </div>
