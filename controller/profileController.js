@@ -34,7 +34,13 @@ function logOff() {
 }
 
 
+// function bioText() {
+//   bio.oldText = bio.innerText;
+//   bio.innerText = bio.innerText.substring(0, 100) + "...";
+//   bio.innerHTML += "&nbsp;" + `<span onclick='addLength()' id='see-more-bio'> See More </span>`;
+// }
 
+// bioText();
 
 // let bio = document.querySelector('.bio');
 
