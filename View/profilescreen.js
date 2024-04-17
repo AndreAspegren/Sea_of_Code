@@ -37,7 +37,7 @@ function profileScreen(key) {
             </button>
           </div>
           <br>
-          ${key == model.app.userID ? '<button onclick="logOff()">Log off</button>' : ''}
+          ${model.app.currentprofile === model.app.userID ? '<button onclick="logOff()">Log off</button>' : ''}
           <div class="user-socialmedia">
             <p class="socialmedia"></p>
           </div>
