@@ -53,14 +53,7 @@ const model = {
             }
         ],
         userActivity: {
-/*            messages: [           //nice to have          
-                {
-                    toUserId: null,
-                    time: "",
-                    message: "",
-                },
-            ],
-            */
+            message: '',
             comments: [
                 {
                     projectId: null,
