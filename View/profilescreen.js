@@ -1,3 +1,5 @@
+
+
 function profileScreen(key) {
     if (key != undefined) model.app.currentprofile = key
     const user = model.data.users[key == undefined ? model.app.currentprofile : key]
@@ -78,12 +80,27 @@ function profileScreen(key) {
     ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
     ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) + /*HTML*/`
     <div id="msgbox">
-    <input oninput="model.input.userActivity.message = this.value">
+    <input oninput="model.input.userActivity.message = this.value" id="searchbox">
     <button onclick="sendmsg()">Send</button></div>  
     ` : ''}
     </div>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
+document.getElementById('searchbox').addEventListener('keydown', function(keyinput) {
+    if (keyinput.key === 'Enter') sendmsg()
+})
+}
+
+
+
+function sendmsg(){
+    model.data.messages.push({
+            from: model.app.userID, 
+            to: model.app.currentprofile, 
+            Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '), 
+            content: model.input.userActivity.message,
+         },)
+         updateview()
 }
 
 function genfriendbtn(key, user) {
