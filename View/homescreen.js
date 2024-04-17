@@ -3,7 +3,8 @@ function homescreen(){
     app.innerHTML = /*HTML*/`
     <div id="userlist"><div>${genuserlist()}</div></div>
     <img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
-    <input id="searchbar">
+    <input type="text" placeholder="Søk..." id="searchbar">
+    <div id="searchResults"></div>
     ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
     ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
