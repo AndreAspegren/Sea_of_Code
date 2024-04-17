@@ -21,7 +21,7 @@ function sendProjectInfo(){ // download :o
             content: '',
             language: 'Javascript',
             percentEachLanguage: {},
-        }],
+        },],
         comments: [],
     },
  )

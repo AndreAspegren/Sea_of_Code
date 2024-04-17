@@ -20,8 +20,6 @@ document.querySelectorAll('.nav ul li').forEach(function(tab, index) {
   });
 });
 
-
-
 function logOff() {
   let currentUserId = model.app.userID;
   let currentUser = model.data.users.find(user => user.id === currentUserId);
@@ -33,14 +31,6 @@ function logOff() {
   updateview('homescreen');
 }
 
-
-// function bioText() {
-//   bio.oldText = bio.innerText;
-//   bio.innerText = bio.innerText.substring(0, 100) + "...";
-//   bio.innerHTML += "&nbsp;" + `<span onclick='addLength()' id='see-more-bio'> See More </span>`;
-// }
-
-// bioText();
 
 // let bio = document.querySelector('.bio');
 
