@@ -84,16 +84,6 @@ function profileScreen(key) {
 `
 }
 
-function sendmsg(){
-    model.data.messages.push({
-            from: model.app.userID, 
-            to: model.app.currentprofile, 
-            Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '), 
-            content: model.input.userActivity.message,
-         },)
-         updateview()
-}
-
 function genfriendbtn(key, user) {
     if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`
     if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>'
@@ -105,11 +95,10 @@ function genuploads(key) {
 }
 
 function genchat() {
-    let currentclass;
     return model.data.messages
         .filter(m => (m.from == 0 || m.from == 1) || (m.to == 0 || m.to == 1))
         .map(m => {
-            currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
+            let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
             return `<div id="${currentclass}">${m.content}</div>`
         })
         .join('');
