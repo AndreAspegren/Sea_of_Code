@@ -1,4 +1,5 @@
 function projectpage(key, num){
+    console.log(key)
     app.innerHTML = /*HTML*/`
     <div id="projectinfo">
     <div>${model.data.users[model.data.projects[key].author].username}</div>
