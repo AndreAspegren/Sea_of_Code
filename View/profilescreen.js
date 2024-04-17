@@ -36,7 +36,7 @@ function profileScreen(key) {
             </button>
           </div>
           <br>
-          <button onclick="logOff()">Log off</button>
+          ${key == model.app.userID ? '<button onclick="logOff()">Log off</button>' : ''}
           <div class="user-socialmedia">
             <p class="socialmedia"></p>
           </div>
@@ -45,9 +45,9 @@ function profileScreen(key) {
       <div class="right-side">
         <div class="nav">
           <ul>
-            <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Friends</li>
-            <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Uploads</li>
-            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Settings</li>
+            <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Venner</li>
+            <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Opplastinger</li>
+            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>
           </ul>
         </div>
         <div class="profile-body">
@@ -91,7 +91,7 @@ function sendmsg() {
         to: model.app.currentprofile, 
         Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '), 
         content: model.input.userActivity.message,
-    })
+    },)
     updateview()
 }
 
@@ -141,14 +141,14 @@ function genfriendlist(key) {
         </div>
         `;
     }
-    return friends;
+    return friends
 }
 
-function gensettings(key) {
-    return 'deg';
+function gensettings() {
+    return 'deg'
 }
 
 function addfriend(key) {
-    model.data.users[model.app.userID].friends.push(key);
-    updateview();
+    model.data.users[model.app.userID].friends.push(key)
+    updateview()
 }
