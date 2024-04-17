@@ -1,4 +1,5 @@
 function projectpage(key, num){
+    console.log(key)
     app.innerHTML = /*HTML*/`
     <div id="projectinfo">
     <div>${model.data.users[model.data.projects[key].author].username}</div>
@@ -31,13 +32,11 @@ function genpageturn(key){
 }
 
 function gencomments(key){
-    comments = ''
-    for (let i = 0; i < model.data.projects[key].comments.length; i++){
-        comments += /*HTML*/`
-        <img src="${model.data.users[model.data.projects[key].comments[i].from].profilePicure}">
-        <div>${model.data.projects[key].comments[i].comment}</div>
-        <div>${model.data.projects[key].comments[i].dateSent}</div>
-        `
-     }
-     return comments
+    return model.data.project[model.data.users[key].project]
+        .filter(m => (m.from == 0 || m.from == 1) || (m.to == 0 || m.to == 1))
+        .map(m => {
+            let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
+            return `<div id="${currentclass}">${m.content}</div>`
+        })
+        .join('');
 }

@@ -36,6 +36,8 @@ function profileScreen(key) {
                         <i class="fa fa-plus"></i> 	➕Create
                         </button>
                     </div>
+                    <br>
+                    <button onclick="logOff()">Log off</button>
                     <div class="user-socialmedia">
                         <p class="socialmedia"></p>
                     </div>
@@ -74,18 +76,14 @@ function profileScreen(key) {
     ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
     ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
     ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
-    ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) + `
+    ${model.app.currentprofiletab == 'chat' ? genchat(key == undefined ? model.app.currentprofile : key) + /*HTML*/`
     <div id="msgbox">
-    <input>
-    <button onclick="sendmsg(${key})">Send</button></div>  
+    <input oninput="model.input.userActivity.message = this.value">
+    <button onclick="sendmsg()">Send</button></div>  
     ` : ''}
     </div>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
-}
-
-function sendmsg(key){
-
 }
 
 function genfriendbtn(key, user) {
@@ -99,13 +97,11 @@ function genuploads(key) {
 }
 
 function genchat() {
-    let currentclass;
     return model.data.messages
         .filter(m => (m.from == 0 || m.from == 1) || (m.to == 0 || m.to == 1))
         .map(m => {
-            currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
-            return `<div id="${currentclass}">${currentclass == 'leftmsg' ? model.data.users[m.from].username + ': ' + m.content : 
-            m.content + ' :' + model.data.users[m.from].username}</div>`
+            let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
+            return `<div id="${currentclass}">${m.content}</div>`
         })
         .join('');
 }
