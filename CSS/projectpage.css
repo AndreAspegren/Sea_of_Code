@@ -37,3 +37,9 @@
 #projectbuttons {
     margin: 5px;
 }
+
+#commentinput{
+    position: absolute;
+    bottom: -40px;
+    left: 40px
+}

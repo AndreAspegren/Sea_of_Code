@@ -14,7 +14,14 @@ function sendProjectInfo(){ // download :o
         description: model.input.projects.description,
         author: model.app.userID,
         picture: model.input.projects.picture,
-        files: [],
+        files: [{
+            id: model.app.loggedIn,
+            name: '',
+            picture: '',
+            content: '',
+            language: 'Javascript',
+            percentEachLanguage: {},
+        }],
         comments: [],
     },
  )
