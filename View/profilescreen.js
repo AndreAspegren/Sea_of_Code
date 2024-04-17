@@ -85,7 +85,7 @@ function profileScreen(key) {
 }
 
 function sendmsg(key){
-
+    
 }
 
 function genfriendbtn(key, user) {
@@ -104,8 +104,7 @@ function genchat() {
         .filter(m => (m.from == 0 || m.from == 1) || (m.to == 0 || m.to == 1))
         .map(m => {
             currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
-            return `<div id="${currentclass}">${currentclass == 'leftmsg' ? model.data.users[m.from].username + ': ' + m.content : 
-            m.content + ' :' + model.data.users[m.from].username}</div>`
+            return `<div id="${currentclass}">${m.content}</div>`
         })
         .join('');
 }

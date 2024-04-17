@@ -270,6 +270,6 @@ button.createbtn i {
 #msgbox{
    position: absolute;
    left: 50%;
-   bottom: -50px;
+   bottom: -40px;
    transform: translateX(-50%);
 }
