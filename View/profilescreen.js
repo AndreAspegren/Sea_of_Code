@@ -69,9 +69,9 @@ function profileScreen(key) {
   </div>
 </div>
 <button onclick="darkmode()" id="darkmode">darkmode</button>
-<img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen')" src="img/logo.jpg"/>
+<img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen') model.app.currentprofiletab == ''" src="img/logo.jpg"/>
 <div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
-<div id="${model.app.currentprofiletab ?? 'friends'}">
+<div id="${model.app.currentprofiletab ?? ''}">
   ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'settings' ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
