@@ -33,3 +33,13 @@
     flex-direction: row;
     justify-content: center;
 }
+
+#adminbuttons{
+    display: flex;
+    height: 4vh;
+    width: 10vh;
+}
+
+
+
+

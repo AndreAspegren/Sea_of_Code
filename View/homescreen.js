@@ -1,4 +1,4 @@
-homescreen()
+updateview('homescreen')
 function homescreen() {
     app.innerHTML = /*HTML*/`
     <div id="userlist"><div>${genuserlist()}</div></div>

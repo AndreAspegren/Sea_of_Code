@@ -2,7 +2,7 @@ const app = document.getElementById('app')
 const yarr = new Audio('img/piratemusic.mp3')
 yarr.volume = 0.3
 yarr.loop = true
-
+yarr.play()
 const model = {
     app: {
         userID: null,
@@ -143,7 +143,7 @@ const model = {
             {
                 id: 0,
                 approved: true,
-                name: "hehexD",
+                name: "Pirat Skip",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
@@ -188,7 +188,7 @@ const model = {
             {
                 id: 1,
                 approved: true,
-                name: "Anita",
+                name: "Coloseum",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
@@ -216,7 +216,7 @@ const model = {
             {
                 id: 2,
                 approved: true,
-                name: "Bjarneman",
+                name: "Legoshus :)",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
