@@ -14,7 +14,7 @@ function homescreen() {
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">darkmode>
+    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     ${admin()}
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
