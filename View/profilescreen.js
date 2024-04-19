@@ -6,7 +6,7 @@ function profileScreen(key) {
   <div class="container">
     <div class="profile-header">
       <div class="profile-img">
-        <img src="url" width="" alt="">
+        <img src="${user.profilePicure}" width="" alt="">
       </div>
       <div class="profile-nav-info">
         <h3 class="user-name">${user.username}</h3>
