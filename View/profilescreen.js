@@ -6,7 +6,7 @@ function profileScreen(key) {
   <div class="container">
     <div class="profile-header">
       <div class="profile-img">
-        <img src="url" width="" alt="">
+        <img src="${user.profilePicture}" width="" alt="">
       </div>
       <div class="profile-nav-info">
         <h3 class="user-name">${user.username}</h3>
@@ -23,6 +23,8 @@ function profileScreen(key) {
         <div class="profile-side">
           <p class="mobile-no"><i class="fa fa-phone">📞</i>${user.phoneNr}</p>
           <p class="user-mail"><i class="fa fa-envelope">📧</i>${user.eMail}</p>
+          <p class="country">${user.country}</p>
+          <p class="city">${user.city}</p>
           <div class="user-bio">
             <h3>Bio</h3>
             <p class="bio">${user.bio}</p>
