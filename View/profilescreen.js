@@ -1,7 +1,6 @@
 function profileScreen(key) {
-    console.log(key, model.app.userID)
-    if (key != undefined) model.app.currentprofile = key;
-    const user = model.data.users[key == undefined ? model.app.currentprofile : key];
+  if (key != undefined) model.app.currentprofile = key;
+  const user = model.data.users[key == undefined ? model.app.currentprofile : key];
     app.innerHTML = /*HTML*/`
 <div id="profileScreen">
   <div class="container">
@@ -71,7 +70,7 @@ function profileScreen(key) {
 </div>
 <button onclick="darkmode()" id="darkmode">darkmode</button>
 <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen'); model.app.currentprofiletab = ''" src="img/logo.jpg"/>
-<div>${!model.app.loggedIn ? '' : genfriendbtn(key, user)}</div>
+<div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
 <div id="${model.app.currentprofiletab ?? ''}">
   ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
@@ -97,7 +96,7 @@ function sendmsg() {
 }
 
 function genfriendbtn(key, user) {
-    if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id})">Legg til venn</button>`;
+    if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id}); updateview('profileScreen', ${user.id})">Legg til venn</button>`;
     if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>';
     return ''
 }
@@ -129,18 +128,22 @@ function genchat() {
 }
 
 function genfriendlist(key) {
-    let friends = '';
+    let friends = ''
     for (let i = 0; i < model.data.users[key].friends.length; i++) {
+      let user = model.data.users[key].friends[i]
+      console.log(key, model.data.users[key].friends[i])
+      if (key != model.data.users[key].friends[i]) {
         friends += /*HTML*/`
-        <div id="friendcards" onclick="updateview('profileScreen', ${key})">
+        <div id="friendcards" onclick="updateview('profileScreen', ${user})">
         <div>
-        <div>${model.data.users[key].username}</div>
-        <div>${model.data.users[key].projects.length} prosjekter</div>
-        <div>${model.data.users[key].friends.length} venner</div>
+        <div>${model.data.users[user].username}</div>
+        <div>${model.data.users[user].projects.length} prosjekter</div>
+        <div>${model.data.users[user].friends.length} venner</div>
         </div>
-        <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
+        <img style="height: 6vh; width: auto" src="${model.data.users[user].profilePicure}"/>
         </div>
-        `;
+        `
+      }
     }
     return friends
 }
@@ -169,5 +172,6 @@ function gensettings() {
 
 function addfriend(key) {
     model.data.users[model.app.userID].friends.push(key)
+    model.data.users[key].friends.push(model.app.userID)
     updateview()
 }
