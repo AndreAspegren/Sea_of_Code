@@ -37,6 +37,22 @@ const model = {
                 projects: [],
             }
         ],
+        editProfile: {
+            id: null,
+                username: "",
+                eMail: "",
+                passwordOne: "",
+                passwordTwo: "",
+                firstName: "",
+                lastName: "",
+                profilePicure: '',
+                phoneNr: '',
+                age: ' ',
+                bio: "",
+                country: '',
+                github: '',
+                linkedIn: '',
+        },
         projects: [
             {
                 name: "",
@@ -61,15 +77,15 @@ const model = {
 
     data: {
         wordCloud: {
-            Javascript: '1',
-            C: '2',
-            'C#': '3',
-            CSS: '4',
-            Ruby: '4',
-            'C++': '2',
-            HTML: '3',
-            Python: '6',
-            Binary: '1',
+            Javascript: 5,
+            C: 0,
+            'C#': 0,
+            CSS: 0,
+            Ruby: 0,
+            'C++': 0,
+            HTML: 0,
+            Python: 0,
+            Binary: 0,
         },
         adminpanel: {
             users: [0],
@@ -83,9 +99,7 @@ const model = {
                 from: 1, to: 0, Datesent: '2024-04-17 07:37', content: 'Not very nice',
              },
         ],
-        friends: [
-            
-        ],
+        friends: [],
         users: [
             {
                 id: 0,
@@ -111,7 +125,7 @@ const model = {
                 passwordOne: "Anita",
                 firstName: "Bjarne",
                 lastName: "Pirat",
-                profilePicure: 'https://viover60.no/app/uploads/2022/05/NTB_fI8b1WdilZs.jpg',
+                profilePicture: 'https://viover60.no/app/uploads/2022/05/NTB_fI8b1WdilZs.jpg',
                 phoneNr: 12345678,
                 age: 60,
                 projects: [],
@@ -128,7 +142,7 @@ const model = {
                 passwordOne: "Per",
                 firstName: "Per",
                 lastName: "Pirat",
-                profilePicure: 'https://premium.vgc.no/v2/images/51248aae-ea9f-44f2-a5ec-32a7b9cecc84?fit=crop&format=auto&h=1285&w=1976&s=c57addd3ba57d1eca204c2d0519c912d54ca21e1',
+                profilePicture: 'https://premium.vgc.no/v2/images/51248aae-ea9f-44f2-a5ec-32a7b9cecc84?fit=crop&format=auto&h=1285&w=1976&s=c57addd3ba57d1eca204c2d0519c912d54ca21e1',
                 phoneNr: 12345678,
                 age: 60,
                 projects: [],

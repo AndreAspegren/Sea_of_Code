@@ -1,6 +1,6 @@
 function profileScreen(key) {
-  if (key != undefined) model.app.currentprofile = key;
-  const user = model.data.users[key == undefined ? model.app.currentprofile : key];
+  if (key != undefined) model.app.currentprofile = key
+  const user = model.data.users[key == undefined ? model.app.currentprofile : key]
     app.innerHTML = /*HTML*/`
 <div id="profileScreen">
   <div class="container">
@@ -84,7 +84,7 @@ function profileScreen(key) {
   </div>` : ''}
 </div>
 <button id="mutebtn" onclick="mutebtn()">Mute</button>
-`;
+`
 }
 
 function sendmsg() {
