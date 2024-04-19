@@ -6,7 +6,7 @@ function profileScreen(key) {
   <div class="container">
     <div class="profile-header">
       <div class="profile-img">
-        <img src="${user.profilePicture}" width="" alt="">
+        <img src="url" width="" alt="">
       </div>
       <div class="profile-nav-info">
         <h3 class="user-name">${user.username}</h3>
@@ -23,8 +23,6 @@ function profileScreen(key) {
         <div class="profile-side">
           <p class="mobile-no"><i class="fa fa-phone">📞</i>${user.phoneNr}</p>
           <p class="user-mail"><i class="fa fa-envelope">📧</i>${user.eMail}</p>
-          <p class="country">${user.country}</p>
-          <p class="city">${user.city}</p>
           <div class="user-bio">
             <h3>Bio</h3>
             <p class="bio">${user.bio}</p>
@@ -40,7 +38,7 @@ function profileScreen(key) {
           <br>
           ${model.app.currentprofile === model.app.userID ? '<button onclick="logOff()">Log off</button>' : ''}
           <div class="user-socialmedia">
-            <p class="socialmedia">${user.github}, ${user.linkedIn}</p>
+            <p class="socialmedia"></p>
           </div>
         </div>
       </div>
@@ -50,7 +48,6 @@ function profileScreen(key) {
             <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Venner</li>
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Opplastinger</li>
             <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>
-            <li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>
           </ul>
         </div>
         <div class="profile-body">
@@ -72,7 +69,7 @@ function profileScreen(key) {
   </div>
 </div>
 <button onclick="darkmode()" id="darkmode">darkmode</button>
-<img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen'); model.app.currentprofiletab = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
+<img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen'); model.app.currentprofiletab = ''" src="img/logo.jpg"/>
 <div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
 <div id="${model.app.currentprofiletab ?? ''}">
   ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
@@ -154,22 +151,22 @@ function genfriendlist(key) {
 function gensettings() {
     return /*HTML*/`<div id="registeruser">
     <h2>Endre profil</h2>
-    <input type="text" onchange="inputChange('eMail', this.value)" placeholder="Email" required />
-    <input type="text" onchange="inputChange('username', this.value)" placeholder="Brukernavn" required/>
-    <input type="password" id="passwordOne" onchange="inputChange('passwordOne', this.value)" placeholder="Passord" required/>
-    <input type="password" id="passwordTwo" onchange="inputChange('passwordTwo', this.value)" placeholder="Bekreft passord" required/>
-    <input type="text" onchange="inputChange('firstName', this.value)" placeholder="Navn (frivillig)" />
-    <input type="text" onchange="inputChange('lastName', this.value)" placeholder="Etternavn (frivillig)" />
-    <input type="text" onchange="inputChange('phoneNr', this.value)" placeholder="Telefonnummer (frivillig)" />
-    <input type="text" onchange="inputChange('age', this.value)" placeholder="Alder (frivillig)" />
-    <input type="text" onchange="inputChange('country', this.value)" placeholder="Sted (frivillig)" />
-    <input type="text" onchange="inputChange('github', this.value)" placeholder="Github link (frivillig)" />
-    <input type="text" onchange="inputChange('linkedIn', this.value)" placeholder="LinkedIn (frivillig)" />
+    <input type="text" onchange="model.input.eMail = this.value" placeholder="Email" required />
+    <input type="text" onchange="model.input.username = this.value" placeholder="Brukernavn" required/>
+    <input type="password" id="passwordOne" onchange="model.input.passwordOne = this.value" placeholder="Passord" required/>
+    <input type="password" id="passwordTwo" onchange="model.input.passwordTwo = this.value" placeholder="Bekreft passord" required/>
+    <input type="text" onchange="model.input.firstName = this.value" placeholder="Navn (frivillig)" />
+    <input type="text" onchange="model.input.lastName = this.value" placeholder="Etternavn (frivillig)" />
+    <input type="text" onchange="model.input.phoneNr = this.value" placeholder="Telefonnummer (frivillig)" />
+    <input type="text" onchange="model.input.age  = this.value" placeholder="Alder (frivillig)" />
+    <input type="text" onchange="model.input.country = this.value" placeholder="Sted (frivillig)" />
+    <input type="text" onchange="model.input.github = this.value" placeholder="Github link (frivillig)" />
+    <input type="text" onchange="model.input.linkedIn = this.value" placeholder="LinkedIn (frivillig)" />
     <input type="file" id="fileInput" onchange="fileChange(event)">
-    <textarea id="bio" onchange="inputChange('bio', this.value)" placeholder="Bio"></textarea>
+    <textarea id="bio" onchange="model.input.bio = this.value" placeholder="Bio"></textarea>
     Last opp profilbilde:
     <img id="profilePicture"/>
-    <button style="width: 10vh;" onclick="userRegister()">Endre profil</button>
+    <button style="width: 10vh;" onclick="editprofile()">Endre profil</button>
     </div>`
 }
 
@@ -177,4 +174,8 @@ function addfriend(key) {
     model.data.users[model.app.userID].friends.push(key)
     model.data.users[key].friends.push(model.app.userID)
     updateview()
+}
+
+function editprofile(){
+  
 }
