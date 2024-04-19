@@ -38,7 +38,6 @@ const model = {
             }
         ],
         editProfile: {
-            id: null,
                 username: "",
                 eMail: "",
                 passwordOne: "",
