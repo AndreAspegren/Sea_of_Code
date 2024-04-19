@@ -40,7 +40,7 @@ function profileScreen(key) {
           <br>
           ${model.app.currentprofile === model.app.userID ? '<button onclick="logOff()">Log off</button>' : ''}
           <div class="user-socialmedia">
-            <p class="socialmedia"></p>
+            <p class="socialmedia">${user.github}, ${user.linkedIn}</p>
           </div>
         </div>
       </div>
@@ -142,7 +142,7 @@ function genfriendlist(key) {
         <div>${model.data.users[user].projects.length} prosjekter</div>
         <div>${model.data.users[user].friends.length} venner</div>
         </div>
-        <img style="height: 6vh; width: auto" src="${model.data.users[user].profilePicure}"/>
+        <img style="height: 6vh; width: auto" src="${model.data.users[user].profilePicture}"/>
         </div>
         `
       }
