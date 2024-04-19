@@ -50,6 +50,7 @@ function profileScreen(key) {
             <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Venner</li>
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Opplastinger</li>
             <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>
+            <li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>
           </ul>
         </div>
         <div class="profile-body">

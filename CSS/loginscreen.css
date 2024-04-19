@@ -1,21 +1,24 @@
-#mainDiv{
-    height: 100%;
-    display: grid;
-    grid-template-columns: 100px auto;
-    grid-template-rows: 40px auto;
-    grid-template-areas: 
-    "header content"
-    "content content"
-    "footer content"
-    ;
+#mainDiv {
+    display: flex;
+    align-items: flex-start; 
+    justify-content: space-between;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 10px;
+    grid-row-gap: 0px;
 }
 
 #mainDiv > div {
-    border: 1px solid rgb(184, 0, 0);
-
+    border: solid red 1px;
+}
+#buttons {
+    align-self:flex-start;
 }
 
-.content{
-    grid-area: content;
-    overflow: auto;
+#loginscreen {
+    align-self:center;
+}
+
+#footer {
+    align-self:flex-end;
 }
