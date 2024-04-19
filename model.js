@@ -45,7 +45,7 @@ const model = {
                 passwordTwo: "",
                 firstName: "",
                 lastName: "",
-                profilePicure: '',
+                profilePicture: '',
                 phoneNr: '',
                 age: ' ',
                 bio: "",
