@@ -40,7 +40,7 @@ ${userList()}
 
 </div>
 
-<img id="logo" onclick="updateview('homescreen')" src="img/logo.jpg"/>
+<img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
 <button onclick="darkmode()" id="darkmode">darkmode</button>
 <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `;

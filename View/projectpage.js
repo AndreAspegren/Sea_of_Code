@@ -22,7 +22,7 @@ function projectpage(key, num){
     </div>
     
     <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <img id="logo" onclick="updateview('homescreen'); model.input.userActivity.comment = ''" src="img/logo.jpg"/>
+    <img id="logo" onclick="updateview('homescreen'); model.input.userActivity.comment = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
 }
