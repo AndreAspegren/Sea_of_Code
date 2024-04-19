@@ -14,7 +14,7 @@ function homescreen() {
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
     <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
-    <button onclick="darkmode()" id="darkmode">darkmode</button>
+    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">darkmode>
     ${admin()}
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
@@ -48,10 +48,12 @@ function genprojectlist() {
 }
 
 function darkmode() {
-    const mode = model.app.darkmode ? ['white', 'black', false] : ['gray', 'white', true]
+    const mode = model.app.darkmode ? ['white', 'black', false, "img/moon.png"] : ['gray', 'white', true, "img/sun.png"]
     app.style.backgroundColor = mode[0]
     app.style.color = mode[1]
     model.app.darkmode = mode[2]
+    model.app.darkmodeurl = mode[3]
+    updateview()
 }
 
 function genwordcloud() {

@@ -2,7 +2,7 @@
     position: absolute;
 }
 
-#userlist, #darkmode, #wordcloud, #projectlist, #projectcard, #usercard{
+#userlist, #wordcloud, #projectlist, #projectcard, #usercard{
     border: 2px solid black;
 }
 
@@ -79,8 +79,8 @@
 #darkmode{
     right: 5%;
     top: 5%;
-    width: 10vh;
-    height: 5vh;
+    width: 7vh;
+    height: auto;
 }
 
 #projectlist{
