@@ -11,6 +11,7 @@ const model = {
         loggedIn: false,
         currentprofile: false,
         currentprofiletab: null,
+        darkmodeurl: "img/moon.png",
     },
     input: {       
         login: {
