@@ -11,7 +11,7 @@ function userRegister() {
 
     const profilePictureFile = document.getElementById('fileInput').files[0];
     if (profilePictureFile) {
-        createAccount.profilePicure = URL.createObjectURL(profilePictureFile);
+        createAccount.profilePicture = URL.createObjectURL(profilePictureFile);
     }
   
 createAccount.id = model.data.users.length;
@@ -25,9 +25,9 @@ function fileChange(event) {
     if (fileInput) {
         const file = fileInput.files[0];
         if (file) {
-            model.input.createAccount[0].profilePicure = URL.createObjectURL(file);
+            model.input.createAccount[0].profilePicture = URL.createObjectURL(file);
             let image = document.getElementById('profilePicture');
-            image.src = model.input.createAccount[0].profilePicure;
+            image.src = model.input.createAccount[0].profilePicture;
         }
     } else {
         console.error("File input element not found.");

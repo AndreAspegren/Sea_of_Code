@@ -142,7 +142,7 @@ function genfriendlist(key) {
         <div>${model.data.users[user].projects.length} prosjekter</div>
         <div>${model.data.users[user].friends.length} venner</div>
         </div>
-        <img style="height: 6vh; width: auto" src="${model.data.users[user].profilePicure}"/>
+        <img style="height: 6vh; width: auto" src="${model.data.users[user].profilePicture}"/>
         </div>
         `
       }

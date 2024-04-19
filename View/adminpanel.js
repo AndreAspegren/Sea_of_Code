@@ -57,7 +57,7 @@ function gennonadminlist() {
             <div>${model.data.users[key].projects.length} prosjekter</div>
             <div>${model.data.users[key].friends.length} venner</div>
             </div>
-            <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicure}"/>
+            <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicture}"/>
             <div>
             <button onclick="makeadmin(${key})">Gi adminmakt🔨</button>
             </div>
