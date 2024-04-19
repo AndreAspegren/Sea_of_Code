@@ -40,7 +40,7 @@ function profileScreen(key) {
           <br>
           ${model.app.currentprofile === model.app.userID ? '<button onclick="logOff()">Log off</button>' : ''}
           <div class="user-socialmedia">
-            <p class="socialmedia"></p>
+            <p class="socialmedia">${user.github}, ${user.linkedIn}</p>
           </div>
         </div>
       </div>

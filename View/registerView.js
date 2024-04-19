@@ -15,6 +15,7 @@ function registerUser(){
     <input type="text" onchange="inputChange('phoneNr', this.value)" placeholder="Telefonnummer (frivillig)" />
     <input type="text" onchange="inputChange('age', this.value)" placeholder="Alder (frivillig)" />
     <input type="text" onchange="inputChange('country', this.value)" placeholder="Sted (frivillig)" />
+    <input type="text" onchange="inputChange('city', this.value)" placeholder="By (frivillig)" />
     <input type="text" onchange="inputChange('github', this.value)" placeholder="Github link (frivillig)" />
     <input type="text" onchange="inputChange('linkedIn', this.value)" placeholder="LinkedIn (frivillig)" />
     <input type="file" id="fileInput" onchange="fileChange(event)">
