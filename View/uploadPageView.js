@@ -55,7 +55,7 @@ function userList() {
     <td>
     <div class="userInfo">
     ${model.data.users[user].username}
-    <img class="userProfilePicture" src="${model.data.users[user].profilePicure}"/>
+    <img class="userProfilePicture" src="${model.data.users[user].profilePicture}"/>
     <br>
     ${model.data.users[user].projects.length} prosjekter
     <br>
