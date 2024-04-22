@@ -38,11 +38,11 @@ function homescreen() {
 }
 
 function updateview(newview, key) {
-    newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
+    newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key);
 }
 
 function mutebtn() {
-    yarr.paused ? yarr.play() : yarr.pause()
+    yarr.paused ? yarr.play() : yarr.pause();
 }
 
 function genprojectlist() {
@@ -61,16 +61,16 @@ function genprojectlist() {
             `
         }
     }
-    return projectlist
+    return projectlist;
 }
 
 function darkmode() {
-    const mode = model.app.darkmode ? ['white', 'black', false, "img/moon.png"] : ['gray', 'white', true, "img/sun.png"]
-    app.style.backgroundColor = mode[0]
-    app.style.color = mode[1]
-    model.app.darkmode = mode[2]
-    model.app.darkmodeurl = mode[3]
-    updateview()
+    const mode = model.app.darkmode ? ['white', 'black', false, "img/moon.png"] : ['gray', 'white', true, "img/sun.png"];
+    app.style.backgroundColor = mode[0];
+    app.style.color = mode[1];
+    model.app.darkmode = mode[2];
+    model.app.darkmodeurl = mode[3];
+    updateview();
 }
 
 function genwordcloud() {
@@ -97,7 +97,7 @@ function genuserlist() {
         </div>
         `
     }
-    return userlist
+    return userlist;
 }
 
 function admin() {
