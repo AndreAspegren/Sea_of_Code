@@ -12,7 +12,7 @@ function projectpage(key, num){
     <div id="projectbuttons-container">${genpageturn(key)}</div>
     </div>
  
-
+    <div>${deleteProjectButton()}</div>
     <div id="comments">
     <div>${gencomments(key)} </div>
     <div id="commentinput">
@@ -54,3 +54,11 @@ function gencomments(key) {
     }).join('')
 }
 
+function deleteProjectButton() {
+    let deleteP = '';
+    let currentUserId = model.app.userID;
+    if(model.app.loggedIn == true && model.data.adminpanel.users.includes(currentUserId)){
+    deleteP = `<div><button onclick="deleteProject()">slett</button></div>`;
+    }
+    return deleteP;
+}

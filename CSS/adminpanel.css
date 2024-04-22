@@ -14,7 +14,12 @@
 
 #adminbuttons {
     grid-area: adminbuttons;
-    border: 1px solid black;
+    display: flex;
+    justify-content: flex-end;
+    height: 20px;
+    gap: 3px;
+    
+
 }
 
 #nonadminusers {
@@ -25,15 +30,21 @@
 #nonadminprojects {
     grid-area: adminprojects;
     border: 1px solid black;
+    padding: 5px;
 }
 
 #admincard {
     display: flex;
-    align-items: center;
-    width: 60vw;
-    height: 8vh;
-    column-gap: 15vh;
+    align-items: flex-start;
+    justify-content: space-between;
+    text-align: center;
     border: 1px solid black;
+
+}
+
+#admincard > img{
+    width: 100px;
+    height: 70px;
 }
 
 #nonadminlist {
@@ -49,8 +60,8 @@
 
 #hammerbuttons {
     display: flex;
-    height: 4vh;
-    width: 10vh;
+    height: 8vh;
+    width: 7vw;
 }
 
 /* @media only screen and (min-width: 1200px) {
