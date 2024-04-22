@@ -232,19 +232,21 @@ button.createbtn i {
 #friendcards{
    border: 1px solid black;
    width: 70vh;
-   height: 10vh;
    display: flex;
-   justify-content: left;
+   justify-content: flex-end;
    flex-direction: row-reverse;
   
+}
+#projectcard{
+   width: 70vh;
+   justify-content:flex-start
 }
 
 #chat {
    display: flex;
    flex-direction: column;
    align-items: flex-start; 
- }
- 
+}
 
  #leftmsg {
    align-self: flex-start; 
@@ -281,7 +283,7 @@ button.createbtn i {
 #usersetting{
    display: grid;
    justify-content: center;
-   
+
 }
 
 

@@ -1,4 +1,4 @@
-#userlist, #wordcloud, #projectlist, #projectcard, #usercard{
+#homeuserlist, #wordcloud, #projectlist, #projectcard{
     border: 1px solid black;
 }
 
@@ -7,8 +7,40 @@
     grid-template-rows: 15vh 80vh; 
     grid-template-columns: 30vw 40vw 24vw;
     grid-template-areas: 
-        "Logo searchbar buttons"
-        "users projects wordcloud";
+        "homeLogo homesearchbar homebuttons"
+        "homeusers projects homewordcloud";
+}
+
+#homebuttons {
+    grid-area: homebuttons;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#homebuttonz {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: repeat(2, 5vh); 
+    grid-template-columns: repeat(3, 7vw);
+    gap: 0;
+}
+
+#homebuttonz > button {
+    width: 7vw;
+    height: 5vh;
+}
+
+#homesearchbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: homesearchbar;   
+}
+
+#homelogo{
+    grid-area: homeLogo;
 }
 
 #userlist, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
@@ -17,19 +49,28 @@
     align-items: center;
 }
 
-#userlist{
-    width: 30vw;
-    height: 80vh; 
+#homeuserlist{
+    grid-area: homeusers;
+    border: 1px solid black;
 }
 
 #wordcloud{
-    width: 24vw;
-    height: 80vh;
+    grid-area: homewordcloud;   
 }
 
-#projectlist{
+#projects{
+    grid-area: projects;
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+#homeprojectcard{
+    height: 10vh;
+    display: flex; 
     width: 40vw;
-    height: 80vh;
+    column-gap: 15vh;
+    border-bottom: 1px solid black;
 }
 
 body {
@@ -46,11 +87,6 @@ body {
     background-size: cover; */
 }
 
-#mutebtn{
-    width: 10vh;
-    height: 5vh;
-}
-
 #usercard{
     width: 30vw;
     height: 8vh;
@@ -58,6 +94,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid black;
 }
 
 #logo{
@@ -70,49 +107,14 @@ body {
     height: 5vh; 
 }
 
-#loginbtn{
-    width: 10vh;
-    height: 5vh; 
-}
-
-#adminbutton{
-    width: 10vh;
-    height: 5vh;
-}
-
-#darkmode{
-    width: 7vh;
-    height: auto;
-}
-
-
-
-#projectcard{
-    width: 40vw;
-    height: 10vh;
-    display: flex; 
-    column-gap: 15vh;
-}
-
-
-
 #wordcloudcard{
     width: 19vh;
     height: 9vh;
 }
 
-img{
-    width: 10vh;
+img {
+    width: 8vw;
     height: auto;
 }
 
-#uploadbtn{
-    width: 10vh;
-    height: 5vh;
-}
-
-#myprofilebtn{
-    width: 10vh;
-    height: 5vh;
-}
 
