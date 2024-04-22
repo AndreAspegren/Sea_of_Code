@@ -1,6 +1,8 @@
 function profileScreen(key) {
   if (key != undefined) model.app.currentprofile = key
   const user = model.data.users[key == undefined ? model.app.currentprofile : key]
+  if (key === undefined) key = key
+  console.log()
     app.innerHTML = /*HTML*/`
 <div id="profileScreen">
   <div class="container">
@@ -54,7 +56,7 @@ function profileScreen(key) {
             <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Venner</li>
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Opplastinger</li>
             <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>
-            ${model.app.loggedIn && model.app.currentprofile != model.app.loggedIn ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>` : ''}
+            ${model.app.loggedIn && model.app.currentprofile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>` : ''}
           </ul>
         </div>
         <div class="profile-body">
@@ -104,7 +106,6 @@ function sendmsg() {
 }
 
 function genfriendbtn(key, user) {
-  console.log(key, user)
     if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id}); updateview('profileScreen', ${user.id})">Legg til venn</button>`;
     if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>';
     return ''
@@ -128,7 +129,7 @@ function genuploads(key) {
 
 function genchat(key) {
     return model.data.messages
-        .filter(m => (m.from == 0 || m.from == 1) || (m.to == 0 || m.to == 1))
+        .filter(m => (m.from == model.app.userID && m.to == key || m.from == key && m.to == model.app.userID))
         .map(m => {
             let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
             return `<div id="${currentclass}">${m.content}</div>`

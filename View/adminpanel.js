@@ -1,17 +1,12 @@
 function adminpanel() {
     app.innerHTML = /*HTML*/`
     <div id="admincontainer">
+
     <div id="nonadminprojects">${adminprojects()}</div>
 
-<<<<<<< HEAD
         <div id="adminlogo">
             <img onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
         </div>
-=======
-    <div id="adminlogo">
-    <img  onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-    </div>
->>>>>>> 69abbb1c68715388bb2c25c976bf3b13680c4b3b
 
         <div id="adminbuttons">
         <img onclick="darkmode()" src=${model.app.darkmodeurl}>
@@ -24,7 +19,6 @@ function adminpanel() {
     </div>
     `
 }
-
 
 function adminprojects() {
     let projects = ''

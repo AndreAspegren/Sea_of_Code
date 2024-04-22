@@ -12,7 +12,7 @@ function projectpage(key, num){
     <div id="projectbuttons-container">${genpageturn(key)}</div>
     </div>
  
-    <div>${deleteProjectButton()}</div>
+
     <div id="comments">
     <div>${gencomments(key)} </div>
     <div id="commentinput">
@@ -21,9 +21,9 @@ function projectpage(key, num){
     : ''}</div>
     </div>
     
-    <button onclick="darkmode()" id="darkmode">darkmode</button>
+    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     <img id="logo" onclick="updateview('homescreen'); model.input.userActivity.comment = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-    <button id="mutebtn" onclick="mutebtn()">Mute</button>
+    <img src="img/mute.png" onclick="mutebtn()">
     `
 }
 
@@ -54,11 +54,3 @@ function gencomments(key) {
     }).join('')
 }
 
-function deleteProjectButton() {
-    let deleteP = '';
-    let currentUserId = model.app.userID;
-    if(model.app.loggedIn == true && model.data.adminpanel.users.includes(currentUserId)){
-    deleteP = `<div><button onclick="deleteProject()">slett</button></div>`;
-    }
-    return deleteP;
-}
