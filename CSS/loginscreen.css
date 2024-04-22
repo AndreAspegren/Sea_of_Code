@@ -6,9 +6,6 @@
     grid-row-gap: 0px;
 }
 
-#allDiv>div {
-    border: solid red 1px;
-}
 
 #logobtn {
     grid-area: 1 / 1 / 2 / 2;
@@ -18,8 +15,8 @@
     grid-area: 1 / 5 / 2 / 6;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
+    gap: 1px;
+    height: 20px;
 }
 
 #loginscreen {
@@ -28,4 +25,8 @@
 
 #footer {
     grid-area: 5 / 3 / 6 / 4;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+
 }
