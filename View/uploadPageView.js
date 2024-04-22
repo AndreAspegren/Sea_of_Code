@@ -1,33 +1,19 @@
 function uploadPageView() {
     app.innerHTML =/*html*/`
+<div id="uploadcontainer">
 
-<div class="userList">
-<table>
-<tr>
-<th>Users</th>
-${userList()}
-</tr>
-</table>
+<div id="uploadbuttons">
+<img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
+<button onclick="darkmode()" id="darkmode">darkmode</button>
+<button id="mutebtn" onclick="mutebtn()">Mute</button>
 </div>
 
-<h1 class="upload">Upload your project</h1>
-
-<div class="projectUpload">
-
-    <div>
-    <li>Project name</li>
+<div>
+<h1 class="upload">Upload ditt prosjekt</h1>
     <input type="text" onchange="model.input.projects.name = this.value" placeholder="Project name" id="projectName">
-    </div>
-
-    <div>
-    <li>Project description</li>
     <input type="text" onchange="model.input.projects.description = this.value" style="width: 30vh; height: 15vh;" placeholder="Project description" id="projectDescription">
-    </div>
-
-    <div>
-    <li>Upload Project picture</li>
     <input onchange="model.input.projects.picture = this.value" type="url" placeholder="url">
-    </div>
+    
 
     <div>
     <li>Upload files</li>
@@ -40,9 +26,9 @@ ${userList()}
 
 </div>
 
-<img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-<button onclick="darkmode()" id="darkmode">darkmode</button>
-<button id="mutebtn" onclick="mutebtn()">Mute</button>
+
+
+</div>
     `;
 }
 
