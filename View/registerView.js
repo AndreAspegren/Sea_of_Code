@@ -1,10 +1,15 @@
-function registerUser(){
+function registerUser() {
 
     app.innerHTML = /*HTML*/`
-    <div id="darkmodeDiv" class="darkmodeDiv">
-    </div>
     <div id="registerDiv" class="registerDiv">
-    <div id="registeruser">
+    <div id= "registerlogo">
+    <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
+    </div>
+    <div id="registerbuttons">
+    <button id="darkmode" onclick="darkmode()">Dark mode</button>
+    <button id="mutebtn" onclick="mutebtn()">Mute</button>
+    </div>
+    <div id="registerinputs">
     <h2>Registrer bruker</h2>
     <input type="text" onchange="inputChange('eMail', this.value)" placeholder="Email" required />
     <input type="text" onchange="inputChange('username', this.value)" placeholder="Brukernavn" required/>
@@ -18,22 +23,21 @@ function registerUser(){
     <input type="text" onchange="inputChange('city', this.value)" placeholder="By (frivillig)" />
     <input type="text" onchange="inputChange('github', this.value)" placeholder="Github link (frivillig)" />
     <input type="text" onchange="inputChange('linkedIn', this.value)" placeholder="LinkedIn (frivillig)" />
-    <input type="file" id="fileInput" onchange="fileChange(event)">
     <textarea id="bio" onchange="inputChange('bio', this.value)" placeholder="Bio"></textarea>
+    <p>
     Last opp profilbilde:
-    <img id="profilePicture"/>
+    <input type="file" id="fileInput" onchange="fileChange(event)">
+    <img id="registerProfilePicture"/>
+    <p>
     <button style="width: 10vh;" onclick="userRegister()">Registrer bruker</button>
     </div>
-    
     </div>
-    <button id="darkmode" onclick="darkmode()">Dark mode</button>
-    <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-    <button id="mutebtn" onclick="mutebtn()">Mute</button>
+    
     `
-;
+        ;
 }
 
-let loadFile = function(event) {
-    let image = document.getElementById('profilePicture');
+let loadFile = function (event) {
+    let image = document.getElementById('registerProfilePicture');
     image.src = URL.createObjectURL(event.target.files[0]);
 };

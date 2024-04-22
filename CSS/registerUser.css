@@ -1,12 +1,36 @@
-#registeruser{
+#registerDiv{
     display: grid;
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translateX(-50%);
-    justify-content: center;
-    align-items: center;
-    grid-template-columns: repeat(1, 1fr);
-    height: 50vh;
-    width: 30vh;
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-rows: repeat(2, 1fr); */
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
 }
+
+#registerlogo{
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+#registerbuttons{
+    grid-area: 1 / 5 / 2 / 6;
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 1px;
+    height: 20px;
+}
+
+#registerinputs{
+    grid-area: 1 / 5 / 3 / 3;
+    display: grid;
+    width: 50px;
+    gap: 5px;
+}
+
+#registerProfilePicture{
+    border: solid black 4px;
+    border-radius: 50%;
+    width: 230px;
+    height:230px;
+}
+
+
