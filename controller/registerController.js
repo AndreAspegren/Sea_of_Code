@@ -25,7 +25,7 @@ function fileChange(event) {
         const file = fileInput.files[0];
         if (file) {
             model.input.createAccount[0].profilePicure = URL.createObjectURL(file);
-            let image = document.getElementById('profilePicture');
+            let image = document.getElementById('registerProfilePicture');
             image.src = model.input.createAccount[0].profilePicure;
         }
     } else {
