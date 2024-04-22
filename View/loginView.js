@@ -6,7 +6,7 @@ function logInscreen() {
         </div>
 
         <div id="buttons">
-                <button id="mutebtn" onclick="mutebtn()">Mute</button>
+                <button id="mutebutton" onclick="mutebtn()">Mute</button>
                 <button id="darkmode" onclick="darkmode()">Dark mode</button>
             </div>
             
