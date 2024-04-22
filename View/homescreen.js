@@ -2,18 +2,18 @@ updateview('homescreen')
 function homescreen() {
     app.innerHTML = /*HTML*/`
     <div id="homecontainer">
-    <div style="grid-area: Logo">
+    <div id="homelogo">
     <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
     </div>
     
-    <div style="grid-area: searchbar">
+    <div id="homesearchbar">
     <span>
     <input type="text" placeholder="Søk..." id="searchbar" onchange="searchbar()" />
     <button onclick="searchbar()">Søk</button>
     </span>
     </div>
 
-    <div style="grid-area: buttons">
+    <div id="homebuttons">
     ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
     ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
     <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
@@ -34,7 +34,7 @@ function homescreen() {
     <div style="grid-area: wordcloud">
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     </div>
-    
+
     </div>
     `
 }
