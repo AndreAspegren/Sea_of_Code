@@ -1,16 +1,25 @@
 function adminpanel() {
     app.innerHTML = /*HTML*/`
-    <div id="mainDiv">
-    <div id="admin">
-    ${adminprojects()}
+    <div id="admincontainer">
+    <div id="nonadminprojects">${adminprojects()}</div>
+
+    <div id="adminlogo">
+    <img  onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
     </div>
-    <div id="nonadminlist">${gennonadminlist()}</div>
+    <div id="adminprojects">${adminprojects()}</div>
+
+    <div id="adminbuttons">
     <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-    </div>
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
+    </div> 
+    
+    <div id="nonadminusers">${gennonadminlist()}</div>
+    
+
+    </div>
     `
 }
+
 
 function adminprojects() {
     let projects = ''
@@ -27,7 +36,7 @@ function adminprojects() {
 
             <div>${model.data.projects[key].description}</div>
             
-            <div id="adminbuttons">
+            <div id="hammerbuttons">
             <button onclick="hammertime(${key}, 'yay')">YAY👌</button>
             <button onclick="hammertime(${key})">NAY💩</button>
             </div>
@@ -39,17 +48,11 @@ function adminprojects() {
     return projects
 }
 
-function hammertime(key, approved) {
-    approved ? model.data.projects[key]['approved'] = true : model.data.projects.splice(key, 1)
-    updateview()
-}
-
 function gennonadminlist() {
     let list = '';
     let number = 0;
     for (let key in model.data.users) {
-        if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {
-    console.log("generer:", number,  model.data.users[key].username);        
+        if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {       
             list += /*HTML*/`
             <div id="nonadmincard" class="nonadmincard">
             <div>
@@ -66,7 +69,11 @@ function gennonadminlist() {
         number++;
     }
     return list
-    
+}
+
+function hammertime(key, approved) {
+    approved ? model.data.projects[key]['approved'] = true : model.data.projects.splice(key, 1)
+    updateview()
 }
 
 function makeadmin(key) {

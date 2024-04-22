@@ -9,6 +9,22 @@ div {
     height: 5vh;
 }
 
+#uploadcontainer {
+    display: grid;
+    grid-template-rows: 15vh 80vh;
+    grid-template-areas:
+        "uploadbuttons  uploadinputs";
+}
+
+#uploadbuttons{
+    grid-area: uploadbuttons;
+}
+
+#uploadinputs{
+    grid-area: uploadinputs;
+}
+
+
 .userProfilePicture{
 float: right;
 }

@@ -1,46 +1,64 @@
-#admin{
-    width: 80vh;
-    height: 92vh; 
-    border: 2px solid black;
+#admincontainer {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-content: center;
+    grid-template-rows: 15vh 80vh;
+    grid-template-columns: 30vw 60vw;
+    grid-template-areas:
+        "adminLogo  adminbuttons"
+        "nonadminusers adminprojects";
 }
 
-#admincard{
+#adminlogo {
+    grid-area: adminLogo;
+    border: 1px solid black;
+}
+
+#adminbuttons {
+    grid-area: adminbuttons;
+    display: flex;
+    justify-content: flex-end;
+    height: 20px;
+    gap: 3px;
+    
+
+}
+
+#nonadminusers {
+    grid-area: nonadminusers;
+    border: 1px solid black;
+}
+
+#nonadminprojects {
+    grid-area: adminprojects;
+    border: 1px solid black;
+}
+
+#admincard {
     display: flex;
     align-items: center;
-    width: 80vh;
+    width: 60vw;
     height: 8vh;
     column-gap: 15vh;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
-#nonadminlist{
+#nonadminlist {
     display: flex;
     flex-direction: column;
     border: 2px solid black;
     height: 100%;
 }
 
-#nonadmincard{
+#nonadmincard {
     border: 1px solid pink;
 }
 
-
-#mainDiv{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#adminbuttons{
+#hammerbuttons {
     display: flex;
     height: 4vh;
     width: 10vh;
 }
 
-@media only screen and (min-width: 1200px) {
+/* @media only screen and (min-width: 1200px) {
     .headerContainer {
       clip-path: polygon(0 0, 100% 0, 82% 100%, 0 100%);
       padding: 0px 150px 0px 20px;
@@ -50,6 +68,4 @@
       margin-top: 20px;
       grid-area: addOns;
     }
-}
-
-
+} */

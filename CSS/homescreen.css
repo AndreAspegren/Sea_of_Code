@@ -56,8 +56,6 @@
 
 #wordcloud{
     grid-area: homewordcloud;   
-    width: 24vw;
-    height: 80vh;
 }
 
 #projects{
