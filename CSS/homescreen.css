@@ -11,14 +11,24 @@
         "users projects wordcloud";
 }
 
-#homebuttons{
-    display: flex;
+#homebuttons {
     grid-area: homebuttons;   
+    display: flex;
     justify-content: center;
     align-items: center;
 }
-#homebuttons > button {
-    width: 8vw;
+
+#homebuttonz {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: repeat(2, 5vh); 
+    grid-template-columns: repeat(3, 7vw);
+    gap: 0;
+}
+
+#homebuttonz > button {
+    width: 7vw;
     height: 5vh;
 }
 
@@ -115,13 +125,4 @@ img{
     height: auto;
 }
 
-#uploadbtn{
-    width: 10vh;
-    height: 5vh;
-}
-
-#myprofilebtn{
-    width: 10vh;
-    height: 5vh;
-}
 

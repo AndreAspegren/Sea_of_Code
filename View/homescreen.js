@@ -14,11 +14,13 @@ function homescreen() {
     </div>
 
     <div id="homebuttons">
-    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
-    ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-    ${admin()}
+    <div id="homebuttonz">
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
+    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
+    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
+    ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
+    ${admin()}
+    </div>
     </div>
     
     <div style="grid-area: users">
@@ -34,7 +36,6 @@ function homescreen() {
     <div style="grid-area: wordcloud">
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     </div>
-
     </div>
     `
 }
