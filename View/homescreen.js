@@ -16,10 +16,10 @@ function homescreen() {
 
     <div id="homebuttons">
     <div id="homebuttonz">
-    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
+    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="updateview(`logInscreen`)">login</button>'}
     <img src="img/mute.png" onclick="mutebtn()">
     <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-    ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
+    ${model.app.loggedIn ? '<button id="uploadbtn" onclick="updateview(`uploadPageView`)">upload</button>' : ''}
     ${admin()}
     </div>
     </div>

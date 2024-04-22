@@ -1,7 +1,7 @@
 #admincontainer {
     display: grid;
     grid-template-rows: 15vh 80vh;
-    grid-template-columns: 30vw 60vw;
+    grid-template-columns: 30vw 70vw;
     grid-template-areas:
         "adminLogo  adminbuttons"
         "nonadminusers adminprojects";
@@ -9,17 +9,17 @@
 
 #adminlogo {
     grid-area: adminLogo;
-    border: 1px solid black;
 }
 
 #adminbuttons {
     grid-area: adminbuttons;
     display: flex;
     justify-content: flex-end;
-    height: 20px;
-    gap: 3px;
-    
+}
 
+#adminbuttons > img {
+    width: 5vw;
+    height: 5vh;
 }
 
 #nonadminusers {
@@ -39,7 +39,6 @@
     justify-content: space-between;
     text-align: center;
     border: 1px solid black;
-
 }
 
 #admincard > img{

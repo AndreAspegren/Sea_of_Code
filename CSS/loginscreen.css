@@ -16,7 +16,8 @@
     display: flex;
     justify-content: flex-end;
     gap: 1px;
-    height: 20px;
+    width: 5vw;
+    height: 5vh;
 }
 
 #loginscreen {
