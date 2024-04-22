@@ -227,6 +227,7 @@ button.createbtn i {
    left: 23%;
    width: 70vh;
    height: 75vh;
+   justify-content: center;
 }
 
 #friendcards{
@@ -238,13 +239,15 @@ button.createbtn i {
    flex-direction: row-reverse;
   
 }
+#projectcard{
+   width: 70vh;
+}
 
 #chat {
    display: flex;
    flex-direction: column;
    align-items: flex-start; 
- }
- 
+}
 
  #leftmsg {
    align-self: flex-start; 
@@ -281,7 +284,7 @@ button.createbtn i {
 #usersetting{
    display: grid;
    justify-content: center;
-   
+
 }
 
 
