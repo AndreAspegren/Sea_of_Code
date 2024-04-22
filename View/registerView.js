@@ -6,8 +6,8 @@ function registerUser() {
     <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
     </div>
     <div id="registerbuttons">
-    <button id="darkmode" onclick="darkmode()">Dark mode</button>
-    <button id="mutebtn" onclick="mutebtn()">Mute</button>
+    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
+    <img src="img/mute.png" onclick="mutebtn()">
     </div>
     <div id="registerinputs">
     <h2>Registrer bruker</h2>

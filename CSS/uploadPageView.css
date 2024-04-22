@@ -1,65 +1,37 @@
-/* div, .userList, .userProfilePicture, .userInfo, .projectUpload, .upload, table, td, tr, th{
-    position: absolute;
-} */
-div {
-    gap: 20px;
-}
-
-.userList{
-    height: 5vh;
-}
-
 #uploadcontainer {
     display: grid;
-    grid-template-rows: 15vh 80vh;
+    grid-template-columns: 15vh 80vh;
     grid-template-areas:
-        "uploadbuttons  uploadinputs";
+        "uploadbuttons"  "uploadinputs";
 }
 
-#uploadbuttons{
+#uploadbuttons {
     grid-area: uploadbuttons;
+    width: 100vw; 
+    display: flex;
+    justify-content: space-between; 
 }
+
+#uploadbuttons > button {
+    width: 5vw;
+    height: 4vh
+}
+
 
 #uploadinputs{
-    grid-area: uploadinputs;
-}
-
-
-.userProfilePicture{
-float: right;
-}
-
-.userInfo{
-    font-size: xx-large;
-}
-
-.projectUpload, .upload {
-    font-size: xxx-large;
-    display: grid;
+    display: flex;
     justify-content: center;
-}
-❌
-
-/* .darkMode {
-    float: right;
-    margin-right: 100px;
-} */
-
-table,
-td,
-tr,
-th {
-    width: 24vh;
-    border: 1px solid black;
-    border-collapse: collapse;
+    align-items: center;
+    grid-area: uploadinputs;
+    width: 100vw;
+    min-height: 70vh;
 }
 
-table{
-    margin-top: 150px;
-}
 
-th, td {
-    border: 1px solid black;
+
+#uploadinputz{
     display: grid;
-    padding: 4px;
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: 4vh;
 }
+

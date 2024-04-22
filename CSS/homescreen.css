@@ -32,6 +32,11 @@
     height: 5vh;
 }
 
+#homebuttonz > img {
+    width: 7vw;
+    height: auto;
+}
+
 #homesearchbar{
     display: flex;
     justify-content: center;
