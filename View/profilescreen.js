@@ -152,7 +152,7 @@ function genfriendlist(key) {
 }
 
 function gensettings() {
-    return /*HTML*/`<div id="registeruser">
+    return /*HTML*/`<div id="usersetting">
     <h2>Endre profil</h2>
     <input type="text" onchange="inputChange('eMail', this.value)" placeholder="Email" required />
     <input type="text" onchange="inputChange('username', this.value)" placeholder="Brukernavn" required/>
