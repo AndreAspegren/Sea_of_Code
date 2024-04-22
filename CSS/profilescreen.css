@@ -171,7 +171,7 @@ button.createbtn i {
 }
 
 .nav {
-   width: 100%;
+   width: 500px;
    z-index: -1;
 }
 
@@ -230,9 +230,13 @@ button.createbtn i {
 }
 
 #friendcards{
-   border: 2px solid black;
+   border: 1px solid black;
    width: 70vh;
    height: 10vh;
+   display: flex;
+   justify-content: left;
+   flex-direction: row-reverse;
+  
 }
 
 #chat {
@@ -273,3 +277,11 @@ button.createbtn i {
    bottom: -40px;
    transform: translateX(-50%);
 }
+
+#usersetting{
+   display: grid;
+   justify-content: center;
+   
+}
+
+
