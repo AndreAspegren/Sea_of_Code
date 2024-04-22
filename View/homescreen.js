@@ -1,22 +1,41 @@
 updateview('homescreen')
 function homescreen() {
     app.innerHTML = /*HTML*/`
-    <div id="userlist"><div>${genuserlist()}</div></div>
+    <div id="homecontainer">
+    <div style="grid-area: Logo">
     <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-
-    <div id="search-container">
+    </div>
+    
+    <div style="grid-area: searchbar">
+    <span>
     <input type="text" placeholder="Søk..." id="searchbar" onchange="searchbar()" />
-    <div id="searchResults"></div>
+    <button onclick="searchbar()">Søk</button>
+    </span>
     </div>
 
+    <div style="grid-area: buttons">
     ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
     ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
-    <div id="wordcloud"><div>${genwordcloud()}</div></div>
-    
-    <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
     <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     ${admin()}
     <button id="mutebtn" onclick="mutebtn()">Mute</button>
+    </div>
+    
+    <div style="grid-area: users">
+    <div id="userlist"><div>${genuserlist()}</div></div>
+    </div>
+    
+    
+    <div style="grid-area: projects">
+    <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
+    <div id="searchResults"></div>
+    </div>
+
+    <div style="grid-area: wordcloud">
+    <div id="wordcloud"><div>${genwordcloud()}</div></div>
+    </div>
+    
+    </div>
     `
 }
 

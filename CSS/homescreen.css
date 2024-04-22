@@ -1,10 +1,17 @@
 #userlist, #wordcloud, #projectlist, #projectcard, #usercard{
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
-#searchbar, #projectlist{
-    transform: translateX(-50%); 
+#homecontainer {
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: 30vw 40vw 24vw; 
+    grid-template-columns: 20vh 80vh;
+    grid-template-areas: 
+        "Logo searchbar buttons"
+        "users projects wordcloud";
 }
+
 
 #userlist, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
     display: flex;
@@ -13,10 +20,18 @@
 }
 
 #userlist{
-    left: 3%;
-    top: 15%;
-    width: 25vh;
-    height: 84vh; 
+    width: 30vw;
+    height: 80vh; 
+}
+
+#wordcloud{
+    width: 24vh;
+    height: 80vh;
+}
+
+#projectlist{
+    width: 40vw;
+    height: 80vh;
 }
 
 body {
@@ -34,8 +49,6 @@ body {
 }
 
 #mutebtn{
-    left: 22%;
-    top: 5%;
     width: 10vh;
     height: 5vh;
 }
@@ -50,46 +63,31 @@ body {
 }
 
 #logo{
-    left: 5%;
-    top: 5%;
     width: 16vh;
     height: 9vh;
 }
 
 #searchbar{
-    left: 50%; 
-    top: 5%;
     width: 30vh;
     height: 5vh; 
 }
 
 #loginbtn{
-    right: 30%;
-    top: 5%;
     width: 10vh;
     height: 5vh; 
 }
 
 #adminbutton{
-    left: 30%;
-    top: 5%;
     width: 10vh;
     height: 5vh;
 }
 
 #darkmode{
-    right: 5%;
-    top: 5%;
     width: 7vh;
     height: auto;
 }
 
-#projectlist{
-    left: 50%; 
-    top: 15%;
-    width: 70vh;
-    height: 84vh;
-}
+
 
 #projectcard{
     width: 67vh;
@@ -98,12 +96,7 @@ body {
     column-gap: 15vh;
 }
 
-#wordcloud{
-    right: 3%;
-    top: 15%;
-    width: 20vh;
-    height: 84vh;
-}
+
 
 #wordcloudcard{
     width: 19vh;
@@ -116,15 +109,11 @@ img{
 }
 
 #uploadbtn{
-    right: 13%;
-    top: 5%;
     width: 10vh;
     height: 5vh;
 }
 
 #myprofilebtn{
-    right: 22%;
-    top: 5%;
     width: 10vh;
     height: 5vh;
 }
