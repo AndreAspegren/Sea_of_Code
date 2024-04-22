@@ -6,8 +6,8 @@ function logInscreen() {
         </div>
 
         <div id="buttons">
-                <button id="mutebutton" onclick="mutebtn()">Mute</button>
-                <button id="darkmode" onclick="darkmode()">Dark mode</button>
+        <img src="img/mute.png" onclick="mutebtn()">
+                <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
             </div>
             
             <div id="loginscreen">

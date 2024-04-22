@@ -8,7 +8,7 @@ function adminpanel() {
         </div>
 
         <div id="adminbuttons">
-            <button onclick="darkmode()" id="darkmode">darkmode</button>
+        <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
             <button id="mutebtn" onclick="mutebtn()">Mute</button>
         </div> 
         
