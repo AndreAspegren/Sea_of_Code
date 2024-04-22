@@ -46,7 +46,6 @@ function adminprojects() {
     return projects
 }
 
-
 function gennonadminlist() {
     let list = '';
     let number = 0;
