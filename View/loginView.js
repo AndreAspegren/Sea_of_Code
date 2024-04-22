@@ -12,9 +12,11 @@ function logInscreen() {
             
             <div id="loginscreen">
                 <h2> Logg inn </h2>
-                <input type="text" id="usernameInput" placeholder="Brukernavn" required/>
-                <input type="password" id="passwordInput" placeholder="Passord" required/>
-                <button onclick="login()">Logg inn</button>
+                <form id="loginForm">
+                    <input type="text" id="usernameInput" placeholder="Brukernavn" required/>
+                    <input type="password" id="passwordInput" placeholder="Passord" required/>
+                </form>
+                <button type="submit" onclick="login()">Logg inn</button>
             </div>
 
 
@@ -24,4 +26,3 @@ function logInscreen() {
             </div>
         </div>
     `;
-}

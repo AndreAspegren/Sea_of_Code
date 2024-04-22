@@ -10,6 +10,7 @@ function login() {
         model.app.userID = user.id;
         updateview('homescreen');
     }
+
 }
 
 function findUser(username, password) {
