@@ -13,9 +13,7 @@ function adminpanel() {
     
     <div id="nonadminusers">${gennonadminlist()}</div>
     
-    <div id="adminprojectz">
-    ${adminprojects()}
-    </div>
+    <div id="adminprojects">${adminprojects()}</div>
 
     </div>
     `
@@ -48,17 +46,12 @@ function adminprojects() {
     return projects
 }
 
-function hammertime(key, approved) {
-    approved ? model.data.projects[key]['approved'] = true : model.data.projects.splice(key, 1)
-    updateview()
-}
 
 function gennonadminlist() {
     let list = '';
     let number = 0;
     for (let key in model.data.users) {
-        if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {
-    console.log("generer:", number,  model.data.users[key].username);        
+        if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {       
             list += /*HTML*/`
             <div id="nonadmincard" class="nonadmincard">
             <div>
@@ -75,7 +68,11 @@ function gennonadminlist() {
         number++;
     }
     return list
-    
+}
+
+function hammertime(key, approved) {
+    approved ? model.data.projects[key]['approved'] = true : model.data.projects.splice(key, 1)
+    updateview()
 }
 
 function makeadmin(key) {

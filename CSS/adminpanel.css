@@ -4,7 +4,7 @@
     grid-template-columns: 30vw 60vw;
     grid-template-areas: 
         "adminLogo  adminbuttons"
-        "nonadminusers yoadmin";
+        "nonadminusers adminprojects";
 }
 
 #adminlogo {
@@ -22,15 +22,15 @@
     border: 1px solid black;
 }
 
-#adminprojectz {
-    grid-area: yoadmin;
+#adminprojects {
+    grid-area: adminprojects;
     border: 1px solid black;
 }
 
 #admincard{
     display: flex;
     align-items: center;
-    width: 80vh;
+    width: 60vw;
     height: 8vh;
     column-gap: 15vh;
     border: 1px solid black;
@@ -46,7 +46,6 @@
 #nonadmincard{
     border: 1px solid pink;
 }
-
 
 #hammerbuttons{
     display: flex;
