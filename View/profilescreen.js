@@ -79,10 +79,6 @@ function profileScreen(key) {
     </div>
   </div>
 </div>
-<button onclick="darkmode()" id="darkmode">darkmode</button>
-<img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen'); model.app.currentprofiletab = ''" 
-src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/><div>${!model.app.loggedIn && key != model.app.userID ? '' : 
-genfriendbtn(key, user)}</div>
 <div id="${model.app.currentprofiletab ?? ''}">
   ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
@@ -93,7 +89,7 @@ genfriendbtn(key, user)}</div>
     <button onclick="sendmsg()">Send</button>
   </div>` : ''}
 </div>
-<button id="mutebtn" onclick="mutebtn()">Mute</button>
+
 `
 }
 
