@@ -38,11 +38,11 @@ function homescreen() {
 }
 
 function updateview(newview, key) {
-    newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
+    newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key);
 }
 
 function mutebtn() {
-    yarr.paused ? yarr.play() : yarr.pause()
+    yarr.paused ? yarr.play() : yarr.pause();
 }
 
 function genprojectlist() {
@@ -61,7 +61,7 @@ function genprojectlist() {
             `
         }
     }
-    return projectlist
+    return projectlist;
 }
 
 function darkmode() {
