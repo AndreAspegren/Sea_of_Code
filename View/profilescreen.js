@@ -39,7 +39,7 @@ function profileScreen(key) {
             ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
               <i class="fa fa-comment"></i> 🗨Chat 
             </button>` : ''}
-            ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="createbtn" onclick="genfriendbtn(key, user)"></button>
+            ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="createbtn" onclick="genfriendbtn(${key, user})"></button>
             <button class="createbtn">
               <i class="fa fa-plus"></i> 	➕Legg til venn
               </button>` : ''}
