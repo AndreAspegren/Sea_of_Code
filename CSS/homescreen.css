@@ -3,30 +3,15 @@
 }
 
 #homecontainer {
+    border: 1px solid black;
     display: grid;
-    grid-template-columns: 1fr;  
-    grid-template-rows: repeat(3, 85vh); 
+    grid-template-rows: 30vw 40vw 24vw; 
+    grid-template-columns: 20vh 80vh;
     grid-template-areas: 
-        "UsersAndLogo"
-        "projectsAndSearchbar"
-        "wordcloudAndbuttons";
-    row-gap: 2vw;
-    width: 100vw;
-    height: 100vh;
+        "Logo searchbar buttons"
+        "users projects wordcloud";
 }
 
-#lefthome{
-    grid-area: UsersAndLogo;
-    width: 30vw;
-}
-#middlehome{
-    grid-area: projectsAndSearchbar;
-    width: 40vw;
-}
-#righthome{
-    grid-area: wordcloudAndbuttons;
-    width: 24vw;
-}
 
 #userlist, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
     display: flex;
@@ -35,8 +20,18 @@
 }
 
 #userlist{
-    width: 25vh;
-    height: 84vh; 
+    width: 30vw;
+    height: 80vh; 
+}
+
+#wordcloud{
+    width: 24vh;
+    height: 80vh;
+}
+
+#projectlist{
+    width: 40vw;
+    height: 80vh;
 }
 
 body {
@@ -92,10 +87,7 @@ body {
     height: auto;
 }
 
-#projectlist{
-    width: 70vh;
-    height: 84vh;
-}
+
 
 #projectcard{
     width: 67vh;
@@ -104,10 +96,7 @@ body {
     column-gap: 15vh;
 }
 
-#wordcloud{
-    width: 20vh;
-    height: 84vh;
-}
+
 
 #wordcloudcard{
     width: 19vh;
