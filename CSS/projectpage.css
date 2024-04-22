@@ -6,6 +6,25 @@
     border: 2px solid black;
 }
 
+#projectparent {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 70vw;
+    height: 80vh;
+    border: 1px solid black;
+}
+
+#projectcontainer {
+    display: grid;
+    grid-template-columns: 70vw 40vw 24vw;
+    grid-template-rows: 15vh 80vh; 
+    grid-template-areas: 
+        "homeLogo homesearchbar homebuttons"
+        "homeusers projects homewordcloud";
+}
+
 #project {
     top: 30%;
     left: 15%;

@@ -1,6 +1,7 @@
 function projectpage(key, num){
     console.log(key)
     app.innerHTML = /*HTML*/`
+    <div id="projectparent">
     <div id="projectinfo">
     <div>${model.data.users[model.data.projects[key].author].username}</div>
     <div>${model.data.projects[key].name}</div>
@@ -19,6 +20,7 @@ function projectpage(key, num){
     ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value">
     <button onclick="sendcomment(${key})">Send</button>`
     : ''}</div>
+    </div>
     </div>
     
     <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
