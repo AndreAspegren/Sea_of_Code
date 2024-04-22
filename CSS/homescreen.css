@@ -12,7 +12,6 @@
         "users projects wordcloud";
 }
 
-
 #userlist, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
     display: flex;
     justify-content: center;
@@ -54,7 +53,7 @@ body {
 }
 
 #usercard{
-    width: 24vh;
+    width: 30vw;
     height: 8vh;
     display:grid;
     grid-template-columns: repeat(2, 1fr);
@@ -90,7 +89,7 @@ body {
 
 
 #projectcard{
-    width: 67vh;
+    width: 40vw;
     height: 10vh;
     display: flex; 
     column-gap: 15vh;
