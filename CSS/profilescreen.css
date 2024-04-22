@@ -153,8 +153,7 @@
 }
 
 button.chatbtn,
-button.createbtn,
-button.logoutbtn {
+button.createbtn {
    border: 0;
    padding: 10px;
    width: 100%;
@@ -172,16 +171,41 @@ button.logoutbtn {
 }
 
 button.chatbtn:hover,
-button.createbtn:hover,
-button.logoutbtn:hover {
+button.createbtn:hover {
    background: rgba(288, 0, 70, .9);
 }
 
 button.chatbtn i,
-button.createbtn i,
-button.logoutbtn {
+button.createbtn i {
    margin-right: 5px;
 }
+
+button.logoutbtn {
+   border: 0;
+   padding: 10px;
+   width: 100%;
+   border-radius: 3px;
+   background-color: #00e47a;
+   font-family: placeholder;
+   font-size: 1rem;
+   margin: 5px 2px;
+   cursor: pointer;
+   outline: none;
+   margin-bottom: 10px;
+   transition: .3s ease-in-out;
+   box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, .3);
+   color: #fff;
+}
+
+button.logoutbtn:hover {
+   background: rgba(288, 0, 70, .9);
+}
+
+button.logoutbtn i {
+   margin-right: 5px;
+}
+
+
 
 .nav {
    width: 500px;

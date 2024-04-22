@@ -37,15 +37,14 @@ function profileScreen(key) {
             ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
               <i class="fa fa-comment"></i> 🗨Chat 
             </button>` : ''}
+            ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="createbtn" onclick="></button>
             <button class="createbtn">
               <i class="fa fa-plus"></i> 	➕Legg til venn
-            </button>
-            <button class="logoutbtn">
+              </button>` : ''}
+            ${model.app.currentprofile === model.app.userID ? `<button class="logoutbtn" onclick="logOff()">
               <i class="fa fa-door"></i> 🔚 Logg ut
-              </button>
+              </button>` : ''}
           </div>
-          <br>
-          ${model.app.currentprofile === model.app.userID ? '<button onclick="logOff()">Log off</button>' : ''}
           <div class="user-socialmedia">
           <p class="socialmedia">${user.github}, ${user.linkedIn}</p>
           </div>
