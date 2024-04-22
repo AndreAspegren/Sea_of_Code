@@ -1,14 +1,23 @@
 function adminpanel() {
     app.innerHTML = /*HTML*/`
-    <div id="mainDiv">
-    <div id="admin">
+    <div id="admincontainer">
+
+    <div id="adminlogo">
+    <img  onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
+    </div>
+
+    <div id="adminbuttons">
+    <button onclick="darkmode()" id="darkmode">darkmode</button>
+    <button id="mutebtn" onclick="mutebtn()">Mute</button>
+    </div> 
+    
+    <div id="nonadminusers">${gennonadminlist()}</div>
+    
+    <div id="adminprojectz">
     ${adminprojects()}
     </div>
-    <div id="nonadminlist">${gennonadminlist()}</div>
-    <button onclick="darkmode()" id="darkmode">darkmode</button>
-    <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
+
     </div>
-    <button id="mutebtn" onclick="mutebtn()">Mute</button>
     `
 }
 
@@ -27,7 +36,7 @@ function adminprojects() {
 
             <div>${model.data.projects[key].description}</div>
             
-            <div id="adminbuttons">
+            <div id="hammerbuttons">
             <button onclick="hammertime(${key}, 'yay')">YAY👌</button>
             <button onclick="hammertime(${key})">NAY💩</button>
             </div>

@@ -1,10 +1,30 @@
-#admin{
-    width: 80vh;
-    height: 92vh; 
-    border: 2px solid black;
+#admincontainer {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-content: center;
+    grid-template-rows: 15vh 80vh; 
+    grid-template-columns: 30vw 60vw;
+    grid-template-areas: 
+        "adminLogo  adminbuttons"
+        "nonadminusers yoadmin";
+}
+
+#adminlogo {
+    grid-area: adminLogo;
+    border: 1px solid black;
+}
+
+#adminbuttons{
+    grid-area: adminbuttons;
+    border: 1px solid black;
+}
+
+#nonadminusers {
+    grid-area: nonadminusers;
+    border: 1px solid black;
+}
+
+#adminprojectz {
+    grid-area: yoadmin;
+    border: 1px solid black;
 }
 
 #admincard{
@@ -13,7 +33,7 @@
     width: 80vh;
     height: 8vh;
     column-gap: 15vh;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 #nonadminlist{
@@ -28,13 +48,7 @@
 }
 
 
-#mainDiv{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#adminbuttons{
+#hammerbuttons{
     display: flex;
     height: 4vh;
     width: 10vh;
