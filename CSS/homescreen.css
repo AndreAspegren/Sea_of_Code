@@ -3,7 +3,6 @@
 }
 
 #homecontainer {
-    border: 1px solid black;
     display: grid;
     grid-template-rows: 15vh 80vh; 
     grid-template-columns: 30vw 40vw 24vw;
