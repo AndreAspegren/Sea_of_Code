@@ -3,7 +3,7 @@ function searchbar() {
     const searchResultsContainer = document.getElementById('searchResults');
 
     if (searchTerm.length === 0) {
-        searchResultsContainer.innerHTML = ''; 
+        searchResultsContainer.innerHTML = '';
         searchResultsContainer.style.display = 'none';
         return;
     }
@@ -12,7 +12,7 @@ function searchbar() {
 
     if (searchResults.users.length > 0 || searchResults.projects.length > 0) {
         displaySearchResults(searchResults);
-        searchResultsContainer.style.display = 'block'; 
+        searchResultsContainer.style.display = 'block';
     } else {
         searchResultsContainer.innerHTML = 'Ingen søkeresultater funnet.';
         searchResultsContainer.style.display = 'block';
@@ -21,7 +21,7 @@ function searchbar() {
 
 function displaySearchResults(results) {
     const searchResultsContainer = document.getElementById('searchResults');
-    
+
 
     if (results.users.length === 0 && results.projects.length === 0) {
         searchResultsContainer.textContent = 'Ingen søkeresultater funnet.';
@@ -36,7 +36,7 @@ function displaySearchResults(results) {
             });
         }
 
-       
+
         if (results.projects.length > 0) {
             results.projects.forEach(project => {
                 const projectItem = document.createElement('div');
@@ -63,12 +63,16 @@ function performSearch(searchTerm) {
     return { users: matchedUsers, projects: matchedProjects };
 }
 
-function userClick(userId){
-console.log('clicked on user:', userId)
-updateview('profileScreen', userId);
+function userClick(userId) {
+    console.log('clicked on user:', userId)
+    updateview('profileScreen', userId);
 }
 
-function projectclick(projectId){
-console.log('click on project:', projectId)
-updateview('projectpage', projectId);
+function projectclick(projectId) {
+    console.log('click on project:', projectId)
+    updateview('projectpage', projectId);
 }
+
+// function deleteProject(){
+
+// }

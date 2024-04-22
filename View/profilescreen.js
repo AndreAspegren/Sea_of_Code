@@ -38,8 +38,11 @@ function profileScreen(key) {
               <i class="fa fa-comment"></i> 🗨Chat 
             </button>` : ''}
             <button class="createbtn">
-              <i class="fa fa-plus"></i> 	➕Create
+              <i class="fa fa-plus"></i> 	➕Legg til venn
             </button>
+            <button class="logoutbtn">
+              <i class="fa fa-door"></i> 🔚 Logg ut
+              </button>
           </div>
           <br>
           ${model.app.currentprofile === model.app.userID ? '<button onclick="logOff()">Log off</button>' : ''}
@@ -75,8 +78,7 @@ function profileScreen(key) {
     </div>
   </div>
 </div>
-<button onclick="darkmode()" id="darkmode">darkmode</button>
-<img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen'); model.app.currentprofiletab = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/><div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
+
 <div id="${model.app.currentprofiletab ?? ''}">
   ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
@@ -87,7 +89,6 @@ function profileScreen(key) {
     <button onclick="sendmsg()">Send</button>
   </div>` : ''}
 </div>
-<button id="mutebtn" onclick="mutebtn()">Mute</button>
 `
 }
 

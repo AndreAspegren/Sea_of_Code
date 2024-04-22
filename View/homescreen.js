@@ -46,7 +46,7 @@ function mutebtn() {
 }
 
 function genprojectlist() {
-    projectlist = ''
+    projectlist = '';
     for (key in model.data.projects) {
         if (model.data.projects[key].approved) {
             projectlist += /*HTML*/`
@@ -58,7 +58,7 @@ function genprojectlist() {
             </div>
             <div>${model.data.projects[key].description}</div>
             </div>
-            `
+            `;
         }
     }
     return projectlist;
@@ -84,7 +84,7 @@ function genwordcloud() {
 }
 
 function genuserlist() {
-    userlist = ''
+    userlist = '';
     for (let key in model.data.users) {
         userlist += /*HTML*/`
         <div id="usercard" onclick="updateview('profileScreen', ${key})">

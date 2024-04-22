@@ -153,7 +153,8 @@
 }
 
 button.chatbtn,
-button.createbtn {
+button.createbtn,
+button.logoutbtn {
    border: 0;
    padding: 10px;
    width: 100%;
@@ -171,12 +172,14 @@ button.createbtn {
 }
 
 button.chatbtn:hover,
-button.createbtn:hover {
+button.createbtn:hover,
+button.logoutbtn:hover {
    background: rgba(288, 0, 70, .9);
 }
 
 button.chatbtn i,
-button.createbtn i {
+button.createbtn i,
+button.logoutbtn {
    margin-right: 5px;
 }
 
