@@ -1,8 +1,8 @@
 #admincontainer {
     display: grid;
-    grid-template-rows: 15vh 80vh; 
+    grid-template-rows: 15vh 80vh;
     grid-template-columns: 30vw 60vw;
-    grid-template-areas: 
+    grid-template-areas:
         "adminLogo  adminbuttons"
         "nonadminusers adminprojects";
 }
@@ -12,7 +12,7 @@
     border: 1px solid black;
 }
 
-#adminbuttons{
+#adminbuttons {
     grid-area: adminbuttons;
     border: 1px solid black;
 }
@@ -22,12 +22,12 @@
     border: 1px solid black;
 }
 
-#heyfaen {
+#nonadminprojects {
     grid-area: adminprojects;
     border: 1px solid black;
 }
 
-#admincard{
+#admincard {
     display: flex;
     align-items: center;
     width: 60vw;
@@ -36,18 +36,18 @@
     border: 1px solid black;
 }
 
-#nonadminlist{
+#nonadminlist {
     display: flex;
     flex-direction: column;
     border: 2px solid black;
     height: 100%;
 }
 
-#nonadmincard{
+#nonadmincard {
     border: 1px solid pink;
 }
 
-#hammerbuttons{
+#hammerbuttons {
     display: flex;
     height: 4vh;
     width: 10vh;
@@ -64,5 +64,3 @@
       grid-area: addOns;
     }
 } */
-
-
