@@ -227,20 +227,19 @@ button.createbtn i {
    left: 23%;
    width: 70vh;
    height: 75vh;
-   justify-content: center;
 }
 
 #friendcards{
    border: 1px solid black;
    width: 70vh;
-   height: 10vh;
    display: flex;
-   justify-content: left;
+   justify-content: flex-end;
    flex-direction: row-reverse;
   
 }
 #projectcard{
    width: 70vh;
+   justify-content:flex-start
 }
 
 #chat {
