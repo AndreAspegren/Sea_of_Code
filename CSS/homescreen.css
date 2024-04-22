@@ -1,4 +1,4 @@
-#userlist, #wordcloud, #projectlist, #projectcard, #usercard{
+#homeuserlist, #wordcloud, #projectlist, #projectcard{
     border: 1px solid black;
 }
 
@@ -7,8 +7,8 @@
     grid-template-rows: 15vh 80vh; 
     grid-template-columns: 30vw 40vw 24vw;
     grid-template-areas: 
-        "Logo homesearchbar homebuttons"
-        "users projects wordcloud";
+        "homeLogo homesearchbar homebuttons"
+        "homeusers projects homewordcloud";
 }
 
 #homebuttons {
@@ -40,7 +40,7 @@
 }
 
 #homelogo{
-    grid-area: Logo;
+    grid-area: homeLogo;
 }
 
 #userlist, #projectlist, #darkmode, #wordcloud, #wordcloudcard, #projectcard{
@@ -49,19 +49,30 @@
     align-items: center;
 }
 
-#userlist{
-    width: 30vw;
-    height: 80vh; 
+#homeuserlist{
+    grid-area: homeusers;
+    border: 1px solid black;
 }
 
 #wordcloud{
+    grid-area: homewordcloud;   
     width: 24vw;
     height: 80vh;
 }
 
-#projectlist{
+#projects{
+    grid-area: projects;
+    border: 1px solid black;
+    display: grid;
+    grid-template-rows: repeat(10, 1fr);
+}
+
+#homeprojectcard{
+    height: 10vh;
+    display: flex; 
     width: 40vw;
-    height: 80vh;
+    column-gap: 15vh;
+    border-bottom: 1px solid black;
 }
 
 body {
@@ -78,11 +89,6 @@ body {
     background-size: cover; */
 }
 
-#mutebtn{
-    width: 10vh;
-    height: 5vh;
-}
-
 #usercard{
     width: 30vw;
     height: 8vh;
@@ -90,6 +96,7 @@ body {
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
+    border-bottom: 1px solid black;
 }
 
 #logo{
@@ -102,25 +109,12 @@ body {
     height: 5vh; 
 }
 
-#loginbtn{
-    width: 10vh;
-    height: 5vh; 
-}
-
-
-#projectcard{
-    width: 40vw;
-    height: 10vh;
-    display: flex; 
-    column-gap: 15vh;
-}
-
 #wordcloudcard{
     width: 19vh;
     height: 9vh;
 }
 
-img{
+img {
     width: 8vw;
     height: auto;
 }

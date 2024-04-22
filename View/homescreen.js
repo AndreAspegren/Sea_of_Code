@@ -10,31 +10,28 @@ function homescreen() {
     <span>
     <input type="text" placeholder="Søk..." id="searchbar" onchange="searchbar()" />
     <button onclick="searchbar()">Søk</button>
+    <div id="searchResults"></div>
     </span>
     </div>
 
     <div id="homebuttons">
     <div id="homebuttonz">
-    <button id="mutebtn" onclick="mutebtn()">Mute</button>
     ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="logInscreen()">login</button>'}
+    <button id="mutebtn" onclick="mutebtn()">Mute</button>
     <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     ${model.app.loggedIn ? '<button id="uploadbtn" onclick="uploadPageView()">upload</button>' : ''}
     ${admin()}
     </div>
     </div>
     
-    <div style="grid-area: users">
-    <div id="userlist"><div>${genuserlist()}</div></div>
-    </div>
-    
-    
-    <div style="grid-area: projects">
-    <div id="projectlist"><div id="projectcardposition">${genprojectlist()}</div></div>
-    <div id="searchResults"></div>
-    </div>
 
-    <div style="grid-area: wordcloud">
+    <div id="homeuserlist"><div>${genuserlist()}</div></div>
+    
+    
+    <div id="projects"><div>${genprojectlist()}</div></div>
+
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
+    
     </div>
     </div>
     `
@@ -49,11 +46,11 @@ function mutebtn() {
 }
 
 function genprojectlist() {
-    userlist = ''
+    projectlist = ''
     for (key in model.data.projects) {
         if (model.data.projects[key].approved) {
-            userlist += /*HTML*/`
-            <div onclick="updateview('projectpage', ${key})" id="projectcard">
+            projectlist += /*HTML*/`
+            <div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
             <img src="${model.data.projects[key].picture}"/>
             <div>
             <div>${model.data.users[model.data.projects[key].author].username}</div>
@@ -64,7 +61,7 @@ function genprojectlist() {
             `
         }
     }
-    return userlist
+    return projectlist
 }
 
 function darkmode() {
