@@ -1,8 +1,3 @@
-const app = document.getElementById('app')
-const yarr = new Audio('img/piratemusic.mp3')
-yarr.volume = 0.3
-yarr.loop = true
-// yarr.play()
 const model = {
     app: {
         userID: null,
@@ -12,6 +7,13 @@ const model = {
         currentprofile: false,
         currentprofiletab: null,
         darkmodeurl: "img/moon.png",
+        html: app = document.getElementById('app'),
+        wethebestmusic: {
+            yarr: yarr = new Audio('img/piratemusic.mp3'),
+            volume: yarr.volume = 0.3,   
+            loop: yarr.loop = true,
+            matey: yarr.play(), 
+        }
     },
     input: {       
         login: {

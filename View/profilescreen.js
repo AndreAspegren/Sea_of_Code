@@ -86,14 +86,13 @@ function profileScreen(key) {
   ${model.app.currentprofiletab == 'chat' ? genchat(key === undefined ? model.app.currentprofile : key) + /*HTML*/`
   <div id="msgbox">
     <input oninput="model.input.userActivity.message = this.value" id="searchbox">
-    <button onclick="sendmsg()">Send</button>
+    <button onclick="senddm()">Send</button>
   </div>` : ''}
 </div>
-
 `
 }
 
-function sendmsg() {
+function senddm() {
     model.data.messages.push({
         from: model.app.userID, 
         to: model.app.currentprofile, 
