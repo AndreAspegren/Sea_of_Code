@@ -9,6 +9,7 @@
     grid-template-areas: 
         "homeLogo homesearchbar homebuttons"
         "homeusers projects homewordcloud";
+    column-gap: 2vw;
 }
 
 #homebuttons {
