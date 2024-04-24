@@ -1,64 +1,70 @@
-#project,
-#projectinfo,
-#comments {
-    position: absolute;
-    transform: (translateX(-50%));
-    border: 2px solid black;
-}
-
 #projectparent {
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 70vw;
-    height: 80vh;
-    border: 1px solid black;
-}
-
-#projectcontainer {
     display: grid;
-    grid-template-columns: 70vw 40vw 24vw;
-    grid-template-rows: 15vh 80vh; 
-    grid-template-areas: 
-        "homeLogo homesearchbar homebuttons"
-        "homeusers projects homewordcloud";
-}
-
-#project {
-    top: 30%;
-    left: 15%;
-    width: 70vh;
-    height: 60vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    height: 100vh;
 }
 
 #projectinfo {
-    top: 15%;
-    left: 15%;
-    width: 70vh;
-    height: 10vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-area: 1 / 2 / 1 / 4;
+    border: 1px solid black;
+    font-size: 40px;
+    align-content: space-between;
+}
+
+#projectdltbtn{
+    grid-area: 1/3/3/3;
+    display:flex;
+    justify-content: end;
+    align-items: flex-start;
+}
+
+#projectusername{
+    grid-area: 1/1/1/2;
+}
+
+#projectname{
+    grid-area: 2/2/4/2;
+    
+}
+
+#projectimg{
+    grid-area: 2/2/2/1;
+}
+
+#projectinfo>img {
+    height: 100px;
+    width: auto;
+}
+
+#project {
+    display: flex;
+    grid-area: 2 / 1 / 4 / 4;
+    border: 1px solid red;
+    font-size: 30px;
+    align-content: center;
+
 }
 
 #comments {
-    top: 15%;
-    right: 5%;
-    width: 30vh;
-    height: 74.5vh;
+    display: flex;
+    grid-area: -4/4/-1/4;
+    border: 1px solid blue;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+#commentinput {
+    grid-area: -1/-2;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 #projectbuttons-container {
-    position: absolute;
-    left: 50%;
-    bottom: -50px;
-    transform: translateX(-50%);
-}
-
-#projectbuttons {
-    margin: 5px;
-}
-
-#commentinput{
-    position: absolute;
-    bottom: -40px;
-    left: 40px
+    grid-area: 3/-3/2/2
 }
