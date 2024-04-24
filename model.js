@@ -64,6 +64,7 @@ const model = {
                 name: "",
                 description: '',
                 picture: null,
+                language: null,
                 files: [
                     {
                         id: null,
