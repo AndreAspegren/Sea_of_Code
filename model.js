@@ -6,7 +6,8 @@ const model = {
         loggedIn: false,
         currentprofile: false,
         currentprofiletab: null,
-        darkmodeurl: "img/moon.png",
+        darkmodeurl: "img/sun.png",
+        muteurl: "img/mute.png",
         html: app = document.getElementById('app'),
         wethebestmusic: {
             yarr: yarr = new Audio('img/piratemusic.mp3'),
