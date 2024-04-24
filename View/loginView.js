@@ -26,4 +26,11 @@ function logInscreen() {
         </div>
         ${genglobalui()}
     `;
+    logineventlistener()
+}
+
+function logineventlistener() {
+    document.getElementById('loginForm').addEventListener('keydown', function(event) {
+          if (event.key === 'Enter') login()
+      })
 }

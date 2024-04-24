@@ -33,9 +33,16 @@ function registerUser() {
     ${genglobalui()}
     `
         ;
+    registereventlistener()
 }
 
 let loadFile = function (event) {
     let image = document.getElementById('registerProfilePicture');
     image.src = URL.createObjectURL(event.target.files[0]);
-};
+}
+
+function registereventlistener() {
+    document.getElementById('registerinputs').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') userRegister()
+    })
+}
