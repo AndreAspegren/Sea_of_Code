@@ -1,17 +1,12 @@
 function adminpanel() {
     app.innerHTML = /*HTML*/`
+    ${genglobalui()}
     <div id="admincontainer">
 
     <div id="nonadminprojects">${adminprojects()}</div>
 
-        <div id="adminlogo">
-            <img onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-        </div>
 
-        <div id="adminbuttons">
-        <img onclick="darkmode()" src=${model.app.darkmodeurl}>
-        <img src="img/mute.png" onclick="mutebtn()">
-        </div> 
+
         
         <div id="nonadminusers">${gennonadminlist()}</div>
         

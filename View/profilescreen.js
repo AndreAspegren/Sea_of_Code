@@ -7,15 +7,12 @@ function profileScreen(key) {
 <div id="profileScreen">
   <div class="container">
     <div class="profile-header">
-    <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen'); model.app.currentprofiletab = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/><div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
+   <div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
       <div class="profile-img">
       <img src="${user.profilePicture}" width="" alt="">     </div>
       <div class="profile-nav-info">
         <h3 class="user-name">${user.username}</h3>
       </div>
-      <div class= "darkMute">
-      <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-      <img src="img/mute.png" onclick="mutebtn()">
       </div>
       <div class="profile-option">
         <div class="notification">
@@ -39,8 +36,8 @@ function profileScreen(key) {
             ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
               <i class="fa fa-comment"></i> 🗨Chat 
             </button>` : ''}
-            ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="createbtn" onclick="genfriendbtn(${key, user})"></button>
-            <button class="createbtn">
+            ${model.app.loggedIn && model.app.currentprofile != model.app.userID & !model.data.users[model.app.userID].friends.includes(model.app.currentprofile) ? `
+            <button class="createbtn" onclick="addfriend(${key})">
               <i class="fa fa-plus"></i> 	➕Legg til venn
               </button>` : ''}
             ${model.app.currentprofile === model.app.userID ? `<button class="logoutbtn" onclick="logOff()">
@@ -57,8 +54,8 @@ function profileScreen(key) {
           <ul>
             <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Venner</li>
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Opplastinger</li>
-            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>
             ${model.app.loggedIn && model.app.currentprofile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>` : ''}
+            ${model.app.loggedIn && model.app.currentprofile == model.app.userID ? `<li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
           </ul>
         </div>
         <div class="profile-body">
@@ -85,11 +82,19 @@ function profileScreen(key) {
   ${model.app.currentprofiletab == 'settings' && model.app.currentprofile === model.app.userID ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'chat' ? genchat(key === undefined ? model.app.currentprofile : key) + /*HTML*/`
   <div id="msgbox">
-    <input oninput="model.input.userActivity.message = this.value" id="searchbox">
+    <input oninput="model.input.userActivity.message = this.value" id="dminputbox">
     <button onclick="senddm()">Send</button>
   </div>` : ''}
 </div>
+${genglobalui()}
 `
+dmeventlistener()
+}
+
+function dmeventlistener() {
+  document.getElementById('dminputbox').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') senddm()
+    })
 }
 
 function senddm() {

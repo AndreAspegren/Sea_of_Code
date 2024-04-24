@@ -119,9 +119,31 @@ body {
 }
 
 img {
-    width: 8vw;
+    width: 2vw;
     height: auto;
 }
+
+
+#globalchild {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    display: flex;     
+}
+
+#globalchild > img {
+    width: 5vw;
+    height: 5vh;
+}
+
+#globallogo {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 16vh;
+    height: 9vh;
+}
+
 
 
 

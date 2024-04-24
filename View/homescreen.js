@@ -1,9 +1,9 @@
 updateview('homescreen')
 function homescreen() {
     app.innerHTML = /*HTML*/`
+    ${genglobalui()}
     <div id="homecontainer">
     <div id="homelogo">
-    <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
     </div>
     
     <div id="homesearchbar">
@@ -17,8 +17,6 @@ function homescreen() {
     <div id="homebuttons">
     <div id="homebuttonz">
     ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="updateview(`logInscreen`)">login</button>'}
-    <img src="img/mute.png" onclick="mutebtn()">
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     ${model.app.loggedIn ? '<button id="uploadbtn" onclick="updateview(`uploadPageView`)">upload</button>' : ''}
     ${admin()}
     </div>
@@ -33,16 +31,33 @@ function homescreen() {
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
     </div>
+    </div>`
+}
+
+document.getElementById('searchbar').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') searchbar()
+  })
+
+function genglobalui(){
+    return /*HTML*/`
+   
+    <img id="globallogo" onclick="updateview('homescreen')" src="img/background.jpg"/>
+    
+    <div id="globalchild">
+    <img src=${model.app.muteurl} onclick="mutebtn()">
+    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     </div>
+
     `
 }
 
 function updateview(newview, key) {
-    newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key);
+    newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 
 function mutebtn() {
-    yarr.paused ? yarr.play() : yarr.pause();
+    yarr.paused ? (yarr.play(), model.app.muteurl = "img/mute.png") : (yarr.pause(),  model.app.muteurl = "img/muted.png");
+    updateview()
 }
 
 function genprojectlist() {
@@ -65,7 +80,7 @@ function genprojectlist() {
 }
 
 function darkmode() {
-    const mode = model.app.darkmode ? ['white', 'black', false, "img/moon.png"] : ['gray', 'white', true, "img/sun.png"];
+    const mode = model.app.darkmode ? ['white', 'black', false, "img/sun.png"] : ['gray', 'white', true, "img/moon.png"];
     app.style.backgroundColor = mode[0];
     app.style.color = mode[1];
     model.app.darkmode = mode[2];

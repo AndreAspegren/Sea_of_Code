@@ -1,8 +1,8 @@
 function projectpage(key, num) {
+    if (key == undefined) key = model.input.currentproject
+    model.input.currentproject = key
     app.innerHTML = /*HTML*/`
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-    <img id="logo" onclick="updateview('homescreen'); model.input.userActivity.comment = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-    <img src="img/mute.png" onclick="mutebtn()">
+
     <div id="projectparent">
     <div id="projectinfo">
     ${deleteProjectButton(model.data.projects[key].id, model.data.projects[key].author)}
@@ -25,22 +25,31 @@ function projectpage(key, num) {
         return /*HTML*/`<div id="${currentclass}"><div>${model.data.users[c.from].username + ': ' + c.comment}</div></div>`
     }).join('')}</div>
     <div id="commentinput">
-    ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value">
+    ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value" id="commentinput">
     <button onclick="sendcomment(${key})">Send</button>` : ''}</div>
     </div>
     </div>
+    ${genglobalui()}
     `
+    commenteventlistener()
 }
 
-function sendcomment(key) {
-    model.data.projects[key].comments.push({
+function commenteventlistener() {
+          document.getElementById('commentinput').addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') sendcomment()
+            })
+}
+
+function sendcomment() {
+    model.data.projects[model.input.currentproject ].comments.push({
         from: model.app.userID,
         dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
         comment: model.input.userActivity.comment
     },)
     model.input.userActivity.comment = ''
-    updateview('projectpage', key)
+    updateview()
 }
+<<<<<<< HEAD
 
 function deleteProjectButton(projectID, authorID) {
     let currentUserId = model.app.userID;
@@ -69,4 +78,6 @@ function deleteproject(projectID) {
     return projectID;
 }
 // lag unified homemutedark html return funksjon for alle sider
+=======
+>>>>>>> 7f1a0569f31a691b55da209dddc49c049e0624c5
 
