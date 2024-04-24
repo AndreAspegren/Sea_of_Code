@@ -74,7 +74,9 @@ function genprojectlist() {
             projectlist += /*HTML*/`
             <div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
             
+            <div style="object-fit: cover">
             <img src="${model.data.projects[key].picture}"/>
+            </div>
             
             <div>
             <div>${model.data.users[model.data.projects[key].author].username}</div>
