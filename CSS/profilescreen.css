@@ -256,11 +256,11 @@ button.logoutbtn i {
    position: absolute;
    transform: (translateX(-50%));
    border: 2px solid black;
-   grid-template-columns: repeat(1, 1fr);
    top: 27%;
    left: 20%;
    width: 70vh;
    height: 75vh;
+   flex-flow:row;
 }
 
 #friendcards{
@@ -271,11 +271,14 @@ button.logoutbtn i {
    flex-direction: row-reverse; 
 }
 
-#projectcard{
-   display: inline-flex;
-   width: 70vh;
-   justify-content:flex;
-   height: 7vh;
+#homeprojectcard{
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   grid-template-columns: 1fr 1fr 1fr; 
+   width: 100%;
+   height: 10vh;
+   border-bottom: 1px solid black;
 }
 
 #chat {
