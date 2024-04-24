@@ -9,8 +9,10 @@ function sendProjectInfo() { // download :o
 }
 
 function pushProject() {
+
     model.data.wordCloud[model.input.projects.language]++
     model.input.projects.language = null
+    model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length - 1)
     model.data.projects.push(
         {
             id: model.data.users[model.app.userID].projects.length - 1,
@@ -32,5 +34,17 @@ function pushProject() {
             comments: [],
         },
     )
+    checkRank()
     updateview('homescreen')
 }
+
+function checkRank() {
+    let ranks = [1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56]
+    let projectCount = model.data.users[model.app.userID].projects.length
+    let index = ranks.findIndex(rank => projectCount < rank)
+    let title = index == -1 ? model.data.titles[ranks.length - 1].name : model.data.titles[index - 1].name
+    
+    model.data.users[model.app.userID].title = title
+}
+
+
