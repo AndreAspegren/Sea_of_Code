@@ -13,7 +13,7 @@ function profileScreen(key) {
       <div class="profile-nav-info">
         <h3 class="user-name">${user.username}</h3>
       </div>
-      <div class="user-rank"></div>
+      <div class="user-rank">${userrank()}</div>
       </div>
       <div class="profile-option">
         <div class="notification">
