@@ -25,12 +25,14 @@
 #nonadminusers {
     grid-area: nonadminusers;
     border: 1px solid black;
+    width: 15vw;
 }
 
 #nonadminprojects {
     grid-area: adminprojects;
     border: 1px solid black;
     padding: 5px;
+    width: 60vw;
 }
 
 #admincard {
@@ -49,18 +51,29 @@
 #nonadminlist {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
     height: 100%;
 }
 
 #nonadmincard {
-    border: 1px solid pink;
+align-items: center;
+text-align: center;
+margin-top: 10px;
 }
 
 #hammerbuttons {
     display: flex;
-    height: 8vh;
+    height: 5vh;
     width: 7vw;
+    gap: 5px;
+    align-self: center;
+}
+
+#yay{
+    color: greenyellow;
+}
+
+#nay{
+    color: rgb(255, 115, 0);
 }
 
 /* @media only screen and (min-width: 1200px) {

@@ -31,8 +31,8 @@ function adminprojects() {
             <div>${model.data.projects[key].description}</div>
             
             <div id="hammerbuttons">
-            <button onclick="hammertime(${key}, 'yay')">YAY👌</button>
-            <button onclick="hammertime(${key})">NAY💩</button>
+            <button id="yay" onclick="hammertime(${key}, 'yay')">YAY👌</button>
+            <button id="nay" onclick="hammertime(${key})">NAY💩</button>
             </div>
 
             </div>
