@@ -6,10 +6,11 @@
 function sendProjectInfo() { // download :o
     let currentUserId = model.app.userID;
     pushProject();
-
 }
 
 function pushProject() {
+    model.data.wordCloud[model.input.projects.language]++
+    model.input.projects.language = null
     model.data.projects.push(
         {
             id: model.data.users[model.app.userID].projects.length - 1,

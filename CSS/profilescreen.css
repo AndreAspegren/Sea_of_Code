@@ -205,8 +205,6 @@ button.logoutbtn i {
    margin-right: 5px;
 }
 
-
-
 .nav {
    width: 500px;
    z-index: -1;
@@ -260,8 +258,8 @@ button.logoutbtn i {
    transform: (translateX(-50%));
    border: 2px solid black;
    grid-template-columns: repeat(1, 1fr);
-   top: 35%;
-   left: 23%;
+   top: 20%;
+   left: 25%;
    width: 70vh;
    height: 75vh;
 }
