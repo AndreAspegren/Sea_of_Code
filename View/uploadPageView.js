@@ -11,7 +11,12 @@ function uploadPageView() {
     <input type="text" onchange="model.input.projects.name = this.value" placeholder="Project name" id="projectName">
     <input type="text" onchange="model.input.projects.description = this.value" style="width: 30vh; height: 15vh;" placeholder="Project description" id="projectDescription">
     <input onchange="model.input.projects.picture = this.value" type="url" placeholder="url">
-    <input onchange="model.input.projects.picture = this.value" type="url" placeholder="programspråk">
+    <select onchange="model.input.projects.language = this.value" placeholder="programspråk">
+    ${Object.keys(model.data.wordCloud).map(key => {
+        return `<option value="${key}">${key}</option>`;
+    }).join('')}
+</select>
+
     
     <div>
     <li>Upload files</li>
