@@ -35,6 +35,7 @@ function uploadPageView() {
 </div>
 
 </div>
+${genglobalui()}
     `;
 }
 

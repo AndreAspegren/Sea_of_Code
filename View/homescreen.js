@@ -3,12 +3,9 @@ function homescreen() {
     app.innerHTML = /*HTML*/`
     ${genglobalui()}
     <div id="homecontainer">
-<<<<<<< HEAD
-=======
     <div id="homelogo">
     <img id="logo" onclick="updateview('homescreen')" src="img/background.jpg"/>
     </div>
->>>>>>> 2d9f2d97a90c8dcf43cbb7ea10f71a39259a1aec
     
     <div id="homesearchbar">
     <span>
