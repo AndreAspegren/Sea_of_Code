@@ -3,7 +3,7 @@ function homescreen() {
     app.innerHTML = /*HTML*/`
     <div id="homecontainer">
     <div id="homelogo">
-    <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
+    <img id="logo" onclick="updateview('homescreen')" src="img/background.jpg"/>
     </div>
     
     <div id="homesearchbar">
