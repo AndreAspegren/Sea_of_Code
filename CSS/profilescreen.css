@@ -325,5 +325,8 @@ button.logoutbtn i {
    display: flex;
    justify-content: right;
 }
-
-
+.profile-header .user-rank{
+   position: absolute;
+   left:45%;
+   top: 35%;
+}
