@@ -49,7 +49,6 @@ function sendcomment() {
     model.input.userActivity.comment = ''
     updateview()
 }
-<<<<<<< HEAD
 
 function deleteProjectButton(projectID, authorID) {
     let currentUserId = model.app.userID;
@@ -78,6 +77,4 @@ function deleteproject(projectID) {
     return projectID;
 }
 // lag unified homemutedark html return funksjon for alle sider
-=======
->>>>>>> 7f1a0569f31a691b55da209dddc49c049e0624c5
 
