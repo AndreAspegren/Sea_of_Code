@@ -1,4 +1,6 @@
 function projectpage(key, num) {
+    if (key == undefined) key = model.input.currentproject
+    model.input.currentproject = key
     app.innerHTML = /*HTML*/`
 
     <div id="projectparent">
@@ -22,22 +24,28 @@ function projectpage(key, num) {
         return /*HTML*/`<div id="${currentclass}"><div>${model.data.users[c.from].username + ': ' + c.comment}</div></div>`
     }).join('')}</div>
     <div id="commentinput">
-    ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value">
+    ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value" id="commentinput">
     <button onclick="sendcomment(${key})">Send</button>` : ''}</div>
     </div>
     </div>
     ${genglobalui()}
     `
+    commenteventlistener()
 }
 
-function sendcomment(key) {
-    model.data.projects[key].comments.push({
+function commenteventlistener() {
+          document.getElementById('commentinput').addEventListener('keydown', function(event) {
+                if (event.key === 'Enter') sendcomment()
+            })
+}
+
+function sendcomment() {
+    model.data.projects[model.input.currentproject ].comments.push({
         from: model.app.userID,
         dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
         comment: model.input.userActivity.comment
     },)
     model.input.userActivity.comment = ''
-    updateview('projectpage', key)
+    updateview()
 }
-// lag unified homemutedark html return funksjon for alle sider
 

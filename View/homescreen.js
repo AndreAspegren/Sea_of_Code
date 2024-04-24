@@ -34,6 +34,10 @@ function homescreen() {
     </div>`
 }
 
+document.getElementById('searchbar').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') searchbar()
+  })
+
 function genglobalui(){
     return /*HTML*/`
    

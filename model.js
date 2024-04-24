@@ -16,7 +16,8 @@ const model = {
             matey: yarr.play(), 
         }
     },
-    input: {       
+    input: {    
+        currentproject: null,   
         login: {
             id: null,
             password: null,

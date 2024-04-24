@@ -37,7 +37,7 @@ function profileScreen(key) {
               <i class="fa fa-comment"></i> 🗨Chat 
             </button>` : ''}
             ${model.app.loggedIn && model.app.currentprofile != model.app.userID & !model.data.users[model.app.userID].friends.includes(model.app.currentprofile) ? `
-            <button class="createbtn">
+            <button class="createbtn" onclick="addfriend(${key})">
               <i class="fa fa-plus"></i> 	➕Legg til venn
               </button>` : ''}
             ${model.app.currentprofile === model.app.userID ? `<button class="logoutbtn" onclick="logOff()">
@@ -82,12 +82,19 @@ function profileScreen(key) {
   ${model.app.currentprofiletab == 'settings' && model.app.currentprofile === model.app.userID ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
   ${model.app.currentprofiletab == 'chat' ? genchat(key === undefined ? model.app.currentprofile : key) + /*HTML*/`
   <div id="msgbox">
-    <input oninput="model.input.userActivity.message = this.value" id="searchbox">
+    <input oninput="model.input.userActivity.message = this.value" id="dminputbox">
     <button onclick="senddm()">Send</button>
   </div>` : ''}
 </div>
 ${genglobalui()}
 `
+dmeventlistener()
+}
+
+function dmeventlistener() {
+  document.getElementById('dminputbox').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') senddm()
+    })
 }
 
 function senddm() {
