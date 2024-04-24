@@ -123,28 +123,27 @@ img {
     height: auto;
 }
 
-#globalparent {
-    width: 100vw;
-    height: 9vh;
-    display: flex;
-    justify-content: space-between; 
-    position: fixed; /* This makes the div stay at the same spot even during scrolling */
-    top: 0; /* Aligns the container to the top */
-    left: 0;
-    z-index: 1000; 
-    box-sizing: border-box; 
-}
 
 #globalchild {
-    display: flex; 
-    flex-direction: row;
-    justify-content: flex-end;;      
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    display: flex;     
 }
 
-#globalparent > div:nth-child(2) > img {
+#globalchild > img {
     width: 5vw;
     height: 5vh;
 }
+
+#globallogo {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 16vh;
+    height: 9vh;
+}
+
 
 
 

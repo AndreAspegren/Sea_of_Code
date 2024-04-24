@@ -4,7 +4,6 @@ function homescreen() {
     ${genglobalui()}
     <div id="homecontainer">
     <div id="homelogo">
-    <img id="logo" onclick="updateview('homescreen')" src="img/background.jpg"/>
     </div>
     
     <div id="homesearchbar">
@@ -37,16 +36,14 @@ function homescreen() {
 
 function genglobalui(){
     return /*HTML*/`
-    <div id="globalparent">
-    
-    <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
+   
+    <img id="globallogo" onclick="updateview('homescreen')" src="img/background.jpg"/>
     
     <div id="globalchild">
     <img src=${model.app.muteurl} onclick="mutebtn()">
     <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     </div>
-    
-    </div>
+
     `
 }
 

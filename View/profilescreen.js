@@ -7,15 +7,12 @@ function profileScreen(key) {
 <div id="profileScreen">
   <div class="container">
     <div class="profile-header">
-    <img id="logo" onclick="model.app.currentprofiletab = null; updateview('homescreen'); model.app.currentprofiletab = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/><div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
+   <div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
       <div class="profile-img">
       <img src="${user.profilePicture}" width="" alt="">     </div>
       <div class="profile-nav-info">
         <h3 class="user-name">${user.username}</h3>
       </div>
-      <div class= "darkMute">
-      <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-      <img src="img/mute.png" onclick="mutebtn()">
       </div>
       <div class="profile-option">
         <div class="notification">
@@ -89,6 +86,7 @@ function profileScreen(key) {
     <button onclick="senddm()">Send</button>
   </div>` : ''}
 </div>
+${genglobalui()}
 `
 }
 

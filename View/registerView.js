@@ -3,11 +3,9 @@ function registerUser() {
     app.innerHTML = /*HTML*/`
     <div id="registerDiv" class="registerDiv">
     <div id= "registerlogo">
-    <img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
     </div>
     <div id="registerbuttons">
-    <img src="img/mute.png" onclick="mutebtn()">
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
+
     </div>
     <div id="registerinputs">
     <h2>Registrer bruker</h2>
@@ -32,7 +30,7 @@ function registerUser() {
     <button style="width: 10vh;" onclick="userRegister()">Registrer bruker</button>
     </div>
     </div>
-    
+    ${genglobalui()}
     `
         ;
 }

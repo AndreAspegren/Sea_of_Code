@@ -1,8 +1,6 @@
 function projectpage(key, num) {
     app.innerHTML = /*HTML*/`
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-    <img id="logo" onclick="updateview('homescreen'); model.input.userActivity.comment = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-    <img src="img/mute.png" onclick="mutebtn()">
+
     <div id="projectparent">
     <div id="projectinfo">
     <div>${model.data.users[model.data.projects[key].author].username}</div>
@@ -28,6 +26,7 @@ function projectpage(key, num) {
     <button onclick="sendcomment(${key})">Send</button>` : ''}</div>
     </div>
     </div>
+    ${genglobalui()}
     `
 }
 

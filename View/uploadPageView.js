@@ -2,15 +2,7 @@ function uploadPageView() {
     app.innerHTML =/*html*/`
 <div id="uploadcontainer">
 
-<div id="uploadbuttons">
-<img id="logo" onclick="updateview('homescreen')" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
 
-<span style="display:flex">
-<img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-<img src="img/mute.png" onclick="mutebtn()">
-</span>
-
-</div>
 
 <div id="uploadinputs">
 <div id="uploadinputz">
