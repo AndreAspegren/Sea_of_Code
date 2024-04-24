@@ -107,6 +107,52 @@ const model = {
              },
         ],
         friends: [],
+        titles: {
+            'Cabin Boy': {
+                name: 'Cabin Boy',
+                picture: 'https://www.shutterstock.com/image-vector/cute-smiling-little-boy-character-600nw-697909915.jpg',
+            },
+            'Mate': {
+                name: 'Mate',
+                picture: 'https://i.etsystatic.com/27935473/r/il/20eee5/3508064105/il_fullxfull.3508064105_hv60.jpg',
+            },
+            'First Mate': {
+                name: 'First Mate',
+                picture: 'https://m.media-amazon.com/images/I/51hpbXDz78L.jpg',
+            },
+            'Carpenter': {
+                name: 'Carpenter',
+                picture: 'https://cdn3.iconfinder.com/data/icons/industry-7/32/industry_hammer-chisel-512.png',
+            },
+            'Boatswain': {
+                name: 'Boatswain',
+                picture: 'https://m.media-amazon.com/images/I/51lVApDs6fL._AC_UF894,1000_QL80_.jpg',
+            },
+            'Powder Monkey': {
+                name: 'Boatswain',
+                picture: 'https://www.bii.org/images/BII/News/PMG%20News%20Article.png',
+            },
+            'Surgeon': {
+                name: 'Surgeon',
+                picture: 'https://c8.alamy.com/comp/2PKMFMC/caduceus-a-grayscale-medical-symbol-doctors-pharmacists-nurses-etc-use-all-or-part-of-this-isolated-fully-editable-vector-illustration-2PKMFMC.jpg',
+            },
+            'Gunner': {
+                name: 'Gunner',
+                picture: 'https://i.etsystatic.com/6748960/r/il/5e8d10/1729888404/il_fullxfull.1729888404_ezg4.jpg',
+            },
+            'Quartermaster': {
+                name: 'Quartermaster',
+                picture: 'https://s.turbifycdn.com/aah/militarybest/us-navy-quartermaster-qm-decal-48.gif',
+            },
+            'Sailing Master': {
+                name: 'Sailing Master',
+                picture: 'https://media.istockphoto.com/id/1273319251/vector/sailing-ship-silhouette-vector-eps10-illustration.jpg?s=612x612&w=0&k=20&c=-Fj8pmRntC3a1RcDmJQW3zQ1x9lJoYv3JtjEQwaXkwU=',
+            },
+            'Captain': {
+                name: 'Captain',
+                picture: 'https://static.vecteezy.com/system/resources/previews/007/633/306/original/ship-captain-icon-captain-sign-navy-officer-figure-illustration-vector.jpg',
+            },
+        },
         users: [
             {
                 id: 0,
@@ -125,6 +171,7 @@ const model = {
                 github: 'url',
                 linkedIn: 'url',
                 friends: [1],
+                title: 0,
             },
             {
                 id: 1,
