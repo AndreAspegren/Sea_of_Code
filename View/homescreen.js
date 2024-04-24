@@ -36,8 +36,8 @@ function homescreen() {
 
 function userrank(){
     return `
-    <div></div>
-    <img src="">
+    <div>${model.data.titles[model.data.users[model.app.currentprofile].title].name}</div>
+    <img src="${model.data.titles[model.data.users[model.app.currentprofile].title].picture}">
     `
 }
 
