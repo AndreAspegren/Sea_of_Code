@@ -26,6 +26,7 @@
     grid-template-rows: repeat(2, 5vh); 
     grid-template-columns: repeat(3, 7vw);
     gap: 0;
+    height: 20%;
 }
 
 #homebuttonz > button {
