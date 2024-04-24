@@ -5,6 +5,7 @@ function projectpage(key, num) {
     <img src="img/mute.png" onclick="mutebtn()">
     <div id="projectparent">
     <div id="projectinfo">
+    ${deleteProjectButton(model.data.projects[key].id, model.data.projects[key].author)}
     <div>${model.data.users[model.data.projects[key].author].username}</div>
     <div>${model.data.projects[key].name}</div>
     <img src="${model.data.projects[key].picture}">
@@ -39,6 +40,33 @@ function sendcomment(key) {
     },)
     model.input.userActivity.comment = ''
     updateview('projectpage', key)
+}
+
+function deleteProjectButton(projectID, authorID) {
+    let currentUserId = model.app.userID;
+    for(let authorId in model.data.projects){
+    if (model.app.loggedIn == true && model.data.adminpanel.users.includes(currentUserId)) {
+        return `<button onclick="deleteproject(${projectID})">Slett Prosjekt</button>`;
+    } else if(currentUserId === authorID){
+        return `<button onclick="deleteproject(${projectID})">Slett Prosjekt</button>`;
+    }else{
+        return '';
+    }
+}
+}
+
+function deleteproject(projectID) {
+    const projectIndex = model.data.projects.findIndex(p => p.id === projectID);
+    let currentUserId = model.app.userID;
+    if (projectIndex > -1 && model.data.projects[projectIndex].author === currentUserId) {
+        model.data.projects.splice(projectIndex, 1);
+        console.log('Project deleted successfully.');
+        console.log(model.data.projects);
+    } else {
+        console.log('Project not found.');
+    }
+    updateview('homescreen');
+    return projectID;
 }
 // lag unified homemutedark html return funksjon for alle sider
 

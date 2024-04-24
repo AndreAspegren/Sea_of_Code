@@ -119,7 +119,8 @@ function genuploads(key) {
         <div>${m.name}</div>
         </div>
         <div>${m.description}</div>
-        </div>`
+        </div>
+        `;
     })
     .join('')
 }
