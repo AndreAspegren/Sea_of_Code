@@ -8,7 +8,7 @@ function homescreen() {
     
     <div id="homesearchbar">
     <span>
-    <input type="text" placeholder="Søk..." id="searchbar" onchange="searchbar()" />
+    <input type="text" placeholder="Søk..." id="searchbar" onchange="searchbar()"/>
     <button onclick="searchbar()">Søk</button>
     <div id="searchResults"></div>
     </span>
@@ -36,7 +36,7 @@ function homescreen() {
 
 document.getElementById('searchbar').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') searchbar()
-  })
+})
 
 function genglobalui(){
     return /*HTML*/`
@@ -66,12 +66,16 @@ function genprojectlist() {
         if (model.data.projects[key].approved) {
             projectlist += /*HTML*/`
             <div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
+            
             <img src="${model.data.projects[key].picture}"/>
+            
             <div>
             <div>${model.data.users[model.data.projects[key].author].username}</div>
             <div>${model.data.projects[key].name}</div>
             </div>
+            
             <div>${model.data.projects[key].description}</div>
+            
             </div>
             `;
         }

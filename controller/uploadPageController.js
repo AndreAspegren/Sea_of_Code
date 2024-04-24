@@ -34,15 +34,3 @@ function pushProject() {
     )
     updateview('homescreen')
 }
-
-
-//  model.data.friends: [
-// {
-//     1: 'Bjarne', 2: Per, friendsSince: 2020-05-05,
-//     messages: {
-
-//     }
-// }
-// ]
-
-// [friendship.user1, friendship.user2].includes('terje', 'pål')

@@ -225,7 +225,6 @@ button.logoutbtn i {
    cursor: pointer;
    text-align: center;
    transition: all .2 ease-in-out;
-
 }
 
 .nav ul li.active,
@@ -258,8 +257,8 @@ button.logoutbtn i {
    transform: (translateX(-50%));
    border: 2px solid black;
    grid-template-columns: repeat(1, 1fr);
-   top: 27%;
-   left: 25%;
+   top: 25%;
+   left: 35%;
    width: 70vh;
    height: 75vh;
 }
