@@ -3,7 +3,7 @@ function profileScreen(key) {
   const user = model.data.users[key == undefined ? model.app.currentprofile : key]
   if (key === undefined) key = key
   console.log()
-    app.innerHTML = /*HTML*/`
+  app.innerHTML = /*HTML*/`
 <div id="profileScreen">
   <div class="container">
     <div class="profile-header">
@@ -92,32 +92,32 @@ dmeventlistener()
 }
 
 function dmeventlistener() {
-  document.getElementById('dminputbox').addEventListener('keydown', function(event) {
-        if (event.key === 'Enter') senddm()
-    })
+  document.getElementById('dminputbox').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') senddm()
+  })
 }
 
 function senddm() {
-    model.data.messages.push({
-        from: model.app.userID, 
-        to: model.app.currentprofile, 
-        Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '), 
-        content: model.input.userActivity.message,
-    },)
-    updateview()
+  model.data.messages.push({
+    from: model.app.userID,
+    to: model.app.currentprofile,
+    Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+    content: model.input.userActivity.message,
+  },)
+  updateview()
 }
 
 function genfriendbtn(key, user) {
-    if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id}); updateview('profileScreen', ${user.id})">Legg til venn</button>`;
-    if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>';
-    return ''
+  if (!model.app.loggedIn) return ''
+  if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id}); updateview('profileScreen', ${user.id})">Legg til venn</button>`;
+  if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>';
 }
 
 function genuploads(key) {
-    return model.data.projects
+  return model.data.projects
     .filter(m => (m.author == key))
     .map(m => {
-        return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="projectcard">
+      return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="projectcard">
         <img src="${m.picture}"/>
         <div>
         <div>${model.data.users[m.author].username}</div>
@@ -131,22 +131,22 @@ function genuploads(key) {
 }
 
 function genchat(key) {
-    return model.data.messages
-        .filter(m => (m.from == model.app.userID && m.to == key || m.from == key && m.to == model.app.userID))
-        .map(m => {
-            let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
-            return `<div id="${currentclass}">${m.content}</div>`
-        })
-        .join('')
+  return model.data.messages
+    .filter(m => (m.from == model.app.userID && m.to == key || m.from == key && m.to == model.app.userID))
+    .map(m => {
+      let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
+      return `<div id="${currentclass}">${m.content}</div>`
+    })
+    .join('')
 }
 
 function genfriendlist(key) {
-    let friends = ''
-    for (let i = 0; i < model.data.users[key].friends.length; i++) {
-      let user = model.data.users[key].friends[i]
-      console.log(key, model.data.users[key].friends[i])
-      if (key != model.data.users[key].friends[i]) {
-        friends += /*HTML*/`
+  let friends = ''
+  for (let i = 0; i < model.data.users[key].friends.length; i++) {
+    let user = model.data.users[key].friends[i]
+    console.log(key, model.data.users[key].friends[i])
+    if (key != model.data.users[key].friends[i]) {
+      friends += /*HTML*/`
         <div id="friendcards" onclick="updateview('profileScreen', ${user})">
         <div>
         <div>${model.data.users[user].username}</div>
@@ -156,38 +156,44 @@ function genfriendlist(key) {
         <img style="height: 6vh; width: auto" src="${model.data.users[user].profilePicture}"/>
         </div>
         `
-      }
     }
-    return friends
+  }
+  return friends
 }
 
 function gensettings() {
-    return /*HTML*/`<div id="usersetting">
+  return /*HTML*/`<div id="usersetting">
     <h2>Endre profil</h2>
-    <input type="text" onchange="inputChange('eMail', this.value)" placeholder="Email" required />
-    <input type="text" onchange="inputChange('username', this.value)" placeholder="Brukernavn" required/>
-    <input type="password" id="passwordOne" onchange="inputChange('passwordOne', this.value)" placeholder="Passord" required/>
-    <input type="password" id="passwordTwo" onchange="inputChange('passwordTwo', this.value)" placeholder="Bekreft passord" required/>
-    <input type="text" onchange="inputChange('firstName', this.value)" placeholder="Navn (frivillig)" />
-    <input type="text" onchange="inputChange('lastName', this.value)" placeholder="Etternavn (frivillig)" />
-    <input type="text" onchange="inputChange('phoneNr', this.value)" placeholder="Telefonnummer (frivillig)" />
-    <input type="text" onchange="inputChange('age', this.value)" placeholder="Alder (frivillig)" />
-    <input type="text" onchange="inputChange('country', this.value)" placeholder="Sted (frivillig)" />
-    <input type="text" onchange="inputChange('github', this.value)" placeholder="Github link (frivillig)" />
-    <input type="text" onchange="inputChange('linkedIn', this.value)" placeholder="LinkedIn (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.username = this.value" placeholder="Brukernavn" required/>
+    <input type="text" oninput="model.input.editProfile.eMail = this.value" placeholder="Email" required />
+    <input type="password" oninput="model.input.editProfile.passwordOne = this.value" placeholder="Passord" required/>
+    <input type="password" oninput="model.input.editProfile.passwordTwo = this.value" placeholder="Bekreft passord" required/>
+    <input type="text" oninput="model.input.editProfile.firstName = this.value" placeholder="Navn (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.lastName = this.value" placeholder="Etternavn (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.phoneNr = this.value" placeholder="Telefonnummer (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.age = this.value" placeholder="Alder (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.country = this.value" placeholder="Sted (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.github = this.value" placeholder="Github link (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.linkedIn = this.value" placeholder="LinkedIn (frivillig)" />
     <input type="file" id="fileInput" onchange="fileChange(event)">
-    <textarea id="bio" onchange="inputChange('bio', this.value)" placeholder="Bio"></textarea>
+    <textarea id="bio" oninput="model.input.editProfile.bio = this.value" placeholder="Bio"></textarea>
     Last opp profilbilde:
     <img id="profilePicture"/>
-    <button style="width: 10vh;" onclick="userRegister()">Endre profil</button>    </div>`
+    <button style="width: 10vh;" onclick="editprofile()">Endre profil</button>    </div>`
 }
 
 function addfriend(key) {
-    model.data.users[model.app.userID].friends.push(key)
-    model.data.users[key].friends.push(model.app.userID)
-    updateview()
+  model.data.users[model.app.userID].friends.push(key)
+  model.data.users[key].friends.push(model.app.userID)
+  updateview()
 }
 
-function editprofile(){
-  
+function editprofile() {
+  Object.keys(model.input.editProfile).forEach(key => {
+    if (model.input.editProfile[key]) model.data.users[model.app.userID][key] = model.input.editProfile[key]
+  })
+  Object.keys(model.input.editProfile).forEach(key => {
+    model.input.editProfile[key] = ''
+  })
+  updateview()
 }
