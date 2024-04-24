@@ -108,9 +108,9 @@ function senddm() {
 }
 
 function genfriendbtn(key, user) {
+    if (!model.app.loggedIn) return ''
     if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id}); updateview('profileScreen', ${user.id})">Legg til venn</button>`;
     if (model.data.users[model.app.userID].friends.includes(key)) return '<div>Dere er venner</div>';
-    return ''
 }
 
 function genuploads(key) {
