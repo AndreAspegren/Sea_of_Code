@@ -15,7 +15,7 @@ function uploadPageView() {
 <div id="uploadinputs">
 <div id="uploadinputz">
 
-<h1 class="upload">Upload ditt prosjekt</h1>
+<h1 class="upload">Last opp ditt prosjekt</h1>
     <input type="text" onchange="model.input.projects.name = this.value" placeholder="Project name" id="projectName">
     <input type="text" onchange="model.input.projects.description = this.value" style="width: 30vh; height: 15vh;" placeholder="Project description" id="projectDescription">
     <input onchange="model.input.projects.picture = this.value" type="url" placeholder="url">

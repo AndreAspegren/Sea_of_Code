@@ -1,6 +1,8 @@
-function projectpage(key, num){
-    console.log(key)
+function projectpage(key, num) {
     app.innerHTML = /*HTML*/`
+    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
+    <img id="logo" onclick="updateview('homescreen'); model.input.userActivity.comment = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
+    <img src="img/mute.png" onclick="mutebtn()">
     <div id="projectparent">
     <div id="projectinfo">
     <div>${model.data.users[model.data.projects[key].author].username}</div>
@@ -10,22 +12,22 @@ function projectpage(key, num){
 
     <div id="project">
     <div>${model.data.projects[key].files[(num ? num : 0)].content}</div>
-    <div id="projectbuttons-container">${genpageturn(key)}</div>
+    <div id="projectbuttons-container">${model.data.projects[key].files.map((file, i) =>
+    /*HTML*/`<button id="projectbutton${i}" onclick="projectpage(${key}, ${i})">${i}</button>`
+    ).join('')}</div>
     </div>
  
 
     <div id="comments">
-    <div>${gencomments(key)} </div>
+    <div>${model.data.projects[key].comments.map(c => {
+        let currentclass = c.from == model.app.userID ? 'rightmsg' : 'leftmsg'
+        return /*HTML*/`<div id="${currentclass}"><div>${model.data.users[c.from].username + ': ' + c.comment}</div></div>`
+    }).join('')}</div>
     <div id="commentinput">
     ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value">
-    <button onclick="sendcomment(${key})">Send</button>`
-    : ''}</div>
+    <button onclick="sendcomment(${key})">Send</button>` : ''}</div>
     </div>
     </div>
-    
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-    <img id="logo" onclick="updateview('homescreen'); model.input.userActivity.comment = ''" src="https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg"/>
-    <img src="img/mute.png" onclick="mutebtn()">
     `
 }
 
@@ -38,21 +40,5 @@ function sendcomment(key) {
     model.input.userActivity.comment = ''
     updateview('projectpage', key)
 }
-
-function genpageturn(key){
-    pages = ''
-    for (let i = 0; i < model.data.projects[key].files.length; i++){
-       pages += /*HTML*/`<button id="projectbuttons" onclick="projectpage(${key}, ${i})">${i}</button>`
-    }
-    return pages
-}
-
-function gencomments(key) {    
-    return model.data.projects[key].comments.map(c => {
-        let currentclass = c.from == model.app.userID ? 'rightmsg' : 'leftmsg'
-        return /*HTML*/`
-        <div id="${currentclass}"><div>${model.data.users[c.from].username + ': ' + c.comment}</div>
-        </div>`
-    }).join('')
-}
+// lag unified homemutedark html return funksjon for alle sider
 
