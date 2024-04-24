@@ -34,6 +34,13 @@ function homescreen() {
     </div>`
 }
 
+function userrank(){
+    return `
+    <div></div>
+    <img src="">
+    `
+}
+
 document.getElementById('searchbar').addEventListener('keydown', function(event) {
     if (event.key === 'Enter') searchbar()
 })
