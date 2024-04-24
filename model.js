@@ -108,6 +108,10 @@ const model = {
         ],
         friends: [],
         titles: {
+            'Landlubber': {
+                name: 'Landlubber',
+                picture: 'https://cdn.discordapp.com/attachments/1219175658362634282/1232649279512903680/latest.png?ex=662a3999&is=6628e819&hm=3a2b1796e3aa1461ff52b715d011bc82d0be2f8fc63701abf686ea8d374824af&',
+            },
             'Cabin Boy': {
                 name: 'Cabin Boy',
                 picture: 'https://www.shutterstock.com/image-vector/cute-smiling-little-boy-character-600nw-697909915.jpg',
@@ -171,7 +175,7 @@ const model = {
                 github: 'url',
                 linkedIn: 'url',
                 friends: [1],
-                title: 0,
+                title: 'Captain',
             },
             {
                 id: 1,
@@ -190,6 +194,7 @@ const model = {
                 github: 'url',
                 linkedIn: 'url',
                 friends: [0],
+                title: 'Landlubber',
             },
             {
                 id: 2,
@@ -208,6 +213,7 @@ const model = {
                 github: 'url',
                 linkedIn: 'url',
                 friends: [],
+                title: 'Landlubber',
             },
         ],
         projects: [
