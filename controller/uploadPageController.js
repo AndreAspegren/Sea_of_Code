@@ -10,7 +10,6 @@ function sendProjectInfo() { // download :o
     } else {
         pushProjectFalse();
     }
-
 }
 
 function pushProjectFalse() {
@@ -40,6 +39,8 @@ function pushProjectFalse() {
 
 
 function pushProjectTrue() {
+    model.data.wordCloud[model.input.projects.language]++
+    model.input.projects.language = null
     model.data.projects.push(
         {
             id: model.data.users[model.app.userID].projects.length - 1,
