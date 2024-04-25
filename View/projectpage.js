@@ -8,6 +8,7 @@ function projectpage(key, num) {
     <div id="projectdltbtn">${deleteProjectButton(model.data.projects[key].id, model.data.projects[key].author)}</div>
     <div id="projectusername">${model.data.users[model.data.projects[key].author].username}</div>
     <div id="projectname">${model.data.projects[key].name}</div>
+    <div id=projectdescription>${model.data.projects[key].description}</div>
     <img id="projectimg"src="${model.data.projects[key].picture}">
     </div>
 
