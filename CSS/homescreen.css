@@ -149,8 +149,8 @@ img {
 }
 
 #globalchild > img {
-    width: 5vw;
     height: 5vh;
+    width: auto;
 }
 
 #globallogo {

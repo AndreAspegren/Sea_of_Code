@@ -14,7 +14,7 @@ function adminpanel() {
     </div>
     `
 }
-
+1|
 function adminprojects() {
     let projects = ''
     for (key in model.data.projects) {

@@ -11,13 +11,13 @@ const model = {
         html: app = document.getElementById('app'),
         wethebestmusic: {
             yarr: yarr = new Audio('img/piratemusic.mp3'),
-            volume: yarr.volume = 0.3,   
+            volume: yarr.volume = 0.3,
             loop: yarr.loop = true,
-            matey: yarr.play(), 
+            matey: yarr.play(),
         }
     },
-    input: {    
-        currentproject: null,   
+    input: {
+        currentproject: null,
         login: {
             id: null,
             password: null,
@@ -44,20 +44,20 @@ const model = {
             }
         ],
         editProfile: {
-                username: "",
-                eMail: "",
-                passwordOne: "",
-                passwordTwo: "",
-                firstName: "",
-                lastName: "",
-                profilePicture: '',
-                phoneNr: '',
-                age: ' ',
-                bio: "",
-                country: '',
-                city: '',
-                github: '',
-                linkedIn: '',
+            username: "",
+            eMail: "",
+            passwordOne: "",
+            passwordTwo: "",
+            firstName: "",
+            lastName: "",
+            profilePicture: '',
+            phoneNr: '',
+            age: ' ',
+            bio: "",
+            country: '',
+            city: '',
+            github: '',
+            linkedIn: '',
         },
         projects: [
             {
@@ -74,7 +74,7 @@ const model = {
                     }
                 ],
             }
-        ], 
+        ],
         userActivity: {
             message: '',
             comment: '',
@@ -98,65 +98,69 @@ const model = {
             users: [0],
             forReview: [3],
         },
-         messages: [         
+        messages: [
             {
                 from: 0, to: 1, Datesent: '2024-04-17 07:37', content: 'Very nice',
-             },
+            },
             {
                 from: 1, to: 0, Datesent: '2024-04-17 07:37', content: 'Not very nice',
-             },
+            },
         ],
         friends: [],
-        titles: {
-            'Landlubber': {
+        titles: [
+            {
+                name: 'Noob',
+                picture: 'https://m.media-amazon.com/images/I/41NhazsounL.jpg',
+            },
+            {
                 name: 'Landlubber',
                 picture: 'https://cdn.discordapp.com/attachments/1219175658362634282/1232649279512903680/latest.png?ex=662a3999&is=6628e819&hm=3a2b1796e3aa1461ff52b715d011bc82d0be2f8fc63701abf686ea8d374824af&',
             },
-            'Cabin Boy': {
+            {
                 name: 'Cabin Boy',
                 picture: 'https://www.shutterstock.com/image-vector/cute-smiling-little-boy-character-600nw-697909915.jpg',
             },
-            'Mate': {
+            {
                 name: 'Mate',
                 picture: 'https://i.etsystatic.com/27935473/r/il/20eee5/3508064105/il_fullxfull.3508064105_hv60.jpg',
             },
-            'First Mate': {
+            {
                 name: 'First Mate',
                 picture: 'https://m.media-amazon.com/images/I/51hpbXDz78L.jpg',
             },
-            'Carpenter': {
+            {
                 name: 'Carpenter',
                 picture: 'https://cdn3.iconfinder.com/data/icons/industry-7/32/industry_hammer-chisel-512.png',
             },
-            'Boatswain': {
+            {
                 name: 'Boatswain',
                 picture: 'https://m.media-amazon.com/images/I/51lVApDs6fL._AC_UF894,1000_QL80_.jpg',
             },
-            'Powder Monkey': {
+            {
                 name: 'Boatswain',
                 picture: 'https://www.bii.org/images/BII/News/PMG%20News%20Article.png',
             },
-            'Surgeon': {
+            {
                 name: 'Surgeon',
                 picture: 'https://c8.alamy.com/comp/2PKMFMC/caduceus-a-grayscale-medical-symbol-doctors-pharmacists-nurses-etc-use-all-or-part-of-this-isolated-fully-editable-vector-illustration-2PKMFMC.jpg',
             },
-            'Gunner': {
+            {
                 name: 'Gunner',
                 picture: 'https://i.etsystatic.com/6748960/r/il/5e8d10/1729888404/il_fullxfull.1729888404_ezg4.jpg',
             },
-            'Quartermaster': {
+            {
                 name: 'Quartermaster',
                 picture: 'https://s.turbifycdn.com/aah/militarybest/us-navy-quartermaster-qm-decal-48.gif',
             },
-            'Sailing Master': {
+            {
                 name: 'Sailing Master',
                 picture: 'https://media.istockphoto.com/id/1273319251/vector/sailing-ship-silhouette-vector-eps10-illustration.jpg?s=612x612&w=0&k=20&c=-Fj8pmRntC3a1RcDmJQW3zQ1x9lJoYv3JtjEQwaXkwU=',
             },
-            'Captain': {
+            {
                 name: 'Captain',
                 picture: 'https://static.vecteezy.com/system/resources/previews/007/633/306/original/ship-captain-icon-captain-sign-navy-officer-figure-illustration-vector.jpg',
             },
-        },
+        ],
         users: [
             {
                 id: 0,
@@ -175,7 +179,7 @@ const model = {
                 github: 'url',
                 linkedIn: 'url',
                 friends: [1],
-                title: 'Captain',
+                title: 12,
             },
             {
                 id: 1,
@@ -194,7 +198,7 @@ const model = {
                 github: 'url',
                 linkedIn: 'url',
                 friends: [0],
-                title: 'Landlubber',
+                title: 0,
             },
             {
                 id: 2,
@@ -213,7 +217,7 @@ const model = {
                 github: 'url',
                 linkedIn: 'url',
                 friends: [],
-                title: 'Landlubber',
+                title: 0,
             },
         ],
         projects: [

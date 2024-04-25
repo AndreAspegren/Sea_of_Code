@@ -34,18 +34,18 @@ function homescreen() {
     </div>`
 }
 
-function userrank(){
+function userrank() {
     return `
     <div>${model.data.titles[model.data.users[model.app.currentprofile].title].name}</div>
     <img src="${model.data.titles[model.data.users[model.app.currentprofile].title].picture}">
     `
 }
 
-document.getElementById('searchbar').addEventListener('keydown', function(event) {
+document.getElementById('searchbar').addEventListener('keydown', function (event) {
     if (event.key === 'Enter') searchbar()
 })
 
-function genglobalui(){
+function genglobalui() {
     return /*HTML*/`
    
     <img id="globallogo" onclick="updateview('homescreen')" src="img/background.jpg"/>
@@ -63,33 +63,26 @@ function updateview(newview, key) {
 }
 
 function mutebtn() {
-    yarr.paused ? (yarr.play(), model.app.muteurl = "img/mute.png") : (yarr.pause(),  model.app.muteurl = "img/muted.png");
+    yarr.paused ? (yarr.play(), model.app.muteurl = "img/mute.png") : (yarr.pause(), model.app.muteurl = "img/muted.png");
     updateview()
 }
 
 function genprojectlist() {
-    projectlist = '';
-    for (key in model.data.projects) {
-        if (model.data.projects[key].approved) {
-            projectlist += /*HTML*/`
-            <div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
-            
-            <div style="object-fit: cover">
-            <img src="${model.data.projects[key].picture}"/>
-            </div>
-            
-            <div>
-            <div>${model.data.users[model.data.projects[key].author].username}</div>
-            <div>${model.data.projects[key].name}</div>
-            </div>
-            
-            <div>${model.data.projects[key].description}</div>
-            
-            </div>
-            `;
-        }
-    }
-    return projectlist;
+    return model.data.projects.filter(p => p.approved).map((value, key) => {
+        return `<div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
+        
+        <img style="" src="${value.picture}"/>
+        
+        <div>
+        <div>${model.data.users[value.author].username}</div>
+        <div>${value.name}</div>
+        </div>
+        
+        <div>${value.description}</div>
+        
+        </div>
+        `
+    }).join('')
 }
 
 function darkmode() {
@@ -102,37 +95,30 @@ function darkmode() {
 }
 
 function genwordcloud() {
-    let wordcloudlist = '';
-    for (let key in model.data.wordCloud) {
-        wordcloudlist += /*HTML*/`
-            <div id="wordcloudcard" style="font-size: ${model.data.wordCloud[key] * 50 + 50}%">${key}</div>
-            `;
-    }
-    return wordcloudlist;
+    return Object.entries(model.data.wordCloud).map(([key, value]) => {
+        return `<div id="wordcloudcard" style="font-size: ${value < 12 ? value * 30 + 100 : 460}%">${key}</div>`
+    }).join('')
 }
 
 function genuserlist() {
-    userlist = '';
-    for (let key in model.data.users) {
-        userlist += /*HTML*/`
-        <div id="usercard" onclick="updateview('profileScreen', ${key})">
+    return model.data.users.map((value, key) => {
+        return `<div id="usercard" onclick="updateview('profileScreen', ${key})">
         <div>
-        <div>${model.data.users[key].username}</div>
-        <div>${model.data.users[key].projects.length} prosjekter</div>
-        <div>${model.data.users[key].friends.length} venner</div>
+        <div>${value.username}</div>
+        <div>${value.projects.length} prosjekter</div>
+        <div>${value.friends.length} venner</div>
         </div>
-        <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicture}"/>
+        <img style="height: 6vh; width: auto" src="${value.profilePicture}"/>
         </div>
         `
-    }
-    return userlist;
+    }).join('')
 }
 
 function admin() {
     let adminButton = '';
-        let currentUserId = model.app.userID;
-        if(model.data.adminpanel.users.includes(currentUserId)){
-            adminButton = `<button onclick="updateview('adminpanel')" id="adminbutton">adminpanel</button>`;
-        }
+    let currentUserId = model.app.userID;
+    if (model.data.adminpanel.users.includes(currentUserId)) {
+        adminButton = `<button onclick="updateview('adminpanel')" id="adminbutton">adminpanel</button>`;
+    }
     return adminButton;
 }

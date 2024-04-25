@@ -114,10 +114,8 @@ function genfriendbtn(key, user) {
 }
 
 function genuploads(key) {
-  return model.data.projects
-    .filter(m => (m.author == key))
-    .map(m => {
-      return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
+  return model.data.projects.filter(m => (m.author == key))
+    .map(m => { return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
         <img src="${m.picture}"/>
         <div>
         <div>${model.data.users[m.author].username}</div>
@@ -144,7 +142,6 @@ function genfriendlist(key) {
   let friends = ''
   for (let i = 0; i < model.data.users[key].friends.length; i++) {
     let user = model.data.users[key].friends[i]
-    console.log(key, model.data.users[key].friends[i])
     if (key != model.data.users[key].friends[i]) {
       friends += /*HTML*/`
         <div id="friendcards" onclick="updateview('profileScreen', ${user})">
@@ -158,7 +155,7 @@ function genfriendlist(key) {
         `
     }
   }
-  return friends
+  return model.data.users[key].friends.filter(f => f != key)
 }
 
 function gensettings() {
