@@ -77,5 +77,5 @@ function deleteproject(projectID) {
     updateview('homescreen');
     return projectID;
 }
-// lag unified homemutedark html return funksjon for alle sider
+
 

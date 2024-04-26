@@ -36,8 +36,6 @@ ${genglobalui()}
     `;
 }
 
-
-
 function userList() {
     let usersList = '';
     for (let user in model.data.users) {

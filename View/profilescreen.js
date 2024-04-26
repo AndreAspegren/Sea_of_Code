@@ -97,6 +97,7 @@ function dmeventlistener() {
     if (event.key === 'Enter') senddm()
   })
 }
+
 function senddm() {
   model.data.messages.push({
     from: model.app.userID,
@@ -189,3 +190,4 @@ function editprofile() {
   })
   updateview()
 }
+
