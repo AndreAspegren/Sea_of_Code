@@ -7,7 +7,6 @@ function profileScreen(key) {
 <div id="profileScreen">
   <div class="container">
     <div class="profile-header">
-   <div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
       <div class="profile-img">
       <img src="${user.profilePicture}" width="" alt="">     </div>
       <div class="profile-nav-info">

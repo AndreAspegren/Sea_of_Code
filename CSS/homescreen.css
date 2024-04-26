@@ -11,9 +11,7 @@
         "homeusers projects homewordcloud";
     column-gap: 2vw;
 }
-#app{
-    background: gray;
-}
+
 #homebuttons {
     grid-area: homebuttons;   
     display: flex;
