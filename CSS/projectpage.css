@@ -9,40 +9,55 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    grid-area: 1 / 2 / 1 / 4;
-    border: 1px solid black;
-    font-size: 40px;
+    grid-area: 2 / 2 / 1 / 4;
+    border-bottom: 1px solid black;
     align-content: space-between;
 }
 
 #projectdltbtn{
-    grid-area: 1/3/3/3;
     display:flex;
     justify-content: end;
     align-items: flex-start;
 }
 
+#deleteproject{
+    background: gray;
+    transition: .3s ease-in-out;
+}
+
+#deleteproject:hover{
+    background: red;
+}
+
 #projectusername{
-    grid-area: 1/1/1/2;
+    grid-area: 1/1;
+    font-size: 15px;
 }
 
 #projectname{
-    grid-area: 2/2/4/2;
+    grid-area: 1/2;
+    font-size: 50px;
     
 }
 
 #projectimg{
     grid-area: 2/2/2/1;
+    border: solid green 3px;
 }
 
 #projectinfo>img {
     height: 100px;
-    width: auto;
+    width: 205px;
+}
+
+#projectdescription{
+    grid-area: 2/2/4/4;
+    border: solid gray 1px;
 }
 
 #project {
     display: flex;
-    grid-area: 2 / 1 / 4 / 4;
+    grid-area: 2 / 1 / 5 / 4;
     border: 1px solid red;
     font-size: 30px;
     align-content: center;
