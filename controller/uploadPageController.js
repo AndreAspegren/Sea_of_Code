@@ -41,11 +41,13 @@ function pushProject() {
     let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
     if (newtitle != currenttitle) {
         model.data.users[model.app.userID].notifications.push({
+            id: model.data.users[model.app.userID].notifications.length,
             type: 'rankup',
             oldtitle: currenttitle,
             newtitle: newtitle,
             from: model.app.userID,
             dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+            function: function () { `model.app.currentprofiletab = null; updateview('projectpage', ${model.app.userID})` }
         })
     }
     updateview('homescreen')

@@ -111,9 +111,11 @@ function senddm() {
     content: model.input.userActivity.message,
   },)
   model.data.users[model.app.currentprofile].notifications.push({
+    id: model.data.users[model.app.currentprofile].notifications.length,
     type: 'dm',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+    function: function () { `model.app.currentprofiletab = 'chat'; updateview('profilescreen', ${model.app.userID})` }
   })
   updateview()
 }
@@ -127,10 +129,18 @@ function gennotifications() {
       'rankup': 'Du gikk opp i rank!',
     }
       return /*HTML*/`
-      <div id="homeprojectcard"><img src="${model.data.users[n.from].profilePicture}">
+      <div style="width: 60vw; height: 10vh; display: flex;" onclick="redirectnoti(${n.id})"><img src="${model.data.users[n.from].profilePicture}">
                       <div>${n.type == 'rankup' ? '' : model.data.users[n.from].firstName + ' ' + model.data.users[n.from].lastName + ' '}${message[n.type]}</div>
                       <div>Dato: ${n.dateSent}</div></div>`
   })
+}
+
+window.redirectnoti = function(notificationId) {
+  console.log('hei', notificationId)
+  const notification = model.data.users[model.app.userID].notifications.find(n => n.id === notificationId)
+  if (notification && typeof notification.function === 'function') {
+      notification.function()
+  }
 }
 
 function genfriendbtn(key, user) {
@@ -205,9 +215,11 @@ function addfriend(key) {
   model.data.users[model.app.userID].friends.push(key)
   model.data.users[key].friends.push(model.app.userID)
   model.data.users[key].notifications.push({
+    id: model.data.users[key].notifications.length,
     type: 'addedfriend',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+    function: function () { `model.app.currentprofiletab = null; updateview('projectpage', ${model.app.userID})` }
   })
   updateview()
 }
