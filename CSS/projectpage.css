@@ -10,7 +10,6 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-area: 2 / 2 / 1 / 4;
-    border-bottom: 1px solid black;
     align-content: space-between;
 }
 
@@ -52,25 +51,27 @@
 
 #projectdescription{
     grid-area: 2/2/4/4;
-    border: solid gray 1px;
+    border: solid rgb(0, 0, 0) 1px;
 }
 
 #project {
     display: flex;
     grid-area: 2 / 1 / 5 / 4;
-    border: 1px solid red;
-    font-size: 30px;
+    font-size: 20px;
     align-content: center;
+    border-top: solid black 1px;
+    background: lightgray;
+    color: black;
 
 }
 
 #comments {
     display: flex;
-    grid-area: -4/4/-1/4;
-    border: 1px solid blue;
+    grid-area: -4/4/5;
+    border: dotted 1px black;
     flex-direction: column;
-    flex-grow: 1;
     overflow-y: auto;
+    word-wrap: break-word;
 }
 
 #commentinput {
@@ -81,5 +82,8 @@
 }
 
 #projectbuttons-container {
-    grid-area: 3/-3/2/2
+    grid-area: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
 }
