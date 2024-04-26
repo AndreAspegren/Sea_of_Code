@@ -137,6 +137,7 @@ function gennotifications() {
       'comment': 'kommenterte på prosjektet ditt!',
       'rankup': 'Du gikk opp i rank!',
     }
+    console.log(n.from)
       return /*HTML*/`
       <div style="width: 60vw; height: 10vh; display: flex;" onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); redirectnoti(${n.id})"><img src="${model.data.users[n.from].profilePicture}">
                       <div>${n.type == 'rankup' ? '' : model.data.users[n.from].firstName + ' ' + model.data.users[n.from].lastName + ' '}${message[n.type]}</div>
@@ -145,7 +146,6 @@ function gennotifications() {
 }
 
 window.redirectnoti = function(notificationId) {
-  console.log('hei', notificationId)
   const notification = model.data.users[model.app.userID].notifications.find(n => n.id === notificationId)
   if (notification && typeof notification.function === 'function') {
       notification.function()

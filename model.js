@@ -193,7 +193,7 @@ const model = {
                 username: "Anita",
                 eMail: "yarr@getAcademy.com",
                 passwordOne: "Anita",
-                firstName: "Bjarne",
+                firstName: "Anita",
                 lastName: "Pirat",
                 profilePicture: 'https://viover60.no/app/uploads/2022/05/NTB_fI8b1WdilZs.jpg',
                 phoneNr: 12345678,
