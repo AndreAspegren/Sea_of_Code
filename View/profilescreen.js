@@ -56,9 +56,10 @@ function profileScreen(key) {
             <li class="user-friends" onclick="model.app.currentprofiletab = 'friends'; tabs(1); updateview()">Venner</li>
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; tabs(2); updateview()">Opplastinger</li>
             ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; tabs(3); updateview()">Chat</li>` : ''}
-            ${model.app.loggedIn && profile == model.app.userID ? `<li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; tabs(4); updateview()">Endre profil</li>` : ''}
+            ${model.app.loggedIn && profile == model.app.userID ? `
+            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; tabs(4); updateview()">Endre profil</li>
             <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; tabs(5); updateview()">Notifikasjoner</li>
-            <li class="user-api" onclick="model.app.currentprofiltab = 'api'; tabs(6); updateview()">Fornærmelser</li>
+            <li class="user-api" onclick="model.app.currentprofiltab = 'api'; tabs(6); updateview()">Fornærmelser</li>` : ''}
           </ul>
         </div>
         <div class="profile-body">
@@ -92,7 +93,8 @@ function profileScreen(key) {
 </div>
 ${genglobalui()}
 `
- // dmeventlistener()
+console.log(tab)
+  if (tab == 'chat') dmeventlistener()
 }
 
 function dmeventlistener() {
@@ -112,12 +114,23 @@ function senddm() {
     type: 'dm',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
-})
+  })
   updateview()
 }
 
-function gennotifications(key) {
-  return 
+function gennotifications() {
+  return model.data.users[model.app.userID].notifications.map(n => {
+    let message = {
+      'dm': 'sendte deg en melding!',
+      'addedfriend': 'la deg til som venn!',
+      'comment': 'kommenterte på prosjektet ditt!',
+      'rankup': 'Du gikk opp i rank!',
+    }
+      return /*HTML*/`
+      <div id="homeprojectcard"><img src="${model.data.users[n.from].profilePicture}">
+                      <div>${n.type == 'rankup' ? '' : model.data.users[n.from].firstName + ' ' + model.data.users[n.from].lastName + ' '}${message[n.type]}</div>
+                      <div>Dato: ${n.dateSent}</div></div>`
+  })
 }
 
 function genfriendbtn(key, user) {
@@ -195,7 +208,7 @@ function addfriend(key) {
     type: 'addedfriend',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
-})
+  })
   updateview()
 }
 
