@@ -47,6 +47,11 @@ function sendcomment() {
         dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
         comment: model.input.userActivity.comment
     },)
+    model.data.users[model.data.projects[model.input.currentproject].author].notifications.push({
+        type: 'comment',
+        from: model.app.userID,
+        dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+    })
     model.input.userActivity.comment = ''
     updateview()
 }

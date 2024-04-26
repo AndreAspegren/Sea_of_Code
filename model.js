@@ -180,6 +180,7 @@ const model = {
                 linkedIn: 'url',
                 friends: [1],
                 title: 12,
+                notifications: [],
             },
             {
                 id: 1,
@@ -199,6 +200,7 @@ const model = {
                 linkedIn: 'url',
                 friends: [0],
                 title: 0,
+                notifications: [],
             },
             {
                 id: 2,
@@ -218,6 +220,7 @@ const model = {
                 linkedIn: 'url',
                 friends: [],
                 title: 0,
+                notifications: [],
             },
         ],
         projects: [
