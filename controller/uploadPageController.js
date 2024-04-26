@@ -12,7 +12,7 @@ function pushProject() {
 
     model.data.wordCloud[model.input.projects.language ? model.input.projects.language : 'Javascript']++
     model.input.projects.language = null
-    model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length - 1)
+    model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length)
     model.data.projects.push(
         {
             id: model.data.users[model.app.userID].projects.length - 1,
@@ -34,15 +34,13 @@ function pushProject() {
             comments: [],
         },
     )
-    checkRank()
+    let user = model.data.users[model.app.userID]
+    let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61]
+    let index = ranks.findIndex(ranks => ranks > user.projects.length)
+    user.title = index == -1 ? ranks.length - 1 : index -1
+    console.log(ranks.findIndex(ranks => ranks > user.projects.length) -1)
     updateview('homescreen')
 }
 
-function checkRank() {
-    let user = model.data.users[model.app.userID]
-    let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61]
-    let index = ranks.findIndex(ranks => ranks >= user.projects.length)
-    user.title = index == -1 ? ranks.length - 1 : index -1
-}
 
 

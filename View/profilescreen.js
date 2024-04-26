@@ -1,8 +1,8 @@
 function profileScreen(key) {
   if (key != undefined) model.app.currentprofile = key
-  const user = model.data.users[key == undefined ? model.app.currentprofile : key]
-  if (key === undefined) key = key
-  console.log()
+  let profile = model.app.currentprofile
+  const user = model.data.users[key == undefined ? profile : key]
+  let tab = model.app.currentprofiletab
   app.innerHTML = /*HTML*/`
 <div id="profileScreen">
   <div class="container">
@@ -34,14 +34,14 @@ function profileScreen(key) {
             <p class="bio">${user.bio}</p>
           </div>
           <div class="profile-btn">
-            ${model.app.loggedIn && model.app.userID != model.app.currentprofile ? `<button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
+            ${model.app.loggedIn && model.app.userID != profile ? `<button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
               <i class="fa fa-comment"></i> 🗨Chat 
             </button>` : ''}
-            ${model.app.loggedIn && model.app.currentprofile != model.app.userID & !model.data.users[model.app.userID].friends.includes(model.app.currentprofile) ? `
+            ${model.app.loggedIn && profile != model.app.userID & !model.data.users[model.app.userID].friends.includes(profile) ? `
             <button class="createbtn" onclick="addfriend(${key})">
               <i class="fa fa-plus"></i> 	➕Legg til venn
               </button>` : ''}
-            ${model.app.currentprofile === model.app.userID ? `<button class="logoutbtn" onclick="logOff()">
+            ${profile === model.app.userID ? `<button class="logoutbtn" onclick="logOff()">
               <i class="fa fa-door"></i> 🔚 Logg ut
               </button>` : ''}
           </div>
@@ -55,8 +55,8 @@ function profileScreen(key) {
           <ul>
             <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Venner</li>
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Opplastinger</li>
-            ${model.app.loggedIn && model.app.currentprofile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>` : ''}
-            ${model.app.loggedIn && model.app.currentprofile == model.app.userID ? `<li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
+            ${model.app.loggedIn && tab != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>` : ''}
+            ${model.app.loggedIn && tab == model.app.userID ? `<li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
           </ul>
         </div>
         <div class="profile-body">
@@ -77,11 +77,11 @@ function profileScreen(key) {
     </div>
   </div>
 </div>
-<div id="${model.app.currentprofiletab ?? ''}">
-  ${model.app.currentprofiletab == 'friends' ? genfriendlist(key == undefined ? model.app.currentprofile : key) : ''}
-  ${model.app.currentprofiletab == 'uploads' ? genuploads(key == undefined ? model.app.currentprofile : key) : ''}
-  ${model.app.currentprofiletab == 'settings' && model.app.currentprofile === model.app.userID ? gensettings(key == undefined ? model.app.currentprofile : key) : ''}
-  ${model.app.currentprofiletab == 'chat' ? genchat(key === undefined ? model.app.currentprofile : key) + /*HTML*/`
+<div id="${tab ?? ''}">
+  ${tab == 'friends' ? genfriendlist(key == undefined ? profile : key) : ''}
+  ${tab == 'uploads' ? genuploads(key == undefined ? profile : key) : ''}
+  ${tab == 'settings' && profile === model.app.userID ? gensettings(key == undefined ? profile : key) : ''}
+  ${tab == 'chat' ? genchat(key == undefined ? profile : key) + /*HTML*/`
   <div id="msgbox">
     <input oninput="model.input.userActivity.message = this.value" id="dminputbox">
     <button onclick="senddm()">Send</button>
@@ -139,23 +139,18 @@ function genchat(key) {
 }
 
 function genfriendlist(key) {
-  let friends = ''
-  for (let i = 0; i < model.data.users[key].friends.length; i++) {
-    let user = model.data.users[key].friends[i]
-    if (key != model.data.users[key].friends[i]) {
-      friends += /*HTML*/`
-        <div id="friendcards" onclick="updateview('profileScreen', ${user})">
-        <div>
-        <div>${model.data.users[user].username}</div>
-        <div>${model.data.users[user].projects.length} prosjekter</div>
-        <div>${model.data.users[user].friends.length} venner</div>
-        </div>
-        <img style="height: 6vh; width: auto" src="${model.data.users[user].profilePicture}"/>
-        </div>
-        `
-    }
-  }
-  return model.data.users[key].friends.filter(f => f != key)
+return model.data.users[key].friends.filter(f => f != key).map(key => {
+    return `
+    <div id="friendcards" onclick="updateview('profileScreen', ${key})">
+    <div>
+    <div>${model.data.users[key].username}</div>
+    <div>${model.data.users[key].projects.length} prosjekter</div>
+    <div>${model.data.users[key].friends.length} venner</div>
+    </div>
+    <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicture}"/>
+    </div>
+    `
+  }).join('')
 }
 
 function gensettings() {
