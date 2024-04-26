@@ -130,6 +130,15 @@ body {
     height: 5vh; 
 }
 
+#searchResults{
+    position: absolute;
+    background-color: gray;
+    width: 31vh;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
 #wordcloudcard{
     width: 19vh;
     height: 9vh;
