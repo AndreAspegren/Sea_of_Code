@@ -16,8 +16,9 @@ function homescreen() {
 
     <div id="homebuttons">
     <div id="homebuttonz">
-    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="updateview(`logInscreen`)">login</button>'}
-    ${model.app.loggedIn ? '<button id="uploadbtn" onclick="updateview(`uploadPageView`)">upload</button>' : ''}
+    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>
+                            <button id="loginbtn" onclick="updateview('uploadPageView')">upload</button>` : 
+                           '<button id="loginbtn" onclick="updateview(`logInscreen`)">login</button>'}
     ${admin()}
     </div>
     </div>
@@ -59,7 +60,6 @@ function genglobalui() {
 }
 
 function updateview(newview, key) {
-    console.log(newview, key)
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 
@@ -119,7 +119,7 @@ function admin() {
     let adminButton = '';
     let currentUserId = model.app.userID;
     if (model.data.adminpanel.users.includes(currentUserId)) {
-        adminButton = `<button onclick="updateview('adminpanel')" id="adminbutton">adminpanel</button>`;
+        adminButton = `<button onclick="updateview('adminpanel')" id="loginbtn">adminpanel</button>`;
     }
     return adminButton;
 }

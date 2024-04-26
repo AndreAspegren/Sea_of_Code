@@ -4,13 +4,9 @@ function adminpanel() {
     <div id="admincontainer">
 
     <div id="nonadminprojects">${adminprojects()}</div>
-
-
-
-        
+  
         <div id="nonadminusers">${gennonadminlist()}</div>
         
-
     </div>
     `
 }
@@ -46,7 +42,7 @@ function gennonadminlist() {
     let list = '';
     let number = 0;
     for (let key in model.data.users) {
-        if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {       
+        if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {
             list += /*HTML*/`
             <div id="nonadmincard" class="nonadmincard">
             <div>
