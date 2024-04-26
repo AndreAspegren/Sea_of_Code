@@ -48,7 +48,7 @@ function profileScreen(key) {
         </div>
       </div>
       <div class="right-side">
-        <div id="nav">
+        <div class="nav">
           <script>
               // Add active class to the current button (highlight it)
             var header = document.getElementById("myDIV");

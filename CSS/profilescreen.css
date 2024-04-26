@@ -205,12 +205,12 @@ button.logoutbtn i {
    margin-right: 5px;
 }
 
-#nav {
+.nav {
    width: 280%;
    z-index: -1;
 }
 
-#nav ul {
+.nav ul {
    display: flex;
    justify-content: center;
    list-style-type: none;
@@ -219,7 +219,7 @@ button.logoutbtn i {
    box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);
 }
 
-#nav ul li {
+.nav ul li {
    padding: 10px;
    width: 100%;
    cursor: pointer;
@@ -227,8 +227,8 @@ button.logoutbtn i {
    transition: all .2 ease-in-out;
 }
 
-#nav ul li.active,
-#nav ul li:hover {
+.nav ul li.active,
+.nav ul li:hover {
    box-shadow: 0px -3px 0px rgba(288, 0, 70, .9) inset;
 }
 
