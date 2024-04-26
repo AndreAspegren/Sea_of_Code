@@ -22,6 +22,7 @@ function searchbar() {
 function displaySearchResults(results) {
     const searchResultsContainer = document.getElementById('searchResults');
 
+    searchResultsContainer.innerHTML = '';
 
     if (results.users.length === 0 && results.projects.length === 0) {
         searchResultsContainer.textContent = 'Ingen søkeresultater funnet.';
