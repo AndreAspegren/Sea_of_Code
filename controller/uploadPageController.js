@@ -15,7 +15,7 @@ function pushProject() {
     model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length)
     model.data.projects.push(
         {
-            id: model.data.projects.length - 1,
+            id: model.data.projects.length,
             approved: model.data.adminpanel.users.includes(model.app.userID) ? true : false,
             name: model.input.projects.name,
             lastUpdated: new Date().toISOString().substr(0, 16).replace('T', ' '),
