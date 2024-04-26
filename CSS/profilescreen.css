@@ -264,7 +264,7 @@ button.logoutbtn i {
 
 #friendcards{
    border: 1px solid black;
-   width: 78%;
+   width: 100%;
    display: flex;
    justify-content: flex-end;
    flex-direction: row-reverse; 
