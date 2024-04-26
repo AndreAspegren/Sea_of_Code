@@ -57,6 +57,7 @@ function profileScreen(key) {
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Opplastinger</li>
             ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>` : ''}
             ${model.app.loggedIn && profile == model.app.userID ? `<li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
+            <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; updateview()">Notifikasjoner</li>
           </ul>
         </div>
         <div class="profile-body">
@@ -86,10 +87,11 @@ function profileScreen(key) {
     <input oninput="model.input.userActivity.message = this.value" id="dminputbox">
     <button onclick="senddm()">Send</button>
   </div>` : ''}
+  ${tab == 'notifications' ? gennotifications(key == undefined ? profile : key) : ''}
 </div>
 ${genglobalui()}
 `
-dmeventlistener()
+  dmeventlistener()
 }
 
 function dmeventlistener() {
@@ -105,7 +107,16 @@ function senddm() {
     Datesent: new Date().toISOString().substr(0, 16).replace('T', ' '),
     content: model.input.userActivity.message,
   },)
+  model.data.users[model.app.currentprofile].notifications.push({
+    type: 'dm',
+    from: model.app.userID,
+    dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+})
   updateview()
+}
+
+function gennotifications(key) {
+  return 
 }
 
 function genfriendbtn(key, user) {
@@ -116,7 +127,8 @@ function genfriendbtn(key, user) {
 
 function genuploads(key) {
   return model.data.projects.filter(m => (m.author == key))
-    .map(m => { return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
+    .map(m => {
+      return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
         <img src="${m.picture}"/>
         <div>
         <div>${model.data.users[m.author].username}</div>
@@ -140,7 +152,7 @@ function genchat(key) {
 }
 
 function genfriendlist(key) {
-return model.data.users[key].friends.filter(f => f != key).map(key => {
+  return model.data.users[key].friends.filter(f => f != key).map(key => {
     return `
     <div id="friendcards" onclick="updateview('profileScreen', ${key})">
     <div>
@@ -178,6 +190,11 @@ function gensettings() {
 function addfriend(key) {
   model.data.users[model.app.userID].friends.push(key)
   model.data.users[key].friends.push(model.app.userID)
+  model.data.users[key].notifications.push({
+    type: 'addedfriend',
+    from: model.app.userID,
+    dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+})
   updateview()
 }
 

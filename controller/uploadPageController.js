@@ -9,7 +9,7 @@ function sendProjectInfo() { // download :o
 }
 
 function pushProject() {
-
+    let currenttitle = model.data.titles[model.data.users[model.app.userID].title].name
     model.data.wordCloud[model.input.projects.language ? model.input.projects.language : 'Javascript']++
     model.input.projects.language = null
     model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length)
@@ -38,7 +38,17 @@ function pushProject() {
     let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61]
     let index = ranks.findIndex(ranks => ranks > user.projects.length)
     user.title = index == -1 ? ranks.length - 1 : index -1
-    console.log(ranks.findIndex(ranks => ranks > user.projects.length) -1)
+    let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
+    if (newtitle != currenttitle) {
+        console.log(model.data.users[model.app.userID].notifications)
+        model.data.users[model.app.userID].notifications.push({
+            type: 'rankup',
+            oldtitle: currenttitle,
+            newtitle: newtitle,
+            from: model.app.userID,
+            dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+        })
+    }
     updateview('homescreen')
 }
 
