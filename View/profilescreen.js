@@ -14,12 +14,10 @@ function profileScreen(key) {
       </div>
       <div class="user-rank">${userrank()}</div>
       </div>
-      <div class="profile-option">
-        <div class="notification">
+        ${model.app.loggedIn && profile == model.app.userID ? `<div class="profile-option"><div class="notification">
           <i class="fa fa-bell">🔔</i>
-          <span class="alert-message">1</span>
-        </div>
-      </div>
+          <span class="alert-message">${model.data.users[model.app.userID].notifications.length}</span>
+        </div></div>` : ''}
     </div>
     <div class="main-bd">
       <div class="left-side">
@@ -128,7 +126,7 @@ function gennotifications() {
       'rankup': 'Du gikk opp i rank!',
     }
       return /*HTML*/`
-      <div style="width: 60vw; height: 10vh; display: flex;" onclick="redirectnoti(${n.id})"><img src="${model.data.users[n.from].profilePicture}">
+      <div style="width: 60vw; height: 10vh; display: flex;" onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); redirectnoti(${n.id})"><img src="${model.data.users[n.from].profilePicture}">
                       <div>${n.type == 'rankup' ? '' : model.data.users[n.from].firstName + ' ' + model.data.users[n.from].lastName + ' '}${message[n.type]}</div>
                       <div>Dato: ${n.dateSent}</div></div>`
   })
