@@ -251,7 +251,6 @@ button.logoutbtn i {
    text-transform: lowercase;
 }
 
-
 #friends, #chat, #uploads, #settings {
    position: absolute;
    transform: (translateX(-50%));
@@ -295,7 +294,6 @@ button.logoutbtn i {
    border-radius: 10px;
 }
  
-
 #rightmsg {
    align-self: flex-end; 
    background-color: hsl(128, 100%, 50%); 
