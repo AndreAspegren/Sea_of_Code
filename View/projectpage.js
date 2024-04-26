@@ -6,9 +6,11 @@ function projectpage(key, num) {
     <div id="projectparent">
     <div id="projectinfo">
     <div id="projectdltbtn">${deleteProjectButton(model.data.projects[key].id, model.data.projects[key].author)}</div>
-    <div id="projectusername">${model.data.users[model.data.projects[key].author].username}</div>
-    <div id="projectname">${model.data.projects[key].name}</div>
-    <div id=projectdescription>${model.data.projects[key].description}</div>
+    <div id="projectusername">${model.data.users[model.data.projects[key].author].username}'s prosjekt:</div>
+    <div id="projectname"><u>${model.data.projects[key].name}</u></div>
+    <div id=projectdescription>Beskrivelse:
+    <p>
+    ${model.data.projects[key].description}</div>
     <img id="projectimg"src="${model.data.projects[key].picture}">
     </div>
 
@@ -60,9 +62,9 @@ function deleteProjectButton(projectID, authorID) {
     let currentUserId = model.app.userID;
     for (let authorId in model.data.projects) {
         if (model.app.loggedIn == true && model.data.adminpanel.users.includes(currentUserId)) {
-            return `<button onclick="deleteproject(${projectID})">Slett Prosjekt</button>`;
+            return `<button id="deleteproject" onclick="deleteproject(${projectID})">Slett Prosjekt</button>`;
         } else if (currentUserId === authorID) {
-            return `<button onclick="deleteproject(${projectID})">Slett Prosjekt</button>`;
+            return `<button id="deleteproject" onclick="deleteproject(${projectID})">Slett Prosjekt</button>`;
         } else {
             return '';
         }
