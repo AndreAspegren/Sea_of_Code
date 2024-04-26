@@ -11,13 +11,12 @@
     grid-template-rows: repeat(3, 1fr);
     grid-area: 2 / 2 / 1 / 4;
     border-bottom: 1px solid black;
-    font-size: 40px;
     align-content: space-between;
 }
 
 #projectdltbtn{
     display:flex;
-    justify-content: center;
+    justify-content: end;
     align-items: flex-start;
 }
 
@@ -37,6 +36,7 @@
 
 #projectname{
     grid-area: 1/2;
+    font-size: 50px;
     
 }
 
