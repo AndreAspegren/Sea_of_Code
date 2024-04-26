@@ -58,6 +58,7 @@ function profileScreen(key) {
             ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>` : ''}
             ${model.app.loggedIn && profile == model.app.userID ? `<li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
             <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; updateview()">Notifikasjoner</li>
+            <li class="user-api" onclick="model.app.currentprofiltab = 'api'; updateview()">Fornærmelser</li>
           </ul>
         </div>
         <div class="profile-body">
