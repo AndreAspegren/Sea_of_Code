@@ -13,7 +13,6 @@ function sendProjectInfo() {
     }
     console.log(pushedFiles);
     
-
     pushProject(pushedFiles);
 }
 
@@ -73,10 +72,3 @@ if (fileInput.files[0]) {
 
     updateview('homescreen')
 }
-
-
-// function fileFunction(hehe){
-//     console.log(hehe);
-// }
-
-

@@ -26,7 +26,6 @@ function uploadPageView() {
     <div>
     <button onclick="sendProjectInfo()">Upload project</button>
     </div>
-
     </div>
 
 </div>
