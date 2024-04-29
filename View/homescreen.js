@@ -41,7 +41,8 @@ document.getElementById('searchbar').addEventListener('keydown', function (event
     if (event.key === 'Enter') searchbar()
 })
 
-function genglobalui() {
+function genglobalui(key) {
+    if (key == 'profile') model.app.currentprofiletab = ''
     return /*HTML*/`
    
     <img id="globallogo" onclick="updateview('homescreen')" src="img/background.jpg"/>
@@ -55,6 +56,7 @@ function genglobalui() {
 }
 
 function updateview(newview, key) {
+    console.log(key)
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 

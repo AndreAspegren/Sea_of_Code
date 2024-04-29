@@ -12,7 +12,7 @@ function userRegister() {
     if (profilePictureFile) {
         createAccount.profilePicure = URL.createObjectURL(profilePictureFile);
     }
-  
+    
 createAccount.id = model.data.users.length;
 const newUser = {...createAccount};
 model.data.users.push(newUser);
