@@ -1,6 +1,9 @@
 function projectpage(key, num) {
-    if (key == undefined) key = model.input.currentproject
-    model.input.currentproject = key
+    if (key == undefined) key = model.input.currentproject;
+    model.input.currentproject = key;
+    const project = model.data.projects[key];
+    const fileIndex = num !== undefined ? num : 0;
+    const file = project.files[fileIndex];
     app.innerHTML = /*HTML*/`
 
     <div id="projectparent">
@@ -15,7 +18,7 @@ function projectpage(key, num) {
     </div>
 
     <div id="project">
-    <div>${model.data.projects[key].files[(num ? num : 0)].content}</div>
+    <textarea id="fileContentTextarea" readonly>${file.content}</textarea>
     </div>
     <div id="projectbuttons-container">${model.data.projects[key].files.map((file, i) =>
     /*HTML*/`<button id="projectbutton${i}" onclick="projectpage(${key}, ${i})">${i}</button>`
