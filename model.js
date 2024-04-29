@@ -177,7 +177,7 @@ const model = {
                 bio: "i am Bjarne",
                 country: "Cuba",
                 city: "Abra Havn",
-                github: 'https://github.com/AndreAspegren/Sea_of_Code',
+                github: 'https://youtu.be/dQw4w9WgXcQ?feature=shared',
                 linkedIn: 'https://www.linkedin.com/feed/?trk=guest_homepage-basic_google-one-tap-submit',
                 friends: [1],
                 title: 12,

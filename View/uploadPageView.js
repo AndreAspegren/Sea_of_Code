@@ -8,8 +8,8 @@ function uploadPageView() {
 <div id="uploadinputz">
 
 <h1 class="upload">Last opp ditt prosjekt</h1>
-    <input type="text" onchange="model.input.projects.name = this.value" placeholder="Project name" id="projectName">
-    <input type="text" onchange="model.input.projects.description = this.value" style="width: 30vh; height: 15vh;" placeholder="Project description" id="projectDescription">
+    <input type="text" onchange="model.input.projects.name = this.value" placeholder="Prosjektnavn" id="projectName">
+    <input type="text" onchange="model.input.projects.description = this.value" style="width: 30vh; height: 15vh;" placeholder="Beskrivelse" id="projectDescription">
     <input onchange="model.input.projects.picture = this.value" type="url" placeholder="url">
     <select onchange="model.input.projects.language = this.value">
     ${Object.keys(model.data.wordCloud).map(key => {
