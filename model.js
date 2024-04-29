@@ -83,6 +83,7 @@ const model = {
     },
 
     data: {
+        insults: [],
         wordCloud: {
             Javascript: 5,
             C: 0,
@@ -185,7 +186,8 @@ const model = {
                     type: 'addedfriend',
                     from: 1,
                     dateSent: '2024-04-26 12:28',
-                    function: function () {model.app.currentprofiletab = null; updateview('projectpage', 1) }
+                    para1: `profileScreen`,
+                    para2: 1,
                   }],
             },
             {

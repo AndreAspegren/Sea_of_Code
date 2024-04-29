@@ -20,7 +20,6 @@ function projectpage(key, num) {
     <div id="projectbuttons-container">${model.data.projects[key].files.map((file, i) =>
     /*HTML*/`<button id="projectbutton${i}" onclick="projectpage(${key}, ${i})">${i}</button>`
     ).join('')}</div>
- 
 
     <div id="comments">
     <div>${model.data.projects[key].comments.map(c => {

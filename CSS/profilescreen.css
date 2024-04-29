@@ -251,7 +251,7 @@ button.logoutbtn i {
    text-transform: lowercase;
 }
 
-#friends, #chat, #uploads, #settings {
+#friends, #chat, #uploads, #settings, #notifications, #insults {
    position: absolute;
    transform: (translateX(-50%));
    border: 2px solid black;
@@ -260,6 +260,24 @@ button.logoutbtn i {
    width: 78%;
    height: 75vh;
    flex-flow:row;
+}
+
+#notichild {
+   width: 60vw; 
+   height: 10vh; 
+   display: flex; 
+   width: 100%;
+   justify-content: stretch; 
+   align-items: stretch;
+}
+
+#notigrandchild {
+   flex: 1;
+}
+
+#notichild > div:nth-child(3) {
+   width: 8vh;
+   height: auto;
 }
 
 #friendcards{

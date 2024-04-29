@@ -3,6 +3,7 @@ function profileScreen(key) {
   let profile = model.app.currentprofile
   const user = model.data.users[key == undefined ? profile : key]
   let tab = model.app.currentprofiletab
+  console.log(tab, model.app.currentprofiletab)
   app.innerHTML = /*HTML*/`
 <div id="profileScreen">
   <div class="container">
@@ -14,7 +15,7 @@ function profileScreen(key) {
       </div>
       <div class="user-rank">${userrank()}</div>
       </div>
-        ${model.app.loggedIn && profile == model.app.userID ? `<div class="profile-option"><div class="notification">
+        ${model.app.loggedIn && profile == model.app.userID ? `<div onclick="model.app.currentprofiletab = 'notifications'; updateview()" class="profile-option"><div class="notification">
           <i class="fa fa-bell">🔔</i>
           <span class="alert-message">${model.data.users[model.app.userID].notifications.length}</span>
         </div></div>` : ''}
@@ -38,7 +39,7 @@ function profileScreen(key) {
             <button class="createbtn" onclick="addfriend(${key})">
               <i class="fa fa-plus"></i> 	➕Legg til venn
               </button>` : ''}
-            ${profile === model.app.userID ? `<button class="logoutbtn" onclick="logOff()">
+            ${profile === model.app.userID ? `<button class="logoutbtn" onclick="logOff(); model.app.currentprofiletab = ''">
               <i class="fa fa-door"></i> 🔚 Logg ut
               </button>` : ''}
           </div>
@@ -65,9 +66,9 @@ function profileScreen(key) {
             <li class="user-friends" onclick="model.app.currentprofiletab = 'friends'; tabs(1); updateview()">Venner</li>
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; tabs(2); updateview()">Opplastinger</li>
             ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; tabs(3); updateview()">Chat</li>` : ''}
-            ${model.app.loggedIn && profile == model.app.userID ? `
+            ${model.app.loggedIn && profile == model.app.userID ? /*HTML*/`
             <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; tabs(5); updateview()">Notifikasjoner</li>
-            <li class="user-api" onclick="model.app.currentprofiltab = 'api'; tabs(6); updateview()">Fornærmelser</li>
+            <li class="user-api" onclick="model.app.currentprofiletab = 'insults'; updateview()">Fornærmelser</li>
             <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; tabs(4); updateview()">Endre profil</li>` : ''}
           </ul>
         </div>
@@ -92,17 +93,18 @@ function profileScreen(key) {
 <div id="${tab ?? ''}">
   ${tab == 'friends' ? genfriendlist(key == undefined ? profile : key) : ''}
   ${tab == 'uploads' ? genuploads(key == undefined ? profile : key) : ''}
-  ${tab == 'settings' && profile === model.app.userID ? gensettings(key == undefined ? profile : key) : ''}
-  ${tab == 'chat' ? genchat(key == undefined ? profile : key) + /*HTML*/`
-  <div id="msgbox">
-    <input oninput="model.input.userActivity.message = this.value" id="dminputbox">
-    <button onclick="senddm()">Send</button>
-  </div>` : ''}
+  ${tab == 'chat' ? genchat(key == undefined ? profile : key) : ''}
   ${tab == 'notifications' ? gennotifications(key == undefined ? profile : key) : ''}
+  ${tab == 'insults' ? geninsults() : ''}
+  ${tab == 'settings' && profile === model.app.userID ? gensettings(key == undefined ? profile : key) : ''}
 </div>
-${genglobalui()}
+<img id="globallogo" onclick="updateview('homescreen'); model.app.currentprofiletab = '';" src="img/background.jpg"/>
+    
+    <div id="globalchild">
+    <img src=${model.app.muteurl} onclick="mutebtn()">
+    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
+    </div>
 `
-console.log(tab)
   if (tab == 'chat') dmeventlistener()
 }
 
@@ -137,18 +139,37 @@ function gennotifications() {
       'comment': 'kommenterte på prosjektet ditt!',
       'rankup': 'Du gikk opp i rank!',
     }
-      return /*HTML*/`
-      <div style="width: 60vw; height: 10vh; display: flex;" onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); redirectnoti()"><img src="${model.data.users[n.from].profilePicture}">
-                      <div>${n.type == 'rankup' ? '' : model.data.users[n.from].username + ' '}${message[n.type]}</div>
-                      <div>Dato: ${n.dateSent}</div></div>`
+    console.log(n.para1, n.para2)
+    return /*HTML*/`
+      <div id="notichild" 
+      onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); updateview('${n.para1}, ${n.para2}')"><img id="notigrandchild" src="${model.data.users[n.from].profilePicture}">
+                      <div id="notigrandchild">${n.type == 'rankup' ? '' : model.data.users[n.from].username + ' '}${message[n.type]}</div>
+                      <div id="notigrandchild">Dato: ${n.dateSent}</div></div>`
   })
 }
 
-window.redirectnoti = function(notificationId) {
-  const notification = model.data.users[model.app.userID].notifications.find(n => n.id === notificationId)
-  if (notification && typeof notification.function === 'function') {
-      notification.function()
+function geninsults() {
+  return model.data.insults.map(i => {
+      return `<div id="leftmsg">${i}</div>`
+  })
+    .join('') + /*HTML*/`<button style="width: 10vw; height: 3vh" id="msgbox" onclick="fetchinsult(); updateview()">Bli fornærmet</button>`
+}
+
+async function fetchinsult() {
+  const proxy = 'https://api.allorigins.win/raw?url=';
+  const link = 'https://pirate.monkeyness.com/api/insult';
+  const apiUrl = proxy + link;
+
+  try {
+    const response = await fetch(apiUrl);
+
+    const responseData = await response.text();
+    model.data.insults.push(responseData.trim())
+  } catch (error) {
+    console.error('Error fetching insult:', error);
+    throw error;
   }
+  updateview()
 }
 
 function genfriendbtn(key, user) {
@@ -180,7 +201,10 @@ function genchat(key) {
       let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
       return `<div id="${currentclass}">${m.content}</div>`
     })
-    .join('')
+    .join('') + `<div id="msgbox">
+    <input oninput="model.input.userActivity.message = this.value" id="dminputbox">
+    <button onclick="senddm()">Send</button>
+  </div>`
 }
 
 function genfriendlist(key) {
@@ -227,7 +251,7 @@ function addfriend(key) {
     type: 'addedfriend',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
-    function: function () { `model.app.currentprofiletab = null; updateview('projectpage', ${model.app.userID})` }
+    para1: `'projectpage', ${model.app.userID}`,
   })
   updateview()
 }
