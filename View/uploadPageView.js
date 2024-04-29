@@ -20,7 +20,7 @@ function uploadPageView() {
     
     <div>
     <li>Upload files</li>
-    <input  type="file" id="fileUpload">
+    <input  type="file" id="fileUpload" multiple>
     </div>
 
     <div>

@@ -64,17 +64,4 @@ function pushProject() {
 }
 
 
-function tabs(key) {
-    console.log(key)
-    var header = document.getElementById("myDIV");
-    var btns = header.getElementsByClassName("btn");
-    for (var i = 0; i < btns.length; i++) {
-        btns[key].addEventListener("click", function () {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
-    }
-}
-
 
