@@ -25,8 +25,10 @@ function profileScreen(key) {
         <div class="profile-side">
           <p class="mobile-no"><i class="fa fa-phone">📞</i>${user.phoneNr}</p>
           <p class="user-mail"><i class="fa fa-envelope">📧</i>${user.eMail}</p>
-          <p class="country">${user.country}</p>
-          <p class="city">${user.city}</p>
+          <p class="country">Navn: ${user.firstName + ' ' + user.lastName}</p>
+          <p class="country">Alder: ${user.age}</p>
+          <p class="country">Land: ${user.country}</p>
+          <p class="city">By: ${user.city}</p>
           <div class="user-bio">
             <h3>Bio</h3>
             <p class="bio">${user.bio}</p>
@@ -44,7 +46,8 @@ function profileScreen(key) {
               </button>` : ''}
           </div>
           <div class="user-socialmedia">
-          <p class="socialmedia">${user.github}, ${user.linkedIn}</p>
+          <p class="socialmedia"><a href="${user.github}" target="_blank" rel="noopener noreferrer">Besøk Github</a></p>
+          <p class="socialmedia"><a href="${user.linkedIn}" target="_blank" rel="noopener noreferrer">Besøk LinkedIn</a></p>
           </div>
         </div>
       </div>
@@ -157,20 +160,20 @@ function geninsults() {
 }
 
 async function fetchinsult() {
-  const proxy = 'https://api.allorigins.win/raw?url=';
-  const link = 'https://pirate.monkeyness.com/api/insult';
-  const apiUrl = `${proxy}${link}?nocache=${new Date().getTime()}`;
+  const proxy = 'https://api.allorigins.win/raw?url='
+  const link = 'https://pirate.monkeyness.com/api/insult'
+  const apiUrl = `${proxy}${link}?nocache=${new Date().getTime()}`
 
   try {
-    const response = await fetch(apiUrl);
-    const responseData = await response.text();
-    model.data.insults.push(responseData.trim());
-    console.log('Insult fetched and added:', responseData.trim());
+    const response = await fetch(apiUrl)
+    const responseData = await response.text()
+    model.data.insults.push(responseData.trim())
+    console.log('Insult fetched and added:', responseData.trim())
   } catch (error) {
-    console.error('Error fetching insult:', error);
-    throw error;
+    console.error('Error fetching insult:', error)
+    throw error
   }
-  updateview();
+  updateview()
 }
 
 
@@ -208,7 +211,6 @@ function genchat(key) {
     <button onclick="senddm()">Send</button>
   </div>`
 }
-
 function genfriendlist(key) {
   return model.data.users[key].friends.filter(f => f != key).map(key => {
     return `
@@ -235,7 +237,8 @@ function gensettings() {
     <input type="text" oninput="model.input.editProfile.lastName = this.value" placeholder="Etternavn (frivillig)" />
     <input type="text" oninput="model.input.editProfile.phoneNr = this.value" placeholder="Telefonnummer (frivillig)" />
     <input type="text" oninput="model.input.editProfile.age = this.value" placeholder="Alder (frivillig)" />
-    <input type="text" oninput="model.input.editProfile.country = this.value" placeholder="Sted (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.country = this.value" placeholder="Land (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.city = this.value" placeholder="By (frivillig)" />
     <input type="text" oninput="model.input.editProfile.github = this.value" placeholder="Github link (frivillig)" />
     <input type="text" oninput="model.input.editProfile.linkedIn = this.value" placeholder="LinkedIn (frivillig)" />
     <input type="file" id="fileInput" onchange="fileChange(event)">
