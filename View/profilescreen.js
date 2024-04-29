@@ -142,7 +142,7 @@ function gennotifications() {
     console.log(n.para1, n.para2)
     return /*HTML*/`
       <div id="notichild" 
-      onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); updateview('${n.para1}, ${n.para2}')"><img id="notigrandchild" src="${model.data.users[n.from].profilePicture}">
+      onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); updateview('${n.para1}', ${n.para2})"><img id="notigrandchild" src="${model.data.users[n.from].profilePicture}">
                       <div id="notigrandchild">${n.type == 'rankup' ? '' : model.data.users[n.from].username + ' '}${message[n.type]}</div>
                       <div id="notigrandchild">Dato: ${n.dateSent}</div></div>`
   })
