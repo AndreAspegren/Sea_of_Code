@@ -3,12 +3,21 @@
 // const projectName = document.getElementById('projectName').value;
 // const projectDescription = document.getElementById('projectDescription').value;
 
-function sendProjectInfo() { // download :o
+function sendProjectInfo() {
     let currentUserId = model.app.userID;
-    pushProject();
+    let pushedFiles = [];
+    let inputFiles = document.getElementById('fileUpload');
+    let selectedFiles = inputFiles.files;
+    for (let i = 0; i < selectedFiles.length; i++){
+        pushedFiles.push(selectedFiles[i])
+    }
+    console.log(pushedFiles);
+    
+
+    pushProject(pushedFiles);
 }
 
-function pushProject() {
+function pushProject(pushedFiles) {
     let currenttitle = model.data.titles[model.data.users[model.app.userID].title].name
     model.data.wordCloud[model.input.projects.language ? model.input.projects.language : 'Javascript']++
     model.input.projects.language = null
@@ -52,16 +61,22 @@ function pushProject() {
         });
     }
 const fileInput = document.querySelector('input[type="file"]')
+
+console.log('nummber 2:', pushedFiles);
 if (fileInput.files[0]) {
     const reader = new FileReader()
     reader.onload = e => {
         model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result
     }
-    reader.readAsText(file)
+    // reader.readAsText(file)
 }
 
     updateview('homescreen')
 }
 
+
+// function fileFunction(hehe){
+//     console.log(hehe);
+// }
 
 
