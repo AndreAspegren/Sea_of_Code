@@ -13,7 +13,7 @@ const model = {
             yarr: yarr = new Audio('img/piratemusic.mp3'),
             volume: yarr.volume = 0.3,
             loop: yarr.loop = true,
-            matey: yarr.play(),
+            // matey: yarr.play(),
         }
     },
     input: {

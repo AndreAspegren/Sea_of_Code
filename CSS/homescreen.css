@@ -84,6 +84,7 @@
 }
 
 #homeprojectcard > div {
+    margin-left: 200px;
     display: grid;  
     justify-content: center;  
     align-items: center;  
@@ -92,8 +93,9 @@
 }
 
 #homeprojectcard > img {
-    width: 70%;
-    height: auto;
+    position: absolute;
+    width: 10%;
+    height: 10%;
 }
 
 body {
@@ -174,7 +176,4 @@ img {
     width: 16vh;
     height: 9vh;
 }
-
-
-
 
