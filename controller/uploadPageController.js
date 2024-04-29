@@ -8,7 +8,7 @@ function sendProjectInfo() { // download :o
     pushProject();
 }
 
-function pushProject(projectName, projectDescription, projectPicture, files) {
+function pushProject() {
     let currenttitle = model.data.titles[model.data.users[model.app.userID].title].name
     model.data.wordCloud[model.input.projects.language ? model.input.projects.language : 'Javascript']++
     model.input.projects.language = null
