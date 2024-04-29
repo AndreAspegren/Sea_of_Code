@@ -12,53 +12,41 @@ function adminpanel() {
 }
 
 function adminprojects() {
-    let projects = ''
-    for (key in model.data.projects) {
-        if (!model.data.projects[key].approved) {
-            projects += /*HTML*/`
-            <div onclick="updateview('projectpage', ${key})" id="admincard">
-            <img src="${model.data.projects[key].picture}"/>
+    return model.data.projects.filter(p => !p.approved).map(p => {
+        return `<div onclick="updateview('projectpage', ${p.id})" id="admincard">
+        <img src="${p.picture}"/>
 
-            <div>
-            <div>${model.data.users[model.data.projects[key].author].username}</div>
-            <div>${model.data.projects[key].name}</div>
-            </div>
+        <div>
+        <div>${model.data.users[p.author].username}</div>
+        <div>${performance.name}</div>
+        </div>
 
-            <div>${model.data.projects[key].description}</div>
-            
-            <div id="hammerbuttons">
-            <button id="yay" onclick="hammertime(${key}, 'yay')">YAY👌</button>
-            <button id="nay" onclick="hammertime(${key})">NAY💩</button>
-            </div>
+        <div>${p.description}</div>
+        
+        <div id="hammerbuttons">
+        <button id="yay" onclick="hammertime(${p.id}, 'yay')">YAY👌</button>
+        <button id="nay" onclick="hammertime(${p.id})">NAY💩</button>
+        </div>
 
-            </div>
-            `
-        }
-    }
-    return projects
+        </div>`
+    }).join('')
 }
 
 function gennonadminlist() {
-    let list = '';
-    let number = 0;
-    for (let key in model.data.users) {
-        if (!model.data.adminpanel.users.includes(model.data.users[key].id)) {
-            list += /*HTML*/`
-            <div id="nonadmincard" class="nonadmincard">
-            <div>
-            <div>${model.data.users[key].username}</div>
-            <div>${model.data.users[key].projects.length} prosjekter</div>
-            <div>${model.data.users[key].friends.length} venner</div>
-            </div>
-            <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicture}"/>
-            <div>
-            <button onclick="makeadmin(${key})">Gi adminmakt🔨</button>
-            </div>
-            `
-        }
-        number++;
-    }
-    return list
+    return model.data.users.filter(u => !model.data.adminpanel.users.includes(u.id)).map(u => {
+        return `
+        <div id="nonadmincard" class="nonadmincard">
+        <div>
+        <div>${u.username}</div>
+        <div>${u.projects.length} prosjekter</div>
+        <div>${u.friends.length} venner</div>
+        </div>
+        <img style="height: 6vh; width: auto" src="${u.profilePicture}"/>
+        <div>
+        <button onclick="makeadmin(${u.id})">Gi adminmakt🔨</button>
+        </div>
+        `
+    }).join('')
 }
 
 function hammertime(key, approved) {

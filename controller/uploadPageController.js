@@ -38,7 +38,7 @@ function pushProject() {
     let user = model.data.users[model.app.userID]
     let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61]
     let index = ranks.findIndex(ranks => ranks > user.projects.length)
-    user.title = index == -1 ? ranks.length - 1 : index -1
+    user.title = index == -1 ? ranks.length - 1 : index - 1
     let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
     if (newtitle != currenttitle) {
         model.data.users[model.app.userID].notifications.push({
@@ -51,17 +51,30 @@ function pushProject() {
             function: function () { `model.app.currentprofiletab = null; updateview('projectpage', ${model.app.userID})` }
         });
     }
-const fileInput = document.querySelector('input[type="file"]')
-if (fileInput.files[0]) {
-    const reader = new FileReader()
-    reader.onload = e => {
-        model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result
+    const fileInput = document.querySelector('input[type="file"]')
+    if (fileInput.files[0]) {
+        const reader = new FileReader()
+        reader.onload = e => {
+            model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result
+        }
+        reader.readAsText(file)
     }
-    reader.readAsText(file)
-}
 
     updateview('homescreen')
 }
 
+
+function tabs(key) {
+    console.log(key)
+    var header = document.getElementById("myDIV");
+    var btns = header.getElementsByClassName("btn");
+    for (var i = 0; i < btns.length; i++) {
+        btns[key].addEventListener("click", function () {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+        });
+    }
+}
 
 
