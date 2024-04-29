@@ -56,7 +56,7 @@ function sendcomment() {
         type: 'comment',
         from: model.app.userID,
         dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
-        function: function () { `updateview('projectpage', ${model.input.currentproject})` }
+        para: `projectpage, ${model.input.currentproject}`,
     })
     model.input.userActivity.comment = ''
     updateview()

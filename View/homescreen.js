@@ -56,6 +56,7 @@ function genglobalui(key) {
 }
 
 function updateview(newview, key) {
+    console.log(newview, key)
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 
