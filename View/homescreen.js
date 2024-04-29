@@ -65,7 +65,7 @@ function mutebtn() {
 }
 
 function genprojectlist() {
-    return model.data.projects.filter(p => p.approved).map((value, key) => {
+    return model.data.projects.filter(p => p.approved).map(value => {
         
         return `<div onclick="updateview('projectpage', ${value.id})" id="homeprojectcard">
         
