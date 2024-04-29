@@ -56,7 +56,7 @@ function genglobalui(key) {
 }
 
 function updateview(newview, key) {
-    console.log(key)
+    console.log(newview, key)
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 
@@ -66,9 +66,18 @@ function mutebtn() {
 }
 
 function genprojectlist() {
+<<<<<<< HEAD
     return model.data.projects.filter(p => p.approved).map((value, key) => {
         return `<div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
         <img src="${value.picture}"/>
+=======
+    return model.data.projects.filter(p => p.approved).map(value => {
+        
+        return `<div onclick="updateview('projectpage', ${value.id})" id="homeprojectcard">
+        
+        <img style="" src="${value.picture}"/>
+        
+>>>>>>> 347e6794a1b7f28c5fd23bac0724502078a367c6
         <div>
         <div>${model.data.users[value.author].username}</div>
         <div>${value.name}</div>

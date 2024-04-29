@@ -13,6 +13,7 @@ function pushProject(projectName, projectDescription, projectPicture, files) {
     model.data.wordCloud[model.input.projects.language ? model.input.projects.language : 'Javascript']++
     model.input.projects.language = null
     model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length)
+    console.log(model.data.projects.length)
     model.data.projects.push(
         {
             id: model.data.projects.length,

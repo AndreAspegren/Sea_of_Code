@@ -126,7 +126,7 @@ function senddm() {
     type: 'dm',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
-    function: function () { `model.app.currentprofiletab = 'chat'; updateview('profilescreen', ${model.app.userID})` }
+    para: `profileScreen, ${model.app.userID}`,
   })
   updateview()
 }
@@ -139,14 +139,15 @@ function gennotifications() {
       'comment': 'kommenterte på prosjektet ditt!',
       'rankup': 'Du gikk opp i rank!',
     }
-    console.log(n.para1, n.para2)
+    const params = n.para.split(',').map(param => param.trim())
     return /*HTML*/`
       <div id="notichild" 
-      onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); updateview('${n.para1}, ${n.para2}')"><img id="notigrandchild" src="${model.data.users[n.from].profilePicture}">
+      onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); updateview('${params[0]}', ${Number(params[1])})"><img id="notigrandchild" src="${model.data.users[n.from].profilePicture}">
                       <div id="notigrandchild">${n.type == 'rankup' ? '' : model.data.users[n.from].username + ' '}${message[n.type]}</div>
                       <div id="notigrandchild">Dato: ${n.dateSent}</div></div>`
   })
 }
+
 
 function geninsults() {
   return model.data.insults.map(i => {
@@ -158,19 +159,20 @@ function geninsults() {
 async function fetchinsult() {
   const proxy = 'https://api.allorigins.win/raw?url=';
   const link = 'https://pirate.monkeyness.com/api/insult';
-  const apiUrl = proxy + link;
+  const apiUrl = `${proxy}${link}?nocache=${new Date().getTime()}`;
 
   try {
     const response = await fetch(apiUrl);
-
     const responseData = await response.text();
-    model.data.insults.push(responseData.trim())
+    model.data.insults.push(responseData.trim());
+    console.log('Insult fetched and added:', responseData.trim());
   } catch (error) {
     console.error('Error fetching insult:', error);
     throw error;
   }
-  updateview()
+  updateview();
 }
+
 
 function genfriendbtn(key, user) {
   if (!model.app.loggedIn) return ''
@@ -251,7 +253,7 @@ function addfriend(key) {
     type: 'addedfriend',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
-    para1: `'projectpage', ${model.app.userID}`,
+    para: `profileScreen, ${model.app.userID}`,
   })
   updateview()
 }

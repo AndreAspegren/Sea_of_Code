@@ -186,8 +186,7 @@ const model = {
                     type: 'addedfriend',
                     from: 1,
                     dateSent: '2024-04-26 12:28',
-                    para1: `profileScreen`,
-                    para2: 1,
+                    para: `profileScreen, 1`,
                   }],
             },
             {
