@@ -66,9 +66,9 @@ function profileScreen(key) {
             <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; tabs(2); updateview()">Opplastinger</li>
             ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; tabs(3); updateview()">Chat</li>` : ''}
             ${model.app.loggedIn && profile == model.app.userID ? `
-            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; tabs(4); updateview()">Endre profil</li>
             <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; tabs(5); updateview()">Notifikasjoner</li>
-            <li class="user-api" onclick="model.app.currentprofiltab = 'api'; tabs(6); updateview()">Fornærmelser</li>` : ''}
+            <li class="user-api" onclick="model.app.currentprofiltab = 'api'; tabs(6); updateview()">Fornærmelser</li>
+            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; tabs(4); updateview()">Endre profil</li>` : ''}
           </ul>
         </div>
         <div class="profile-body">
@@ -137,10 +137,9 @@ function gennotifications() {
       'comment': 'kommenterte på prosjektet ditt!',
       'rankup': 'Du gikk opp i rank!',
     }
-    console.log(n.from)
       return /*HTML*/`
-      <div style="width: 60vw; height: 10vh; display: flex;" onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); redirectnoti(${n.id})"><img src="${model.data.users[n.from].profilePicture}">
-                      <div>${n.type == 'rankup' ? '' : model.data.users[n.from].firstName + ' ' + model.data.users[n.from].lastName + ' '}${message[n.type]}</div>
+      <div style="width: 60vw; height: 10vh; display: flex;" onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); redirectnoti()"><img src="${model.data.users[n.from].profilePicture}">
+                      <div>${n.type == 'rankup' ? '' : model.data.users[n.from].username + ' '}${message[n.type]}</div>
                       <div>Dato: ${n.dateSent}</div></div>`
   })
 }

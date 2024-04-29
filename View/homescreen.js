@@ -3,8 +3,6 @@ function homescreen() {
     app.innerHTML = /*HTML*/`
     ${genglobalui()}
     <div id="homecontainer">
-    <div id="homelogo">
-    </div>
     
     <div id="homesearchbar">
     <span>
@@ -23,15 +21,12 @@ function homescreen() {
     </div>
     </div>
     
-
     <div id="homeuserlist"><div>${genuserlist()}</div></div>
-    
     
     <div id="projects"><div>${genprojectlist()}</div></div>
 
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
-    </div>
     </div>`
 }
 
