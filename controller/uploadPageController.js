@@ -3,7 +3,7 @@
 // const projectName = document.getElementById('projectName').value;
 // const projectDescription = document.getElementById('projectDescription').value;
 
-function sendProjectInfo() {
+function sendProjectInfo() { // download :o
     let currentUserId = model.app.userID;
     let pushedFiles = [];
     let inputFiles = document.getElementById('fileUpload');
@@ -16,7 +16,7 @@ function sendProjectInfo() {
     pushProject(pushedFiles);
 }
 
-function pushProject(pushedFiles) {
+function pushProject() {
     let currenttitle = model.data.titles[model.data.users[model.app.userID].title].name
     model.data.wordCloud[model.input.projects.language ? model.input.projects.language : 'Javascript']++
     model.input.projects.language = null
@@ -46,7 +46,7 @@ function pushProject(pushedFiles) {
     let user = model.data.users[model.app.userID]
     let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61]
     let index = ranks.findIndex(ranks => ranks > user.projects.length)
-    user.title = index == -1 ? ranks.length - 1 : index -1
+    user.title = index == -1 ? ranks.length - 1 : index - 1
     let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
     if (newtitle != currenttitle) {
         model.data.users[model.app.userID].notifications.push({
@@ -59,16 +59,14 @@ function pushProject(pushedFiles) {
             function: function () { `model.app.currentprofiletab = null; updateview('projectpage', ${model.app.userID})` }
         });
     }
-const fileInput = document.querySelector('input[type="file"]')
-
-console.log('nummber 2:', pushedFiles);
-if (fileInput.files[0]) {
-    const reader = new FileReader()
-    reader.onload = e => {
-        model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result
+    const fileInput = document.querySelector('input[type="file"]')
+    if (fileInput.files[0]) {
+        const reader = new FileReader()
+        reader.onload = e => {
+            model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result
+        }
+        reader.readAsText(file)
     }
-    // reader.readAsText(file)
-}
 
     updateview('homescreen')
 }

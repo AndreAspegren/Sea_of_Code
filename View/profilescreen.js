@@ -3,13 +3,15 @@ function profileScreen(key) {
   let profile = model.app.currentprofile
   const user = model.data.users[key == undefined ? profile : key]
   let tab = model.app.currentprofiletab
-  console.log(tab, model.app.currentprofiletab)
   app.innerHTML = /*HTML*/`
 <div id="profileScreen">
+
   <div class="container">
     <div class="profile-header">
       <div class="profile-img">
       <img src="${user.profilePicture}" width="" alt="">     </div>
+
+
       <div class="profile-nav-info">
         <h3 class="user-name">${user.username}</h3>
       </div>
@@ -20,6 +22,8 @@ function profileScreen(key) {
           <span class="alert-message">${model.data.users[model.app.userID].notifications.length}</span>
         </div></div>` : ''}
     </div>
+
+
     <div class="main-bd">
       <div class="left-side">
         <div class="profile-side">
@@ -51,48 +55,26 @@ function profileScreen(key) {
           </div>
         </div>
       </div>
+
+
       <div class="right-side">
         <div class="nav">
-          <script>
-              // Add active class to the current button (highlight it)
-            var header = document.getElementById("myDIV");
-            var btns = header.getElementsByClassName("btn");
-            for (var i = 0; i < btns.length; i++) {
-              btns[i].addEventListener("click", function() {
-              var current = document.getElementsByClassName("active");
-              current[0].className = current[0].className.replace(" active", "");
-              this.className += " active";
-              });
-            }
-         </script>
           <ul>
-            <li class="user-friends" onclick="model.app.currentprofiletab = 'friends'; tabs(1); updateview()">Venner</li>
-            <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; tabs(2); updateview()">Opplastinger</li>
-            ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; tabs(3); updateview()">Chat</li>` : ''}
+            <li class="btn" onclick="model.app.currentprofiletab = 'friends';  updateview()">Venner</li>
+            <li class="btn" onclick="model.app.currentprofiletab = 'uploads';  updateview()">Opplastinger</li>
+            ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat';  updateview()">Chat</li>` : ''}
             ${model.app.loggedIn && profile == model.app.userID ? /*HTML*/`
-            <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; tabs(5); updateview()">Notifikasjoner</li>
-            <li class="user-api" onclick="model.app.currentprofiletab = 'insults'; updateview()">Fornærmelser</li>
-            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; tabs(4); updateview()">Endre profil</li>` : ''}
+            <li class="btn" onclick="model.app.currentprofiletab = 'notifications'; updateview()">Notifikasjoner</li>
+            <li class="btn" onclick="model.app.currentprofiletab = 'insults';  updateview()">Fornærmelser</li>
+            <li class="btn" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
           </ul>
         </div>
-        <div class="profile-body">
-          <div class="profile-posts tab active">
-            <h1>Your posts</h1>
-            <p>No posts</p>
-          </div>
-          <div class="profile-uploads tab">
-            <h1>Your uploads</h1>
-            <p>No uploads</p>
-          </div>
-          <div class="profile-settings tab">
-            <h1>Account setting</h1>
-            <p>No settings</p>
-          </div>
-        </div>
+      
       </div>
     </div>
   </div>
 </div>
+
 <div id="${tab ?? ''}">
   ${tab == 'friends' ? genfriendlist(key == undefined ? profile : key) : ''}
   ${tab == 'uploads' ? genuploads(key == undefined ? profile : key) : ''}

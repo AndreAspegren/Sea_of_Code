@@ -56,7 +56,6 @@ function genglobalui(key) {
 }
 
 function updateview(newview, key) {
-    console.log(newview, key)
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 
@@ -70,7 +69,6 @@ function genprojectlist() {
         return /*HTML*/`<div onclick="updateview('projectpage', ${value.id})" id="homeprojectcard">
 
         <img src="${value.picture}"/>
-
         
         <div>
         <div>${model.data.users[value.author].username}</div>
