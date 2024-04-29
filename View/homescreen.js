@@ -3,8 +3,6 @@ function homescreen() {
     app.innerHTML = /*HTML*/`
     ${genglobalui()}
     <div id="homecontainer">
-    <div id="homelogo">
-    </div>
     
     <div id="homesearchbar">
     <span>
@@ -16,21 +14,19 @@ function homescreen() {
 
     <div id="homebuttons">
     <div id="homebuttonz">
-    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>` : '<button id="loginbtn" onclick="updateview(`logInscreen`)">login</button>'}
-    ${model.app.loggedIn ? '<button id="uploadbtn" onclick="updateview(`uploadPageView`)">upload</button>' : ''}
+    ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>
+                            <button id="loginbtn" onclick="updateview('uploadPageView')">upload</button>` : 
+                           '<button id="loginbtn" onclick="updateview(`logInscreen`)">login</button>'}
     ${admin()}
     </div>
     </div>
     
-
     <div id="homeuserlist"><div>${genuserlist()}</div></div>
-    
     
     <div id="projects"><div>${genprojectlist()}</div></div>
 
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
-    </div>
     </div>`
 }
 
@@ -59,7 +55,6 @@ function genglobalui() {
 }
 
 function updateview(newview, key) {
-    console.log(newview, key)
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
 }
 
@@ -87,7 +82,7 @@ function genprojectlist() {
 }
 
 function darkmode() {
-    const mode = model.app.darkmode ? ['white', 'black', false, "img/sun.png"] : ['gray', 'white', true, "img/moon.png"];
+    const mode = model.app.darkmode ? ['white', 'black', false, "img/sun.png"] : ['rgb(31, 31, 31)', 'white', true, "img/moon.png"];
     app.style.backgroundColor = mode[0];
     app.style.color = mode[1];
     model.app.darkmode = mode[2];
@@ -119,7 +114,7 @@ function admin() {
     let adminButton = '';
     let currentUserId = model.app.userID;
     if (model.data.adminpanel.users.includes(currentUserId)) {
-        adminButton = `<button onclick="updateview('adminpanel')" id="adminbutton">adminpanel</button>`;
+        adminButton = `<button onclick="updateview('adminpanel')" id="loginbtn">adminpanel</button>`;
     }
     return adminButton;
 }

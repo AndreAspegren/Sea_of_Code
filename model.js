@@ -180,14 +180,20 @@ const model = {
                 linkedIn: 'url',
                 friends: [1],
                 title: 12,
-                notifications: [],
+                notifications: [{
+                    id: 0,
+                    type: 'addedfriend',
+                    from: 1,
+                    dateSent: '2024-04-26 12:28',
+                    function: function () {model.app.currentprofiletab = null; updateview('projectpage', 1) }
+                  }],
             },
             {
                 id: 1,
                 username: "Anita",
                 eMail: "yarr@getAcademy.com",
                 passwordOne: "Anita",
-                firstName: "Bjarne",
+                firstName: "Anita",
                 lastName: "Pirat",
                 profilePicture: 'https://viover60.no/app/uploads/2022/05/NTB_fI8b1WdilZs.jpg',
                 phoneNr: 12345678,

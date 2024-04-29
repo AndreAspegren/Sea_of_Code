@@ -1,24 +1,31 @@
-document.querySelectorAll('.nav ul li').forEach(function(tab, index) {
-  tab.addEventListener('click', function() {
-    // Add 'active' class to the clicked tab and remove it from siblings
-    document.querySelectorAll('.nav ul li').forEach(function(sibling) {
-      if (sibling === tab) {
-        sibling.classList.add('active');
-      } else {
-        sibling.classList.remove('active');
-      }
-    });
-
-    // Hide all tab contents and show the one corresponding to the clicked tab
-    document.querySelectorAll('.tab').forEach(function(tabContent, tabIndex) {
-      if (tabIndex === index) {
-        tabContent.style.display = 'block';  // Show the tab content that matches
-      } else {
-        tabContent.style.display = 'none';   // Hide other tab contents
-      }
-    });
-  });
-});
+function tabs(value){
+  const navbaritems = document.querySelectorAll('.nav ul li')
+  navbaritems.forEach(function(item) {
+    item.classList.remove('active')
+  })
+  navbaritems[value -1].classList.add('active')
+  // document.querySelectorAll('.nav ul li').forEach(function(tab, index) {
+  //   tab.addEventListener('click', function() {
+  //     // Add 'active' class to the clicked tab and remove it from siblings
+  //     document.querySelectorAll('.nav ul li').forEach(function(sibling) { 
+  //       if (sibling === tab) {
+  //         sibling.classList.add('active');
+  //       } else {
+  //         sibling.classList.remove('active');
+  //       }
+  //     });
+      
+  //     // Hide all tab contents and show the one corresponding to the clicked tab
+  //     document.querySelectorAll('.tab').forEach(function(tabContent, tabIndex) {
+  //       if (tabIndex === index) {
+  //         tabContent.style.display = 'block';  // Show the tab content that matches
+  //       } else {
+  //         tabContent.style.display = 'none';   // Hide other tab contents
+  //       }
+  //     });
+  //   });
+  // });
+}
 
 function logOff() {
   let currentUserId = model.app.userID;

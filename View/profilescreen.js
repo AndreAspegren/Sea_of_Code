@@ -7,7 +7,6 @@ function profileScreen(key) {
 <div id="profileScreen">
   <div class="container">
     <div class="profile-header">
-   <div>${!model.app.loggedIn && key != model.app.userID ? '' : genfriendbtn(key, user)}</div>
       <div class="profile-img">
       <img src="${user.profilePicture}" width="" alt="">     </div>
       <div class="profile-nav-info">
@@ -15,12 +14,10 @@ function profileScreen(key) {
       </div>
       <div class="user-rank">${userrank()}</div>
       </div>
-      <div class="profile-option">
-        <div class="notification">
+        ${model.app.loggedIn && profile == model.app.userID ? `<div class="profile-option"><div class="notification">
           <i class="fa fa-bell">🔔</i>
-          <span class="alert-message">1</span>
-        </div>
-      </div>
+          <span class="alert-message">${model.data.users[model.app.userID].notifications.length}</span>
+        </div></div>` : ''}
     </div>
     <div class="main-bd">
       <div class="left-side">
@@ -52,12 +49,26 @@ function profileScreen(key) {
       </div>
       <div class="right-side">
         <div class="nav">
+          <script>
+              // Add active class to the current button (highlight it)
+            var header = document.getElementById("myDIV");
+            var btns = header.getElementsByClassName("btn");
+            for (var i = 0; i < btns.length; i++) {
+              btns[i].addEventListener("click", function() {
+              var current = document.getElementsByClassName("active");
+              current[0].className = current[0].className.replace(" active", "");
+              this.className += " active";
+              });
+            }
+         </script>
           <ul>
-            <li class="user-post active" onclick="model.app.currentprofiletab = 'friends'; updateview()">Venner</li>
-            <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; updateview()">Opplastinger</li>
-            ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; updateview()">Chat</li>` : ''}
-            ${model.app.loggedIn && profile == model.app.userID ? `<li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
-            <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; updateview()">Notifikasjoner</li>
+            <li class="user-friends" onclick="model.app.currentprofiletab = 'friends'; tabs(1); updateview()">Venner</li>
+            <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; tabs(2); updateview()">Opplastinger</li>
+            ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; tabs(3); updateview()">Chat</li>` : ''}
+            ${model.app.loggedIn && profile == model.app.userID ? `
+            <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; tabs(5); updateview()">Notifikasjoner</li>
+            <li class="user-api" onclick="model.app.currentprofiltab = 'api'; tabs(6); updateview()">Fornærmelser</li>
+            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; tabs(4); updateview()">Endre profil</li>` : ''}
           </ul>
         </div>
         <div class="profile-body">
@@ -91,7 +102,8 @@ function profileScreen(key) {
 </div>
 ${genglobalui()}
 `
-  dmeventlistener()
+console.log(tab)
+  if (tab == 'chat') dmeventlistener()
 }
 
 function dmeventlistener() {
@@ -108,15 +120,35 @@ function senddm() {
     content: model.input.userActivity.message,
   },)
   model.data.users[model.app.currentprofile].notifications.push({
+    id: model.data.users[model.app.currentprofile].notifications.length,
     type: 'dm',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
-})
+    function: function () { `model.app.currentprofiletab = 'chat'; updateview('profilescreen', ${model.app.userID})` }
+  })
   updateview()
 }
 
-function gennotifications(key) {
-  return 
+function gennotifications() {
+  return model.data.users[model.app.userID].notifications.map(n => {
+    let message = {
+      'dm': 'sendte deg en melding!',
+      'addedfriend': 'la deg til som venn!',
+      'comment': 'kommenterte på prosjektet ditt!',
+      'rankup': 'Du gikk opp i rank!',
+    }
+      return /*HTML*/`
+      <div style="width: 60vw; height: 10vh; display: flex;" onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); redirectnoti()"><img src="${model.data.users[n.from].profilePicture}">
+                      <div>${n.type == 'rankup' ? '' : model.data.users[n.from].username + ' '}${message[n.type]}</div>
+                      <div>Dato: ${n.dateSent}</div></div>`
+  })
+}
+
+window.redirectnoti = function(notificationId) {
+  const notification = model.data.users[model.app.userID].notifications.find(n => n.id === notificationId)
+  if (notification && typeof notification.function === 'function') {
+      notification.function()
+  }
 }
 
 function genfriendbtn(key, user) {
@@ -191,10 +223,12 @@ function addfriend(key) {
   model.data.users[model.app.userID].friends.push(key)
   model.data.users[key].friends.push(model.app.userID)
   model.data.users[key].notifications.push({
+    id: model.data.users[key].notifications.length,
     type: 'addedfriend',
     from: model.app.userID,
     dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
-})
+    function: function () { `model.app.currentprofiletab = null; updateview('projectpage', ${model.app.userID})` }
+  })
   updateview()
 }
 

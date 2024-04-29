@@ -15,9 +15,9 @@ function pushProject() {
     model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length)
     model.data.projects.push(
         {
-            id: model.data.users[model.app.userID].projects.length - 1,
+            id: model.data.projects.length,
             approved: model.data.adminpanel.users.includes(model.app.userID) ? true : false,
-            name: model.input.name,
+            name: model.input.projects.name,
             lastUpdated: new Date().toISOString().substr(0, 16).replace('T', ' '),
             dateCreated: new Date().toISOString().substr(0, 16).replace('T', ' '),
             description: model.input.projects.description,
@@ -40,13 +40,14 @@ function pushProject() {
     user.title = index == -1 ? ranks.length - 1 : index -1
     let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
     if (newtitle != currenttitle) {
-        console.log(model.data.users[model.app.userID].notifications)
         model.data.users[model.app.userID].notifications.push({
+            id: model.data.users[model.app.userID].notifications.length,
             type: 'rankup',
             oldtitle: currenttitle,
             newtitle: newtitle,
             from: model.app.userID,
             dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
+            function: function () { `model.app.currentprofiletab = null; updateview('projectpage', ${model.app.userID})` }
         })
     }
     updateview('homescreen')

@@ -110,6 +110,11 @@ body {
     background-size: cover; */
 }
 
+#loginbtn{
+    width: 7vw;
+    height: 4vh;
+}
+
 #usercard{
     width: 30vw;
     height: 8vh;
