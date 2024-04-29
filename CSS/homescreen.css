@@ -94,7 +94,7 @@
 
 #homeprojectcard > img {
     position: absolute;
-    width: 6%;
+    width: 10%;
     height: 10%;
 }
 
@@ -107,6 +107,9 @@ body {
     margin: 0px;
     height: 100vh;
     width: 100vw;
+    /* background-image: url('https://cdn.pixabay.com/photo/2023/11/12/16/48/pirate-8383445_1280.jpg');
+    min-height: 100vh; 
+    background-size: cover; */
 }
 
 #loginbtn{
@@ -117,7 +120,7 @@ body {
 #usercard{
     width: 30vw;
     height: 8vh;
-    display:grid;
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-content: center;
     align-items: center;

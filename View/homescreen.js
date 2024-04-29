@@ -66,9 +66,12 @@ function mutebtn() {
 }
 
 function genprojectlist() {
-    return model.data.projects.filter(p => p.approved).map(value=> {
-        return `<div onclick="updateview('projectpage', ${value.id})" id="homeprojectcard">
+    return model.data.projects.filter(p => p.approved).map(value => {
+        return /*HTML*/`<div onclick="updateview('projectpage', ${value.id})" id="homeprojectcard">
+
         <img src="${value.picture}"/>
+
+        
         <div>
         <div>${model.data.users[value.author].username}</div>
         <div>${value.name}</div>

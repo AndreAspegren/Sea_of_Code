@@ -49,18 +49,15 @@ function pushProject() {
             from: model.app.userID,
             dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
             function: function () { `model.app.currentprofiletab = null; updateview('projectpage', ${model.app.userID})` }
-           
         });
     }
-const fileInput = document.querySelector('input[type="file"]');
-const file = fileInput.files[0];
-if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-        const fileContent = e.target.result;
-        model.data.projects[model.data.projects.length - 1].files[0].content = fileContent;
-    };
-    reader.readAsText(file);
+const fileInput = document.querySelector('input[type="file"]')
+if (fileInput.files[0]) {
+    const reader = new FileReader()
+    reader.onload = e => {
+        model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result
+    }
+    reader.readAsText(file)
 }
 
     updateview('homescreen')

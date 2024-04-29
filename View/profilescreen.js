@@ -176,7 +176,6 @@ async function fetchinsult() {
   updateview()
 }
 
-
 function genfriendbtn(key, user) {
   if (!model.app.loggedIn) return ''
   if (key != model.app.userID && !model.data.users[model.app.userID].friends.includes(key)) return `<button onclick="addfriend(${user.id}); updateview('profileScreen', ${user.id})">Legg til venn</button>`;
@@ -186,7 +185,7 @@ function genfriendbtn(key, user) {
 function genuploads(key) {
   return model.data.projects.filter(m => (m.author == key))
     .map(m => {
-      return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="homeprojectcard">
+      return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="profileprojectcard">
         <img src="${m.picture}"/>
         <div>
         <div>${model.data.users[m.author].username}</div>
