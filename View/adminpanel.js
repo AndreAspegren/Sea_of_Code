@@ -54,6 +54,12 @@ function hammertime(key, approved) {
     updateview()
 }
 
+function removeAdmin(id) {
+    let adminId = model.data.adminpanel.users;
+    model.data.adminpanel.users.find((user) => user.id == id);
+    adminId.splice(id);
+}
+
 function makeadmin(key) {
     model.data.adminpanel.users.push(key)
     updateview()

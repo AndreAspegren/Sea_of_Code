@@ -95,8 +95,11 @@ const model = {
             Python: 0,
             Binary: 0,
         },
-        adminpanel: {
+        superAdmin: {
             users: [0],
+        },
+        adminpanel: {
+            users: [1,2],
             forReview: [3],
         },
         messages: [
@@ -187,7 +190,7 @@ const model = {
                     from: 1,
                     dateSent: '2024-04-26 12:28',
                     para: `profileScreen, 1`,
-                  }],
+                }],
             },
             {
                 id: 1,
