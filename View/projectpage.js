@@ -31,7 +31,7 @@ function projectpage(key, num) {
     }).join('')}</div>
     </div>
     <div id="commentinput">
-    ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value" id="commentinput">
+   <div id="commentinputfield"> ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value" id="commentinput"> </div>
     <button onclick="sendcomment(${key})">Send</button>` : ''}</div>
     </div>
     ${genglobalui()}

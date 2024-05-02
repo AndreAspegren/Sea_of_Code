@@ -1,0 +1,405 @@
+#profilescreen {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translateX(-50%);
+ }
+ 
+ .profile-header {
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    height: 190px;
+    position: relative;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
+ }
+ 
+ .profile-img {
+    float: left;
+    width: 340px;
+    height: 200px;
+ }
+ 
+ .profile-img img {
+    border-radius: 50%;
+    height: 230px;
+    width: 230px;
+    border: 4px solid #fff;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, .2);
+    position: absolute;
+    left: 3.5%;
+    top:50%;
+    z-index: 5;
+    background-color: #fff;
+ }
+ 
+ .profile-nav-info {
+    float: left;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 60px;
+ }
+ 
+ .profile-nav-info h3 {
+    font-variant: small-caps;
+    font-size: 2rem;
+    font-family: placeholder;
+    font-weight: bold;
+ }
+ 
+ .profile-nav-info .address {
+    display: flex;
+    font-weight: bold;
+    color: #777;
+ }
+ 
+ .profile-nav-info .address p {
+    margin-right: 5px;
+ }
+ 
+ .darkMute {
+    position: absolute;
+    top: calc(2px);
+    right: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    z-index: 999;
+ }
+ 
+ .profile-option {
+    width: 40px;
+    height: 40px;
+    background: #e40046;
+    position: absolute;
+    right: 50px;
+    top: 12%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    outline: none;
+ }
+ 
+ .profile-option .notification i {
+ 
+    font-size: 1.2rem;
+    transition: all .5s ease-in-out;
+ }
+ 
+ .profile-option:hover {
+    background: #fff;
+    border: 1px solid #e40046;
+ }
+ 
+ .profile-option:hover .notification i {
+    color: #e40046;
+ }
+ 
+ .profile-option .notification .alert-message {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #fff;
+    color: #e40046;
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .8rem;
+    font-weight: bold;
+ }
+ 
+ .main-bd {
+    width: 100%;
+    display: flex;
+    padding-right: 15px;
+ }
+ 
+ .profile-side {
+    width: 300px;
+    background: #fff;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, .2);
+    padding: 180px 30px 20px;
+    font-family: placeholder;
+    margin-left: 10px;
+    z-index: 99;
+ }
+ 
+ .profile-side p {
+    margin-bottom: 7px;
+    color: #333;
+    font-size: 14px;
+ }
+ 
+ .profile-side p i {
+    color: #e40046;
+    margin-right: 10px;
+ }
+ 
+ .user-mail i {
+    transform: rotateY(180deg);
+ }
+ 
+ .profile-btn {
+    display: flex;
+ }
+ 
+ button.chatbtn,
+ button.createbtn {
+    border: 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 3px;
+    background-color: #e40046;
+    font-family: placeholder;
+    font-size: 1rem;
+    margin: 5px 2px;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 10px;
+    transition: .3s ease-in-out;
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, .3);
+    color: #fff;
+ }
+ 
+ button.chatbtn:hover,
+ button.createbtn:hover {
+    background: rgba(288, 0, 70, .9);
+ }
+ 
+ button.chatbtn i,
+ button.createbtn i {
+    margin-right: 5px;
+ }
+ 
+ button.logoutbtn {
+    border: 0;
+    padding: 10px;
+    width: 100%;
+    border-radius: 3px;
+    background-color: #00e47a;
+    font-family: placeholder;
+    font-size: 1rem;
+    margin: 5px 2px;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: 10px;
+    transition: .3s ease-in-out;
+    box-shadow: 0px 5px 7px 0px rgba(0, 0, 0, .3);
+    color: #fff;
+ }
+ 
+ button.logoutbtn:hover {
+    background: rgba(288, 0, 70, .9);
+ }
+ 
+ button.logoutbtn i {
+    margin-right: 5px;
+ }
+ 
+ .nav {
+    width: 280%;
+    z-index: -1;
+ }
+ 
+ .nav ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    height: 40px;
+    background: #fff;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);
+ }
+ 
+ .nav ul li {
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    transition: all .2 ease-in-out;
+ }
+ 
+ .nav ul li.active,
+ .nav ul li:hover {
+    box-shadow: 0px -3px 0px rgba(288, 0, 70, .9) inset;
+ }
+ 
+ .profile-body {
+    width: 100%;
+    z-index: -1;
+ }
+ 
+ .tab {
+    padding: 20px;
+    width: 100%;
+    text-align: center;
+    display: none;
+ }
+ 
+ #see-more-bio,
+ #see-less-bio {
+    color: blue;
+    cursor: pointer;
+    text-transform: lowercase;
+ }
+ 
+ #friends, #chat, #uploads, #settings, #notifications, #insults {
+    position: absolute;
+    transform: (translateX(-50%));
+    border: 2px solid black;
+    top: 27%;
+    left: 20%;
+    width: 78%;
+    height: 75vh;
+    flex-flow:row;
+ }
+ 
+ #notichild {
+    width: 60vw; 
+    height: 10vh; 
+    display: flex; 
+    width: 100%;
+    justify-content: stretch; 
+    align-items: stretch;
+ }
+ 
+ #notigrandchild {
+    flex: 1;
+ }
+ 
+ #notichild > div:nth-child(3) {
+    width: 8vh;
+    height: auto;
+ }
+ 
+ #friendcards{
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row-reverse; 
+ }
+ 
+ #profileprojectcard{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr; 
+    width: 100%;
+    height: 10vh;
+    border-bottom: 1px solid black;
+ }
+ 
+ #chat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+ }
+ 
+  #leftmsg {
+    align-self: flex-start; 
+    background-color: hsl(0, 0%, 94%); 
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+ }
+  
+ #rightmsg {
+    align-self: flex-end; 
+    background-color: hsl(128, 100%, 50%); 
+    color: white; 
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+  }
+ 
+  #rightmsg:hover{
+    background-color: hsl(128, 100%, 70%);
+  }
+  #leftmsg:hover{
+    background-color: hsl(0, 0%, 97%); 
+ }
+ 
+ #msgbox{
+    position: absolute;
+    left: 50%;
+    bottom: -40px;
+    transform: translateX(-50%);
+ }
+ 
+ #usersetting{
+    display: grid;
+    justify-content: center;
+ }
+ 
+ #darkmode{
+    display: flex;
+    justify-content: right;
+ }
+ .profile-header .user-rank{
+    position: absolute;
+    left:45%;
+    top: 35%;
+ }
+ 
+ #profilegrandparent {
+    display: grid;
+    grid-template-areas: "profilepicture nameandtitle"
+    "info content";
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: 30vw 70vw;
+    grid-template-rows: 25vh 75vh; 
+ }
+ 
+ #profilepicture {
+    position: absolute;
+    bottom: -50%; 
+    left: 50%;     
+    transform: translateX(-50%);  
+    border-radius: 50%;  
+    width: 5vh; 
+    height: 5vh;  
+ }
+ 
+ #nameandtitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 
+ #info {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30%;
+ }
+ 
+ #content {
+    display: grid;
+    grid-template-rows: 15vh 60vh; 
+    grid-template-columns: 1fr;    
+    grid-template-areas: 
+        "pbuttons"
+        "pcontent";
+ }
+ 
+ #pbuttons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+ }
+ 
+ #pcontent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+ 

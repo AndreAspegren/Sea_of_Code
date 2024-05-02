@@ -1,19 +1,21 @@
 #projectparent {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
     height: 100vh;
 }
 
 #projectinfo {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    grid-area: 2 / 2 / 1 / 4;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-area: 2 / 2 / 1 / 8;
     align-content: space-between;
+    
 }
 
 #projectdltbtn{
+    grid-area: 1/11;
     display:flex;
     justify-content: end;
     align-items: flex-start;
@@ -38,31 +40,32 @@
 }
 
 #projectname{
-    grid-area: 1/2;
+    grid-area: 1/4/1/8;
     font-size: 50px;
+    text-align: center;
     
 }
 
 #projectimg{
 
-    grid-area: 2/2/2/1;
+    grid-area: 1/2/3/4;
     border: solid green 3px;
 }
 
 #projectinfo>img {
-    height: 100px;
-    width: 205px;
+    height: 94%;
+    width: 200px;
 }
 
 #projectdescription{
-    grid-area: 2/2/4/4;
+    grid-area: 1/8/3/10;
     border: solid rgb(0, 0, 0) 1px;
     padding: 10px;
 }
 
 #project {
     display: flex;
-    grid-area: 2 / 1 / 5 / 4;
+    grid-area: 2/1/11/9;
     font-size: 20px;
     align-content: center;
     border-top: solid black 1px;
@@ -76,7 +79,7 @@
 
 #comments {
     display: flex;
-    grid-area: -4/4/5;
+    grid-area: 2/9/10/11;
     border: dotted 5px rgb(24, 194, 24);
     flex-direction: column;
     overflow-y: auto;
@@ -85,11 +88,13 @@
 }
 
 #commentinput {
-    grid-area: -1/-2;
-    margin-top: auto;
+    grid-area: 10/11/11/9;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
 }
+
 
 #projectbuttons-container {
     grid-area: 1;
@@ -105,3 +110,4 @@ textarea#fileContentTextarea {
     resize: none;
 
 }
+
