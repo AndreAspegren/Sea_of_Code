@@ -51,7 +51,6 @@ function genglobalui(key) {
     <img src=${model.app.muteurl} onclick="mutebtn()">
     <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     </div>
-
     `
 }
 
@@ -102,8 +101,8 @@ function genuserlist() {
         return `<div id="usercard" onclick="updateview('profileScreen', ${key})">
         <div>
         <div>${value.username}</div>
-        <div>${value.projects.length} prosjekter</div>
         <div>${value.friends.length} venner</div>
+        <div>${value.projects.length} prosjekter</div>
         </div>
         <img style="height: 6vh; width: auto" src="${value.profilePicture}"/>
         </div>

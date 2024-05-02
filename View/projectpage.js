@@ -27,6 +27,7 @@ function projectpage(key, num) {
     <div id="comments">
     <div>${model.data.projects[key].comments.map(c => {
         let currentclass = c.from == model.app.userID ? 'rightmsg' : 'leftmsg'
+        console.log(currentclass)
         return /*HTML*/`<div id="${currentclass}"><div>${model.data.users[c.from].username + ': ' + c.comment}</div></div>`
     }).join('')}</div>
     </div>

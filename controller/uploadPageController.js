@@ -21,7 +21,7 @@ async function pushProject() {
                         const reader = new FileReader()
                         reader.onload = () => resolve({
                             id: i, 
-                            content: reader.result, 
+                            content: reader.result.replace('&' , '&amp').replace('<' , '&lt').replace('>' , '&gt').replace('"' , '&quot').replace("'" , '&#039'), 
                             language: model.input.projects.language, 
                         })
                         reader.readAsText(file)
@@ -59,7 +59,7 @@ async function pushProject() {
         const reader = new FileReader()
         reader.onload = e => {
             model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result
-        }
+        };
         reader.readAsText(file)
     }
 

@@ -3,91 +3,77 @@ function profileScreen(key) {
   let profile = model.app.currentprofile
   const user = model.data.users[key == undefined ? profile : key]
   let tab = model.app.currentprofiletab
+
   app.innerHTML = /*HTML*/`
-<div id="profileScreen">
+  <div id="profilegrandparent">
 
-  <div class="container">
-    <div class="profile-header">
-      <div class="profile-img">
-      <img src="${user.profilePicture}" width="" alt="">     </div>
-
-
-      <div class="profile-nav-info">
-        <h3 class="user-name">${user.username}</h3>
-      </div>
-      <div class="user-rank">${userrank()}</div>
-      </div>
-        ${model.app.loggedIn && profile == model.app.userID ? `<div onclick="model.app.currentprofiletab = 'notifications'; updateview()" class="profile-option"><div class="notification">
-          <i class="fa fa-bell">🔔</i>
-          <span class="alert-message">${model.data.users[model.app.userID].notifications.length}</span>
-        </div></div>` : ''}
+    <div id="pheader">
+      <img id="pheader" src="${user.profilePicture}" width="" alt="">     
     </div>
 
-
-    <div class="main-bd">
-      <div class="left-side">
-        <div class="profile-side">
-          <p class="mobile-no"><i class="fa fa-phone">📞</i>${user.phoneNr}</p>
-          <p class="user-mail"><i class="fa fa-envelope">📧</i>${user.eMail}</p>
-          <p class="country">Navn: ${user.firstName + ' ' + user.lastName}</p>
-          <p class="country">Alder: ${user.age}</p>
-          <p class="country">Land: ${user.country}</p>
-          <p class="city">By: ${user.city}</p>
-          <div class="user-bio">
-            <h3>Bio</h3>
-            <p class="bio">${user.bio}</p>
-          </div>
-          <div class="profile-btn">
-            ${model.app.loggedIn && model.app.userID != profile ? `<button class="chatbtn" onclick="model.app.currentprofiletab = 'chat'; updateview()">
-              <i class="fa fa-comment"></i> 🗨Chat 
-            </button>` : ''}
-            ${model.app.loggedIn && profile != model.app.userID & !model.data.users[model.app.userID].friends.includes(profile) ? `
-            <button class="createbtn" onclick="addfriend(${key})">
-              <i class="fa fa-plus"></i> 	➕Legg til venn
-              </button>` : ''}
-            ${profile === model.app.userID ? `<button class="logoutbtn" onclick="logOff(); model.app.currentprofiletab = ''">
-              <i class="fa fa-door"></i> 🔚 Logg ut
-              </button>` : ''}
-          </div>
-          <div class="user-socialmedia">
-          <p class="socialmedia"><a href="${user.github}" target="blank">Besøk Github</a></p>
-          <p class="socialmedia"><a href="${user.linkedIn}" target="blank">Besøk LinkedIn</a></p>
-          </div>
-        </div>
+    <div id ="pnameandtitle">
+      <div>${user.username}</div>
+      <div>
+      <div>${model.data.titles[model.data.users[model.app.currentprofile].title].name}</div>
+      <img src="${model.data.titles[model.data.users[model.app.currentprofile].title].picture}">
       </div>
-
-
-      <div class="right-side">
-        <div class="nav">
-          <ul>
-            <li class="btn" onclick="model.app.currentprofiletab = 'friends';  updateview()">Venner</li>
-            <li class="btn" onclick="model.app.currentprofiletab = 'uploads';  updateview()">Opplastinger</li>
-            ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat';  updateview()">Chat</li>` : ''}
-            ${model.app.loggedIn && profile == model.app.userID ? /*HTML*/`
-            <li class="btn" onclick="model.app.currentprofiletab = 'notifications'; updateview()">Notifikasjoner</li>
-            <li class="btn" onclick="model.app.currentprofiletab = 'insults';  updateview()">Fornærmelser</li>
-            <li class="btn" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
-          </ul>
-        </div>
-      </div>
-      
+      ${model.app.loggedIn && profile == model.app.userID ? `
+      <div id="notificationIcon" onclick="model.app.currentprofiletab = 'notifications'; updateview()">
+    <i class="bell">🔔</i>
+    <span class="count">${model.data.users[model.app.userID].notifications.length}</span>
+    </div>` : ''}
     </div>
+
+    <div id="pinfo">
+      <p ><i class="fa fa-phone">📞</i>${user.phoneNr}</p>
+      <p ><i class="fa fa-envelope">📧</i>${user.eMail}</p>
+      <p >Navn: ${user.firstName + ' ' + user.lastName}</p>
+      <p >Alder: ${user.age}</p>
+      <p >Land: ${user.country}</p>
+      <p >By: ${user.city}</p>
+      <p class="bio">Bio: ${user.bio}</p>
+      <p><a href="${user.github}" target="blank">Besøk Github</a></p>
+      <p><a href="${user.linkedIn}" target="blank">Besøk LinkedIn</a></p>
+      ${model.app.loggedIn && model.app.userID != profile ? `<button  onclick="model.app.currentprofiletab = 'chat'; updateview()">
+      <i ></i> 🗨Chat 
+      </button>` : ''}
+      ${model.app.loggedIn && profile != model.app.userID & !model.data.users[model.app.userID].friends.includes(profile) ? `
+      <button onclick="addfriend(${key})">
+      <i></i> 	➕Legg til venn
+      </button>` : ''}
+      ${profile === model.app.userID ? `<button onclick="logOff(); model.app.currentprofiletab = ''">
+      <i></i> 🔚 Logg ut
+      </button>` : ''}
+    </div>
+
+    <div id="pcontent">
+      <div id="pbuttons">
+        <button class="btn" onclick="model.app.currentprofiletab = 'friends';  updateview()">Venner</button>
+        <button class="btn" onclick="model.app.currentprofiletab = 'uploads';  updateview()">Opplastinger</button>
+        ${model.app.loggedIn && profile != model.app.userID ? `<button class="user-chat" onclick="model.app.currentprofiletab = 'chat';  updateview()">Chat</button>` : ''}
+        ${model.app.loggedIn && profile == model.app.userID ? /*HTML*/`
+        <button class="btn" onclick="model.app.currentprofiletab = 'notifications'; updateview()">Notifikasjoner</button>
+        <button class="btn" onclick="model.app.currentprofiletab = 'insults';  updateview()">Fornærmelser</button>
+        <button class="btn" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</button>` : ''}
+      </div>
+      <div id="${tab ?? ''}">
+        ${tab == 'friends' ? genfriendlist(key == undefined ? profile : key) : ''}
+        ${tab == 'uploads' ? genuploads(key == undefined ? profile : key) : ''}
+        ${tab == 'chat' ? genchat(key == undefined ? profile : key) : ''}
+        ${tab == 'notifications' ? gennotifications(key == undefined ? profile : key) : ''}
+        ${tab == 'insults' ? geninsults() : ''}
+        ${tab == 'settings' && profile === model.app.userID ? gensettings(key == undefined ? profile : key) : ''}
+      </div>
+    </div>
+
   </div>
-</div>
-
-<div id="${tab ?? ''}">
-  ${tab == 'friends' ? genfriendlist(key == undefined ? profile : key) : ''}
-  ${tab == 'uploads' ? genuploads(key == undefined ? profile : key) : ''}
-  ${tab == 'chat' ? genchat(key == undefined ? profile : key) : ''}
-  ${tab == 'notifications' ? gennotifications(key == undefined ? profile : key) : ''}
-  ${tab == 'insults' ? geninsults() : ''}
-  ${tab == 'settings' && profile === model.app.userID ? gensettings(key == undefined ? profile : key) : ''}
-</div>
-</div>
+      
 <img id="globallogo" onclick="updateview('homescreen'); model.app.currentprofiletab = '';" src="img/background.jpg"/>
+
 <div id="globalchild">
 <img src=${model.app.muteurl} onclick="mutebtn()">
 <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
+</div>
 `
   if (tab == 'chat') dmeventlistener()
 }
@@ -126,18 +112,29 @@ function gennotifications() {
     const params = n.para.split(',').map(param => param.trim())
     return /*HTML*/`
       <div id="notichild" 
-      onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); updateview('${params[0]}', ${Number(params[1])})"><img id="notigrandchild" src="${model.data.users[n.from].profilePicture}">
-                      <div id="notigrandchild">${n.type == 'rankup' ? '' : model.data.users[n.from].username + ' '}${message[n.type]}</div>
-                      <div id="notigrandchild">Dato: ${n.dateSent}</div></div>`
+      onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); updateview('${params[0]}', ${Number(params[1])})">
+      
+      <div>
+      <img id="notigrandchild" src="${model.data.users[n.from].profilePicture}">
+      </div>
+
+      <div id="notigrandchild">${n.type == 'rankup' ? '' : model.data.users[n.from].username + ' '}${message[n.type]}</div>
+                      
+      <div id="notigrandchild">Dato: ${n.dateSent}</div>
+      
+      </div>
+      `
   })
 }
 
-
 function geninsults() {
-  return model.data.insults.map(i => {
-    return `<div id="leftmsg">${i}</div>`
+  return '<div>' + model.data.insults.map(i => {
+    return `<div id="insultmsg">${i}</div>`
   })
-    .join('') + /*HTML*/`<button style="width: 10vw; height: 3vh" id="msgbox" onclick="fetchinsult(); updateview()">Bli fornærmet</button>`
+    .join('') + /*HTML*/`</div>
+    <div>
+    <button id="insultbtn" onclick="fetchinsult(); updateview()">Bli fornærmet</button>
+    </div>`
 }
 
 async function fetchinsult() {
@@ -166,48 +163,71 @@ function genfriendbtn(key, user) {
 function genuploads(key) {
   return model.data.projects.filter(m => (m.author == key))
     .map(m => {
-      return /*HTML*/`<div onclick="updateview('projectpage', ${key})" id="profileprojectcard">
+      return /*HTML*/`
+      <div onclick="updateview('projectpage', ${key})" id="profileprojectcard">
+        
+        <div>
         <img src="${m.picture}"/>
+        </div>
+
+        <div>
         <div>
         <div>${model.data.users[m.author].username}</div>
         <div>${m.name}</div>
         </div>
-        <div>${m.description}</div>
         </div>
-        `;
+
+        <div>${m.description}</div>
+
+        </div>
+        `
     })
     .join('')
 }
 
 function genchat(key) {
-  return model.data.messages
+  return '<div>' + model.data.messages
     .filter(m => (m.from == model.app.userID && m.to == key || m.from == key && m.to == model.app.userID))
     .map(m => {
       let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
       return `<div id="${currentclass}">${m.content}</div>`
     })
-    .join('') + `<div id="msgbox">
+    .join('') + `</div>
+    
+    <div>
     <input oninput="model.input.userActivity.message = this.value" id="dminputbox">
     <button onclick="senddm()">Send</button>
-  </div>`
+    </div>
+`
 }
+
 function genfriendlist(key) {
   return model.data.users[key].friends.filter(f => f != key).map(key => {
-    return `
-    <div id="friendcards" onclick="updateview('profileScreen', ${key})">
+    return /*HTML*/`
+    <div id="pfriendcards" onclick="updateview('profileScreen', ${key})">
+    
+    <div>
+    <img src="${model.data.users[key].profilePicture}"/>
+    </div>
+
     <div>
     <div>${model.data.users[key].username}</div>
-    <div>${model.data.users[key].projects.length} prosjekter</div>
-    <div>${model.data.users[key].friends.length} venner</div>
     </div>
-    <img style="height: 6vh; width: auto" src="${model.data.users[key].profilePicture}"/>
+
+    <div>
+    <div>
+    <div>${model.data.users[key].friends.length} venner</div>
+    <div>${model.data.users[key].projects.length} prosjekter</div>
+    </div>
+    </div>
+
     </div>
     `
   }).join('')
 }
 
 function gensettings() {
-  return /*HTML*/`<div id="usersetting">
+  return /*HTML*/`
     <h2>Endre profil</h2>
     <input type="text" oninput="model.input.editProfile.username = this.value" placeholder="Brukernavn" required/>
     <input type="text" oninput="model.input.editProfile.eMail = this.value" placeholder="Email" required />
@@ -225,7 +245,8 @@ function gensettings() {
     <textarea id="bio" oninput="model.input.editProfile.bio = this.value" placeholder="Bio"></textarea>
     Last opp profilbilde:
     <img id="profilePicture"/>
-    <button style="width: 10vh;" onclick="editprofile()">Endre profil</button>    </div>`
+    <button style="width: 10vh;" onclick="editprofile()">Endre profil</button>
+    `
 }
 
 function addfriend(key) {
