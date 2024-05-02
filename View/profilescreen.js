@@ -128,10 +128,13 @@ function gennotifications() {
 }
 
 function geninsults() {
-  return model.data.insults.map(i => {
-    return `<div id="leftmsg">${i}</div>`
+  return '<div>' + model.data.insults.map(i => {
+    return `<div id="insultmsg">${i}</div>`
   })
-    .join('') + /*HTML*/`<button style="width: 10vw; height: 3vh" id="msgbox" onclick="fetchinsult(); updateview()">Bli fornærmet</button>`
+    .join('') + /*HTML*/`</div>
+    <div>
+    <button id="insultbtn" onclick="fetchinsult(); updateview()">Bli fornærmet</button>
+    </div>`
 }
 
 async function fetchinsult() {
@@ -183,16 +186,19 @@ function genuploads(key) {
 }
 
 function genchat(key) {
-  return model.data.messages
+  return '<div>' + model.data.messages
     .filter(m => (m.from == model.app.userID && m.to == key || m.from == key && m.to == model.app.userID))
     .map(m => {
       let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
       return `<div id="${currentclass}">${m.content}</div>`
     })
-    .join('') + `<div id="msgbox">
+    .join('') + `</div>
+    
+    <div>
     <input oninput="model.input.userActivity.message = this.value" id="dminputbox">
     <button onclick="senddm()">Send</button>
-  </div>`
+    </div>
+`
 }
 
 function genfriendlist(key) {
