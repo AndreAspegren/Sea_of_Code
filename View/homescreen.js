@@ -15,8 +15,8 @@ function homescreen() {
     <div id="homebuttons">
     <div id="homebuttonz">
     ${model.app.loggedIn ? `<button id="loginbtn" onclick="updateview('profileScreen', ${model.app.userID})">min profil</button>
-                            <button id="loginbtn" onclick="updateview('uploadPageView')">upload</button>` : 
-                           '<button id="loginbtn" onclick="updateview(`logInscreen`)">login</button>'}
+                            <button id="loginbtn" onclick="updateview('uploadPageView')">upload</button>` :
+            '<button id="loginbtn" onclick="updateview(`logInscreen`)">login</button>'}
     ${admin()}
     </div>
     </div>
@@ -113,7 +113,7 @@ function genuserlist() {
 function admin() {
     let adminButton = '';
     let currentUserId = model.app.userID;
-    if (model.data.adminpanel.users.includes(currentUserId)) {
+    if (model.data.adminpanel.users.includes(currentUserId) || model.data.superAdmin.users.includes(currentUserId)) {
         adminButton = `<button onclick="updateview('adminpanel')" id="loginbtn">adminpanel</button>`;
     }
     return adminButton;
