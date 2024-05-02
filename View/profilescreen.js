@@ -233,17 +233,17 @@ function gensettings() {
     <input type="text" oninput="model.input.editProfile.eMail = this.value" placeholder="Email" required />
     <input type="password" oninput="model.input.editProfile.passwordOne = this.value" placeholder="Passord" required/>
     <input type="password" oninput="model.input.editProfile.passwordTwo = this.value" placeholder="Bekreft passord" required/>
-    <input type="text" oninput="model.input.editProfile.firstName = this.value" placeholder="Førstenavn (frivillig)" />
-    <input type="text" oninput="model.input.editProfile.lastName = this.value" placeholder="Etternavn (frivillig)" />
-    <input type="text" oninput="model.input.editProfile.phoneNr = this.value" placeholder="Telefonnummer (frivillig)" />
-    <input type="text" oninput="model.input.editProfile.age = this.value" placeholder="Alder (frivillig)" />
-    <input type="text" oninput="model.input.editProfile.country = this.value" placeholder="Land (frivillig)" />
-    <input type="text" oninput="model.input.editProfile.city = this.value" placeholder="By (frivillig)" />
-    <input type="text" oninput="model.input.editProfile.github = this.value" placeholder="Github link (frivillig)" />
-    <input type="text" oninput="model.input.editProfile.linkedIn = this.value" placeholder="LinkedIn (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.firstName = this.value" placeholder="Førstenavn" />
+    <input type="text" oninput="model.input.editProfile.lastName = this.value" placeholder="Etternavn" />
+    <input type="text" oninput="model.input.editProfile.phoneNr = this.value" placeholder="Telefonnummer" />
+    <input type="text" oninput="model.input.editProfile.age = this.value" placeholder="Alder" />
+    <input type="text" oninput="model.input.editProfile.country = this.value" placeholder="Land" />
+    <input type="text" oninput="model.input.editProfile.city = this.value" placeholder="By" />
+    <input type="text" oninput="model.input.editProfile.github = this.value" placeholder="Github link" />
+    <input type="text" oninput="model.input.editProfile.linkedIn = this.value" placeholder="LinkedIn" />
+    Last opp profilbilde:
     <input type="file" id="fileInput" onchange="fileChange(event)">
     <textarea id="bio" oninput="model.input.editProfile.bio = this.value" placeholder="Bio"></textarea>
-    Last opp profilbilde:
     <img id="profilePicture"/>
     <button style="width: 10vh;" onclick="editprofile()">Endre profil</button>
     `
