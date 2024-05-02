@@ -50,8 +50,8 @@ function profileScreen(key) {
               </button>` : ''}
           </div>
           <div class="user-socialmedia">
-          <p class="socialmedia"><a href="${user.github}" target="_blank" rel="noopener noreferrer">Besøk Github</a></p>
-          <p class="socialmedia"><a href="${user.linkedIn}" target="_blank" rel="noopener noreferrer">Besøk LinkedIn</a></p>
+          <p class="socialmedia"><a href="${user.github}" target="blank">Besøk Github</a></p>
+          <p class="socialmedia"><a href="${user.linkedIn}" target="blank">Besøk LinkedIn</a></p>
           </div>
         </div>
       </div>
@@ -69,8 +69,8 @@ function profileScreen(key) {
             <li class="btn" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
           </ul>
         </div>
-      
       </div>
+      
     </div>
   </div>
 </div>
@@ -83,12 +83,11 @@ function profileScreen(key) {
   ${tab == 'insults' ? geninsults() : ''}
   ${tab == 'settings' && profile === model.app.userID ? gensettings(key == undefined ? profile : key) : ''}
 </div>
+</div>
 <img id="globallogo" onclick="updateview('homescreen'); model.app.currentprofiletab = '';" src="img/background.jpg"/>
-    
-    <div id="globalchild">
-    <img src=${model.app.muteurl} onclick="mutebtn()">
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-    </div>
+<div id="globalchild">
+<img src=${model.app.muteurl} onclick="mutebtn()">
+<img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
 `
   if (tab == 'chat') dmeventlistener()
 }
@@ -136,7 +135,7 @@ function gennotifications() {
 
 function geninsults() {
   return model.data.insults.map(i => {
-      return `<div id="leftmsg">${i}</div>`
+    return `<div id="leftmsg">${i}</div>`
   })
     .join('') + /*HTML*/`<button style="width: 10vw; height: 3vh" id="msgbox" onclick="fetchinsult(); updateview()">Bli fornærmet</button>`
 }
@@ -214,7 +213,7 @@ function gensettings() {
     <input type="text" oninput="model.input.editProfile.eMail = this.value" placeholder="Email" required />
     <input type="password" oninput="model.input.editProfile.passwordOne = this.value" placeholder="Passord" required/>
     <input type="password" oninput="model.input.editProfile.passwordTwo = this.value" placeholder="Bekreft passord" required/>
-    <input type="text" oninput="model.input.editProfile.firstName = this.value" placeholder="Navn (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.firstName = this.value" placeholder="Førstenavn (frivillig)" />
     <input type="text" oninput="model.input.editProfile.lastName = this.value" placeholder="Etternavn (frivillig)" />
     <input type="text" oninput="model.input.editProfile.phoneNr = this.value" placeholder="Telefonnummer (frivillig)" />
     <input type="text" oninput="model.input.editProfile.age = this.value" placeholder="Alder (frivillig)" />

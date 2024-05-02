@@ -43,7 +43,7 @@ function gennonadminlist() {
         </div>
         <img style="height: 6vh; width: auto" src="${u.profilePicture}"/>
         <div>
-        <button onclick="makeadmin(${u.id})">Gi adminmakt🔨</button>
+        <button onclick="makeadmin(${u.id}); updateview()">Gi adminmakt🔨</button>
         </div>
         `
     }).join('')

@@ -21,7 +21,7 @@ function projectpage(key, num) {
     <textarea id="fileContentTextarea" readonly>${file.content}</textarea>
     </div>
     <div id="projectbuttons-container">${model.data.projects[key].files.map((file, i) =>
-    /*HTML*/`<button id="projectbutton${i}" onclick="projectpage(${key}, ${i})">${i}</button>`
+    /*HTML*/`<button id="projectbutton${i}" onclick="projectpage(${key}, ${i})">${i + 1}</button>`
     ).join('')}</div>
 
     <div id="comments">
