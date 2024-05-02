@@ -66,7 +66,7 @@
 
 #pheader > img {
    position: absolute;  
-   bottom: -120%;         
+   bottom: -100%;         
    width: 12vw;
    height: 12vw;
    border-radius: 50%;
@@ -87,7 +87,7 @@
    display: grid;
    justify-content: center;
    align-items: center;
-   padding-top: 80%;
+   padding-top: 60%;
    padding-right: 20%;
    padding-bottom: 90%;
 }
