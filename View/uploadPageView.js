@@ -20,13 +20,12 @@ function uploadPageView() {
     
     <div>
     <li>Upload files</li>
-    <input  type="file" id="fileUpload">
+    <input  type="file" id="fileUpload" multiple>
     </div>
 
     <div>
-    <button onclick="sendProjectInfo()">Upload project</button>
+    <button onclick="pushProject()">Upload project</button>
     </div>
-
     </div>
 
 </div>
@@ -37,20 +36,20 @@ ${genglobalui()}
 }
 
 function userList() {
-    let usersList = '';
-    for (let user in model.data.users) {
-        usersList += /*html*/`
-    <td>
-    <div class="userInfo">
-    ${model.data.users[user].username}
-    <img class="userProfilePicture" src="${model.data.users[user].profilePicture}"/>
-    <br>
-    ${model.data.users[user].projects.length} prosjekter
-    <br>
-    ${model.data.users[user].friends.length} venner
-    </div>
-    </td>
-    `;
-    }
-    return usersList;
+    return model.data.users.map(u => {
+        return `
+        <td>
+        <div class="userInfo">
+        ${u.username}
+        <img class="userProfilePicture" src="${u.profilePicture}"/>
+        <br>
+        ${u.projects.length} prosjekter
+        <br>
+        ${u.friends.length} venner
+        </div>
+        </td>
+        `
+    })
 }
+
+

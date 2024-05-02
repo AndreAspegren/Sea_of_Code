@@ -3,13 +3,15 @@ function profileScreen(key) {
   let profile = model.app.currentprofile
   const user = model.data.users[key == undefined ? profile : key]
   let tab = model.app.currentprofiletab
-  console.log(tab, model.app.currentprofiletab)
   app.innerHTML = /*HTML*/`
 <div id="profileScreen">
+
   <div class="container">
     <div class="profile-header">
       <div class="profile-img">
       <img src="${user.profilePicture}" width="" alt="">     </div>
+
+
       <div class="profile-nav-info">
         <h3 class="user-name">${user.username}</h3>
       </div>
@@ -20,6 +22,8 @@ function profileScreen(key) {
           <span class="alert-message">${model.data.users[model.app.userID].notifications.length}</span>
         </div></div>` : ''}
     </div>
+
+
     <div class="main-bd">
       <div class="left-side">
         <div class="profile-side">
@@ -46,53 +50,31 @@ function profileScreen(key) {
               </button>` : ''}
           </div>
           <div class="user-socialmedia">
-          <p class="socialmedia"><a href="${user.github}" target="_blank" rel="noopener noreferrer">Besøk Github</a></p>
-          <p class="socialmedia"><a href="${user.linkedIn}" target="_blank" rel="noopener noreferrer">Besøk LinkedIn</a></p>
+          <p class="socialmedia"><a href="${user.github}" target="blank">Besøk Github</a></p>
+          <p class="socialmedia"><a href="${user.linkedIn}" target="blank">Besøk LinkedIn</a></p>
           </div>
         </div>
       </div>
+
+
       <div class="right-side">
         <div class="nav">
-          <script>
-              // Add active class to the current button (highlight it)
-            var header = document.getElementById("myDIV");
-            var btns = header.getElementsByClassName("btn");
-            for (var i = 0; i < btns.length; i++) {
-              btns[i].addEventListener("click", function() {
-              var current = document.getElementsByClassName("active");
-              current[0].className = current[0].className.replace(" active", "");
-              this.className += " active";
-              });
-            }
-         </script>
           <ul>
-            <li class="user-friends" onclick="model.app.currentprofiletab = 'friends'; tabs(1); updateview()">Venner</li>
-            <li class="user-uploads" onclick="model.app.currentprofiletab = 'uploads'; tabs(2); updateview()">Opplastinger</li>
-            ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat'; tabs(3); updateview()">Chat</li>` : ''}
+            <li class="btn" onclick="model.app.currentprofiletab = 'friends';  updateview()">Venner</li>
+            <li class="btn" onclick="model.app.currentprofiletab = 'uploads';  updateview()">Opplastinger</li>
+            ${model.app.loggedIn && profile != model.app.userID ? `<li class="user-chat" onclick="model.app.currentprofiletab = 'chat';  updateview()">Chat</li>` : ''}
             ${model.app.loggedIn && profile == model.app.userID ? /*HTML*/`
-            <li class="user-notification" onclick="model.app.currentprofiletab = 'notifications'; tabs(5); updateview()">Notifikasjoner</li>
-            <li class="user-api" onclick="model.app.currentprofiletab = 'insults'; updateview()">Fornærmelser</li>
-            <li class="user-setting" onclick="model.app.currentprofiletab = 'settings'; tabs(4); updateview()">Endre profil</li>` : ''}
+            <li class="btn" onclick="model.app.currentprofiletab = 'notifications'; updateview()">Notifikasjoner</li>
+            <li class="btn" onclick="model.app.currentprofiletab = 'insults';  updateview()">Fornærmelser</li>
+            <li class="btn" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</li>` : ''}
           </ul>
         </div>
-        <div class="profile-body">
-          <div class="profile-posts tab active">
-            <h1>Your posts</h1>
-            <p>No posts</p>
-          </div>
-          <div class="profile-uploads tab">
-            <h1>Your uploads</h1>
-            <p>No uploads</p>
-          </div>
-          <div class="profile-settings tab">
-            <h1>Account setting</h1>
-            <p>No settings</p>
-          </div>
-        </div>
       </div>
+      
     </div>
   </div>
 </div>
+
 <div id="${tab ?? ''}">
   ${tab == 'friends' ? genfriendlist(key == undefined ? profile : key) : ''}
   ${tab == 'uploads' ? genuploads(key == undefined ? profile : key) : ''}
@@ -101,12 +83,11 @@ function profileScreen(key) {
   ${tab == 'insults' ? geninsults() : ''}
   ${tab == 'settings' && profile === model.app.userID ? gensettings(key == undefined ? profile : key) : ''}
 </div>
+</div>
 <img id="globallogo" onclick="updateview('homescreen'); model.app.currentprofiletab = '';" src="img/background.jpg"/>
-    
-    <div id="globalchild">
-    <img src=${model.app.muteurl} onclick="mutebtn()">
-    <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
-    </div>
+<div id="globalchild">
+<img src=${model.app.muteurl} onclick="mutebtn()">
+<img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
 `
   if (tab == 'chat') dmeventlistener()
 }
@@ -154,7 +135,7 @@ function gennotifications() {
 
 function geninsults() {
   return model.data.insults.map(i => {
-      return `<div id="leftmsg">${i}</div>`
+    return `<div id="leftmsg">${i}</div>`
   })
     .join('') + /*HTML*/`<button style="width: 10vw; height: 3vh" id="msgbox" onclick="fetchinsult(); updateview()">Bli fornærmet</button>`
 }
@@ -232,7 +213,7 @@ function gensettings() {
     <input type="text" oninput="model.input.editProfile.eMail = this.value" placeholder="Email" required />
     <input type="password" oninput="model.input.editProfile.passwordOne = this.value" placeholder="Passord" required/>
     <input type="password" oninput="model.input.editProfile.passwordTwo = this.value" placeholder="Bekreft passord" required/>
-    <input type="text" oninput="model.input.editProfile.firstName = this.value" placeholder="Navn (frivillig)" />
+    <input type="text" oninput="model.input.editProfile.firstName = this.value" placeholder="Førstenavn (frivillig)" />
     <input type="text" oninput="model.input.editProfile.lastName = this.value" placeholder="Etternavn (frivillig)" />
     <input type="text" oninput="model.input.editProfile.phoneNr = this.value" placeholder="Telefonnummer (frivillig)" />
     <input type="text" oninput="model.input.editProfile.age = this.value" placeholder="Alder (frivillig)" />
