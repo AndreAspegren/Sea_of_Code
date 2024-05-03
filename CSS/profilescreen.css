@@ -45,7 +45,7 @@
    height: 100%;                          
    border-bottom: 1px solid black;        
    align-items: center;                  
-   justify-items: center;                 
+   justify-items: center;              
 }
 
 #pnameandtitle > :first-child {
@@ -173,12 +173,6 @@
    box-shadow: 0 0 5px #000; 
 }
 
-button {
-   cursor: pointer;
-   background-color: hsl(204, 77%, 68%);
-   border-radius: 0.7vh;
-}
-
 button:hover {
    cursor: pointer;
    background-color: hsl(204, 77%, 73%);
@@ -286,7 +280,6 @@ button:active {
 
 #insults, #chat, #friends, #uploads, #notifications {
    overflow: auto;
-   color:blueviolet;
 }
 
 #msg {
