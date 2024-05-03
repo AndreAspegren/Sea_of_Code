@@ -81,7 +81,7 @@ ${model.data.superAdmin.users.includes(model.app.userID) ? '<img onclick="toggle
 </div>
 `
   if (tab == 'chat') dmeventlistener()
-  if(model.app.rainbowroad) rainbowroad()
+  if (model.app.rainbowroad) rainbowroad()
 }
 
 function dmeventlistener() {
@@ -115,7 +115,7 @@ function gennotifications() {
       'comment': 'kommenterte på prosjektet ditt!',
       'rankup': 'Du gikk opp i rank!',
     }
-    const params = n.para.split(',').map(param => param.trim())
+    const params = n.para.split(',').map(para => para)
     return /*HTML*/`
       <div id="notichild" 
       onclick="model.data.users[model.app.userID].notifications.splice(${n.id}, 1); updateview('${params[0]}', ${Number(params[1])})">

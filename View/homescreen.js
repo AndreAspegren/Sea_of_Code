@@ -28,7 +28,7 @@ function homescreen() {
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
     </div>`
-    if(model.app.rainbowroad) rainbowroad()
+    if (model.app.rainbowroad) rainbowroad()
 }
 
 function userrank() {
@@ -123,29 +123,10 @@ function admin() {
     return adminButton;
 }
 
-async function rainbowroad() {
-    const ids = [
-        'homeuserlist', 'projects', 'wordcloud', 'nonadminprojects', 'nonadminusers',
-        'friends', 'uploads', 'chat', 'notifications', 'insults', 'settings', 'uploadinputs',
-        'fileContentTextarea', 'comments', 
-    ]
-    const classes = ['rightmsg', 'leftmsg', 'insultmsg']
-    
-    function rainbow(element) {
-        if (element.style.backgroundImage.includes('linear-gradient')) element.style.backgroundImage = ''
-        else element.style.backgroundImage = 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)' 
-    }
-
-    ids.forEach(id => {
-        const element = document.getElementById(id)
-        if (element) rainbow(element)
-    })
-    classes.forEach(cls => {
-        document.querySelectorAll('.' + cls).forEach(element => {
-            rainbow(element)
-        })
-    })
-    document.querySelectorAll('button').forEach(rainbow)
+function rainbowroad() {
+    document.querySelectorAll(
+        "#homeuserlist, #projects, #wordcloud, #nonadminprojects, #nonadminusers, #friends, #uploads, #chat, #notifications, #insults, #settings, #uploadinputs,#fileContentTextarea, #comments, .rightmsg, .leftmsg, .insultmsg, button").forEach(tag =>
+        tag.style.backgroundImage = 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)')
 }
 
 function togglerainbowroad() {
