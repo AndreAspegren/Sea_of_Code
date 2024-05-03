@@ -60,8 +60,8 @@ function sendcomment() {
         dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
         para: `projectpage, ${model.input.currentproject}`,
     })
-    model.input.userActivity.comment = ''
-    updateview()
+    model.input.userActivity.comment = '';
+    updateview();
 }
 
 
