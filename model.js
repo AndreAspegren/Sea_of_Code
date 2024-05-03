@@ -96,10 +96,10 @@ const model = {
             Binary: 0,
         },
         superAdmin: {
-            users: [0],
+            users: [],
         },
         adminpanel: {
-            users: [],
+            users: [0],
             forReview: [3],
         },
         messages: [
