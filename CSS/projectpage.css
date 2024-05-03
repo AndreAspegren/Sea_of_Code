@@ -30,7 +30,6 @@
 }
 
 #deleteproject{
-    background: gray;
     transition: .3s ease-in-out;
     border: none;
     color: white;
