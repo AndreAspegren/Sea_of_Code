@@ -290,7 +290,7 @@ button:active {
    height: 5vh;
 }
 
-#leftmsg {
+.leftmsg {
    align-self: flex-start; 
    background-color: hsl(0, 0%, 94%); 
    padding: 1vh;
@@ -300,7 +300,7 @@ button:active {
    max-width: 50%;       
 }
 
-#rightmsg {
+.rightmsg {
    align-self: flex-end; 
    background-color: hsl(128, 100%, 50%); 
    padding: 1vh;
@@ -310,7 +310,7 @@ button:active {
    max-width: 50%;      
 }
 
-#insultmsg {
+.insultmsg {
    color: white; 
    padding: 1vh;
    margin: 0.5vh;

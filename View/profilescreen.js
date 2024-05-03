@@ -1,4 +1,4 @@
-function profileScreen(key) {
+async function profileScreen(key) {
   if (key != undefined) model.app.currentprofile = key
   let profile = model.app.currentprofile
   const user = model.data.users[key == undefined ? profile : key]
@@ -57,7 +57,7 @@ function profileScreen(key) {
         ${model.app.loggedIn && profile != model.app.userID ? `<button class="user-chat" onclick="model.app.currentprofiletab = 'chat';  updateview()">Chat</button>` : ''}
         ${model.app.loggedIn && profile == model.app.userID ? /*HTML*/`
         <button class="btn" onclick="model.app.currentprofiletab = 'notifications'; updateview()">Notifikasjoner</button>
-        <button class="btn" onclick="model.app.currentprofiletab = 'insults';  updateview()">Fornærmelser</button>
+        <button class="btn" onclick="model.app.currentprofiletab = 'insults'; updateview()">Fornærmelser</button>
         <button class="btn" onclick="model.app.currentprofiletab = 'settings'; updateview()">Endre profil</button>` : ''}
       </div>
       <div id="${tab ?? ''}">
@@ -134,8 +134,8 @@ function gennotifications() {
 }
 
 function geninsults() {
-  return '<div>' + model.data.insults.map(i => {
-    return `<div id="insultmsg">${i}</div>`
+  return '<div>' + model.data.insults.map(insult => {
+    return `<div class="insultmsg">${insult}</div>`
   })
     .join('') + /*HTML*/`</div>
     <div>
@@ -151,13 +151,12 @@ async function fetchinsult() {
   try {
     const response = await fetch(apiUrl)
     const responseData = await response.text()
-    model.data.insults.push(responseData.trim())
+    model.data.insults.push(responseData)
     console.log('Insult fetched and added:', responseData.trim())
   } catch (error) {
     console.error('Error fetching insult:', error)
     throw error
   }
-  updateview()
 }
 
 function genfriendbtn(key, user) {
@@ -196,7 +195,7 @@ function genchat(key) {
     .filter(m => (m.from == model.app.userID && m.to == key || m.from == key && m.to == model.app.userID))
     .map(m => {
       let currentclass = m.from == model.app.userID ? 'rightmsg' : 'leftmsg'
-      return `<div id="${currentclass}">${m.content}</div>`
+      return `<div class="${currentclass}">${m.content}</div>`
     })
     .join('') + `</div>
     
