@@ -99,7 +99,7 @@ const model = {
             users: [0],
         },
         adminpanel: {
-            users: [1,2],
+            users: [],
             forReview: [3],
         },
         messages: [
