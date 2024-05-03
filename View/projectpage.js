@@ -79,6 +79,7 @@ function deleteProjectButton(projectID, authorID) {
 
 function deleteproject(id) {
     console.log(id)
+    model.data.projects.splice(id, 1)
     const projectIndex = model.data.projects.findIndex(admin => model.data.users.id === id);
     let currentUserId = model.app.userID;
     if (projectIndex > -1 && model.data.projects[projectIndex].author === currentUserId) {
