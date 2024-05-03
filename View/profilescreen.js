@@ -8,26 +8,26 @@ function profileScreen(key) {
   <div id="profilegrandparent">
 
     <div id="pheader">
-      <img id="pheader" src="${user.profilePicture}" width="" alt="">     
     </div>
-
+    
     <div id ="pnameandtitle">
-      <div>${user.username}</div>
-      <div>
-      <div>${model.data.titles[model.data.users[model.app.currentprofile].title].name}</div>
-      <img src="${model.data.titles[model.data.users[model.app.currentprofile].title].picture}">
-      </div>
-      ${model.app.loggedIn && profile == model.app.userID ? `
-      <div id="notificationIcon" onclick="model.app.currentprofiletab = 'notifications'; updateview()">
+    <div>${user.username}</div>
+    <div>
+    <div>${model.data.titles[model.data.users[model.app.currentprofile].title].name}</div>
+    <img src="${model.data.titles[model.data.users[model.app.currentprofile].title].picture}">
+    </div>
+    ${model.app.loggedIn && profile == model.app.userID ? `
+    <div id="notificationIcon" onclick="model.app.currentprofiletab = 'notifications'; updateview()">
     <i class="bell">🔔</i>
     <span class="count">${model.data.users[model.app.userID].notifications.length}</span>
     </div>` : ''}
     </div>
-
+    
     <div id="pinfo">
+    <div><img src="${user.profilePicture}" width="" alt=""></div>     
+    <p >Navn: ${user.firstName + ' ' + user.lastName}</p>
       <p ><i class="fa fa-phone">📞</i>${user.phoneNr}</p>
       <p ><i class="fa fa-envelope">📧</i>${user.eMail}</p>
-      <p >Navn: ${user.firstName + ' ' + user.lastName}</p>
       <p >Alder: ${user.age}</p>
       <p >Land: ${user.country}</p>
       <p >By: ${user.city}</p>

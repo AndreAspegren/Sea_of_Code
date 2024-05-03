@@ -19,21 +19,22 @@ function projectpage(key, num) {
 
     <div id="project">
     <textarea id="fileContentTextarea" readonly>${file.content}</textarea>
-    </div>
-    <div id="projectbuttons-container">${model.data.projects[key].files.map((file, i) =>
-    /*HTML*/`<button id="projectbutton${i}" onclick="projectpage(${key}, ${i})">${i + 1}</button>`
+    <div style="display: flex;">${model.data.projects[key].files.map((file, i) =>
+        /*HTML*/`<button id="projectbutton${i}" onclick="projectpage(${key}, ${i})">${i + 1}</button>`
     ).join('')}</div>
-
+    </div>
+    
     <div id="comments">
     <div>${model.data.projects[key].comments.map(c => {
         let currentclass = c.from == model.app.userID ? 'rightmsg' : 'leftmsg'
-        console.log(currentclass)
         return /*HTML*/`<div id="${currentclass}"><div>${model.data.users[c.from].username + ': ' + c.comment}</div></div>`
     }).join('')}</div>
     </div>
     <div id="commentinput">
-   <div id="commentinputfield"> ${model.app.loggedIn ? /*HTML*/`<input oninput="model.input.userActivity.comment = this.value" id="commentinput"> </div>
-    <button onclick="sendcomment(${key})">Send</button>` : ''}</div>
+   <div id="commentinputfield"> ${model.app.loggedIn ? /*HTML*/`
+   <input oninput="model.input.userActivity.comment = this.value">
+    <button onclick="sendcomment(${key})">Send</button>
+    </div>` : ''}</div>
     </div>
     ${genglobalui()}
     `

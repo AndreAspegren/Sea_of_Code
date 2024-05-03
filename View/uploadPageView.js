@@ -1,15 +1,14 @@
 function uploadPageView() {
     app.innerHTML =/*html*/`
+
 <div id="uploadcontainer">
-
-
-
 <div id="uploadinputs">
-<div id="uploadinputz">
+<div></div>
 
-<h1 class="upload">Last opp ditt prosjekt</h1>
+<div>
+<h1>Last opp ditt prosjekt</h1>
     <input type="text" onchange="model.input.projects.name = this.value" placeholder="Prosjektnavn" id="projectName">
-    <input type="text" onchange="model.input.projects.description = this.value" style="width: 30vh; height: 15vh;" placeholder="Beskrivelse" id="projectDescription">
+    <input type="text" onchange="model.input.projects.description = this.value" style="height: 15vh;" placeholder="Beskrivelse" id="projectDescription">
     <input onchange="model.input.projects.picture = this.value" type="url" placeholder="url">
     <select onchange="model.input.projects.language = this.value">
     ${Object.keys(model.data.wordCloud).map(key => {
@@ -23,14 +22,15 @@ function uploadPageView() {
     <input  type="file" id="fileUpload" multiple>
     </div>
 
-    <div>
+
     <button onclick="pushProject()">Upload project</button>
-    </div>
+
     </div>
 
+    <div></div>
+    </div>
 </div>
 
-</div>
 ${genglobalui()}
     `;
 }

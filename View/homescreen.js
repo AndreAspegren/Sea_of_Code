@@ -7,7 +7,7 @@ function homescreen() {
     <div id="homesearchbar">
     <span>
     <input type="text" placeholder="Søk..." id="searchbar" onchange="searchbar()"/>
-    <button onclick="searchbar()">Søk</button>
+    <button style="height: 5vh; width: 5vw" onclick="searchbar()">Søk</button>
     <div id="searchResults"></div>
     </span>
     </div>
@@ -67,11 +67,15 @@ function genprojectlist() {
     return model.data.projects.filter(p => p.approved).map(value => {
         return /*HTML*/`<div onclick="updateview('projectpage', ${value.id})" id="homeprojectcard">
 
+        <div>
         <img src="${value.picture}"/>
+        </div>
         
+        <div>
         <div>
         <div>${model.data.users[value.author].username}</div>
         <div>${value.name}</div>
+        </div>
         </div>
         
         <div>${value.description}</div>
@@ -82,7 +86,7 @@ function genprojectlist() {
 }
 
 function darkmode() {
-    const mode = model.app.darkmode ? ['white', 'black', false, "img/sun.png"] : ['rgb(31, 31, 31)', 'white', true, "img/moon.png"];
+    const mode = model.app.darkmode ? ['white', 'black', false, "img/sun.png"] : ['rgb(31, 31, 31)', 'black', true, "img/moon.png"];
     app.style.backgroundColor = mode[0];
     app.style.color = mode[1];
     model.app.darkmode = mode[2];

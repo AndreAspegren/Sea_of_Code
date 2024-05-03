@@ -6,12 +6,20 @@
 }
 
 #projectinfo {
+    padding-left: 5vw;
+    margin-right: -7vw;
+    justify-content: center;
+    align-items: center;
     display: grid;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-area: 2 / 2 / 1 / 8;
-    align-content: space-between;
-    
+    align-content: space-between; 
+}
+
+#projectdescription {
+    width: 14vw;
+    height: 7vh;
 }
 
 #projectdltbtn{
@@ -74,14 +82,25 @@
     max-width: 100%;
     overflow-x: auto;
     padding: 10px;
+    flex-wrap: wrap;
+}
 
+#project > :nth-child(2) {
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0.5vw;
+    margin-top: 0.5vh;
+}
+
+#project > :nth-child(2) button {
+    height: 3vh;
+    width: 3vw;
 }
 
 #comments {
-    display: flex;
+    display: grid;
     grid-area: 2/9/10/11;
     border: dotted 5px rgb(24, 194, 24);
-    flex-direction: column;
     overflow-y: auto;
     word-wrap: break-word;
     padding: 10px;
@@ -93,8 +112,15 @@
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
+    margin-top: 3vh;
+    height: 2vh;
 }
 
+#commentinputfield {
+    display:flex;
+    height: 3vh;
+    gap: 0.5vw;
+}
 
 #projectbuttons-container {
     grid-area: 1;
@@ -106,8 +132,10 @@
 
 textarea#fileContentTextarea {
     width: 100%;
-    height: 100%;
+    height: 96%;
     resize: none;
-
+    overflow: auto;
+    margin-top: -0.5vh; 
 }
+
 

@@ -34,11 +34,6 @@
     height: 5vh;
 }
 
-#homebuttonz > img {
-    width: 7vw;
-    height: auto;
-}
-
 #homesearchbar{
     display: flex;
     justify-content: center;
@@ -83,18 +78,14 @@
 }
 
 #homeprojectcard > div {
-    margin-left: 200px;
-    display: grid;  
-    justify-content: center;  
-    align-items: center;  
-    width: 100%;  
-    height: 100%;   
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
-#homeprojectcard > img {
-    position: absolute;
-    width: 6%;
-    height: 10%;
+#homeprojectcard > :nth-child(1) img {
+    width: auto;   
+    height: 8vh; 
 }
 
 body {
@@ -172,5 +163,15 @@ img {
     left: 0%;
     width: 16vh;
     height: 9vh;
+}
+
+#homeuserlist, #projects, #wordcloud, #nonadminprojects, #nonadminusers, #friends, #uploads, #chat, #notifications, #insults, #settings, #uploadinputs,
+#fileContentTextarea, #comments {
+    background-color: hsl(45, 70%, 90%);
+    border-radius: 2%;
+}
+
+#fileContentTextarea {
+    border-radius: 1%;
 }
 

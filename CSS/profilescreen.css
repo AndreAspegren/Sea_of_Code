@@ -28,8 +28,14 @@
    border-right: 1px solid black;
 }
 
-#pinfo {
-   border-bottom: 1px solid black;
+#pinfo > :nth-child(1) img {
+   width: 20vh;
+   height: 20vh;  
+   border-radius: 50%;         
+}
+
+#pinfo > :nth-child(1) {
+   transform: translateY(-5vh);
 }
 
 #pnameandtitle {
@@ -87,9 +93,8 @@
    display: grid;
    justify-content: center;
    align-items: center;
-   padding-top: 60%;
    padding-right: 20%;
-   padding-bottom: 90%;
+   padding-bottom: 100%;
 }
 
 #pcontent {
@@ -170,22 +175,23 @@
 
 button {
    cursor: pointer;
-   background-color: hsl(228, 71%, 63%);
+   background-color: hsl(204, 77%, 68%);
 }
+
 button:hover {
    cursor: pointer;
-   background-color: hsl(228, 71%, 73%);
+   background-color: hsl(204, 77%, 73%);
 }
+
 button:active {
    cursor: pointer;
-   background-color: hsl(228, 71%, 83%);
+   background-color: hsl(204, 77%, 83%);
 }
 
 #profileprojectcard, #pfriendcards, #notichild, #msg{
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    height: 10vh;
-   border-top: 1px solid black;
    border-bottom: 1px solid black;
 }
 
@@ -227,12 +233,15 @@ button:active {
 #chat {
    display: flex;
    flex-direction: column;
-   align-items: flex-start; 
+   align-items: center;  
 }
 
 #chat > :nth-child(1) {
+   display: flex;
+   flex-direction: column;
    height: 72vh;
-   width: 100%
+   width: 98%;
+   align-items: center;  
 }
 
 #chat > :nth-child(2) button {
@@ -255,8 +264,11 @@ button:active {
 }
 
 #insults > :nth-child(1) {
-   height: 62vh;
-   width: 100%
+   display: flex;           
+   flex-direction: column;  
+   align-items: center;    
+   height: 62vh;           
+   width: 100%;            
 }
 
 #insults > :nth-child(2) {
@@ -273,10 +285,11 @@ button:active {
 
 #insults, #chat, #friends, #uploads, #notifications {
    overflow: auto;
+   color:blueviolet;
 }
 
 #msg {
-   grid-template-columns: repeat(1, 1fr);
+   flex-direction: column;
    display: flex;
    align-items: center;
    justify-content: center;
@@ -296,7 +309,6 @@ button:active {
 #rightmsg {
    align-self: flex-end; 
    background-color: hsl(128, 100%, 50%); 
-   color: white; 
    padding: 1vh;
    margin: 0.5vh;
    border-radius: 15px;
@@ -310,11 +322,7 @@ button:active {
    margin: 0.5vh;
    border-radius: 15px;
    width: fit-content;  
-   max-width: 50%;   
    display: flex;          
-   justify-content: center; 
-   align-items: center;     
-   text-align: center; 
    background-color: hsl(299, 90%, 68%);   
 }
 

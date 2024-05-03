@@ -304,13 +304,13 @@
     align-items: flex-start; 
  }
  
-  #leftmsg {
+#leftmsg {
     align-self: flex-start; 
     background-color: hsl(0, 0%, 94%); 
     padding: 10px;
     margin: 5px;
     border-radius: 10px;
- }
+}
   
  #rightmsg {
     align-self: flex-end; 
