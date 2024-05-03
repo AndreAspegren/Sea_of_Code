@@ -11,7 +11,11 @@ function profileScreen(key) {
     </div>
     
     <div id ="pnameandtitle">
-    <div>${user.username}</div>
+    <div>
+    <div>${user.username}
+    <div>${model.data.superAdmin.users.includes(profile) ? 'Super admin' : model.data.adminpanel.users.includes(profile) ? 'Admin' : ''}</div>
+    </div>
+    </div>
     <div>
     <div>${model.data.titles[model.data.users[model.app.currentprofile].title].name}</div>
     <img src="${model.data.titles[model.data.users[model.app.currentprofile].title].picture}">
