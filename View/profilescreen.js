@@ -164,7 +164,7 @@ function genuploads(key) {
   return model.data.projects.filter(m => (m.author == key))
     .map(m => {
       return /*HTML*/`
-      <div onclick="updateview('projectpage', ${key})" id="profileprojectcard">
+      <div onclick="updateview('projectpage', ${m.id})" id="profileprojectcard">
         
         <div>
         <img src="${m.picture}"/>
