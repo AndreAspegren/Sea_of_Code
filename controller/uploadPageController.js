@@ -1,10 +1,5 @@
 async function pushProject() {
-<<<<<<< HEAD
     model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length);
-=======
-    if (document.getElementById('fileUpload').files.length == 0) return alert('Du må laste opp minst en fil')
-    model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length)
->>>>>>> 7a684c2acfb5aa09bd4e3eb013d77d1ab5cfd365
     model.data.projects.push(
         {
             id: model.data.projects.length,
@@ -35,21 +30,12 @@ async function pushProject() {
     model.input.projects.language = null;
     document.getElementById('fileUpload').value = '';
 
-<<<<<<< HEAD
     let currenttitle = model.data.titles[model.data.users[model.app.userID].title].name;
     let user = model.data.users[model.app.userID];
     let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61];
     let index = ranks.findIndex(ranks => ranks > user.projects.length);
     user.title = index == -1 ? ranks.length - 1 : index - 1;
     let newtitle = model.data.titles[model.data.users[model.app.userID].title].name;
-=======
-    let currenttitle = model.data.titles[model.data.users[model.app.userID].title].name
-    let user = model.data.users[model.app.userID]
-    let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61]
-    let index = ranks.findIndex(ranks => ranks > user.projects.length)
-    if (currenttitle != 'Captain') user.title = index == -1 ? ranks.length - 1 : index - 1
-    let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
->>>>>>> 7a684c2acfb5aa09bd4e3eb013d77d1ab5cfd365
     
     if (newtitle != currenttitle && currenttitle != 'Captain') {
         model.data.users[model.app.userID].notifications.push({
