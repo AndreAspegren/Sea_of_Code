@@ -86,7 +86,7 @@ function genprojectlist() {
 }
 
 function darkmode() {
-    const mode = model.app.darkmode ? ['white', 'black', false, "img/sun.png"] : ['rgb(31, 31, 31)', 'black', true, "img/moon.png"];
+    const mode = model.app.darkmode ? ['white', 'black', false, "img/sun.png"] : ['rgb(31, 31, 31)', 'white', true, "img/moon.png"];
     app.style.backgroundColor = mode[0];
     app.style.color = mode[1];
     model.app.darkmode = mode[2];

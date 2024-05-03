@@ -1,9 +1,5 @@
-// //sende project info til admin panel
-// //klare ikke sende hvis noe informasjon er ikke der
-// const projectName = document.getElementById('projectName').value;
-// const projectDescription = document.getElementById('projectDescription').value;
-
 async function pushProject() {
+    if (document.getElementById('fileUpload').files.length == 0) return alert('Du må laste opp minst en fil')
     model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length)
     model.data.projects.push(
         {
@@ -39,7 +35,7 @@ async function pushProject() {
     let user = model.data.users[model.app.userID]
     let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61]
     let index = ranks.findIndex(ranks => ranks > user.projects.length)
-    user.title = index == -1 ? ranks.length - 1 : index - 1
+    if (currenttitle != 'Captain') user.title = index == -1 ? ranks.length - 1 : index - 1
     let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
     
     if (newtitle != currenttitle && currenttitle != 'Captain') {
