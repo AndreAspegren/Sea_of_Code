@@ -173,12 +173,6 @@
    box-shadow: 0 0 5px #000; 
 }
 
-button {
-   cursor: pointer;
-   background-color: hsl(204, 77%, 68%);
-   border-radius: 0.7vh;
-}
-
 button:hover {
    cursor: pointer;
    background-color: hsl(204, 77%, 73%);
