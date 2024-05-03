@@ -4,7 +4,7 @@
 // const projectDescription = document.getElementById('projectDescription').value;
 
 async function pushProject() {
-    model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length)
+    model.data.users[model.app.userID].projects.push(model.data.users[model.app.userID].projects.length);
     model.data.projects.push(
         {
             id: model.data.projects.length,
@@ -31,16 +31,16 @@ async function pushProject() {
             comments: [],
         },
     )
-    model.data.wordCloud[model.input.projects.language ? model.input.projects.language : 'Javascript']++
-    model.input.projects.language = null
-    document.getElementById('fileUpload').value = ''
+    model.data.wordCloud[model.input.projects.language ? model.input.projects.language : 'Javascript']++;
+    model.input.projects.language = null;
+    document.getElementById('fileUpload').value = '';
 
-    let currenttitle = model.data.titles[model.data.users[model.app.userID].title].name
-    let user = model.data.users[model.app.userID]
-    let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61]
-    let index = ranks.findIndex(ranks => ranks > user.projects.length)
-    user.title = index == -1 ? ranks.length - 1 : index - 1
-    let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
+    let currenttitle = model.data.titles[model.data.users[model.app.userID].title].name;
+    let user = model.data.users[model.app.userID];
+    let ranks = [0, 1, 6, 11, 16, 21, 26, 31, 36, 41, 46, 51, 56, 61];
+    let index = ranks.findIndex(ranks => ranks > user.projects.length);
+    user.title = index == -1 ? ranks.length - 1 : index - 1;
+    let newtitle = model.data.titles[model.data.users[model.app.userID].title].name;
     
     if (newtitle != currenttitle) {
         model.data.users[model.app.userID].notifications.push({
@@ -56,12 +56,12 @@ async function pushProject() {
 
     const fileInput = document.querySelector('input[type="file"]')
     if (fileInput.files[0]) {
-        const reader = new FileReader()
+        const reader = new FileReader();
         reader.onload = e => {
-            model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result
+            model.data.projects[model.data.projects.length - 1].files[0].content = e.target.result;
         };
-        reader.readAsText(file)
+        reader.readAsText(file);
     }
 
-    updateview('homescreen')
+    updateview('homescreen');
 }

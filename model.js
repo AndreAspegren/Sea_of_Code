@@ -96,7 +96,7 @@ const model = {
             Binary: 0,
         },
         superAdmin: {
-            users: [],
+            users: [0],
         },
         adminpanel: {
             users: [0],
