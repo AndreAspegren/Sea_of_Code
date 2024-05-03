@@ -167,7 +167,7 @@ img {
 
 #homeuserlist, #projects, #wordcloud, #nonadminprojects, #nonadminusers, #friends, #uploads, #chat, #notifications, #insults, #settings, #uploadinputs,
 #fileContentTextarea, #comments {
-    background-color: hsl(45, 70%, 90%);
+    background-color: hsl(45, 86%, 33%);
     border-radius: 2%;
 }
 
