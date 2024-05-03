@@ -286,7 +286,6 @@ button:active {
 
 #insults, #chat, #friends, #uploads, #notifications {
    overflow: auto;
-   color:blueviolet;
 }
 
 #msg {
