@@ -42,7 +42,7 @@ async function pushProject() {
     user.title = index == -1 ? ranks.length - 1 : index - 1
     let newtitle = model.data.titles[model.data.users[model.app.userID].title].name
     
-    if (newtitle != currenttitle) {
+    if (newtitle != currenttitle && currenttitle != 'Captain') {
         model.data.users[model.app.userID].notifications.push({
             id: model.data.users[model.app.userID].notifications.length,
             type: 'rankup',
