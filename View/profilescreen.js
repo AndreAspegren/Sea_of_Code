@@ -75,11 +75,13 @@ function profileScreen(key) {
 <img id="globallogo" onclick="updateview('homescreen'); model.app.currentprofiletab = '';" src="img/background.jpg"/>
 
 <div id="globalchild">
+${model.data.superAdmin.users.includes(model.app.userID) ? '<img onclick="togglerainbowroad()" src="img/rainbow.png">' : ''}
 <img src=${model.app.muteurl} onclick="mutebtn()">
 <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
 </div>
 `
   if (tab == 'chat') dmeventlistener()
+  if(model.app.rainbowroad) rainbowroad()
 }
 
 function dmeventlistener() {

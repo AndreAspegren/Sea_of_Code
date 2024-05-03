@@ -28,6 +28,7 @@ function homescreen() {
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
     </div>`
+    if(model.app.rainbowroad) rainbowroad()
 }
 
 function userrank() {
@@ -44,10 +45,10 @@ document.getElementById('searchbar').addEventListener('keydown', function (event
 function genglobalui(key) {
     if (key == 'profile') model.app.currentprofiletab = ''
     return /*HTML*/`
-   
     <img id="globallogo" onclick="updateview('homescreen')" src="img/background.jpg"/>
     
     <div id="globalchild">
+    ${model.data.superAdmin.users.includes(model.app.userID) ? '<img onclick="togglerainbowroad()" src="img/rainbow.png">' : ''}
     <img src=${model.app.muteurl} onclick="mutebtn()">
     <img onclick="darkmode()" src=${model.app.darkmodeurl} id="darkmode">
     </div>
@@ -121,3 +122,27 @@ function admin() {
     }
     return adminButton;
 }
+
+function rainbowroad() {
+    const ids = [
+        'homeuserlist', 'projects', 'wordcloud', 'nonadminprojects', 'nonadminusers',
+        'friends', 'uploads', 'chat', 'notifications', 'insults', 'settings', 'uploadinputs',
+        'fileContentTextarea', 'comments', 'rightmsg', 'leftmsg', 'insultmsg'
+    ]
+    function rainbow(element) {
+        if (element.style.backgroundImage.includes('linear-gradient')) element.style.backgroundImage = ''
+        else element.style.backgroundImage = 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)' 
+    }
+    ids.forEach(id => {
+        const element = document.getElementById(id)
+        if (element) rainbow(element)
+    })
+    document.querySelectorAll('button').forEach(rainbow)
+}
+
+function togglerainbowroad() {
+    model.app.rainbowroad ? model.app.rainbowroad = false : model.app.rainbowroad = true
+    updateview()
+}
+
+

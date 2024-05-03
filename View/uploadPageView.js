@@ -33,6 +33,7 @@ function uploadPageView() {
 
 ${genglobalui()}
     `;
+    if(model.app.rainbowroad) rainbowroad()
 }
 
 function userList() {

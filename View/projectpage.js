@@ -39,6 +39,7 @@ function projectpage(key, num) {
     ${genglobalui()}
     `
     commenteventlistener()
+    if(model.app.rainbowroad) rainbowroad()
 }
 
 function commenteventlistener() {
@@ -78,7 +79,8 @@ function deleteProjectButton(projectID, authorID) {
 }
 
 function deleteproject(id) {
-    console.log(id)
+    let index = model.data.users[model.data.projects[id].author].projects.findIndex(p => p == id)
+    model.data.users[model.data.projects[id].author].projects.splice(index, 1)
     model.data.projects.splice(id, 1)
     const projectIndex = model.data.projects.findIndex(admin => model.data.users.id === id);
     let currentUserId = model.app.userID;
@@ -90,7 +92,6 @@ function deleteproject(id) {
         console.log('Project not found.');
     }
     updateview('homescreen');
-    return projectID;
 }
 
 

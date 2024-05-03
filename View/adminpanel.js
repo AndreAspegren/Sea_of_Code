@@ -9,6 +9,7 @@ function adminpanel() {
         
     </div>
     `
+    if(model.app.rainbowroad) rainbowroad()
 }
 
 function adminprojects() {
