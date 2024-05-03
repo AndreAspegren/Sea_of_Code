@@ -60,11 +60,9 @@ function sendcomment() {
         dateSent: new Date().toISOString().substr(0, 16).replace('T', ' '),
         para: `projectpage, ${model.input.currentproject}`,
     })
-    model.input.userActivity.comment = '';
-    updateview();
+    model.input.userActivity.comment = ''
+    updateview()
 }
-
-
 
 function deleteProjectButton(projectID, authorID) {
     let currentUserId = model.app.userID;
@@ -80,6 +78,7 @@ function deleteProjectButton(projectID, authorID) {
 }
 
 function deleteproject(id) {
+    console.log(id)
     const projectIndex = model.data.projects.findIndex(admin => model.data.users.id === id);
     let currentUserId = model.app.userID;
     if (projectIndex > -1 && model.data.projects[projectIndex].author === currentUserId) {
