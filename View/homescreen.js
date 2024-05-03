@@ -29,6 +29,9 @@ function homescreen() {
     
     </div>`
     if (model.app.rainbowroad) rainbowroad()
+    document.getElementById('searchbar').addEventListener('keydown', event => {
+        if (event.key === 'Enter') searchbar()
+    })
 }
 
 function userrank() {
@@ -37,10 +40,6 @@ function userrank() {
     <img src="${model.data.titles[model.data.users[model.app.currentprofile].title].picture}">
     `
 }
-
-document.getElementById('searchbar').addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') searchbar()
-})
 
 function genglobalui(key) {
     if (key == 'profile') model.app.currentprofiletab = ''
@@ -124,8 +123,8 @@ function admin() {
 }
 
 function rainbowroad() {
-    document.querySelectorAll(
-        "#homeuserlist, #projects, #wordcloud, #nonadminprojects, #nonadminusers, #friends, #uploads, #chat, #notifications, #insults, #settings, #uploadinputs,#fileContentTextarea, #comments, .rightmsg, .leftmsg, .insultmsg, button").forEach(tag =>
+    document.querySelectorAll(`#homeuserlist, #projects, #wordcloud, #nonadminprojects, #nonadminusers, #friends, #uploads, #chat, #notifications, 
+        #insults, #settings, #uploadinputs, #fileContentTextarea, #comments, .rightmsg, .leftmsg, .insultmsg, button`).forEach(tag =>
         tag.style.backgroundImage = 'linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet)')
 }
 

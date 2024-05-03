@@ -32,8 +32,14 @@ function uploadPageView() {
 </div>
 
 ${genglobalui()}
-    `;
+    `
     if(model.app.rainbowroad) rainbowroad()
+    document.getElementById('uploadcontainer').addEventListener('keydown', event => {
+        if (event.key === 'Enter') {
+            event.preventDefault()
+            pushProject()
+        } 
+    })
 }
 
 function userList() {
