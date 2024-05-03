@@ -176,6 +176,7 @@
 button {
    cursor: pointer;
    background-color: hsl(204, 77%, 68%);
+   border-radius: 0.7vh;
 }
 
 button:hover {
