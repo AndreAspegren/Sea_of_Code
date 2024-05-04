@@ -85,7 +85,7 @@ ${model.data.superAdmin.users.includes(model.app.userID) ? '<img onclick="toggle
 }
 
 function dmeventlistener() {
-  document.getElementById('dminputbox').addEventListener('keydown', function (event) {
+  document.getElementById('dminputbox').addEventListener('keydown', event => {
     if (event.key === 'Enter') senddm()
   })
 }

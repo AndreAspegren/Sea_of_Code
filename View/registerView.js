@@ -43,7 +43,7 @@ let loadFile = function (event) {
 }
 
 function registereventlistener() {
-    document.getElementById('registerinputs').addEventListener('keydown', function (event) {
+    document.getElementById('registerinputs').addEventListener('keydown', event => {
         if (event.key === 'Enter') userRegister()
     })
 }

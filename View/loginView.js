@@ -31,7 +31,7 @@ function logInscreen() {
 }
 
 function logineventlistener() {
-    document.getElementById('loginForm').addEventListener('keydown', function(event) {
+    document.getElementById('loginForm').addEventListener('keydown', event => {
           if (event.key === 'Enter') login()
       })
 }

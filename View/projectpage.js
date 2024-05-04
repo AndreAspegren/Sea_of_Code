@@ -43,7 +43,7 @@ function projectpage(key, num) {
 }
 
 function commenteventlistener() {
-    document.getElementById('commentinput').addEventListener('keydown', function (event) {
+    document.getElementById('commentinput').addEventListener('keydown', event => {
         if (event.key === 'Enter') sendcomment()
     })
 }
