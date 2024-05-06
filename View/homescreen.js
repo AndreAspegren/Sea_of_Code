@@ -102,7 +102,7 @@ function genwordcloud() {
 
 function genuserlist() {
     return model.data.users.map((value, key) => {
-        return `<div id="usercard" onclick="updateview('profileScreen', ${key})">
+        return `<div id="usercard" onclick="updateview('profileScreen', ${value.id})">
         <div>
         <div>${value.username}</div>
         <div>${value.friends.length} venner</div>

@@ -12,7 +12,7 @@ const model = {
         html: app = document.getElementById('app'),
         wethebestmusic: {
             yarr: yarr = new Audio('img/piratemusic.mp3'),
-            volume: yarr.volume = 0.3,
+            volume: yarr.volume = 0.1,
             loop: yarr.loop = true,
             // matey: yarr.play(),
         }
@@ -203,7 +203,7 @@ const model = {
                 profilePicture: 'https://viover60.no/app/uploads/2022/05/NTB_fI8b1WdilZs.jpg',
                 phoneNr: 12345678,
                 age: 60,
-                projects: [0],
+                projects: [],
                 bio: "i am Anita",
                 country: "Cuba",
                 city: "Abra Havn",
@@ -223,14 +223,14 @@ const model = {
                 profilePicture: 'https://premium.vgc.no/v2/images/51248aae-ea9f-44f2-a5ec-32a7b9cecc84?fit=crop&format=auto&h=1285&w=1976&s=c57addd3ba57d1eca204c2d0519c912d54ca21e1',
                 phoneNr: 12345678,
                 age: 60,
-                projects: [2],
+                projects: [0, 2],
                 bio: "i am Per",
                 country: "Cuba",
                 city: "Abra Havn",
                 github: 'url',
                 linkedIn: 'url',
                 friends: [],
-                title: 0,
+                title: 1,
                 notifications: [],
             },
         ],
@@ -242,7 +242,7 @@ const model = {
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'bla bla',
-                author: 1,
+                author: 2,
                 picture: 'https://www.grunge.com/img/gallery/the-most-famous-pirate-ships-in-history/l-intro-1656447227.jpg',
                 files: [
                     {
