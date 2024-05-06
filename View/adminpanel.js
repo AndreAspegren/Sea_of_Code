@@ -13,19 +13,19 @@ function adminpanel() {
 
 function adminprojects() {
     return model.data.projects.filter(p => !p.approved).map(p => {
-        return `<div onclick="updateview('projectpage', ${p.id})" id="admincard">
-        <img src="${p.picture}"/>
+        return /*HTML*/`<div id="admincard">
+        <img onclick="updateview('projectpage', ${p.id})" src="${p.picture}"/>
 
-        <div>
+        <div onclick="updateview('projectpage', ${p.id})">
         <div>${model.data.users[p.author].username}</div>
         <div>${performance.name}</div>
         </div>
 
-        <div>${p.description}</div>
+        <div onclick="updateview('projectpage', ${p.id})">${p.description}</div>
         
         <div id="hammerbuttons">
-        <button id="yay" onclick="hammertime(${p.id}, 'yay')">YAY👌</button>
-        <button id="nay" onclick="hammertime(${p.id})">NAY💩</button>
+        <button id="yay" onclick="hammertime(${p.id}, true)">YAY👌</button>
+        <button id="nay" onclick="hammertime(${p.id}, false)">NAY💩</button>
         </div>
 
         </div>`
