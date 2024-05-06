@@ -95,6 +95,10 @@
     width: 100vw;
 }
 
+button {
+    font-family:'Lucida Handwriting', 'Brush Script MT', cursive;
+}
+
 #loginbtn{
     width: 7vw;
     height: 4vh;
