@@ -89,14 +89,14 @@
 }
 
 #app{
-    font-family:'Lucida Handwriting', 'Brush Script MT', cursive;
+    font-family:'Pirata One';
     margin: 0px;
     height: 100vh;
     width: 100vw;
 }
 
 button {
-    font-family:'Lucida Handwriting', 'Brush Script MT', cursive;
+    font-family:'Pirata One';
 }
 
 #loginbtn{
@@ -168,7 +168,7 @@ img {
 body {
     padding: 0;
     margin: 0;
-    color: hsl(32, 91%, 60%);
+    color: hsl(187, 100%, 21%);
 }
 
 
