@@ -89,14 +89,14 @@
 }
 
 #app{
-    font-family:'Pirata One';
+    font-family:'Lucida Handwriting', 'Brush Script MT', cursive;
     margin: 0px;
     height: 100vh;
     width: 100vw;
 }
 
 button {
-    font-family:'Pirata One';
+    font-family:'Lucida Handwriting', 'Brush Script MT', cursive;
 }
 
 #loginbtn{
@@ -166,7 +166,7 @@ img {
 body {
     padding: 0;
     margin: 0;
-    color: hsl(32, 91%, 41%);
+    color: hsl(32, 91%, 60%);
 }
 
 #homeuserlist, #projects, #wordcloud, #nonadminprojects, #nonadminusers, #friends, #uploads, #chat, #notifications, #insults, #settings, #uploadinputs,
