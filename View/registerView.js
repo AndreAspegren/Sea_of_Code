@@ -34,7 +34,6 @@ function registerUser() {
     `
         ;
     registereventlistener()
-    if(model.app.rainbowroad) rainbowroad()
 }
 
 let loadFile = function (event) {

@@ -27,7 +27,6 @@ function logInscreen() {
         ${genglobalui()}
     `;
     logineventlistener()
-    if(model.app.rainbowroad) rainbowroad()
 }
 
 function logineventlistener() {

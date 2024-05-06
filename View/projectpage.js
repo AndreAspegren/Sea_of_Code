@@ -39,7 +39,6 @@ function projectpage(key, num) {
     ${genglobalui()}
     `
     commenteventlistener()
-    if(model.app.rainbowroad) rainbowroad()
 }
 
 function commenteventlistener() {

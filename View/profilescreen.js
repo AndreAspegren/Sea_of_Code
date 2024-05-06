@@ -81,7 +81,6 @@ ${model.data.superAdmin.users.includes(model.app.userID) ? '<img onclick="toggle
 </div>
 `
   if (tab == 'chat') dmeventlistener()
-  if (model.app.rainbowroad) rainbowroad()
 }
 
 function dmeventlistener() {

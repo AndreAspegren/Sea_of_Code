@@ -28,7 +28,6 @@ function homescreen() {
     <div id="wordcloud"><div>${genwordcloud()}</div></div>
     
     </div>`
-    if (model.app.rainbowroad) rainbowroad()
     document.getElementById('searchbar').addEventListener('keydown', event => {
         if (event.key === 'Enter') searchbar()
     })
@@ -56,6 +55,7 @@ function genglobalui(key) {
 
 function updateview(newview, key) {
     newview ? (model.app.currentView = newview, window[newview](key)) : window[model.app.currentView](key)
+    if (model.app.rainbowroad) rainbowroad()
 }
 
 function mutebtn() {
