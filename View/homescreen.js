@@ -65,6 +65,7 @@ function mutebtn() {
 
 function genprojectlist() {
     return model.data.projects.filter(p => p.approved).map(value => {
+        console.log(value.id)
         return /*HTML*/`<div onclick="updateview('projectpage', ${value.id})" id="homeprojectcard">
 
         <div>

@@ -1,31 +1,31 @@
 function projectpage(key, num) {
     if (key == undefined) key = model.input.currentproject;
     model.input.currentproject = key;
-    const project = model.data.projects[key];
+    const project = model.data.projects[model.data.projects.findIndex(p => p.id == key)];
     const fileIndex = num !== undefined ? num : 0;
     const file = project.files[fileIndex];
     app.innerHTML = /*HTML*/`
 
     <div id="projectparent">
     <div id="projectinfo">
-    <div id="projectdltbtn">${deleteProjectButton(model.data.projects[key].id, model.data.projects[key].author)}</div>
-    <div id="projectusername">${model.data.users[model.data.projects[key].author].username}'s prosjekt:</div>
-    <div id="projectname"><u>${model.data.projects[key].name}</u></div>
+    <div id="projectdltbtn">${deleteProjectButton(project.id, project.author)}</div>
+    <div id="projectusername">${model.data.users[project.author].username}'s prosjekt:</div>
+    <div id="projectname"><u>${project.name}</u></div>
     <div id=projectdescription>Beskrivelse:
     <p>
-    ${model.data.projects[key].description}</div>
-    <img id="projectimg"src="${model.data.projects[key].picture}">
+    ${project.description}</div>
+    <img id="projectimg"src="${project.picture}">
     </div>
 
     <div id="project">
     <textarea id="fileContentTextarea" readonly>${file.content}</textarea>
-    <div style="display: flex;">${model.data.projects[key].files.map((file, i) =>
+    <div style="display: flex;">${project.files.map((file, i) =>
         /*HTML*/`<button id="projectbutton${i}" onclick="projectpage(${key}, ${i})">${i + 1}</button>`
     ).join('')}</div>
     </div>
     
     <div id="comments">
-    <div>${model.data.projects[key].comments.map(c => {
+    <div>${project.comments.map(c => {
         let currentclass = c.from == model.app.userID ? 'rightmsg' : 'leftmsg'
         return /*HTML*/`<div class="${currentclass}"><div>${model.data.users[c.from].username + ': ' + c.comment}</div></div>`
     }).join('')}</div>
