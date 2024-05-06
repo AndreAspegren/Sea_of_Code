@@ -161,6 +161,8 @@ img {
     left: 0%;
     width: 16vh;
     height: 9vh;
+    border-radius: 50%;
+    border: solid black 3px;
 }
 
 body {
