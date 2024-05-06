@@ -14,7 +14,9 @@ function adminpanel() {
 function adminprojects() {
     return model.data.projects.filter(p => !p.approved).map(p => {
         return /*HTML*/`<div id="admincard">
+        <div>
         <img onclick="updateview('projectpage', ${p.id})" src="${p.picture}"/>
+        </div>
 
         <div onclick="updateview('projectpage', ${p.id})">
         <div>${model.data.users[p.author].username}</div>
