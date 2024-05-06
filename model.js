@@ -241,7 +241,7 @@ const model = {
                 name: "Pirat Skip",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
-                description: 'bla bla',
+                description: 'Piratskip i javascript',
                 author: 2,
                 picture: 'https://www.grunge.com/img/gallery/the-most-famous-pirate-ships-in-history/l-intro-1656447227.jpg',
                 files: [
@@ -286,7 +286,7 @@ const model = {
                 name: "Coloseum",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
-                description: 'bla bla',
+                description: 'Heftig Coloseum',
                 author: 0,
                 picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/1200px-Colosseo_2020.jpg',
                 files: [
@@ -314,7 +314,7 @@ const model = {
                 name: "Legoshus :)",
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
-                description: 'bla bla',
+                description: 'Søtt lite legohus i javascript. Har hage, veranda og trampoline.',
                 author: 2,
                 picture: 'https://i.etsystatic.com/12310347/r/il/690746/1316811182/il_fullxfull.1316811182_gpqc.jpg',
                 files: [
