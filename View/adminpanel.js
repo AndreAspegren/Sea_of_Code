@@ -29,7 +29,7 @@ function adminprojects() {
         </div>
 
         </div>`
-    }).join('');
+    }).join('')
 }
 
 function gennonadminlist() {
@@ -42,8 +42,7 @@ function gennonadminlist() {
         <div>${u.friends.length} venner</div>
         </div>
         <img style="height: 6vh; width: auto" src="${u.profilePicture}"/>
-        <div>
-        <button onclick="makeadmin(${u.id}); updateview()">Gi adminmakt🔨</button>
+        <div>${model.data.superAdmin.users.includes(u.id) ? 'Er Super admin' : `<button onclick="makeadmin(${u.id}); updateview()">Gi adminmakt🔨</button>`}
         </div>
         `
     }).join('') +
