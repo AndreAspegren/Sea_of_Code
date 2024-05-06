@@ -94,12 +94,11 @@ function darkmode() {
 }
 
 function genwordcloud() {
-    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'silver', 'aqua'];
+    const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'silver', 'aqua']
     return Object.entries(model.data.wordCloud).map(([key, value], i) => {
-        return `<div id="wordcloudcard" style="font-size: ${value < 12 ? value * 30 + 100 : 460}%; color: ${colors[i]}">${key}</div>`;
-    }).join('');
+        return `<div id="wordcloudcard" style="font-size: ${value < 12 ? value * 30 + 100 : 460}%; color: ${colors[i]}">${key}</div>`
+    }).join('')
 }
-
 
 function genuserlist() {
     return model.data.users.map((value, key) => {
