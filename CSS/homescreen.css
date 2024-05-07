@@ -171,8 +171,6 @@ body {
     color: hsl(0, 0%, 0%)
 }
 
-
-
 #homeuserlist, #projects, #wordcloud, #nonadminprojects, #nonadminusers, #friends, #uploads, #chat, #notifications, #insults, #settings, #uploadinputs,
 #fileContentTextarea, #comments {
     background-color: hsl(158, 45%, 77%);
