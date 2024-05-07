@@ -343,7 +343,7 @@ const model = {
                 lastUpdated: '05-05-2024',
                 dateCreated: '05-05-2024',
                 description: 'kek',
-                author: 2,
+                author: 0,
                 picture: 'https://i.etsystatic.com/12310347/r/il/690746/1316811182/il_fullxfull.1316811182_gpqc.jpg',
                 files: [
                     {

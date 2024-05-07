@@ -20,7 +20,7 @@ function adminprojects() {
 
         <div onclick="updateview('projectpage', ${p.id})">
         <div>${model.data.users[p.author].username}</div>
-        <div>${performance.name}</div>
+        <div>${p.name}</div>
         </div>
 
         <div onclick="updateview('projectpage', ${p.id})">${p.description}</div>
